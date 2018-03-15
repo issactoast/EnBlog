@@ -2,9 +2,9 @@
 # Hero widget.
 widget = "hero"
 active = true
-date = 2017-10-15
+date = 2018-03-15
 
-title = "Academic"
+title = "Issac Lee"
 
 # Order that this section will appear in.
 weight = 3
