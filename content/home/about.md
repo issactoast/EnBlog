@@ -35,6 +35,8 @@ weight = 5
 
 # Biography
 
-Lena Smith is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hello! I am Issac(Sak) Lee. I am PhD candidate of Statistics & Actuarial Science at the University of Iowa. I am generally interested in many machine learning techniques which can be applied in actuarial science. More specifically, here are some lists of topics which grap my attention thesedays:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+- Replacing nested monte calro simulation in insurance product valuation process.
+- Making compression portfoilo of insurance products
+- Pricing auto insurance using Generalized multiplicative linear model
