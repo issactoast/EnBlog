@@ -8,12 +8,12 @@ date = "2016-04-20T00:00:00"
 weight = 5
 
 # List your academic interests.
-[interests]
-  interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
-  ]
+# [interests]
+#   interests = [
+#     "Nested Monte-calro simulation",
+#     "Compression portfoilo",
+#     "Pricing auto insurance using GLM"
+#   ]
 
 # List your qualifications (such as academic degrees).
 
@@ -31,7 +31,9 @@ weight = 5
 
 # Biography
 
-Hello! I am Issac(Sak) Lee. I am PhD candidate of Statistics & Actuarial Science at the University of Iowa. I am generally interested in many machine learning techniques which can be applied in actuarial science. More specifically, here are some lists of topics which graped my attention thesedays:
+Hello! I am Issac(Sak) Lee. I am PhD candidate of Statistics & Actuarial Science at the University of Iowa. My academic supervisor is [N.D. Shyamalkumar](http://homepage.divms.uiowa.edu/~nshyamal/).
+
+I am generally interested in many machine learning techniques which can be applied in actuarial science field. More specifically, here are some lists of topics which graped my attention thesedays:
 
 - Replacing nested monte calro simulation in insurance product valuation process.
 - Making compression portfoilo of insurance products
