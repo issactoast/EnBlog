@@ -51,11 +51,12 @@ defaultContentLanguageInSubdir = false
 
   # Your details.
   name = "Issac Lee"
-  role = "PhD candidate of Statistics & Act. Sci."
+  role = "PhD candidate"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "The University of Iowa", url = "https://stat.uiowa.edu/" } ]
+  organizations = [ { name = "Department of Statistics & Actuarial Science", url = "https://stat.uiowa.edu/"}, 
+                    { name = "The University of Iowa", url = "https://stat.uiowa.edu/" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
