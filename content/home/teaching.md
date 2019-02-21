@@ -15,14 +15,21 @@ weight = 60
 
 +++
 
-This is an example of using the *custom* widget to create your own homepage section.
+### 2019 Spring
 
-I am a teaching instructor for the following courses at University X:
+- Position: Teaching Assistant
 
-- CS101: An intro to computer science
-- CS102: An intro to computer science
-- CS103: An intro to computer science
-- CS104: An intro to computer science
-- CS105: An intro to computer science
-- CS106: An intro to computer science
-- CS107: An intro to computer science
+    * Institution: The University of Iowa
+    * Course Name: Elementary Statistics and Inference
+    * Course Number: STAT:1020
+    * Course Supervisor: Mary Russo
+
+### 2018 Fall
+
+- Position: Teaching Assistant
+
+    * Institution: The University of Iowa
+    * Course Name: Elementary Statistics and Inference
+    * Course Number: STAT:1020
+    * Course Supervisor: Robert Ankenmann
+
