@@ -14,8 +14,8 @@ weight = 5
 #     "Compression portfoilo",
 #     "Pricing auto insurance using GLM"
 #   ]
-
 # List your qualifications (such as academic degrees).
+
 [[education.courses]]
   course = "MS in Actuarial Science"
   institution = "Sungkyunkwan University"
@@ -27,6 +27,7 @@ weight = 5
   year = 2012
  
 +++
+
 # Biography
 
 <img width="400" height="400" src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif" align="right">
