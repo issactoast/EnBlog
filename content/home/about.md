@@ -26,11 +26,10 @@ weight = 5
   institution = "Sungkyunkwan University"
   year = 2012
  
-+++
-
 # Biography
 
 <img width="400" height="400" src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif" align="right">
+
 
 Hello! I am Issac(Sak) Lee who is a PhD candidate of Statistics & Actuarial Science at the University of Iowa. My beloved academic supervisor is [N.D. Shyamalkumar](http://homepage.divms.uiowa.edu/~nshyamal/). :)
 
@@ -39,3 +38,5 @@ I am generally interested in many machine learning techniques which can be appli
 - Pay-How-You-Drive insurance telematics data
 - Replacing nested monte calro simulation in insurance product valuation process.
 - Making compression portfoilo of insurance products
+
++++
