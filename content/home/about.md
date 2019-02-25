@@ -27,12 +27,9 @@ weight = 5
   year = 2012
  
 +++
-
 # Biography
 
-<p>
 <img width="400" height="400" src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif" align="right">
-</p>
 
 Hello! I am Issac(Sak) Lee who is a PhD candidate of Statistics & Actuarial Science at the University of Iowa. My beloved academic supervisor is [N.D. Shyamalkumar](http://homepage.divms.uiowa.edu/~nshyamal/). :)
 
