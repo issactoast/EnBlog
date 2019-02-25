@@ -2,8 +2,8 @@
 date = 2017-01-01T00:00:00  # Schedule page publish date.
 
 title = "Asymptotic Normality for the Sample CTE Revisited"
-time_start = 2018-08-08T13:00:00
-time_end = 2030-06-01T15:00:00
+time_start = 2018-08-09T16:45:00
+time_end = 2018-08-09T18:15:00
 abstract = "Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education."
 abstract_short = ""
 event = "Actuarial Research Conference 2018"
@@ -16,7 +16,7 @@ selected = true
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
 #   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
-projects = ["deep-learning"]
+#projects = ["deep-learning"]
 
 # Links (optional).
 url_pdf = ""
