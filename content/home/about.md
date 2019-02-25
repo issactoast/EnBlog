@@ -33,8 +33,7 @@ weight = 5
 
 Hello! I am Issac(Sak) Lee who is a PhD candidate of Statistics & Actuarial Science at the University of Iowa. My beloved academic supervisor is [N.D. Shyamalkumar](http://homepage.divms.uiowa.edu/~nshyamal/). :)
 
-![route]("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif")
-
+![route](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif)
 
 I am generally interested in many machine learning techniques which can be applied in actuarial science field. More specifically, here are some lists of topics which graped my attention thesedays:
 
