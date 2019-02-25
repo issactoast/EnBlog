@@ -14,6 +14,7 @@ weight = 5
 #     "Compression portfoilo",
 #     "Pricing auto insurance using GLM"
 #   ]
+
 # List your qualifications (such as academic degrees).
 
 [[education.courses]]
@@ -28,6 +29,8 @@ weight = 5
  
 # Biography
 
++++
+
 <img width="400" height="400" src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/mycommute_route.gif" align="right">
 
 
@@ -39,4 +42,3 @@ I am generally interested in many machine learning techniques which can be appli
 - Replacing nested monte calro simulation in insurance product valuation process.
 - Making compression portfoilo of insurance products
 
-+++
