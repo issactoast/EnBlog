@@ -20,8 +20,7 @@ weight = 60
 - Position: Teaching Assistant
 
     * Institution: The University of Iowa
-    * Course Name: Elementary Statistics and Inference
-    * Course Number: STAT:1020
+    * Course Name: Elementary Statistics and Inference (STAT:1020)
     * Course Supervisor: Mary Russo
 
 ### 2018 Fall
@@ -29,7 +28,6 @@ weight = 60
 - Position: Teaching Assistant
 
     * Institution: The University of Iowa
-    * Course Name: Elementary Statistics and Inference
-    * Course Number: STAT:1020
+    * Course Name: Elementary Statistics and Inference (STAT:1020)
     * Course Supervisor: Robert Ankenmann
 
