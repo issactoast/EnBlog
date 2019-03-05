@@ -95,7 +95,7 @@ $$
 $$
 So what is wrong in the above argument, and how can we fix it to yield the correct conclusion $\eqref{eqn:mainthm}$ - we do this below.
 
-## Replacing $x$ by $Y_{\lfloor n\alpha\rfloor}$ is a <span style="color:red">Red-Herring</span> ![alt text](https://static.tvtropes.org/pmwiki/pub/images/red_herring1.png =50x50).
+## Replacing $x$ by $Y_{\lfloor n\alpha\rfloor}$ is a <span style="color:red">Red-Herring</span> ![](../../static/img/red_herring.png).
 
 In the above, we argued that the expression in $\eqref{paradox}$ has an asymptotic normal limit for any $x$ (in the support of $F$). This convergence is uniform under mild conditions - Berry-Esseen Theorem.  In other words, we can replace $x$ in $\eqref{paradox}$ by $x_n$, with $\{x_n\}_{n\geq1}$ satisfying $\lim x_n=x$, and yet maintain the same normal limit.
 
