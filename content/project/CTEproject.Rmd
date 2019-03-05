@@ -2,7 +2,7 @@
 title: Asymptotic Normality for the Sample CTE Revisited
 author: Issact Lee
 date: '2019-02-21'
-slug: test-project-post
+slug: CTEproject
 categories:
   - R
 tags:
@@ -15,7 +15,7 @@ header:
   image: ''
 highlight: yes
 image_preview: ''
-math: no
+math: yes
 summary: ''
 ---
 
