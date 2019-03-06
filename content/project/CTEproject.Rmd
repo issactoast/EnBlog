@@ -14,7 +14,7 @@ header:
   caption: ''
   image: ''
 highlight: yes
-image_preview: 'cteproject.png'
+image_preview: 'cteproject.jpg'
 math: yes
 summary: ''
 ---
