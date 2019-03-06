@@ -5,10 +5,7 @@ date: '2019-02-21'
 slug: CTEproject
 categories:
   - R
-tags:
-  - asymptotic_normality
-  - CTE
-  - risk_measure
+tags: ["asymptotic_normality", "CTE", "risk_measure"]
 external_link: ''
 header:
   caption: ''
