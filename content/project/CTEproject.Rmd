@@ -6,9 +6,9 @@ slug: CTEproject
 categories:
   - R
 tags:
-  - Asymptotic normality
+  - asymptotic_normality
   - CTE
-  - Risk measure
+  - risk_measure
 external_link: ''
 header:
   caption: ''

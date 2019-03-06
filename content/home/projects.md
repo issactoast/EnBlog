@@ -37,6 +37,11 @@ filter_default = 0
   tag = ".deep-learning"
 
 [[filter]]
+  name = "Risk measure"
+  tag = ".risk_measure"
+
+
+[[filter]]
   name = "Other"
   tag = ".demo"
 
