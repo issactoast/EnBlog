@@ -3,7 +3,7 @@
 date = "2014-01-01"
 
 # Project title.
-title = "Dependance in life insurances"
+title = "Dependance in life insurances."
 
 # Project summary to display on homepage.
 summary = "Research related about the dependance in life insurance."
