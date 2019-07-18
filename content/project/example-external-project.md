@@ -1,9 +1,9 @@
 +++
 # Date this page was created.
-date = "2016-04-27"
+date = "2014-01-01"
 
 # Project title.
-title = "External Project"
+title = "Dependance in life insurances"
 
 # Project summary to display on homepage.
 summary = "Research related about the dependance in life insurance."
