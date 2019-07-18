@@ -17,8 +17,8 @@ authors = ["Issac Lee", "Hangsuck Lee", "Hyun Tae Kim"]
 publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
-publication = "in Communications for Statistical Applications and Methods."
-publication_short = ""
+publication = "Communications for Statistical Applications and Methods."
+publication_short = "CSAM"
 
 # Abstract and optional shortened version.
 abstract = "We study the dependence between the insureds in multiple-life insurance contracts. With the future lifetimes of the insureds modeled as correlated random variables, both premium and reserve are different from those under independence. In this paper, Gaussian copula is used to impose the dependence between the insureds with Gompertz marginals. We analyze the change of the reserves of standard multiple-life insurance contracts at various dependence levels. We find that the reserves based on the assumption of dependent lifetimes are quite different for some contracts from those under independence as its correlation increase, which elucidate theimportance of the dependence model in multiple-life contingencies in both theory and practice."
