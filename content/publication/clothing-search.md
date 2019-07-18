@@ -18,11 +18,11 @@ publication_types = ["2"]
 
 # Publication name and optional abbreviated version.
 publication = "in Communications for Statistical Applications and Methods."
-publication_short = "In *CSAM*"
+publication_short = ""
 
 # Abstract and optional shortened version.
 abstract = "We study the dependence between the insureds in multiple-life insurance contracts. With the future lifetimes of the insureds modeled as correlated random variables, both premium and reserve are different from those under independence. In this paper, Gaussian copula is used to impose the dependence between the insureds with Gompertz marginals. We analyze the change of the reserves of standard multiple-life insurance contracts at various dependence levels. We find that the reserves based on the assumption of dependent lifetimes are quite different for some contracts from those under independence as its correlation increase, which elucidate theimportance of the dependence model in multiple-life contingencies in both theory and practice."
-abstract_short = "We study the dependence between the insureds in multiple-life insurance contracts. Gaussian copula is used to impose the dependence between the insureds with Gompertz marginals. We analyze the change of the reserves of standard multiple-life insurance contracts at various dependence levels. We found that the reserves based on the assumption of dependent lifetimes are quite different for some contracts from those under independence as its correlation increase."
+abstract_short = ""
 
 # Featured image thumbnail (optional)
 image_preview = ""
@@ -37,10 +37,10 @@ projects = ["example-external-project"]
 
 # Links (optional).
 url_pdf = "https://www.researchgate.net/profile/Issac_Lee/publication/264168328_Analysis_of_Reserves_in_Multiple_Life_Insurance_using_Copula/links/5929a9790f7e9b9979a68bff/Analysis-of-Reserves-in-Multiple-Life-Insurance-using-Copula.pdf"
-url_preprint = "#"
-url_code = "#"
-url_dataset = "#"
 
+# url_preprint = ""
+# url_code = ""
+# url_dataset = ""
 # url_project = "#"
 # url_slides = "#"
 # url_video = "#"
@@ -49,7 +49,7 @@ url_dataset = "#"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
-url_custom = [{name = "Custom Link", url = "http://example.org"}]
+# url_custom = [{name = "Custom Link", url = "http://example.org"}]
 
 # Does the content use math formatting?
 math = true
