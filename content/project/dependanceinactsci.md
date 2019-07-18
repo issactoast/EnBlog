@@ -9,7 +9,7 @@ title = "Dependance in life insurances."
 summary = "Research related about the dependance in life insurance."
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "boards.jpg"
+image_preview = "bubbles.jpg"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["multiple-life insurance", "dependance in insuarance"]`
