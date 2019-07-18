@@ -1,6 +1,6 @@
 ---
 title: Asymptotic Normality for the Sample CTE Revisited
-author: Issact Lee
+author: Issac Lee
 date: '2019-02-21'
 slug: CTEproject
 categories:
