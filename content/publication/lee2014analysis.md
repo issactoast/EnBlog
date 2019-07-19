@@ -33,7 +33,7 @@ selected = true
 # Projects (optional).
 #   Associate this publication with one or more of your projects.
 #   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
-projects = ["example-external-project"]
+projects = ["dependanceinactsci"]
 
 # Links (optional).
 url_pdf = "https://www.researchgate.net/profile/Issac_Lee/publication/264168328_Analysis_of_Reserves_in_Multiple_Life_Insurance_using_Copula/links/5929a9790f7e9b9979a68bff/Analysis-of-Reserves-in-Multiple-Life-Insurance-using-Copula.pdf"
@@ -64,5 +64,3 @@ image = "headers/bubbles-wide.jpg"
 caption = "My caption :smile:"
 
 +++
-
-More detail can easily be written here using *Markdown* and $\rm \LaTeX$ math code.
