@@ -18,7 +18,7 @@ folder = "project"
 # View.
 # Customize how projects are displayed.
 # Legend: 0 = list, 1 = cards.
-view = 0
+view = 1
 
 # Filter toolbar.
 
@@ -34,16 +34,16 @@ filter_default = 0
 
 [[filter]]
   name = "Teletmatics"
-  tag = ".telematics"
+  tag = "telematics"
 
 [[filter]]
   name = "Dependance"
-  tag = ".dependance"
+  tag = "dependance"
 
 
 [[filter]]
   name = "Other"
-  tag = ".demo"
+  tag = "demo"
 
 +++
 
