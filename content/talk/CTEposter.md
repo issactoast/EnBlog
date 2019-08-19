@@ -1,14 +1,14 @@
 +++
 date = 2017-01-01T00:00:00  # Schedule page publish date.
 
-title = "I Know How You Drive! - Profiling via phone telematics"
-time_start = 2019-08-15T13:30:00
-time_end = 2018-08-09T15:00:00
-abstract = "Accessibility to telematics data has changed auto insurance pricing. Actuarial research has focused solely on the use of GPS based telematics data. Such data suffer from limited accuracy, slow updates, which could not accurately reflect the driving styles of drivers. Our focus is on the use of complementary data from the inertial measurement unit (IMU) sensors in the smartphone that are relevant to vehicle kinematics. Interestingly, such data require careful modeling as road conditions and driver behavior can easily bias them. In this paper, we discuss the preparation of IMU data, including necessary bias-corrections, for telematics analysis. Combining information from the two independent sensors via Kalman filter, we suggests a longitudinal-lateral acceleration density object, which is richer and more reliable object for driver profiling."
+title = "Asymptotic Normality for the Sample CTE Revisited"
+time_start = 2018-08-09T16:45:00
+time_end = 2018-08-09T18:15:00
+abstract = "Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education."
 abstract_short = ""
-event = "Actuarial Research Conference 2019"
-event_url = "https://www.math.purdue.edu/calendar/conferences/arc19/index.html"
-location = "Indianapolis, Indiana, USA"
+event = "Actuarial Research Conference 2018"
+event_url = "https://conference.uwo.ca/arc2018/"
+location = "London, ON, Canada"
 
 # Is this a selected talk? (true/false)
 selected = true
@@ -16,7 +16,7 @@ selected = true
 # Projects (optional).
 #   Associate this talk with one or more of your projects.
 #   Simply enter the filename (excluding '.md') of your project file in `content/project/`.
-projects = ["telematicsproject"]
+projects = ["CTEproject"]
 
 # Links (optional).
 url_pdf = ""
