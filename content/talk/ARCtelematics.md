@@ -20,7 +20,7 @@ projects = ["CTEproject"]
 
 # Links (optional).
 url_pdf = ""
-url_slides = ""
+url_slides = "https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/ARC2019_Presentation_telematics"
 url_video = ""
 url_code = ""
 
