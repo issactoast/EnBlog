@@ -20,7 +20,7 @@ projects = ["telematicsproject"]
 
 # Links (optional).
 url_pdf = ""
-url_slides = "https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/ARC2019_Presentation_telematics"
+url_slides = "https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/ARC2019_Presentation_telematics.pdf"
 url_video = ""
 url_code = ""
 
@@ -33,7 +33,7 @@ highlight = true
 # Featured image
 # Place your image in the `static/img/` folder and reference its filename below, e.g. `image = "example.jpg"`.
 [header]
-image = "headers/cteproject_wide.png"
-caption = "Asymptotic Indep. of the Two terms"
+image = "headers/lonlatacc.png"
+caption = "The calibrated longitudinal and lateral acceleration."
 
 +++
