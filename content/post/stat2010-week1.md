@@ -24,7 +24,7 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
     [U of Iowa virtual desktop](https://virtualdesktop.uiowa.edu)
 
-1. If you are first time to use this website, you need to download the `Citrix Workspace App` and installed it.
+1. If you are first time to use this website, you need to download the `Citrix Workspace App` and install it.
 
 1. After you finished installation, close all the window and revisit the U of Iowa virtual desktop site. If the site can detect Citrix, then it will automatically shows you the sign-in screen. Use your HawkID and password to get in.
 
@@ -34,4 +34,13 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
 1. Click the `Application` tab, then you will see many software you can access. Among these you will use `RStudio` and `SAS 9_4 64bit` in this course.
 
+    ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual2.png)
+
 1. Click `Details` button for Rstudio and SAS 9_4, then click `Add to favorites`. This will allow you to access the software from the first screen when you sign in the virtual desktop.
+
+    ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual3.png)
+
+
+Now you have access to `R` and `SAS`! Welcome to the course. :)
+
+[Return to course pate](https://issaclee.netlify.com/post/stat2010/)
