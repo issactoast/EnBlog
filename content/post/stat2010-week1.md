@@ -1,5 +1,5 @@
 +++
-title = "STAT:2010 - Week 1"
+title = "Week 1"
 
 date = 2019-08-27
 lastmod = 2019-08-27
@@ -7,8 +7,8 @@ draft = false
 
 image_preview = "stat2010.png"
 
-tags = ["stat2010"]
-summary = "STAT:2010 Week 1"
+tags = ["stat2010", "stat4200"]
+summary = "Statistical Methods and Computing - Week 1"
 
 [header]
 image = "headers/stat2010_wide.png"
