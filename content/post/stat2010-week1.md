@@ -48,3 +48,32 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 Now you have access to `R` and `SAS`! Welcome to the course. :)
 
 [Return to course page](https://issaclee.netlify.com/post/stat2010/)
+
+
+<!-- 댓글 문단 시작 -->						
+					<div class="post-reply">
+						
+<!-- 댓글 시스템 삽입 -->
+						<div id="disqus_thread"></div>
+						<a href="http://theissaclee.com[ ##_article_rep_link_## ]#disqus_thread"></a>
+
+						<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/* var disqus_config = function () {
+this.page.url = "http://theissaclee.com[##_article_rep_link_##]";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "[##_article_rep_link_##]"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+}; */
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://theissaclee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>						
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</<a href="#">#</a>></noscript>
+			<!-- 댓글 시스템 끝 -->			
+					</div>
+<!-- 댓글 문단 시작 -->
