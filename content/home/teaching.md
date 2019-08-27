@@ -15,6 +15,18 @@ weight = 60
 
 +++
 
+### 2019 Fall
+
+- Position: Teaching Assistant
+
+    * Institution: The University of Iowa
+    * Course Name: [Statistics and Society (STAT:1010)](https://issaclee.netlify.com/post/stat-1020/)
+    * Course Supervisor: Colin Lewis-Beck
+    
+    * Institution: The University of Iowa
+    * Course Name: [Statistical methods and Computing (STAT:4200 or 2010)](https://issaclee.netlify.com/post/stat-2010/)
+    * Course Supervisor: Mary Russo
+
 ### 2019 Spring
 
 - Position: Teaching Assistant
