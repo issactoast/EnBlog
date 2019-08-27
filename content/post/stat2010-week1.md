@@ -5,13 +5,13 @@ date = 2019-08-27
 lastmod = 2019-08-27
 draft = false
 
-image_preview = "stat1020.jpg"
+image_preview = "stat2010.jpg"
 
 tags = ["stat2010"]
 summary = "STAT:2010 Week 1"
 
 [header]
-image = "headers/stat1020_wide.jpg"
+image = "headers/stat2010_wide.jpg"
 caption = "Image credit: [UIowaStat](https://stat.uiowa.edu/)"
 
 +++
