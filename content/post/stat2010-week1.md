@@ -36,11 +36,15 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
     ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual2.png)
 
-1. Click `Details` button for Rstudio and SAS 9_4, then click `Add to favorites`. This will allow you to access the software from the first screen when you sign in the virtual desktop.
+1. Click `Details` button for Rstudio and SAS 9_4, then click `Add to favorites`. 
 
     ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual3.png)
+
+1. This will allow you to access the software from the first screen when you sign in the virtual desktop.
+
+    ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual4.png)
 
 
 Now you have access to `R` and `SAS`! Welcome to the course. :)
 
-[Return to course pate](https://issaclee.netlify.com/post/stat2010/)
+[Return to course page](https://issaclee.netlify.com/post/stat2010/)
