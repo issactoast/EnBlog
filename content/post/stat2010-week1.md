@@ -30,7 +30,7 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
 1. Once you get in the system, you will see this screen.
 
-![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual.png)
+    ![](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual.png)
 
 1. Click the `Application` tab, then you will see many software you can access. Among these you will use `RStudio` and `SAS 9_4 64bit` in this course.
 
