@@ -47,6 +47,5 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
 Now you have access to `R` and `SAS`! Welcome to the course. :)
 
-[Return to course page](https://issaclee.netlify.com/post/stat2010/){target="_self"}
-
+<a href="https://issaclee.netlify.com/post/stat2010/" target="_self">Return to the course page</a>
 
