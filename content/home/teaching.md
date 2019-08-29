@@ -31,7 +31,7 @@ weight = 60
 
 - Position: Teaching Assistant
 
-    - [Elementary Statistics and Inference (STAT:1020)](https://issaclee.netlify.com/post/stat1020/)
+    - [Elementary Statistics and Inference](https://issaclee.netlify.com/post/stat1020/)
     * Institution: The University of Iowa
     * Course Supervisor: Mary Russo
 
@@ -39,7 +39,7 @@ weight = 60
 
 - Position: Teaching Assistant
 
+    - Elementary Statistics and Inference
     * Institution: The University of Iowa
-    * Course Name: Elementary Statistics and Inference (STAT:1020)
     * Course Supervisor: Robert Ankenmann
 
