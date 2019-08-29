@@ -19,11 +19,11 @@ weight = 60
 
 - Position: Teaching Assistant
 
-    - Course 1: [Statistics and Society](https://issaclee.netlify.com/post/stat1010/)
+    - [Statistics and Society (STAT:1010)](https://issaclee.netlify.com/post/stat1010/)
         * Institution: The University of Iowa
         * Course Supervisor: Colin Lewis-Beck
     
-    - Course 2: [Statistical methods and Computing](https://issaclee.netlify.com/post/stat2010/)
+    - [Statistical methods and Computing (STAT:4200 &  STAT:2010)](https://issaclee.netlify.com/post/stat2010/)
         * Institution: The University of Iowa
         * Course Supervisor:  Milan Stehlik
 
@@ -31,7 +31,7 @@ weight = 60
 
 - Position: Teaching Assistant
 
-    - [Elementary Statistics and Inference](https://issaclee.netlify.com/post/stat1020/)
+    - [Elementary Statistics and Inference (STAT:1020)](https://issaclee.netlify.com/post/stat1020/)
     * Institution: The University of Iowa
     * Course Supervisor: Mary Russo
 
@@ -39,7 +39,7 @@ weight = 60
 
 - Position: Teaching Assistant
 
-    - Elementary Statistics and Inference
+    - Elementary Statistics and Inference (STAT:1020)
     * Institution: The University of Iowa
     * Course Supervisor: Robert Ankenmann
 
