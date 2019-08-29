@@ -14,8 +14,6 @@ header:
   preview: yes
 ---
 
-
-
 # Basic R code and Data loading
 
 
