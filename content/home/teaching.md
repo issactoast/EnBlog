@@ -19,13 +19,13 @@ weight = 60
 
 - Position: Teaching Assistant
 
-    - [Statistics and Society (STAT:1010)](https://issaclee.netlify.com/post/stat1010/)
-        * Institution: The University of Iowa
-        * Course Supervisor: Colin Lewis-Beck
-    
     - [Statistical methods and Computing (STAT:4200 &  STAT:2010)](https://issaclee.netlify.com/post/stat2010/)
         * Institution: The University of Iowa
         * Course Supervisor:  Milan Stehlik
+
+    - [Statistics and Society (STAT:1010)](https://issaclee.netlify.com/post/stat1010/)
+        * Institution: The University of Iowa
+        * Course Supervisor: Colin Lewis-Beck
 
 ### 2019 Spring
 
