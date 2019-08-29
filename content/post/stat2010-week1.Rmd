@@ -18,8 +18,9 @@ header:
 
 Today we will learn about the basic `R` codes and how to load data file to `R`.
 
-## R as a calculator.
+## R Basics.
 
+R can be your fancy calculator.
 
 ```{r eval=FALSE}
 2 + 1
@@ -32,9 +33,7 @@ sqrt(4) # 4^0.5
 9 %/% 4 # value
 ```
 
-
-## Variable in R
-
+We can assign value to a variable using `<-`. 
 
 ```{r eval=FALSE}
 a <- 4
@@ -55,7 +54,7 @@ b
 a+b
 ```
 
-Variable contains not only a number but also many things.
+Variable contains not only a number but also many things. `c()` define vector.
 
 ```{r eval=FALSE}
 a <- c(1, 2, 3)
@@ -64,30 +63,30 @@ a
 b
 ```
 
-Sometimes vector can be longer than you think
+Sometimes vector can be longer than you think. `:` makes our life easier.
 
-```{r}
+```{r eval=FALSE}
 a <- c(1:10)
 a
 ```
 
-# define vector with seq.
+Define vector with `seq`. Look at the options `by` and `length.out`.
+
+```{r eval=FALSE}
 seq(0, 1, by = 0.01)
 seq(0, 1, length.out = 4)
+```
+
+## Data loading
+
+Download the data set from the course [website](https://www.theissaclee.com/post/stat2010/), and save it as `examscore.csv`.
+
+```{r eval=FALSE}
+mydata <- read.csv("examscore.csv", header = TRUE)
+mydata
+```
 
 
-# recycling 
-a <- c(1, 2, 3, 4)
-a + 1          # a + c(1, 1, 1, 1)
-a + c(1, 2)    # a + c(1, 2, 1, 2)
-a + c(1, 2, 3) # a + c(1, 2, 3, 1) 
-
-
-a <- seq(2, 100, by = 2) # even numbers
-b <- seq(1, 100, by = 2) # odd numbers
-
-a <- seq(1, 100, by = 2)
-b <- a + 1
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
