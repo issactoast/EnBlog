@@ -8,7 +8,6 @@ categories:
 tags:
   - stat4200
   - stat2010
-summary: 'Statistical Methods and Computing - Week 1'
 header:
   caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
   image: 'headers/stat2010_wide.png'
