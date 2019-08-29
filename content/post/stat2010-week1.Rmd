@@ -1,5 +1,5 @@
 ---
-title: "Week 1 - R Basics and Data loading"
+title: 'Week 1 - R Basics and Data loading'
 author: Issac Lee
 date: '2019-08-29'
 slug: stat2010-week1   # become website address
@@ -8,6 +8,8 @@ categories:
 tags:
   - stat4200
   - stat2010
+summary:
+  - 'Statistical Methods and Computing - Week 1'
 header:
   caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
   image: 'headers/stat2010_wide.png'

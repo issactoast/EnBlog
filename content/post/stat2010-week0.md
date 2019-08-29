@@ -8,7 +8,7 @@ draft = false
 image_preview = "stat2010.png"
 
 tags = ["stat2010", "stat4200"]
-summary = "Statistical Methods and Computing - Week 1"
+summary = "Statistical Methods and Computing - Preparation"
 
 [header]
 image = "headers/stat2010_wide.png"
