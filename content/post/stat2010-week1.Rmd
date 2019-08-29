@@ -18,7 +18,7 @@ header:
 
 Today we will learn about the basic `R` codes and how to load data file to `R`.
 
-## R Basics.
+## R Basics
 
 R can be your fancy calculator.
 
