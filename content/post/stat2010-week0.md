@@ -1,5 +1,5 @@
 +++
-title = "Week 1"
+title = "Week 0: Preparation"
 
 date = 2019-08-27
 lastmod = 2019-08-27
