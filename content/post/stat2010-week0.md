@@ -47,11 +47,12 @@ To access the software **R** and **SAS**, we can use `virtual desktop` which the
 
 ## Install R and R studio in your computer (Windows)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9-RrkJQQYqY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/9-RrkJQQYqY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Install R and R studio in your computer (Apple)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GLLZhc_5enQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/GLLZhc_5enQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 Now you have access to `R` and `SAS`! Welcome to the course. :)
 
