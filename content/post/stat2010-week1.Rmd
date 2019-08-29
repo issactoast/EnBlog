@@ -10,6 +10,8 @@ highlight: yes
 image_preview: 'stat2010.png'
 math: yes
 summary: ''
+output:
+  blogdown::html_page
 ---
 
 # Basic R code and Data loading
