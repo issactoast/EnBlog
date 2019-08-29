@@ -1,17 +1,9 @@
 ---
-title: Week 1
-author: Issac Lee
-date: '2019-08-29'
+title: "Hello R Markdown"
+author: "Issac Lee"
+date: 2019-08-29
+categories: ["R"]
 tags: ["stat2010", "stat4200"]
-header:
-  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
-  image: 'headers/stat2010_wide.png'
-highlight: yes
-image_preview: 'stat2010.png'
-math: yes
-summary: ''
-output:
-  blogdown::html_page
 ---
 
 # Basic R code and Data loading
