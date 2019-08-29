@@ -79,14 +79,19 @@ seq(0, 1, length.out = 4)
 
 ## Data loading
 
-Download the data set from the course [website](https://www.theissaclee.com/post/stat2010/), and save it as `examscore.csv`.
+Download the data set from the course [website](https://www.theissaclee.com/post/stat2010/), and save it as `examscore.csv`. Make sure you save the data file in the same folder that your `R` file live.
 
 ```{r eval=FALSE}
 mydata <- read.csv("examscore.csv", header = TRUE)
-mydata
+head(mydata)
 ```
 
+```{r echo=FALSE}
+mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
+head(mydata)
+```
 
+If you success to load R file, you can see the above result!
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
