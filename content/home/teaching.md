@@ -15,19 +15,31 @@ weight = 60
 
 +++
 
+### 2019 Fall
+
+- Position: Teaching Assistant
+
+    - [Statistical methods and Computing (STAT:4200 &  STAT:2010)](https://issaclee.netlify.com/post/stat2010/)
+        * Institution: The University of Iowa
+        * Course Supervisor:  Milan Stehlik
+
+    - [Statistics and Society (STAT:1010)](https://issaclee.netlify.com/post/stat1010/)
+        * Institution: The University of Iowa
+        * Course Supervisor: Colin Lewis-Beck
+
 ### 2019 Spring
 
 - Position: Teaching Assistant
 
+    - [Elementary Statistics and Inference (STAT:1020)](https://issaclee.netlify.com/post/stat1020/)
     * Institution: The University of Iowa
-    * Course Name: [Elementary Statistics and Inference (STAT:1020)](https://issaclee.netlify.com/post/stat-1020/)
     * Course Supervisor: Mary Russo
 
 ### 2018 Fall
 
 - Position: Teaching Assistant
 
+    - Elementary Statistics and Inference (STAT:1020)
     * Institution: The University of Iowa
-    * Course Name: Elementary Statistics and Inference (STAT:1020)
     * Course Supervisor: Robert Ankenmann
 

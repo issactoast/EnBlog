@@ -1,0 +1,97 @@
+---
+title: 'Week 1 - R Basics and Data loading'
+author: Issac Lee
+date: '2019-08-29'
+slug: stat2010-week1
+categories:
+  - R
+tags:
+  - stat4200
+  - stat2010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+# Basic R code and Data loading
+
+Today we will learn about the basic `R` codes and how to load data file to `R`.
+
+## R Basics
+
+R can be your fancy calculator.
+
+```{r eval=FALSE}
+2 + 1
+3 - 2
+2 * 3
+4 / 2
+4^2
+sqrt(4) # 4^0.5
+9 %% 4  # mod
+9 %/% 4 # value
+```
+
+We can assign value to a variable using `<-`. 
+
+```{r eval=FALSE}
+a <- 4
+a
+```
+
+```{r eval=FALSE}
+b <- 2
+b
+```
+
+```{r eval=FALSE}
+b <- 3
+b
+```
+
+```{r eval=FALSE}
+a+b
+```
+
+Variable contains not only a number but also many things. `c()` define vector.
+
+```{r eval=FALSE}
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+a
+b
+```
+
+Sometimes vector can be longer than you think. `:` makes our life easier.
+
+```{r eval=FALSE}
+a <- c(1:10)
+a
+```
+
+Define vector with `seq`. Look at the options `by` and `length.out`.
+
+```{r eval=FALSE}
+seq(0, 1, by = 0.01)
+seq(0, 1, length.out = 4)
+```
+
+## Data loading
+
+Download the data set from the course [website](https://www.theissaclee.com/post/stat2010/), and save it as `examscore.csv`. Make sure you save the data file in the same folder that your `R` file live.
+
+```{r eval=FALSE}
+mydata <- read.csv("examscore.csv", header = TRUE)
+head(mydata)
+```
+
+```{r echo=FALSE}
+mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
+head(mydata)
+```
+
+If you success to load R file, you can see the above result!
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
