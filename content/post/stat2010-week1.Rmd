@@ -77,12 +77,45 @@ seq(0, 1, by = 0.01)
 seq(0, 1, length.out = 4)
 ```
 
+Using braket `[]` command, we can access to the part of variables.
+
+```{r}
+a <- c(10, 50, 40, 20)
+a[3]
+a[1:3]
+```
+
+Define Matrix.
+
+```{r}
+matrix(c(1:16), 4, 4)
+matrix(c(1:16), 4, 4, byrow = TRUE) # try this too
+```
+
+`[]` command also works for matrices.
+
+```{r}
+a <- matrix(c(1:16), 4, 4)
+a[1,2]
+a[1:3,2]
+a[1:4,3]
+a[,3]
+a[1:3,1:2]
+```
+
 ## Data loading
 
 Download the data set from the course [website](https://www.theissaclee.com/post/stat2010/), and save it as `examscore.csv`. Make sure you save the data file in the same folder that your `R` file live.
 
 ```{r eval=FALSE}
 mydata <- read.csv("examscore.csv", header = TRUE)
+head(mydata)
+```
+
+or you can load data from website, too.
+
+```{r eval=FALSE}
+mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
 head(mydata)
 ```
 
