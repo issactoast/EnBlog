@@ -29,13 +29,13 @@ If you success to load R file, you can see the above results.
 
 You can use `$` to indicate the colum that you want to access.
 
-```{r eval = FALSE}
+```{r}
 mydata$midterm1
 ```
 
 The bracket `[]` works too.
 
-```{r eval=FALSE}
+```{r}
 mydata[,3]
 mydata[1,] # the data related to the first student in the list
 ```

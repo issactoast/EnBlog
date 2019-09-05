@@ -35,9 +35,15 @@ head(mydata)</code></pre>
 <h2>Access to the colums of your data</h2>
 <p>You can use <code>$</code> to indicate the colum that you want to access.</p>
 <pre class="r"><code>mydata$midterm1</code></pre>
+<pre><code>##  [1] 81 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
+## [24] 77 75 88 77 76 73 73</code></pre>
 <p>The bracket <code>[]</code> works too.</p>
-<pre class="r"><code>mydata[,3]
-mydata[1,] # the data related to the first student in the list</code></pre>
+<pre class="r"><code>mydata[,3]</code></pre>
+<pre><code>##  [1] 81 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
+## [24] 77 75 88 77 76 73 73</code></pre>
+<pre class="r"><code>mydata[1,] # the data related to the first student in the list</code></pre>
+<pre><code>##   class std_id midterm1 midterm2 final  X X.1
+## 1     1      1       81       54    67 NA   1</code></pre>
 </div>
 <div id="draw-a-pie-chart-using-table-function" class="section level2">
 <h2>Draw a pie chart using <code>table</code> function</h2>
