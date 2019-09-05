@@ -47,9 +47,10 @@ A researcher is interested in finding out whether non-sleeping causes a severe d
 1. Step 3: Those in the non-sleeping group are not allow to sleep for 5 days whereas those in the other group maintain their normal life cycles
 1. Step 4: Compare the brain functionality of these 2 groups after a week.
 
-- What is the treatment group and the control group?
-- What are the response variable(s) and explanatory variable(s)?
 - Do you think this is a good experimental design? Why?
 
     hint: read p.20 of textbook
+
+- What is the treatment group and the control group?
+- What are the response variable(s) and explanatory variable(s)?
 
