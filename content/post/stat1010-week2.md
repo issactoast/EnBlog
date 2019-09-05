@@ -40,7 +40,7 @@ In a survey of 400 randomly selected UI students, 30% of students said they like
 
 ## Problem 4
 
-A researcher is interested in finding out whether non-sleeping causes sevier damages to human brain. Here is what he plans to do:
+A researcher is interested in finding out whether non-sleeping causes a severe damage to human brain. Here is what he plans to do:
 
 1. Step 1: Randomly select 100 human nationwide whose brains are currently working well
 1. Step 2: Randomly assign 50 of the 100 people to the non-sleeping group and the other 50 to the sleeping group;
