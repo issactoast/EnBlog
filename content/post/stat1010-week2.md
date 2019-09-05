@@ -28,7 +28,27 @@ A large warehouse is flled with light bulbs. An electronics engineer wants to es
 
 ## Problem 2
 
-## Problem 3
+In a survey of 400 randomly selected UI students, 30% of students said they like a chocolate ice cream. The margin of error is 3% points. What is the confidence interval for the proportion of the people who like a chocolate ice cream?
+
+## Problem 3 - Sampling Methods
+
+- Simple Random Sampling (SRS) : Every sample has an equal chance of being selected
+- Systematic Sampling: "every *k*-th"..
+- Convenience Sampling: literally convenient to ask, ex. friends.
+- Cluster Sampling: pick group and choose all units of the chosen groups.
+- Stratified Sampling: Divide the population into subgroups, choose a sample from each group.
 
 ## Problem 4
+
+A researcher is interested in finding out whether non-sleeping causes sevier damages to human brain. Here is what he plans to do:
+Step 1: Randomly select 100 human nationwide whose brains are currently working well;
+Step 2: Randomly assign 50 of the 100 people to the non-sleeping group and the other 50 to the sleeping group;
+Step 3: Those in the non-sleeping group are not allow to sleep for 5 days whereas those in the other group maintain their normal life cycles;
+Step 4: Compare the brain functionality of these 2 groups after a week.
+
+- What is the treatment group and the control group?
+- What are the response variable(s) and explanatory variable(s)?
+- Do you think this is a good experimental design? Why?
+
+    hint: read p.20 of textbook
 
