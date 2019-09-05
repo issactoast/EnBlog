@@ -25,5 +25,75 @@ If you success to load R file, you can see the above results.
 
 # Data visualization
 
+## Access to the colums of your data
+
+You can use `$` to indicate the colum that you want to access.
+
+```{r eval = FALSE}
+mydata$midterm1
+```
+
+The bracket `[]` works too.
+
+```{r eval=FALSE}
+mydata[,3]
+mydata[1,] # the data related to the first student in the list
+```
+
+## Draw a pie chart using `table` function
+
+To draw a pie chart, we need to count how many of data points we have for each category.
+
+```{r}
+mytable <- table(mydata$class)
+mytable
+names(mytable)
+```
+
+We can use the name of table as the categories itself in pie chart. 
+
+```{r}
+pie(mytable, 
+    labels = names(mytable),
+    main="Pie Chart of the class variable")
+```
+
+Or, we can define our own name set as follows;
+
+```{r}
+pie(mytable, 
+    labels = c("Class 1", "Class 2", "Class 3"),
+    main="Pie Chart of the class variable")
+```
+
+
+## Stem and leaf plot
+
+There is a function called `stem` for drawing a stem and leaf plot.
+
+```{r}
+stem(mydata$midterm2)
+```
+
+This stem and leaf plot has 5 as a unit lenght. Let's make it as 10 for the unit step. Using scale option, 
+
+```{r}
+stem(mydata$midterm2, scale = 0.5)
+```
+
+## Histogram
+
+```{r}
+hist(mydata$midterm2)
+```
+
+We can make a custom breaks as follows;
+
+```{r}
+hist(mydata$midterm2, breaks= c(4:8)*10) # or
+hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))
+```
+
+
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
