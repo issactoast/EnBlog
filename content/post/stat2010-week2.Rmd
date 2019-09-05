@@ -21,7 +21,7 @@ mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/s
 head(mydata)
 ```
 
-If you success to load R file, you can see the above result.
+If you success to load R file, you can see the above results.
 
 # Data visualization
 
