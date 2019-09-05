@@ -20,16 +20,78 @@ header:
 <h1>Data loading again</h1>
 <pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
 head(mydata)</code></pre>
-<pre><code>##   class std_id midterm1 midterm2 final
-## 1     1      1       81       54    67
-## 2     1      2       78       66    66
-## 3     1      3       80       71    67
-## 4     1      4       75       67    70
-## 5     1      5       73       56    81
-## 6     1      6       89       60    69</code></pre>
+<pre><code>##   class std_id midterm1 midterm2 final  X X.1
+## 1     1      1       81       54    67 NA   1
+## 2     1      2       78       66    66 NA  NA
+## 3     1      3       80       71    67 NA  NA
+## 4     1      4       75       67    70 NA  NA
+## 5     1      5       73       56    81 NA  NA
+## 6     1      6       89       60    69 NA  NA</code></pre>
 <p>If you success to load R file, you can see the above results.</p>
 </div>
 <div id="data-visualization" class="section level1">
 <h1>Data visualization</h1>
+<div id="access-to-the-colums-of-your-data" class="section level2">
+<h2>Access to the colums of your data</h2>
+<p>You can use <code>$</code> to indicate the colum that you want to access.</p>
+<pre class="r"><code>mydata$midterm1</code></pre>
+<p>The bracket <code>[]</code> works too.</p>
+<pre class="r"><code>mydata[,3]
+mydata[1,] # the data related to the first student in the list</code></pre>
+</div>
+<div id="draw-a-pie-chart-using-table-function" class="section level2">
+<h2>Draw a pie chart using <code>table</code> function</h2>
+<p>To draw a pie chart, we need to count how many of data points we have for each category.</p>
+<pre class="r"><code>mytable &lt;- table(mydata$class)
+mytable</code></pre>
+<pre><code>## 
+##  1  2  3 
+## 10 10 10</code></pre>
+<pre class="r"><code>names(mytable)</code></pre>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
+<p>We can use the name of table as the categories itself in pie chart.</p>
+<pre class="r"><code>pie(mytable, 
+    labels = names(mytable),
+    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Or, we can define our own name set as follows;</p>
+<pre class="r"><code>pie(mytable, 
+    labels = c(&quot;Class 1&quot;, &quot;Class 2&quot;, &quot;Class 3&quot;),
+    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="stem-and-leaf-plot" class="section level2">
+<h2>Stem and leaf plot</h2>
+<p>There is a function called <code>stem</code> for drawing a stem and leaf plot.</p>
+<pre class="r"><code>stem(mydata$midterm2)</code></pre>
+<pre><code>## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   4 | 6689
+##   5 | 222223444
+##   5 | 68889
+##   6 | 02344
+##   6 | 678
+##   7 | 14
+##   7 | 99</code></pre>
+<p>This stem and leaf plot has 5 as a unit lenght. Let’s make it as 10 for the unit step. Using scale option,</p>
+<pre class="r"><code>stem(mydata$midterm2, scale = 0.5)</code></pre>
+<pre><code>## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   4 | 6689
+##   5 | 22222344468889
+##   6 | 02344678
+##   7 | 1499</code></pre>
+</div>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<pre class="r"><code>hist(mydata$midterm2)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>We can make a custom breaks as follows;</p>
+<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10) # or
+hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+</div>
 </div>
