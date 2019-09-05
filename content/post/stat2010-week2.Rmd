@@ -94,6 +94,25 @@ hist(mydata$midterm2, breaks= c(4:8)*10) # or
 hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))
 ```
 
+```{r}
+hist(mydata$midterm2, breaks= c(4:8)*10,
+     xlab = "Midterm 2 score",
+     main = "Histogram of midterm 2 scores")
+```
+
+## Scatter plot
+
+```{r}
+plot(mydata$midterm1, mydata$midterm2)
+```
+
+
+```{r}
+plot(mydata$midterm1, mydata$midterm2,
+     xlim = c(60, 100), ylim = c(40, 80),
+     xlab = "Midterm 1 score", ylab = "Midterm 2 score",
+     main = "Plot of Midterm scores")
+```
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 

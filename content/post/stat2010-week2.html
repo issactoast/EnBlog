@@ -98,6 +98,20 @@ mytable</code></pre>
 <pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10) # or
 hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
 <p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10,
+     xlab = &quot;Midterm 2 score&quot;,
+     main = &quot;Histogram of midterm 2 scores&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="scatter-plot" class="section level2">
+<h2>Scatter plot</h2>
+<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2,
+     xlim = c(60, 100), ylim = c(40, 80),
+     xlab = &quot;Midterm 1 score&quot;, ylab = &quot;Midterm 2 score&quot;,
+     main = &quot;Plot of Midterm scores&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 </div>
