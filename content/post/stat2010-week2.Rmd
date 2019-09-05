@@ -1,0 +1,29 @@
+---
+title: 'Week 2 - Data visualization'
+author: Issac Lee
+date: '2019-09-6'
+slug: stat2010-week2
+categories:
+  - R
+tags:
+  - stat4200
+  - stat2010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+# Data loading again
+
+```{r echo=TRUE}
+mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
+head(mydata)
+```
+
+If you success to load R file, you can see the above result.
+
+# Data visualization
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+

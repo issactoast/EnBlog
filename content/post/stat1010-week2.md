@@ -54,3 +54,5 @@ A researcher is interested in finding out whether non-sleeping causes a severe d
 - What is the treatment group and the control group?
 - What are the response variable(s) and explanatory variable(s)?
 
+
+<a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>
