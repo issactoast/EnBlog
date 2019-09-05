@@ -41,10 +41,11 @@ In a survey of 400 randomly selected UI students, 30% of students said they like
 ## Problem 4
 
 A researcher is interested in finding out whether non-sleeping causes sevier damages to human brain. Here is what he plans to do:
-Step 1: Randomly select 100 human nationwide whose brains are currently working well;
-Step 2: Randomly assign 50 of the 100 people to the non-sleeping group and the other 50 to the sleeping group;
-Step 3: Those in the non-sleeping group are not allow to sleep for 5 days whereas those in the other group maintain their normal life cycles;
-Step 4: Compare the brain functionality of these 2 groups after a week.
+
+1. Step 1: Randomly select 100 human nationwide whose brains are currently working well
+1. Step 2: Randomly assign 50 of the 100 people to the non-sleeping group and the other 50 to the sleeping group;
+1. Step 3: Those in the non-sleeping group are not allow to sleep for 5 days whereas those in the other group maintain their normal life cycles
+1. Step 4: Compare the brain functionality of these 2 groups after a week.
 
 - What is the treatment group and the control group?
 - What are the response variable(s) and explanatory variable(s)?
