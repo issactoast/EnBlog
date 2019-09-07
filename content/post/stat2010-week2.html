@@ -102,16 +102,41 @@ hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
      xlab = &quot;Midterm 2 score&quot;,
      main = &quot;Histogram of midterm 2 scores&quot;)</code></pre>
 <p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Using <code>mean</code> and <code>median</code>, you can describe the characteristics of the distribution as follows;</p>
+<pre class="r"><code>mean(mydata$midterm2)</code></pre>
+<pre><code>## [1] 59</code></pre>
+<pre class="r"><code>median(mydata$midterm2)</code></pre>
+<pre><code>## [1] 58</code></pre>
 </div>
 <div id="scatter-plot" class="section level2">
 <h2>Scatter plot</h2>
 <pre class="r"><code>plot(mydata$midterm1, mydata$midterm2)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = &quot;Midterm 1 score&quot;, ylab = &quot;Midterm 2 score&quot;,
-     main = &quot;Plot of Midterm scores&quot;)</code></pre>
 <p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><code>lm</code> function name stands for ‘linear model’, which is a statistical concept including the linear regression. By using <code>lm</code> function, we can obtain a lot of information about the regression analysis as follows;</p>
+<pre class="r"><code>x &lt;- mydata$midterm1
+y &lt;- mydata$midterm2
+result &lt;- lm(y~x)
+result</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Coefficients:
+## (Intercept)            x  
+##     -6.3753       0.8248</code></pre>
+<pre class="r"><code>plot(x, y)
+points(x, result$fitted.values,
+       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>When you draw a plot, it is important to set the same scale for x and y variables. <code>xlim</code> and <code>ylim</code> options in <code>plot</code> function allow us to set the range for each axis.</p>
+<pre class="r"><code>plot(x, y,
+     xlim = c(60, 100), ylim = c(40, 80),
+     xlab = &quot;Midterm 1 score&quot;, 
+     ylab = &quot;Midterm 2 score&quot;,
+     main = &quot;Plot of Midterm scores&quot;)
+points(x, result$fitted.values,
+       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 </div>

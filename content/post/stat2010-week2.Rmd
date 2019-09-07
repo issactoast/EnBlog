@@ -100,18 +100,46 @@ hist(mydata$midterm2, breaks= c(4:8)*10,
      main = "Histogram of midterm 2 scores")
 ```
 
+Using `mean` and `median`, you can describe the characteristics of the distribution as follows;
+
+```{r}
+mean(mydata$midterm2)
+median(mydata$midterm2)
+```
+
+
 ## Scatter plot
 
 ```{r}
 plot(mydata$midterm1, mydata$midterm2)
 ```
 
+`lm` function name stands for 'linear model', which is a statistical concept including the linear regression. By using `lm` function, we can obtain a lot of information about the regression analysis as follows;
 
 ```{r}
-plot(mydata$midterm1, mydata$midterm2,
+x <- mydata$midterm1
+y <- mydata$midterm2
+result <- lm(y~x)
+result
+```
+
+
+```{r}
+plot(x, y)
+points(x, result$fitted.values,
+       type = "l", col = "red")
+```
+
+When you draw a plot, it is important to set the same scale for x and y variables. `xlim` and `ylim` options in `plot` function allow us to set the range for each axis. 
+ 
+```{r}
+plot(x, y,
      xlim = c(60, 100), ylim = c(40, 80),
-     xlab = "Midterm 1 score", ylab = "Midterm 2 score",
+     xlab = "Midterm 1 score", 
+     ylab = "Midterm 2 score",
      main = "Plot of Midterm scores")
+points(x, result$fitted.values,
+       type = "l", col = "red")
 ```
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
