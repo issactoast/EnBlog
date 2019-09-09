@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kalman filter on Issac Lee</title>
+    <link>/tags/kalman-filter/</link>
+    <description>Recent content in Kalman filter on Issac Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/kalman-filter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Telematics data analysis</title>
+      <link>/project/telematicsproject/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/telematicsproject/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

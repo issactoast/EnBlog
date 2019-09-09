@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTE on Issac Lee</title>
+    <link>/tags/cte/</link>
+    <description>Recent content in CTE on Issac Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/cte/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Asymptotic Normality for the Sample CTE Revisited</title>
+      <link>/project/cteproject/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project/cteproject/</guid>
+      <description>AbstractInsurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education.
+A key property of the non-parametric estimator of the CTE is its asymptotic normality, see Manistre and Hancock (2005)1, Ahn and Shyamalkumar (2011)2.
+Traditional proofs of this result relies on various forms of functional delta method3, which makes the proof outside the scope of even masters level actuarial education.</description>
+    </item>
+    
+  </channel>
+</rss>
