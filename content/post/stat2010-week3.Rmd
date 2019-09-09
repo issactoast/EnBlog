@@ -36,6 +36,7 @@ boxplot(mydata$midterm1,
 ```
 
 ```{r}
+mydata$midterm1[1] <- 50
 boxplot(mydata$midterm1, mydata$midterm2,
         main="Box plot for midterms",
         names = c("Midterm 1", "Midterm 2"),
