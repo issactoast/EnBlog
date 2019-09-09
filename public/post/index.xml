@@ -1,127 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Issac Lee</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Issac Lee</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0600</lastBuildDate>
-    
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>test</title>
-      <link>/post/stat2010-week4/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week4/</guid>
-      <description>test</description>
-    </item>
-    
-    <item>
-      <title>Week 3 - Data visualization 2</title>
-      <link>/post/stat2010-week3/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week3/</guid>
-      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
-    </item>
-    
-    <item>
-      <title>Week 2 - Data visualization</title>
-      <link>/post/stat2010-week2/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week2/</guid>
-      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
-    </item>
-    
-    <item>
-      <title>Week 1 - R Basics and Data loading</title>
-      <link>/post/stat2010-week1/</link>
-      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week1/</guid>
-      <description>Basic R code and Data loadingToday we will learn about the basic R codes and how to load data file to R.
-R BasicsR can be your fancy calculator.
-2 + 13 - 22 * 34 / 24^2sqrt(4) # 4^0.59 %% 4 # mod9 %/% 4 # valueWe can assign value to a variable using &amp;lt;-.
-a &amp;lt;- 4ab &amp;lt;- 2bb &amp;lt;- 3ba+bVariable contains not only a number but also many things.</description>
-    </item>
-    
-    <item>
-      <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
-      <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat2010/</guid>
-      <description>Welcome to my discussion section for STAT:2010 and STAT:4200.
-Issac (Sak) Lee  Office location: 213 SH Office hour: Friday 2pm - 5pm Email: sak-lee@uiowa.edu
-Please put a tag STAT:2010 or STAT:4200 in front of your title when you email me.
-  Course materials  Week 0: Access to the virtual desktop
- Week 1: Basic R and data loading
- Week 2: Data visualization
- Week 3: Data visualization 2 (in progress)</description>
-    </item>
-    
-    <item>
-      <title>Statistics and Society (STAT:1010)</title>
-      <link>/post/stat1010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010/</guid>
-      <description>Welcome to my discussion section for STAT:1010.
-Issac (Sak) Lee  Office location: 213 SH Office hour: Friday 2pm - 5pm Email: sak-lee@uiowa.edu
-Please put a tag STAT:1010 in front of your title when you email me.
-  Attendance policy We have 13 weeks for this semester. You will get 3 free absences. Thus, your attendance will counts as 1 point and you will get 10 points in total from this discussion section.</description>
-    </item>
-    
-    <item>
-      <title>Week 0: Preparation</title>
-      <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat2010-week0/</guid>
-      <description>Access to the virtual desktop To access the software R and SAS, we can use virtual desktop which the University of Iowa provide students for free. You can think virtual desktop as remote computer which you can log-in through the website.
- Click the link below.
-U of Iowa virtual desktop
- If you are first time to use this website, you need to download the Citrix Workspace App and install it.</description>
-    </item>
-    
-    <item>
-      <title>Week 2(STAT:1010)</title>
-      <link>/post/stat1010-week2/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010-week2/</guid>
-      <description>Problem 1 A large warehouse is flled with light bulbs. An electronics engineer wants to estimate the mean lifespan of these bulbs. To this end, 18 of the bulbs were randomly selected and the lifespan was measures; the mean lifespan of the 18 bulbs was 2550 hours.
- What is the population? What is the sample? What is the parameter? What is the sample statistics?  Problem 2 In a survey of 400 randomly selected UI students, 30% of students said they like a chocolate ice cream.</description>
-    </item>
-    
-    <item>
-      <title>STAT:1020 - Elementary Statistics and Inference</title>
-      <link>/post/stat1020/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 -0600</pubDate>
-      
-      <guid>/post/stat1020/</guid>
-      <description>Welcome to my discussion section for STAT:1020.
-Here are my section materials:
- Week 2: Problem set Week 3: Problem set Week 4: Problem set Week 5: Problem set Week 6: Problem set Week 7: Problem set Week 8: Problem set Week 9: Problem set, Solution Week 11: Problem set, Solution Week 12(Exam 2 review): Solution Week 13: Problem set, Excel file Week 14: Problem set, Summary sheet Week 15: Problem set, Solution Week 16: Problem set, Solution Week 17: Final review sol,  </description>
-    </item>
-    
-    <item>
-      <title>Academic: the website designer for Hugo</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
-      
-      <guid>/post/getting-started/</guid>
-      <description>Academic is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. Check out the latest demo of what you&amp;rsquo;ll get in less than 10 minutes. Then head on over to the Quick Start guide or take a look at the Release Notes.
-
-Key features:
- Easily manage various content including homepage, blog posts, publications, talks, and projects Extensible via color themes and widgets/plugins Write in Markdown for easy formatting and code highlighting, with LaTeX for mathematical expressions Social/academic network linking, Google Analytics, and Disqus comments Responsive and mobile friendly Simple and refreshing one page design Multilingual and easy to customize  Color Themes Academic is available in different color themes and font themes.</description>
-    </item>
-    
-  </channel>
-</rss>
