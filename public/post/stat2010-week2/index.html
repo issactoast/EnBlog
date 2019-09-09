@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.">
+  <meta name="description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/stat2010-week2/">
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="Issac Lee">
   <meta property="og:url" content="/post/stat2010-week2/">
   <meta property="og:title" content="Week 2 - Data visualization | Issac Lee">
-  <meta property="og:description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results."><meta property="og:image" content="/img/headers/stat2010_wide.png">
+  <meta property="og:description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results."><meta property="og:image" content="/img/headers/stat2010_wide.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-05T00:00:00&#43;00:00">
@@ -348,7 +348,7 @@
 <pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
 head(mydata)</code></pre>
 <pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1
+## 1     1      1       70       51    67 NA   1
 ## 2     1      2       78       66    66 NA  NA
 ## 3     1      3       80       71    67 NA  NA
 ## 4     1      4       75       67    70 NA  NA
@@ -370,7 +370,7 @@ head(mydata)</code></pre>
 ## [24] 77 75 88 77 76 73 73</code></pre>
 <pre class="r"><code>mydata[1,] # the data related to the first student in the list</code></pre>
 <pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1</code></pre>
+## 1     1      1       70       51    67 NA   1</code></pre>
 </div>
 <div id="draw-a-pie-chart-using-table-function" class="section level2">
 <h2>Draw a pie chart using <code>table</code> function</h2>
@@ -401,7 +401,7 @@ mytable</code></pre>
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 222223444
+##   5 | 122222344
 ##   5 | 68889
 ##   6 | 02344
 ##   6 | 678
@@ -413,7 +413,7 @@ mytable</code></pre>
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 22222344468889
+##   5 | 12222234468889
 ##   6 | 02344678
 ##   7 | 1499</code></pre>
 </div>
@@ -431,7 +431,7 @@ hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
 <p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Using <code>mean</code> and <code>median</code>, you can describe the characteristics of the distribution as follows;</p>
 <pre class="r"><code>mean(mydata$midterm2)</code></pre>
-<pre><code>## [1] 59</code></pre>
+<pre><code>## [1] 58.9</code></pre>
 <pre class="r"><code>median(mydata$midterm2)</code></pre>
 <pre><code>## [1] 58</code></pre>
 </div>
@@ -450,7 +450,7 @@ result</code></pre>
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##     -5.1349       0.8129</code></pre>
+##     -7.7348       0.8445</code></pre>
 <pre class="r"><code>plot(x, y)
 points(x, result$fitted.values,
        type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>

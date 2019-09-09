@@ -27,7 +27,7 @@
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
+      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 54 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
+      <description>Data loading againmydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.</description>
     </item>
     
     <item>

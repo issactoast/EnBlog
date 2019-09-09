@@ -31,7 +31,7 @@
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1
+## 1     1      1       70       51    67 NA   1
 ## 2     1      2       78       66    66 NA  NA
 ## 3     1      3       80       71    67 NA  NA
 ## 4     1      4       75       67    70 NA  NA
@@ -78,7 +78,7 @@ boxplot(mydata$midterm1, mydata$midterm2,
 ## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[1,] # the data related to the first student in the list&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       50       54    67 NA   1&lt;/code&gt;&lt;/pre&gt;
+## 1     1      1       50       51    67 NA   1&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;draw-a-pie-chart-using-table-function&#34; class=&#34;section level2&#34;&gt;
@@ -110,7 +110,7 @@ mytable&lt;/code&gt;&lt;/pre&gt;
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 222223444
+##   5 | 122222344
 ##   5 | 68889
 ##   6 | 02344
 ##   6 | 678
@@ -122,7 +122,7 @@ mytable&lt;/code&gt;&lt;/pre&gt;
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 22222344468889
+##   5 | 12222234468889
 ##   6 | 02344678
 ##   7 | 1499&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -140,7 +140,7 @@ hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;median&lt;/code&gt;, you can describe the characteristics of the distribution as follows;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 59&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 58.9&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 58&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -159,7 +159,7 @@ result&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##     20.2625       0.4952&lt;/code&gt;&lt;/pre&gt;
+##     15.9828       0.5486&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)
 points(x, result$fitted.values,
        type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
@@ -190,7 +190,7 @@ points(x, result$fitted.values,
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1
+## 1     1      1       70       51    67 NA   1
 ## 2     1      2       78       66    66 NA  NA
 ## 3     1      3       80       71    67 NA  NA
 ## 4     1      4       75       67    70 NA  NA
@@ -212,7 +212,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 ## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[1,] # the data related to the first student in the list&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1&lt;/code&gt;&lt;/pre&gt;
+## 1     1      1       70       51    67 NA   1&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;draw-a-pie-chart-using-table-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Draw a pie chart using &lt;code&gt;table&lt;/code&gt; function&lt;/h2&gt;
@@ -243,7 +243,7 @@ mytable&lt;/code&gt;&lt;/pre&gt;
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 222223444
+##   5 | 122222344
 ##   5 | 68889
 ##   6 | 02344
 ##   6 | 678
@@ -255,7 +255,7 @@ mytable&lt;/code&gt;&lt;/pre&gt;
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
 ##   4 | 6689
-##   5 | 22222344468889
+##   5 | 12222234468889
 ##   6 | 02344678
 ##   7 | 1499&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -273,7 +273,7 @@ hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;median&lt;/code&gt;, you can describe the characteristics of the distribution as follows;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 59&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 58.9&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 58&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -292,7 +292,7 @@ result&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##     -5.1349       0.8129&lt;/code&gt;&lt;/pre&gt;
+##     -7.7348       0.8445&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)
 points(x, result$fitted.values,
        type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
@@ -375,7 +375,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       54    67 NA   1
+## 1     1      1       70       51    67 NA   1
 ## 2     1      2       78       66    66 NA  NA
 ## 3     1      3       80       71    67 NA  NA
 ## 4     1      4       75       67    70 NA  NA
