@@ -9,9 +9,9 @@ tags:
   - stat2010
   - stat4200
 header:
-  caption: ''
-  image: ''
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
   preview: yes
 ---
 
-
+test
