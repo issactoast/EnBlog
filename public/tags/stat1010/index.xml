@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stat1010 on Issac Lee</title>
+    <link>/tags/stat1010/</link>
+    <description>Recent content in Stat1010 on Issac Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 27 Aug 2019 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/stat1010/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Statistics and Society (STAT:1010)</title>
+      <link>/post/stat1010/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010/</guid>
+      <description>Welcome to my discussion section for STAT:1010.
+Issac (Sak) Lee  Office location: 213 SH Office hour: Friday 2pm - 5pm Email: sak-lee@uiowa.edu
+Please put a tag STAT:1010 in front of your title when you email me.
+  Attendance policy We have 13 weeks for this semester. You will get 3 free absences. Thus, your attendance will counts as 1 point and you will get 10 points in total from this discussion section.</description>
+    </item>
+    
+    <item>
+      <title>Week 2(STAT:1010)</title>
+      <link>/post/stat1010-week2/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010-week2/</guid>
+      <description>Problem 1 A large warehouse is flled with light bulbs. An electronics engineer wants to estimate the mean lifespan of these bulbs. To this end, 18 of the bulbs were randomly selected and the lifespan was measures; the mean lifespan of the 18 bulbs was 2550 hours.
+ What is the population? What is the sample? What is the parameter? What is the sample statistics?  Problem 2 In a survey of 400 randomly selected UI students, 30% of students said they like a chocolate ice cream.</description>
+    </item>
+    
+  </channel>
+</rss>

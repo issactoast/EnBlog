@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stat1020 on Issac Lee</title>
+    <link>/tags/stat1020/</link>
+    <description>Recent content in Stat1020 on Issac Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 -0600</lastBuildDate>
+    
+	<atom:link href="/tags/stat1020/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>STAT:1020 - Elementary Statistics and Inference</title>
+      <link>/post/stat1020/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 -0600</pubDate>
+      
+      <guid>/post/stat1020/</guid>
+      <description>Welcome to my discussion section for STAT:1020.
+Here are my section materials:
+ Week 2: Problem set Week 3: Problem set Week 4: Problem set Week 5: Problem set Week 6: Problem set Week 7: Problem set Week 8: Problem set Week 9: Problem set, Solution Week 11: Problem set, Solution Week 12(Exam 2 review): Solution Week 13: Problem set, Excel file Week 14: Problem set, Summary sheet Week 15: Problem set, Solution Week 16: Problem set, Solution Week 17: Final review sol,  </description>
+    </item>
+    
+  </channel>
+</rss>
