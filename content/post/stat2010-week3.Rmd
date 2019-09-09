@@ -1,11 +1,11 @@
 ---
 title: 'Week 3 - Data visualization 2'
 author: Issac Lee
-date: '2019-09-13'
+date: '2019-09-12'
 slug: stat2010-week3
 categories:
   - R
-tags: ["stat4200", "stat2010", "risk_measure"]
+tags: ["stat4200", "stat2010"]
 header:
   caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
   image: 'headers/stat2010_wide.png'
