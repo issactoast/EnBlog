@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 .gitignore
-/public
+/public/
 /content/*.Rmd

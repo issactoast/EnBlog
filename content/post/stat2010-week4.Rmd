@@ -2,7 +2,7 @@
 title: test
 author: Issac Lee
 date: '2019-09-13'
-slug: stat2010-week
+slug: stat2010-week4
 categories:
   - R
 tags:
