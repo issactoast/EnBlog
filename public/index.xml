@@ -11,12 +11,12 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>test</title>
+      <title>Week 4 - Data manipulation 1</title>
       <link>/post/stat2010-week4/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>&lt;p&gt;test&lt;/p&gt;
+      <description>&lt;p&gt;test post&lt;/p&gt;
 </description>
     </item>
     
@@ -26,8 +26,8 @@
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Data loading again&lt;/h1&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
@@ -39,17 +39,19 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 ## 6     1      6       89       60    69 NA  NA&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you success to load R file, you can see the above results.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;data-visualization-2&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Data visualization 2&lt;/h1&gt;
-&lt;div id=&#34;box-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Box plot&lt;/h2&gt;
+&lt;div id=&#34;data-visualization-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data visualization 2&lt;/h2&gt;
+&lt;div id=&#34;box-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Box plot&lt;/h3&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;boxplot(mydata$midterm1,
         main=&amp;quot;Box plot for midterm 1&amp;quot;,
         xlab=&amp;quot;Score&amp;quot;,
         ylab=&amp;quot;Exam name&amp;quot;,
         horizontal = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1[1] &amp;lt;- 50
+&lt;p&gt;Let us make an outlier in our data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1[1] &amp;lt;- 50 # what does this mean?
+
 boxplot(mydata$midterm1, mydata$midterm2,
         main=&amp;quot;Box plot for midterms&amp;quot;,
         names = c(&amp;quot;Midterm 1&amp;quot;, &amp;quot;Midterm 2&amp;quot;),
@@ -57,6 +59,7 @@ boxplot(mydata$midterm1, mydata$midterm2,
         ylab=&amp;quot;Exam name&amp;quot;,
         horizontal = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;detect-outlier&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Detect outlier&lt;/h2&gt;
@@ -174,7 +177,6 @@ points(x, result$fitted.values,
        type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

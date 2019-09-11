@@ -12,7 +12,7 @@ header:
   preview: yes
 ---
 
-# Data loading again
+## Data loading again
 
 ```{r echo=TRUE}
 mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
@@ -21,9 +21,9 @@ head(mydata)
 
 If you success to load R file, you can see the above results.
 
-# Data visualization 2
+## Data visualization 2
 
-## Box plot
+### Box plot
 
 ```{r}
 boxplot(mydata$midterm1,
@@ -33,8 +33,11 @@ boxplot(mydata$midterm1,
         horizontal = TRUE)
 ```
 
+Let us make an outlier in our data set.
+
 ```{r}
-mydata$midterm1[1] <- 50
+mydata$midterm1[1] <- 50 # what does this mean?
+
 boxplot(mydata$midterm1, mydata$midterm2,
         main="Box plot for midterms",
         names = c("Midterm 1", "Midterm 2"),

@@ -343,8 +343,8 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <div id="data-loading-again" class="section level1">
-<h1>Data loading again</h1>
+      <div id="data-loading-again" class="section level2">
+<h2>Data loading again</h2>
 <pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
 head(mydata)</code></pre>
 <pre><code>##   class std_id midterm1 midterm2 final  X X.1
@@ -356,17 +356,19 @@ head(mydata)</code></pre>
 ## 6     1      6       89       60    69 NA  NA</code></pre>
 <p>If you success to load R file, you can see the above results.</p>
 </div>
-<div id="data-visualization-2" class="section level1">
-<h1>Data visualization 2</h1>
-<div id="box-plot" class="section level2">
-<h2>Box plot</h2>
+<div id="data-visualization-2" class="section level2">
+<h2>Data visualization 2</h2>
+<div id="box-plot" class="section level3">
+<h3>Box plot</h3>
 <pre class="r"><code>boxplot(mydata$midterm1,
         main=&quot;Box plot for midterm 1&quot;,
         xlab=&quot;Score&quot;,
         ylab=&quot;Exam name&quot;,
         horizontal = TRUE)</code></pre>
 <p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>mydata$midterm1[1] &lt;- 50
+<p>Let us make an outlier in our data set.</p>
+<pre class="r"><code>mydata$midterm1[1] &lt;- 50 # what does this mean?
+
 boxplot(mydata$midterm1, mydata$midterm2,
         main=&quot;Box plot for midterms&quot;,
         names = c(&quot;Midterm 1&quot;, &quot;Midterm 2&quot;),
@@ -374,6 +376,7 @@ boxplot(mydata$midterm1, mydata$midterm2,
         ylab=&quot;Exam name&quot;,
         horizontal = TRUE)</code></pre>
 <p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
 </div>
 <div id="detect-outlier" class="section level2">
 <h2>Detect outlier</h2>
@@ -492,7 +495,6 @@ points(x, result$fitted.values,
 <p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
-</div>
 
     </div>
 
@@ -521,9 +523,9 @@ points(x, result$fitted.values,
         
         <li><a href="/post/stat2010-week1/">Week 1 - R Basics and Data loading</a></li>
         
-        <li><a href="/post/stat2010-week0/">Week 0: Preparation</a></li>
-        
         <li><a href="/post/stat2010/">Statistical Methods and Computing (STAT:2010 or 4200)</a></li>
+        
+        <li><a href="/post/stat2010-week0/">Week 0: Preparation</a></li>
         
       </ul>
     </div>
