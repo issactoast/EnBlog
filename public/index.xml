@@ -50,132 +50,65 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
         horizontal = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Let us make an outlier in our data set.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1[1] &amp;lt;- 50 # what does this mean?
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1[1] &amp;lt;- 60 # what does this mean?
 
-boxplot(mydata$midterm1, mydata$midterm2,
-        main=&amp;quot;Box plot for midterms&amp;quot;,
-        names = c(&amp;quot;Midterm 1&amp;quot;, &amp;quot;Midterm 2&amp;quot;),
+boxplot(mydata$midterm1,
+        main=&amp;quot;Box plot for midterm 1&amp;quot;,
         xlab=&amp;quot;Score&amp;quot;,
         ylab=&amp;quot;Exam name&amp;quot;,
         horizontal = TRUE)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;detect-outlier&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Detect outlier&lt;/h2&gt;
+&lt;div id=&#34;estimation-of-central-part-of-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Estimation of central part of data&lt;/h2&gt;
+&lt;div id=&#34;mean&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;mean&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 6:10
+mean(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Q. What is the mean score for midterm 1 score?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 78.56667&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;median&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;median&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 6:10
+y &amp;lt;- 5:10
+median(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 7.5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Q. What is the median of midterm 1 score?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 77&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Q. Which one is bigger? What would you say about the shape of the midterm 1 score’s distribution?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mode&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Mode&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;estimation-of-spread-of-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Estimation of spread of data&lt;/h2&gt;
+&lt;div id=&#34;quantiles&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quantiles&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; has a function named &lt;code&gt;quantile&lt;/code&gt; to calculate five more popular statistics;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;quantile(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    0%   25%   50%   75%  100% 
+## 60.00 75.25 77.00 81.75 90.00&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see the value corresponds to &lt;code&gt;0%&lt;/code&gt; is the minimum of the data. In the same manner, the value with &lt;code&gt;100%&lt;/code&gt; is the maximum of the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The first quartile (Q1)
+quantile(mydata$midterm1)[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   25% 
+## 75.25&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# The third quartile (Q3)
+quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   75% 
+## 81.75&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-coding&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data coding&lt;/h2&gt;
-&lt;div id=&#34;dummy-variable&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Dummy variable&lt;/h3&gt;
-&lt;/div&gt;
-&lt;div id=&#34;missing-value&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Missing value&lt;/h3&gt;
-&lt;p&gt;You can use &lt;code&gt;$&lt;/code&gt; to indicate the colum that you want to access.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 50 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The bracket &lt;code&gt;[]&lt;/code&gt; works too.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[,3]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 50 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[1,] # the data related to the first student in the list&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       50       51    67 NA   1&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;draw-a-pie-chart-using-table-function&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Draw a pie chart using &lt;code&gt;table&lt;/code&gt; function&lt;/h2&gt;
-&lt;p&gt;To draw a pie chart, we need to count how many of data points we have for each category.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mytable &amp;lt;- table(mydata$class)
-mytable&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##  1  2  3 
-## 10 10 10&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(mytable)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can use the name of table as the categories itself in pie chart.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pie(mytable, 
-    labels = names(mytable),
-    main=&amp;quot;Pie Chart of the class variable&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Or, we can define our own name set as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pie(mytable, 
-    labels = c(&amp;quot;Class 1&amp;quot;, &amp;quot;Class 2&amp;quot;, &amp;quot;Class 3&amp;quot;),
-    main=&amp;quot;Pie Chart of the class variable&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stem-and-leaf-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stem and leaf plot&lt;/h2&gt;
-&lt;p&gt;There is a function called &lt;code&gt;stem&lt;/code&gt; for drawing a stem and leaf plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;stem(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 122222344
-##   5 | 68889
-##   6 | 02344
-##   6 | 678
-##   7 | 14
-##   7 | 99&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This stem and leaf plot has 5 as a unit lenght. Let’s make it as 10 for the unit step. Using scale option,&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;stem(mydata$midterm2, scale = 0.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 12222234468889
-##   6 | 02344678
-##   7 | 1499&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can make a custom breaks as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2, breaks= c(4:8)*10) # or
-hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2, breaks= c(4:8)*10,
-     xlab = &amp;quot;Midterm 2 score&amp;quot;,
-     main = &amp;quot;Histogram of midterm 2 scores&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;median&lt;/code&gt;, you can describe the characteristics of the distribution as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 58.9&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 58&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scatter plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;lm&lt;/code&gt; function name stands for ‘linear model’, which is a statistical concept including the linear regression. By using &lt;code&gt;lm&lt;/code&gt; function, we can obtain a lot of information about the regression analysis as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- mydata$midterm1
-y &amp;lt;- mydata$midterm2
-result &amp;lt;- lm(y~x)
-result&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Call:
-## lm(formula = y ~ x)
-## 
-## Coefficients:
-## (Intercept)            x  
-##     15.9828       0.5486&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)
-points(x, result$fitted.values,
-       type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;When you draw a plot, it is important to set the same scale for x and y variables. &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; options in &lt;code&gt;plot&lt;/code&gt; function allow us to set the range for each axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = &amp;quot;Midterm 1 score&amp;quot;, 
-     ylab = &amp;quot;Midterm 2 score&amp;quot;,
-     main = &amp;quot;Plot of Midterm scores&amp;quot;)
-points(x, result$fitted.values,
-       type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week3_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

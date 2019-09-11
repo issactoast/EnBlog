@@ -36,141 +36,72 @@ boxplot(mydata$midterm1,
 Let us make an outlier in our data set.
 
 ```{r}
-mydata$midterm1[1] <- 50 # what does this mean?
+mydata$midterm1[1] <- 60 # what does this mean?
 
-boxplot(mydata$midterm1, mydata$midterm2,
-        main="Box plot for midterms",
-        names = c("Midterm 1", "Midterm 2"),
+boxplot(mydata$midterm1,
+        main="Box plot for midterm 1",
         xlab="Score",
         ylab="Exam name",
         horizontal = TRUE)
 ```
 
+## Estimation of central part of data
 
-## Detect outlier
+### mean
+
+```{r}
+x <- 6:10
+mean(x)
+```
+
+Q. What is the mean score for midterm 1 score?
+
+```{r}
+mean(mydata$midterm1)
+```
+
+### median
+
+```{r}
+x <- 6:10
+y <- 5:10
+median(x)
+median(y)
+```
+
+Q. What is the median of midterm 1 score?
+
+```{r}
+median(mydata$midterm1)
+```
+
+Q. Which one is bigger? What would you say about the shape of the midterm 1 score's distribution?
+
+### Mode
+
+## Estimation of spread of data
+
+### Quantiles
+
+`R` has a function named `quantile` to calculate five more popular statistics;
+
+```{r}
+quantile(mydata$midterm1)
+```
+
+We can see the value corresponds to `0%` is the minimum of the data. In the same manner, the value with `100%` is the maximum of the data.
+
+```{r}
+# The first quartile (Q1)
+quantile(mydata$midterm1)[2]
+
+# The third quartile (Q3)
+quantile(mydata$midterm1)[4]
+```
+
 
 ## Data coding
 
-### Dummy variable
- 
-### Missing value
-
-
-
-You can use `$` to indicate the colum that you want to access.
-
-```{r}
-mydata$midterm1
-```
-
-The bracket `[]` works too.
-
-```{r}
-mydata[,3]
-mydata[1,] # the data related to the first student in the list
-```
-
-## Draw a pie chart using `table` function
-
-To draw a pie chart, we need to count how many of data points we have for each category.
-
-```{r}
-mytable <- table(mydata$class)
-mytable
-names(mytable)
-```
-
-We can use the name of table as the categories itself in pie chart. 
-
-```{r}
-pie(mytable, 
-    labels = names(mytable),
-    main="Pie Chart of the class variable")
-```
-
-Or, we can define our own name set as follows;
-
-```{r}
-pie(mytable, 
-    labels = c("Class 1", "Class 2", "Class 3"),
-    main="Pie Chart of the class variable")
-```
-
-
-## Stem and leaf plot
-
-There is a function called `stem` for drawing a stem and leaf plot.
-
-```{r}
-stem(mydata$midterm2)
-```
-
-This stem and leaf plot has 5 as a unit lenght. Let's make it as 10 for the unit step. Using scale option, 
-
-```{r}
-stem(mydata$midterm2, scale = 0.5)
-```
-
-## Histogram
-
-```{r}
-hist(mydata$midterm2)
-```
-
-We can make a custom breaks as follows;
-
-```{r}
-hist(mydata$midterm2, breaks= c(4:8)*10) # or
-hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))
-```
-
-```{r}
-hist(mydata$midterm2, breaks= c(4:8)*10,
-     xlab = "Midterm 2 score",
-     main = "Histogram of midterm 2 scores")
-```
-
-Using `mean` and `median`, you can describe the characteristics of the distribution as follows;
-
-```{r}
-mean(mydata$midterm2)
-median(mydata$midterm2)
-```
-
-
-## Scatter plot
-
-```{r}
-plot(mydata$midterm1, mydata$midterm2)
-```
-
-`lm` function name stands for 'linear model', which is a statistical concept including the linear regression. By using `lm` function, we can obtain a lot of information about the regression analysis as follows;
-
-```{r}
-x <- mydata$midterm1
-y <- mydata$midterm2
-result <- lm(y~x)
-result
-```
-
-
-```{r}
-plot(x, y)
-points(x, result$fitted.values,
-       type = "l", col = "red")
-```
-
-When you draw a plot, it is important to set the same scale for x and y variables. `xlim` and `ylim` options in `plot` function allow us to set the range for each axis. 
- 
-```{r}
-plot(x, y,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = "Midterm 1 score", 
-     ylab = "Midterm 2 score",
-     main = "Plot of Midterm scores")
-points(x, result$fitted.values,
-       type = "l", col = "red")
-```
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 

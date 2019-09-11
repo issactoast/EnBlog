@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    2 min read
   </span>
   
 
@@ -367,132 +367,65 @@ head(mydata)</code></pre>
         horizontal = TRUE)</code></pre>
 <p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Let us make an outlier in our data set.</p>
-<pre class="r"><code>mydata$midterm1[1] &lt;- 50 # what does this mean?
+<pre class="r"><code>mydata$midterm1[1] &lt;- 60 # what does this mean?
 
-boxplot(mydata$midterm1, mydata$midterm2,
-        main=&quot;Box plot for midterms&quot;,
-        names = c(&quot;Midterm 1&quot;, &quot;Midterm 2&quot;),
+boxplot(mydata$midterm1,
+        main=&quot;Box plot for midterm 1&quot;,
         xlab=&quot;Score&quot;,
         ylab=&quot;Exam name&quot;,
         horizontal = TRUE)</code></pre>
 <p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
-<div id="detect-outlier" class="section level2">
-<h2>Detect outlier</h2>
+<div id="estimation-of-central-part-of-data" class="section level2">
+<h2>Estimation of central part of data</h2>
+<div id="mean" class="section level3">
+<h3>mean</h3>
+<pre class="r"><code>x &lt;- 6:10
+mean(x)</code></pre>
+<pre><code>## [1] 8</code></pre>
+<p>Q. What is the mean score for midterm 1 score?</p>
+<pre class="r"><code>mean(mydata$midterm1)</code></pre>
+<pre><code>## [1] 78.56667</code></pre>
+</div>
+<div id="median" class="section level3">
+<h3>median</h3>
+<pre class="r"><code>x &lt;- 6:10
+y &lt;- 5:10
+median(x)</code></pre>
+<pre><code>## [1] 8</code></pre>
+<pre class="r"><code>median(y)</code></pre>
+<pre><code>## [1] 7.5</code></pre>
+<p>Q. What is the median of midterm 1 score?</p>
+<pre class="r"><code>median(mydata$midterm1)</code></pre>
+<pre><code>## [1] 77</code></pre>
+<p>Q. Which one is bigger? What would you say about the shape of the midterm 1 score’s distribution?</p>
+</div>
+<div id="mode" class="section level3">
+<h3>Mode</h3>
+</div>
+</div>
+<div id="estimation-of-spread-of-data" class="section level2">
+<h2>Estimation of spread of data</h2>
+<div id="quantiles" class="section level3">
+<h3>Quantiles</h3>
+<p><code>R</code> has a function named <code>quantile</code> to calculate five more popular statistics;</p>
+<pre class="r"><code>quantile(mydata$midterm1)</code></pre>
+<pre><code>##    0%   25%   50%   75%  100% 
+## 60.00 75.25 77.00 81.75 90.00</code></pre>
+<p>We can see the value corresponds to <code>0%</code> is the minimum of the data. In the same manner, the value with <code>100%</code> is the maximum of the data.</p>
+<pre class="r"><code># The first quartile (Q1)
+quantile(mydata$midterm1)[2]</code></pre>
+<pre><code>##   25% 
+## 75.25</code></pre>
+<pre class="r"><code># The third quartile (Q3)
+quantile(mydata$midterm1)[4]</code></pre>
+<pre><code>##   75% 
+## 81.75</code></pre>
+</div>
 </div>
 <div id="data-coding" class="section level2">
 <h2>Data coding</h2>
-<div id="dummy-variable" class="section level3">
-<h3>Dummy variable</h3>
-</div>
-<div id="missing-value" class="section level3">
-<h3>Missing value</h3>
-<p>You can use <code>$</code> to indicate the colum that you want to access.</p>
-<pre class="r"><code>mydata$midterm1</code></pre>
-<pre><code>##  [1] 50 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73</code></pre>
-<p>The bracket <code>[]</code> works too.</p>
-<pre class="r"><code>mydata[,3]</code></pre>
-<pre><code>##  [1] 50 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73</code></pre>
-<pre class="r"><code>mydata[1,] # the data related to the first student in the list</code></pre>
-<pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       50       51    67 NA   1</code></pre>
-</div>
-</div>
-<div id="draw-a-pie-chart-using-table-function" class="section level2">
-<h2>Draw a pie chart using <code>table</code> function</h2>
-<p>To draw a pie chart, we need to count how many of data points we have for each category.</p>
-<pre class="r"><code>mytable &lt;- table(mydata$class)
-mytable</code></pre>
-<pre><code>## 
-##  1  2  3 
-## 10 10 10</code></pre>
-<pre class="r"><code>names(mytable)</code></pre>
-<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<p>We can use the name of table as the categories itself in pie chart.</p>
-<pre class="r"><code>pie(mytable, 
-    labels = names(mytable),
-    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Or, we can define our own name set as follows;</p>
-<pre class="r"><code>pie(mytable, 
-    labels = c(&quot;Class 1&quot;, &quot;Class 2&quot;, &quot;Class 3&quot;),
-    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-</div>
-<div id="stem-and-leaf-plot" class="section level2">
-<h2>Stem and leaf plot</h2>
-<p>There is a function called <code>stem</code> for drawing a stem and leaf plot.</p>
-<pre class="r"><code>stem(mydata$midterm2)</code></pre>
-<pre><code>## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 122222344
-##   5 | 68889
-##   6 | 02344
-##   6 | 678
-##   7 | 14
-##   7 | 99</code></pre>
-<p>This stem and leaf plot has 5 as a unit lenght. Let’s make it as 10 for the unit step. Using scale option,</p>
-<pre class="r"><code>stem(mydata$midterm2, scale = 0.5)</code></pre>
-<pre><code>## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 12222234468889
-##   6 | 02344678
-##   7 | 1499</code></pre>
-</div>
-<div id="histogram" class="section level2">
-<h2>Histogram</h2>
-<pre class="r"><code>hist(mydata$midterm2)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<p>We can make a custom breaks as follows;</p>
-<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10) # or
-hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10,
-     xlab = &quot;Midterm 2 score&quot;,
-     main = &quot;Histogram of midterm 2 scores&quot;)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Using <code>mean</code> and <code>median</code>, you can describe the characteristics of the distribution as follows;</p>
-<pre class="r"><code>mean(mydata$midterm2)</code></pre>
-<pre><code>## [1] 58.9</code></pre>
-<pre class="r"><code>median(mydata$midterm2)</code></pre>
-<pre><code>## [1] 58</code></pre>
-</div>
-<div id="scatter-plot" class="section level2">
-<h2>Scatter plot</h2>
-<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p><code>lm</code> function name stands for ‘linear model’, which is a statistical concept including the linear regression. By using <code>lm</code> function, we can obtain a lot of information about the regression analysis as follows;</p>
-<pre class="r"><code>x &lt;- mydata$midterm1
-y &lt;- mydata$midterm2
-result &lt;- lm(y~x)
-result</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = y ~ x)
-## 
-## Coefficients:
-## (Intercept)            x  
-##     15.9828       0.5486</code></pre>
-<pre class="r"><code>plot(x, y)
-points(x, result$fitted.values,
-       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p>When you draw a plot, it is important to set the same scale for x and y variables. <code>xlim</code> and <code>ylim</code> options in <code>plot</code> function allow us to set the range for each axis.</p>
-<pre class="r"><code>plot(x, y,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = &quot;Midterm 1 score&quot;, 
-     ylab = &quot;Midterm 2 score&quot;,
-     main = &quot;Plot of Midterm scores&quot;)
-points(x, result$fitted.values,
-       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
-<p><img src="/post/stat2010-week3_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 
