@@ -15,7 +15,13 @@ header:
 ## Data loading again
 
 ```{r echo=TRUE}
+# load data
 mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
+
+# clean data; choose 1~5 columns as data set
+mydata <- mydata[,1:5]
+
+# check the result
 head(mydata)
 ```
 
@@ -29,7 +35,6 @@ If you success to load R file, you can see the above results.
 boxplot(mydata$midterm1,
         main="Box plot for midterm 1",
         xlab="Score",
-        ylab="Exam name",
         horizontal = TRUE)
 ```
 
@@ -41,9 +46,21 @@ mydata$midterm1[1] <- 60 # what does this mean?
 boxplot(mydata$midterm1,
         main="Box plot for midterm 1",
         xlab="Score",
-        ylab="Exam name",
         horizontal = TRUE)
 ```
+
+Let us draw a multiple box plots
+
+```{r}
+boxplot(mydata$midterm1, mydata$midterm2,
+        main = "Box plot for Exam scores",
+        names= c("midterm 1", "midterm 2"),
+        ylab = "Exams",
+        xlab = "Score",
+        horizontal = TRUE)
+```
+
+Q. What about box plots for midterm 1, midterm 2, and finals?
 
 ## Estimation of central part of data
 
@@ -77,7 +94,6 @@ median(mydata$midterm1)
 
 Q. Which one is bigger? What would you say about the shape of the midterm 1 score's distribution?
 
-### Mode
 
 ## Estimation of spread of data
 
@@ -99,8 +115,12 @@ quantile(mydata$midterm1)[2]
 quantile(mydata$midterm1)[4]
 ```
 
+### Variance and Standard deviation
 
-## Data coding
+```{r}
+var(mydata$midterm1)
+sd(mydata$midterm1)
+```
 
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>

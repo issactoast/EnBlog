@@ -17,7 +17,7 @@
       
     
   
-  <meta name="description" content="test post">
+  <meta name="description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/stat2010-week4/">
@@ -74,7 +74,7 @@
   <meta property="og:site_name" content="Issac Lee">
   <meta property="og:url" content="/post/stat2010-week4/">
   <meta property="og:title" content="Week 4 - Data manipulation 1 | Issac Lee">
-  <meta property="og:description" content="test post"><meta property="og:image" content="/img/headers/stat2010_wide.png">
+  <meta property="og:description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results."><meta property="og:image" content="/img/headers/stat2010_wide.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-09-13T00:00:00&#43;00:00">
@@ -343,7 +343,38 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>test post</p>
+      <div id="data-loading-again" class="section level2">
+<h2>Data loading again</h2>
+<pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
+head(mydata)</code></pre>
+<pre><code>##   class std_id midterm1 midterm2 final  X X.1
+## 1     1      1       70       51    67 NA   1
+## 2     1      2       78       66    66 NA  NA
+## 3     1      3       80       71    67 NA  NA
+## 4     1      4       75       67    70 NA  NA
+## 5     1      5       73       56    81 NA  NA
+## 6     1      6       89       60    69 NA  NA</code></pre>
+<p>If you success to load R file, you can see the above results.</p>
+<div id="mode" class="section level3">
+<h3>Mode</h3>
+<p>Mode is the value which is the most frequently appreared in a data set. To find a mode of the data, we need to calculate the frequency of the data. We already learned a <code>table</code> function when we draw a pie chart.</p>
+<pre class="r"><code>x &lt;- c(1, 3, 9, 7, 1, 2, 2, 5, 3, 3, 3)
+result &lt;- table(x)
+result</code></pre>
+<pre><code>## x
+## 1 2 3 5 7 9 
+## 2 2 4 1 1 1</code></pre>
+<p>It says <code>3</code> is the most frequently appears in the data vector; 4 times appears.</p>
+<pre class="r"><code>sort(unique(mydata$midterm1))</code></pre>
+<pre><code>##  [1] 70 73 74 75 76 77 78 79 80 81 82 83 86 88 89 90</code></pre>
+<pre class="r"><code>Mode &lt;- function(x) {
+  ux &lt;- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+Mode(mydata$midterm1)</code></pre>
+<pre><code>## [1] 77</code></pre>
+</div>
+</div>
 
     </div>
 

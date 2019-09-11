@@ -14,4 +14,35 @@ header:
   preview: yes
 ---
 
-test post
+## Data loading again
+
+```{r echo=TRUE}
+mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
+head(mydata)
+```
+
+If you success to load R file, you can see the above results.
+
+### Mode
+
+Mode is the value which is the most frequently appreared in a data set. To find a mode of the data, we need to calculate the frequency of the data. We already learned a `table` function when we draw a pie chart.
+
+```{r}
+x <- c(1, 3, 9, 7, 1, 2, 2, 5, 3, 3, 3)
+result <- table(x)
+result
+```
+
+It says `3` is the most frequently appears in the data vector; 4 times appears.
+
+
+ 
+```{r}
+sort(unique(mydata$midterm1))
+
+Mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+Mode(mydata$midterm1)
+```
