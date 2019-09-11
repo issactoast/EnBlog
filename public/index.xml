@@ -449,7 +449,9 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The course materials will be uploaded in this page. :)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Week 2: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week2/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Week 2: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week2/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Week 3: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week3/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -561,6 +563,22 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;What is the treatment group and the control group?
 What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 3(STAT:1010) - Data type and errors</title>
+      <link>/post/stat1010-week3/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010-week3/</guid>
+      <description>
+
+&lt;h2 id=&#34;problem-1-data-types&#34;&gt;Problem 1 (Data types)&lt;/h2&gt;
+
+&lt;h2 id=&#34;problem-2-about-errors&#34;&gt;Problem 2 (About errors)&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -1270,15 +1288,6 @@ git submodule update --init --recursive
 
 &lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Analysis of Multiple Life Insurance using Copula and Common Shock</title>
-      <link>/publication/kim2014analysis/</link>
-      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/kim2014analysis/</guid>
-      <description></description>
     </item>
     
   </channel>
