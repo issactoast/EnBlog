@@ -583,11 +583,19 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Qualitative data&lt;/strong&gt;: values that can be placed into nonnumerical categories.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Nominal&lt;/strong&gt; level of measurement - No ranking!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Nominal&lt;/em&gt; level of measurement - No ranking!&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;&lt;strong&gt;Ordianl&lt;/strong&gt; level of measurement - It has ranking system!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Ordianl&lt;/em&gt; level of measurement - It has ranking system!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quantitative data&lt;/strong&gt;: values representing counts or measurments&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quantitative data&lt;/strong&gt;: values representing counts or measurments&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Countinuous&lt;/em&gt; data takes any value in a given interval.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Discrete&lt;/em&gt; data can take on only particular, distinct values and not other values in between.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Classify each of the following data as qualitative or quantitative.&lt;/p&gt;

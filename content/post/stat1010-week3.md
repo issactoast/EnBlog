@@ -22,11 +22,15 @@ Definitions:
 
 1. **Qualitative data**: values that can be placed into nonnumerical categories.
 
-    **Nominal** level of measurement - No ranking!
+    - *Nominal* level of measurement - No ranking!
     
-    **Ordianl** level of measurement - It has ranking system!
+    - *Ordianl* level of measurement - It has ranking system!
 
 2. **Quantitative data**: values representing counts or measurments
+
+    - *Countinuous* data takes any value in a given interval.
+    
+    - *Discrete* data can take on only particular, distinct values and not other values in between.
 
 Classify each of the following data as qualitative or quantitative.
 
