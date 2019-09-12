@@ -52,6 +52,74 @@ Mode(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Week 3(STAT:1010) - Data type and errors</title>
+      <link>/post/stat1010-week3/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010-week3/</guid>
+      <description>
+
+&lt;h2 id=&#34;problem-1-data-types&#34;&gt;Problem 1 (Data types)&lt;/h2&gt;
+
+&lt;p&gt;Definitions:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Qualitative data&lt;/strong&gt;: values that can be placed into nonnumerical categories.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Nominal&lt;/em&gt; level of measurement - No ranking!&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Ordianl&lt;/em&gt; level of measurement - It has ranking system!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quantitative data&lt;/strong&gt;: values representing counts or measurments&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Countinuous&lt;/em&gt; data takes any value in a given interval.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Discrete&lt;/em&gt; data can take on only particular, distinct values and not other values in between.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Classify each of the following data as qualitative or quantitative.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ice cream brands in Hyvee.&lt;/li&gt;
+&lt;li&gt;Heights of U of Iowa students&lt;/li&gt;
+&lt;li&gt;Your final grade of this course&lt;/li&gt;
+&lt;li&gt;Favarite ice cream flavors of students in this class&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;problem-2-size-of-the-errors&#34;&gt;Problem 2 (Size of the errors)&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Absolute error&lt;/strong&gt;: how far a claimed or measured value lies from the true value.&lt;/p&gt;
+
+&lt;p&gt;Absolute error = measured value - true value&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Relative error&lt;/strong&gt;: comparing the size of the absolute error to the true value.&lt;/p&gt;
+
+&lt;p&gt;Relative error = abs. error / true value * 100&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Could you tell me the example about these two error? Here is mine;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I ordered a food which cost $12 in a restaurant, but server charged my $10 by mistake;
+
+- Absolute error? and Relative error?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;accuracy-vs-precision&#34;&gt;Accuracy vs. Precision&lt;/h2&gt;
+
+&lt;p&gt;Accuracy: how closely a measurement approximates a true value.&lt;/p&gt;
+
+&lt;p&gt;Precision: the amount of detail in a measurement.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 3 - Data visualization 2</title>
       <link>/post/stat2010-week3/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
@@ -563,74 +631,6 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;What is the treatment group and the control group?
 What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 3(STAT:1010) - Data type and errors</title>
-      <link>/post/stat1010-week3/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010-week3/</guid>
-      <description>
-
-&lt;h2 id=&#34;problem-1-data-types&#34;&gt;Problem 1 (Data types)&lt;/h2&gt;
-
-&lt;p&gt;Definitions:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Qualitative data&lt;/strong&gt;: values that can be placed into nonnumerical categories.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Nominal&lt;/em&gt; level of measurement - No ranking!&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Ordianl&lt;/em&gt; level of measurement - It has ranking system!&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quantitative data&lt;/strong&gt;: values representing counts or measurments&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Countinuous&lt;/em&gt; data takes any value in a given interval.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Discrete&lt;/em&gt; data can take on only particular, distinct values and not other values in between.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Classify each of the following data as qualitative or quantitative.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ice cream brands in Hyvee.&lt;/li&gt;
-&lt;li&gt;Heights of U of Iowa students&lt;/li&gt;
-&lt;li&gt;Your final grade of this course&lt;/li&gt;
-&lt;li&gt;Favarite ice cream flavors of students in this class&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;problem-2-size-of-the-errors&#34;&gt;Problem 2 (Size of the errors)&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Absolute error&lt;/strong&gt;: how far a claimed or measured value lies from the true value.&lt;/p&gt;
-
-&lt;p&gt;Absolute error = measured value - true value&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Relative error&lt;/strong&gt;: comparing the size of the absolute error to the true value.&lt;/p&gt;
-
-&lt;p&gt;Relative error = abs. error / true value * 100&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Could you tell me the example about these two error? Here is mine;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I ordered a food which cost $12 in a restaurant, but server charged my $10 by mistake;
-
-- Absolute error? and Relative error?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;accuracy-vs-precision&#34;&gt;Accuracy vs. Precision&lt;/h2&gt;
-
-&lt;p&gt;Accuracy: how closely a measurement approximates a true value.&lt;/p&gt;
-
-&lt;p&gt;Precision: the amount of detail in a measurement.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 </description>

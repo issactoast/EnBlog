@@ -22,6 +22,21 @@
     </item>
     
     <item>
+      <title>Week 3(STAT:1010) - Data type and errors</title>
+      <link>/post/stat1010-week3/</link>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010-week3/</guid>
+      <description>Problem 1 (Data types) Definitions:
+ Qualitative data: values that can be placed into nonnumerical categories.
+ Nominal level of measurement - No ranking!
+ Ordianl level of measurement - It has ranking system!
+  Quantitative data: values representing counts or measurments
+ Countinuous data takes any value in a given interval.
+ Discrete data can take on only particular, distinct values and not other values in between.</description>
+    </item>
+    
+    <item>
       <title>Week 3 - Data visualization 2</title>
       <link>/post/stat2010-week3/</link>
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
@@ -98,21 +113,6 @@ U of Iowa virtual desktop
       <guid>/post/stat1010-week2/</guid>
       <description>Problem 1 A large warehouse is flled with light bulbs. An electronics engineer wants to estimate the mean lifespan of these bulbs. To this end, 18 of the bulbs were randomly selected and the lifespan was measures; the mean lifespan of the 18 bulbs was 2550 hours.
  What is the population? What is the sample? What is the parameter? What is the sample statistics?  Problem 2 In a survey of 400 randomly selected UI students, 30% of students said they like a chocolate ice cream.</description>
-    </item>
-    
-    <item>
-      <title>Week 3(STAT:1010) - Data type and errors</title>
-      <link>/post/stat1010-week3/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010-week3/</guid>
-      <description>Problem 1 (Data types) Definitions:
- Qualitative data: values that can be placed into nonnumerical categories.
- Nominal level of measurement - No ranking!
- Ordianl level of measurement - It has ranking system!
-  Quantitative data: values representing counts or measurments
- Countinuous data takes any value in a given interval.
- Discrete data can take on only particular, distinct values and not other values in between.</description>
     </item>
     
     <item>

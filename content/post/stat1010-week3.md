@@ -1,8 +1,8 @@
 +++
 title = "Week 3(STAT:1010) - Data type and errors"
 
-date = 2019-08-27
-lastmod = 2019-08-27
+date = 2019-09-12
+lastmod = 2019-09-12
 draft = false
 
 image_preview = "stat1010.jpg"
