@@ -16,7 +16,10 @@
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -125,7 +128,10 @@ Mode(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -233,7 +239,10 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -366,7 +375,10 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;
@@ -681,7 +693,10 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/cteproject/</guid>
-      <description>&lt;div id=&#34;abstract&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;abstract&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education.&lt;/p&gt;
 &lt;ul&gt;
