@@ -1,5 +1,5 @@
 ---
-title: 'Week 4 - Data manipulation 1'
+title: 'Week 4 - Function and Normal distribution'
 author: Issac Lee
 date: '2019-09-13'
 slug: stat2010-week4
@@ -16,20 +16,45 @@ header:
 
 
 
-<div id="data-loading-again" class="section level2">
-<h2>Data loading again</h2>
-<pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
-head(mydata)</code></pre>
-<pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1
-## 2     1      2       78       66    66 NA  NA
-## 3     1      3       80       71    67 NA  NA
-## 4     1      4       75       67    70 NA  NA
-## 5     1      5       73       56    81 NA  NA
-## 6     1      6       89       60    69 NA  NA</code></pre>
-<p>If you success to load R file, you can see the above results.</p>
-<div id="mode" class="section level3">
-<h3>Mode</h3>
+<div id="make-your-own-function" class="section level2">
+<h2>Make your own function</h2>
+<p>We know <code>R</code> can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.</p>
+<pre><code>(°F − 32) × 5/9 = °C</code></pre>
+<p>Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;</p>
+<pre class="r"><code>(89 - 32) * 5/9</code></pre>
+<pre><code>## [1] 31.66667</code></pre>
+<p>Can you convert the following Fahrenheits in Celcius?</p>
+<pre class="r"><code>67, 45, 92, 83, 70</code></pre>
+<p>We can run the following five codes;</p>
+<pre class="r"><code>(67 - 32) * 5/9</code></pre>
+<pre><code>## [1] 19.44444</code></pre>
+<pre class="r"><code>(45 - 32) * 5/9</code></pre>
+<pre><code>## [1] 7.222222</code></pre>
+<pre class="r"><code>(92 - 32) * 5/9</code></pre>
+<pre><code>## [1] 33.33333</code></pre>
+<pre class="r"><code>(83 - 32) * 5/9</code></pre>
+<pre><code>## [1] 28.33333</code></pre>
+<pre class="r"><code>(70 - 32) * 5/9</code></pre>
+<pre><code>## [1] 21.11111</code></pre>
+<p>or, run the following compact codes;</p>
+<pre class="r"><code>myF &lt;- c(67, 45, 92, 83, 70)
+(myF - 32) * 5/9</code></pre>
+<pre><code>## [1] 19.444444  7.222222 33.333333 28.333333 21.111111</code></pre>
+<p>Here is a problem; I dont want to memorise this annoying formula every time. I want a nice function like name like <code>convFtoC</code> and use that function as follows;</p>
+<pre class="r"><code>convFtoC(67)</code></pre>
+<p>So, let us make a function which gives us the numver in Celcius when we feed Fahrenheits to the function.</p>
+<pre class="r"><code>convFtoC &lt;- function(numF){
+    result &lt;- (numF - 32) * 5/9
+    result
+}</code></pre>
+<p>Above, we define a function named <code>convFtoC</code> whose input is Fahrenheits, <code>numF</code>, and its output is the corresponding number in Celcius.</p>
+<pre class="r"><code>convFtoC(89)</code></pre>
+<pre><code>## [1] 31.66667</code></pre>
+<p>which has the same result as the following result.</p>
+<pre class="r"><code>(89 - 32) * 5/9</code></pre>
+<pre><code>## [1] 31.66667</code></pre>
+<div id="mode-functionthis-is-an-advanced-part-you-can-skip-for-now" class="section level3">
+<h3>Mode function(This is an advanced part you can skip for now)</h3>
 <p>Mode is the value which is the most frequently appreared in a data set. To find a mode of the data, we need to calculate the frequency of the data. We already learned a <code>table</code> function when we draw a pie chart.</p>
 <pre class="r"><code>x &lt;- c(1, 3, 9, 7, 1, 2, 2, 5, 3, 3, 3)
 result &lt;- table(x)
@@ -38,13 +63,53 @@ result</code></pre>
 ## 1 2 3 5 7 9 
 ## 2 2 4 1 1 1</code></pre>
 <p>It says <code>3</code> is the most frequently appears in the data vector; 4 times appears.</p>
-<pre class="r"><code>sort(unique(mydata$midterm1))</code></pre>
-<pre><code>##  [1] 70 73 74 75 76 77 78 79 80 81 82 83 86 88 89 90</code></pre>
+<pre class="r"><code>sort(unique(x))</code></pre>
+<pre><code>## [1] 1 2 3 5 7 9</code></pre>
 <pre class="r"><code>Mode &lt;- function(x) {
   ux &lt;- unique(x)
   ux[which.max(tabulate(match(x, ux)))]
 }
-Mode(mydata$midterm1)</code></pre>
-<pre><code>## [1] 77</code></pre>
+Mode(x)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+</div>
+<div id="making-categorical-variables" class="section level2">
+<h2>Making categorical variables</h2>
+<div id="comparing-numbers" class="section level3">
+<h3>Comparing numbers</h3>
+<p>In <code>R</code>, there are some useful operators. For example, by using <code>==</code>, we can ask <code>R</code> to determine whether the two values are same.</p>
+<pre class="r"><code>1 == 2</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>We can compare the values, too.</p>
+<pre class="r"><code>1 &lt; 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>3 &gt; 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>5 &lt;= 6</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>c(1, 2, 3) &lt; 2</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
+<p>The last code that I wrote will be very useful when we want to manipulate the data. Here is a toy example.</p>
+<pre class="r"><code>a &lt;- c(1:10)
+a</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>We have learned that we can access the subset of the object using <code>[]</code> command as follows;</p>
+<pre class="r"><code>a[1:5] &lt;- c(1, 5, 3, 2, 4)
+a</code></pre>
+<pre><code>##  [1]  1  5  3  2  4  6  7  8  9 10</code></pre>
+<p>What if I want to access the elements in <code>a</code> variable which satisfies some criteria? For example, what if I want to <strong>filter</strong> the elements which are less than 4?</p>
+<pre class="r"><code>a[a &lt; 4]</code></pre>
+<pre><code>## [1] 1 3 2</code></pre>
+<p>How this happen? Let’s see what is the result of <code>a &lt; 4</code>.</p>
+<pre class="r"><code>a &lt; 4</code></pre>
+<pre><code>##  [1]  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Thus, what we did is to use this TRUE and FALSE vector for picking the elements in <code>a</code>. If you understand the above code, we can try these things;</p>
+<pre class="r"><code>a</code></pre>
+<pre><code>##  [1]  1  5  3  2  4  6  7  8  9 10</code></pre>
+<pre class="r"><code>b &lt;- rep(0, 10) # repeat 0s 10 times
+b[a &lt; 4]  &lt;- &quot;low&quot;
+b[a &gt;= 4] &lt;- &quot;high&quot;
+b</code></pre>
+<pre><code>##  [1] &quot;low&quot;  &quot;high&quot; &quot;low&quot;  &quot;low&quot;  &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot;</code></pre>
 </div>
 </div>

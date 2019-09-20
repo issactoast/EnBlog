@@ -1,5 +1,5 @@
 ---
-title: 'Week 4 - Data manipulation 1'
+title: 'Week 4 - Function and Normal distribution'
 author: Issac Lee
 date: '2019-09-13'
 slug: stat2010-week4
@@ -14,16 +14,70 @@ header:
   preview: yes
 ---
 
-## Data loading again
+## Make your own function
 
-```{r echo=TRUE}
-mydata <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv", header = TRUE)
-head(mydata)
+We know `R` can do some calculation. I am always confused when I use Fahrenheit, "ºF", instead of using Celsius "ºC". I searched the conversion formula on the internet.
+
+    (°F − 32) × 5/9 = °C
+
+Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
+
+```{r}
+(89 - 32) * 5/9
 ```
 
-If you success to load R file, you can see the above results.
+Can you convert the following Fahrenheits in Celcius?
 
-### Mode
+```{r eval=FALSE}
+67, 45, 92, 83, 70
+```
+
+We can run the following five codes;
+
+```{r}
+(67 - 32) * 5/9
+(45 - 32) * 5/9
+(92 - 32) * 5/9
+(83 - 32) * 5/9
+(70 - 32) * 5/9
+```
+
+or, run the following compact codes;
+
+```{r}
+myF <- c(67, 45, 92, 83, 70)
+(myF - 32) * 5/9
+```
+
+Here is a problem; I dont want to memorise this annoying formula every time. I want a nice function like name like `convFtoC` and use that function as follows;
+
+```{r eval=FALSE}
+convFtoC(67)
+```
+
+So, let us make a function which gives us the numver in Celcius when we feed Fahrenheits to the function.
+
+```{r}
+convFtoC <- function(numF){
+    result <- (numF - 32) * 5/9
+    result
+}
+```
+
+Above, we define a function named `convFtoC` whose input is Fahrenheits, `numF`, and its output is the corresponding number in Celcius.
+
+```{r}
+convFtoC(89)
+```
+
+which has the same result as the following result.
+
+```{r}
+(89 - 32) * 5/9
+```
+
+
+### Mode function(This is an advanced part you can skip for now)
 
 Mode is the value which is the most frequently appreared in a data set. To find a mode of the data, we need to calculate the frequency of the data. We already learned a `table` function when we draw a pie chart.
 
@@ -38,11 +92,67 @@ It says `3` is the most frequently appears in the data vector; 4 times appears.
 
  
 ```{r}
-sort(unique(mydata$midterm1))
+sort(unique(x))
 
 Mode <- function(x) {
   ux <- unique(x)
   ux[which.max(tabulate(match(x, ux)))]
 }
-Mode(mydata$midterm1)
+Mode(x)
 ```
+
+## Making categorical variables
+
+### Comparing numbers
+
+In `R`, there are some useful operators. For example, by using `==`, we can ask `R` to determine whether the two values are same.
+
+```{r}
+1 == 2
+```
+
+We can compare the values, too.
+
+```{r}
+1 < 2
+3 > 2
+5 <= 6
+c(1, 2, 3) < 2
+```
+
+The last code that I wrote will be very useful when we want to manipulate the data. Here is a toy example.
+
+```{r}
+a <- c(1:10)
+a
+```
+
+We have learned that we can access the subset of the object using `[]` command as follows;
+
+```{r}
+a[1:5] <- c(1, 5, 3, 2, 4)
+a
+```
+
+What if I want to access the elements in `a` variable which satisfies some criteria? For example, what if I want to **filter** the elements which are less than 4?
+
+```{r}
+a[a < 4]
+```
+
+How this happen? Let's see what is the result of `a < 4`.
+
+```{r}
+a < 4
+```
+
+Thus, what we did is to use this TRUE and FALSE vector for picking the elements in `a`. If you understand the above code, we can try these things;
+
+```{r}
+a
+b <- rep(0, 10) # repeat 0s 10 times
+b[a < 4]  <- "low"
+b[a >= 4] <- "high"
+b
+```
+

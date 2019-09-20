@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.44" />
   <meta name="author" content="Issac Lee">
 
   
@@ -321,7 +321,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
@@ -360,11 +360,14 @@
   </a>
   
   <h3 class="article-title" itemprop="headline">
-    <a href="/post/stat2010-week4/" itemprop="url">Week 4 - Data manipulation 1</a>
+    <a href="/post/stat2010-week4/" itemprop="url">Week 4 - Function and Normal distribution</a>
   </h3>
   <div class="article-style" itemprop="articleBody">
     
-    Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.
+    Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
+(°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
+(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
+67, 45, 92, 83, 70We can run the following five codes;
     
   </div>
   <p class="read-more" itemprop="mainEntityOfPage">
