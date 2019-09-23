@@ -59,6 +59,52 @@
     </item>
     
     <item>
+      <title>Week 5 - Normal distribution</title>
+      <link>/post/stat2010-week5/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week5/</guid>
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Normal distribution&lt;/h2&gt;
+&lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
+&lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Symmetric, Unimodal
+- It can be specified by its mean $\mu$ and standard deviation $\sigma$
+- Mean is related to center of the distribution.
+- Sd controls the spread of the distribution.
+- All Normal distribution obey the 68-95-99.7 rule.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our textbook use the following notation for refering a specific normal distribution;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathcal{N}(\mu, \sigma)
+\]&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; represents the mean and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; represents the standard deviation.&lt;/p&gt;
+&lt;p&gt;Let us look at the impact of the mean and standard deviation on the shape of Normal distribtuions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week5_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week5_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-68-95-99.7-rule&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The 68-95-99.7 rule&lt;/h2&gt;
+&lt;p&gt;The rule is as follows;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Approx. 68% of the obs. fall within one std. range of the mean.
+- Approx. 95% of the obs. fall within two std. range of the mean.
+- Approx. 99.7% of the obs. fall within three std. range of the mean.&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week5_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Professor upload the distribution of Homework score in ICON as above and the class consists of 100 students.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Q1. You checked your score out and found that your score was 12. How many people got the homework score which is below yours approximately?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Q2. How many people got the homework scores which are between 10 and 14?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Q3. How many people got the homework scores which are between 8 and 14?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Q4. Do you think the following statement is right?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;IQR of the homework score is larger than 4.&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
@@ -644,6 +690,8 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Week 3: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week3/&#34; target=&#34;_self&#34;&gt;Data visualization 2 (in progress)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Week 4: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week4/&#34; target=&#34;_self&#34;&gt;Function and Normal distribution&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Week 5: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week5/&#34; target=&#34;_self&#34;&gt;Normal distribution and the 68-95-99.7 rule&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;data-set&#34;&gt;Data set&lt;/h2&gt;
@@ -1320,15 +1368,6 @@ shinyApp(ui, server)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Asymptotic Normality for the Sample CTE Revisited</title>
-      <link>/talk/cteposter/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
-      
-      <guid>/talk/cteposter/</guid>
-      <description></description>
     </item>
     
   </channel>

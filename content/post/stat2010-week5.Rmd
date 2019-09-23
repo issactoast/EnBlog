@@ -1,0 +1,103 @@
+---
+title: 'Week 5 - Normal distribution'
+author: Issac Lee
+date: '2019-09-23'
+slug: stat2010-week5
+categories:
+  - R
+tags:
+  - stat2010
+  - stat4200
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+## Normal distribution
+
+From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
+
+Here are some characteristics of all Normal curves;
+
+    - Symmetric, Unimodal
+    - It can be specified by its mean $\mu$ and standard deviation $\sigma$
+    - Mean is related to center of the distribution.
+    - Sd controls the spread of the distribution.
+    - All Normal distribution obey the 68-95-99.7 rule.
+
+Our textbook use the following notation for refering a specific normal distribution;
+
+$$
+\mathcal{N}(\mu, \sigma)
+$$
+where $\mu$ represents the mean and $\sigma$ represents the standard deviation.
+
+Let us look at the impact of the mean and standard deviation on the shape of Normal distribtuions.
+
+```{r echo=FALSE}
+x <- seq(-5, 5, by= 0.1)
+plot(x, dnorm(x), type = "l",
+     xlim = c(-5, 5),
+     xlab = "", ylab = "",
+     main = "Impact of the mean on Normal distribution",
+     sub = "black: Normal(0, 1), red: Normal (2, 1)", axes = F)
+abline(h=0)
+points(x, dnorm(x, 2, sd = 1), type = "l", col = 2)
+axis(1, at = seq(-4, 4, by = 2), las = 1)
+```
+
+
+```{r echo=FALSE}
+x <- seq(-5, 5, by= 0.1)
+plot(x, dnorm(x), type = "l",
+     xlim = c(-5, 5),
+     xlab = "", ylab = "",
+     main = "Impact of the std on Normal distribution",
+     sub = "black: Normal(0, 1), red: Normal (0, 2)", axes = F)
+abline(h=0)
+points(x, dnorm(x, 0, sd = 2), type = "l", col = 2)
+axis(1, at = seq(-4, 4, by = 2), las = 1)
+```
+
+## The 68-95-99.7 rule
+
+The rule is as follows;
+
+    - Approx. 68% of the obs. fall within one std. range of the mean.
+    - Approx. 95% of the obs. fall within two std. range of the mean.
+    - Approx. 99.7% of the obs. fall within three std. range of the mean.
+
+### Example
+
+```{r echo=FALSE}
+x <- seq(5, 20, by= 0.1)
+plot(x, dnorm(x, 10, 2), type = "l",
+     xlim = c(5, 15),
+     xlab = "", ylab = "",
+     main = "Distribution of Homework score",
+     sub = "Normal(10, 2)",
+     axes = F)
+abline(h=0)
+axis(1, at = seq(5, 15, by = 2), las = 1)
+```
+
+Professor upload the distribution of Homework score in ICON as above and the class consists of 100 students.
+
+- Q1. You checked your score out and found that your score was 12. How many people got the homework score which is below yours approximately?
+
+
+- Q2. How many people got the homework scores which are between 10 and 14?
+
+
+- Q3. How many people got the homework scores which are between 8 and 14?
+
+
+- Q4. Do you think the following statement is right?
+    
+        IQR of the homework score is larger than 4.
+
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
+

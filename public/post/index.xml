@@ -27,6 +27,17 @@ Q. Can you draw the histogram with 3 bins? What does it look like?
     </item>
     
     <item>
+      <title>Week 5 - Normal distribution</title>
+      <link>/post/stat2010-week5/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week5/</guid>
+      <description>Normal distributionFrom the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
+Here are some characteristics of all Normal curves;
+- Symmetric, Unimodal- It can be specified by its mean $\mu$ and standard deviation $\sigma$- Mean is related to center of the distribution.- Sd controls the spread of the distribution.- All Normal distribution obey the 68-95-99.7 rule.Our textbook use the following notation for refering a specific normal distribution;</description>
+    </item>
+    
+    <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
