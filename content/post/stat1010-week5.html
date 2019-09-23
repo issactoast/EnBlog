@@ -1,0 +1,56 @@
+---
+title: 'Week 5 - Freq. table and Stem plot'
+author: Issac Lee
+date: '2019-09-23'
+slug: stat1010-week5
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+
+
+<p>Let us assume that we have following data set;</p>
+<pre><code>67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70</code></pre>
+<div id="histogram" class="section level2">
+<h2>Histogram</h2>
+<p>If I draw a histogram with the above data using 5 bins, it looks like the following plot.</p>
+<p><img src="/post/stat1010-week5_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Q. Can you draw the histogram with 3 bins? What does it look like?</p>
+<p><details> <summary> Answer </summary></p>
+<p><img src="/post/stat1010-week5_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p></details></p>
+</div>
+<div id="stem-and-leaf-plot" class="section level2">
+<h2>Stem-and-Leaf plot</h2>
+<p>A stemp plot consists of two parts;</p>
+<pre><code>- Stem: usually takes care about ten&#39;s 
+- Leaves: takes care about one&#39;s</code></pre>
+<p>The stemplot for the above data look like this.</p>
+<pre><code>## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   5 | 346
+##   6 | 123678
+##   7 | 02569
+##   8 | 0</code></pre>
+<p>Q. What is the minimun number in the data set?</p>
+<p><details> <summary> Answer </summary> The minimum of our data set is 53. </details></p>
+<p>Q. Practice to draw a stemplot using following numbers.</p>
+<pre><code>60 61 57 62 61 65 52 68 70 70 61 53 70 67 66</code></pre>
+<p>If you understand the logic of stemplot, you will get this result;</p>
+<p><details> <summary> Answer </summary></p>
+<pre><code>## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   5 | 237
+##   6 | 011125678
+##   7 | 000</code></pre>
+<p></details></p>
+<p><a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a></p>
+</div>

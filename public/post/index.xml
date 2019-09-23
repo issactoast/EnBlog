@@ -13,16 +13,17 @@
     
     
     <item>
-      <title>Week 5(STAT:1010) - Stem and leaf plot</title>
+      <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
-      <pubDate>Mon, 23 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>&amp;ldquo;More than&amp;rdquo; vs. &amp;ldquo;Of&amp;rdquo; Definitions:
- Using &amp;ldquo;of&amp;rdquo;
-In a class, there are 30 students. By the policy of the university, 10% of the class will get &amp;lsquo;A&amp;rsquo; grades. How many people would get &amp;lsquo;A&amp;rsquo; at the end of the semester?
- Using &amp;ldquo;more than&amp;rdquo;
-Issac runs an ice cream store and today he got 100 customers. He wants to forecast the number of tomorrow&amp;rsquo;s customers using statistical method. After the study, he predicts that the number of the customers will be 50% more than today&amp;rsquo;s customer.</description>
+      <description>Let us assume that we have following data set;
+67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70HistogramIf I draw a histogram with the above data using 5 bins, it looks like the following plot.
+Q. Can you draw the histogram with 3 bins? What does it look like?
+  Answer 
+
+Stem-and-Leaf plotA stemp plot consists of two parts;</description>
     </item>
     
     <item>

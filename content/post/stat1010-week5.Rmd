@@ -1,0 +1,97 @@
+---
+title: 'Week 5 - Freq. table and Stem plot'
+author: Issac Lee
+date: '2019-09-23'
+slug: stat1010-week5
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+Let us assume that we have following data set;
+
+```{r echo=FALSE}
+mydata <- c(67, 61, 68, 80, 63, 75, 62, 
+            66, 56, 72, 53, 79, 76, 54, 70)
+```
+
+    67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70
+
+## Histogram
+
+If I draw a histogram with the above data using 5 bins, it looks like the following plot.
+
+```{r echo=FALSE}
+hist(mydata, breaks = c(50, 56, 62, 68, 74, 80),
+     axes = F)
+axis(1, at = seq(50, 80, by = 6), las = 1)
+axis(2, at = seq(0, 4, by = 1), las = 2)
+```
+
+
+Q. Can you draw the histogram with 3 bins? What does it look like?
+
+<details>
+<summary>
+Answer
+</summary>
+
+```{r echo=FALSE}
+hist(mydata, breaks = c(50, 60, 70, 80))
+```
+
+</details>
+
+
+## Stem-and-Leaf plot
+
+A stemp plot consists of two parts; 
+
+    - Stem: usually takes care about ten's 
+    - Leaves: takes care about one's
+    
+The stemplot for the above data look like this.
+
+```{r echo=FALSE}
+stem(mydata)
+```
+
+Q. What is the minimun number in the data set?
+
+<details>
+<summary>
+Answer
+</summary>
+The minimum of our data set is 53.
+</details>
+
+Q. Practice to draw a stemplot using following numbers.
+
+    60 61 57 62 61 65 52 68 70 70 61 53 70 67 66
+
+```{r echo=FALSE}
+mydata <- c(60, 61, 57, 62, 61, 65, 52,
+            68, 70, 70, 61, 53, 70 ,67, 66)
+```
+
+If you understand the logic of stemplot, you will get this result;
+
+<details>
+<summary>
+Answer
+</summary>
+
+```{r echo=FALSE}
+stem(mydata, scale = 0.5)
+```
+
+</details>
+
+<a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>
+
+

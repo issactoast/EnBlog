@@ -11,57 +11,50 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Week 5(STAT:1010) - Stem and leaf plot</title>
+      <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
-      <pubDate>Mon, 23 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>
-
-&lt;h2 id=&#34;more-than-vs-of&#34;&gt;&amp;ldquo;More than&amp;rdquo; vs. &amp;ldquo;Of&amp;rdquo;&lt;/h2&gt;
-
-&lt;p&gt;Definitions:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Using &amp;ldquo;of&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;In a class, there are 30 students. By the policy of the university, 10% &lt;code&gt;of&lt;/code&gt; the class will get &amp;lsquo;A&amp;rsquo; grades. How many people would get &amp;lsquo;A&amp;rsquo; at the end of the semester?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Using &amp;ldquo;more than&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Issac runs an ice cream store and today he got 100 customers. He wants to forecast the number of tomorrow&amp;rsquo;s customers using statistical method. After the study, he predicts that the number of the customers will be 50% more than today&amp;rsquo;s customer. How many people would come tomorrow based on his analysis?&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;percentages-of-percentages&#34;&gt;Percentages of Percentages&lt;/h2&gt;
-
-&lt;p&gt;In a class, 20% of the students catch a cold. After 1 week later, we found that only 5% of students in the class still have a cold. Using percentage of people with a cold last week as the reference value, compare the percentage of people with a cold before and after in absolute and relative terms.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Self study: do `Example 6` in textbook.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;guidelines-for-critically-evaluating-a-statistical-study&#34;&gt;Guidelines for critically evaluating a statistical study&lt;/h2&gt;
-
-&lt;p&gt;Eight Guidelines for critically evaluating a Statistical Study&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Get a Big Picture View of the Study.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Consider the Source.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Look for Bias in the Sample.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Look for Problems Defining or Measuring the Variables of Interest.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Beware of Confounding Variables.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Consider the Setting and Wording in Surveys.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Check That Results Are Presented Fairly.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Stand Back and Consider the Conclusions.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Histogram&lt;/h2&gt;
+&lt;p&gt;If I draw a histogram with the above data using 5 bins, it looks like the following plot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week5_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Q. Can you draw the histogram with 3 bins? What does it look like?&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week5_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;stem-and-leaf-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Stem-and-Leaf plot&lt;/h2&gt;
+&lt;p&gt;A stemp plot consists of two parts;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Stem: usually takes care about ten&amp;#39;s 
+- Leaves: takes care about one&amp;#39;s&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The stemplot for the above data look like this.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   5 | 346
+##   6 | 123678
+##   7 | 02569
+##   8 | 0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Q. What is the minimun number in the data set?&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt; The minimum of our data set is 53. &lt;/details&gt;&lt;/p&gt;
+&lt;p&gt;Q. Practice to draw a stemplot using following numbers.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;60 61 57 62 61 65 52 68 70 70 61 53 70 67 66&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you understand the logic of stemplot, you will get this result;&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   5 | 237
+##   6 | 011125678
+##   7 | 000&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     

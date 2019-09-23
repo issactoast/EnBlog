@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 5 - Freq. table and Stem plot</title>
+      <link>/post/stat1010-week5/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week5/</guid>
+      <description>Let us assume that we have following data set;
+67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70HistogramIf I draw a histogram with the above data using 5 bins, it looks like the following plot.
+Q. Can you draw the histogram with 3 bins? What does it look like?
+  Answer 
+
+Stem-and-Leaf plotA stemp plot consists of two parts;</description>
+    </item>
     
     <item>
       <title>Week 4 - Write your own function and Data manipulation</title>
