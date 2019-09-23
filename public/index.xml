@@ -166,6 +166,13 @@ b[a &amp;lt; 4]  &amp;lt;- &amp;quot;low&amp;quot;
 b[a &amp;gt;= 4] &amp;lt;- &amp;quot;high&amp;quot;
 b&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;low&amp;quot;  &amp;quot;high&amp;quot; &amp;quot;low&amp;quot;  &amp;quot;low&amp;quot;  &amp;quot;high&amp;quot; &amp;quot;high&amp;quot; &amp;quot;high&amp;quot; &amp;quot;high&amp;quot; &amp;quot;high&amp;quot; &amp;quot;high&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After obtaining the categorical vector &lt;code&gt;b&lt;/code&gt;, we can draw a box plot using &lt;code&gt;R&lt;/code&gt; code from week 2 material as follow;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mytable &amp;lt;- table(b)
+pie(mytable, 
+    labels = names(mytable),
+    main=&amp;quot;Pie Chart of categorical variable&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week4_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

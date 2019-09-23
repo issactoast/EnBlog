@@ -156,3 +156,17 @@ b[a >= 4] <- "high"
 b
 ```
 
+After obtaining the categorical vector `b`, we can draw a box plot using `R` code from week 2 material as follow;
+
+```{r}
+mytable <- table(b)
+pie(mytable, 
+    labels = names(mytable),
+    main="Pie Chart of categorical variable")
+```
+
+
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
+
