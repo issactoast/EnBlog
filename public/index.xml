@@ -11,6 +11,61 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 5(STAT:1010) - Stem and leaf plot</title>
+      <link>/post/stat1010-week5/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/post/stat1010-week5/</guid>
+      <description>
+
+&lt;h2 id=&#34;more-than-vs-of&#34;&gt;&amp;ldquo;More than&amp;rdquo; vs. &amp;ldquo;Of&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Definitions:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Using &amp;ldquo;of&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;In a class, there are 30 students. By the policy of the university, 10% &lt;code&gt;of&lt;/code&gt; the class will get &amp;lsquo;A&amp;rsquo; grades. How many people would get &amp;lsquo;A&amp;rsquo; at the end of the semester?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Using &amp;ldquo;more than&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Issac runs an ice cream store and today he got 100 customers. He wants to forecast the number of tomorrow&amp;rsquo;s customers using statistical method. After the study, he predicts that the number of the customers will be 50% more than today&amp;rsquo;s customer. How many people would come tomorrow based on his analysis?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;percentages-of-percentages&#34;&gt;Percentages of Percentages&lt;/h2&gt;
+
+&lt;p&gt;In a class, 20% of the students catch a cold. After 1 week later, we found that only 5% of students in the class still have a cold. Using percentage of people with a cold last week as the reference value, compare the percentage of people with a cold before and after in absolute and relative terms.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Self study: do `Example 6` in textbook.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;guidelines-for-critically-evaluating-a-statistical-study&#34;&gt;Guidelines for critically evaluating a statistical study&lt;/h2&gt;
+
+&lt;p&gt;Eight Guidelines for critically evaluating a Statistical Study&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Get a Big Picture View of the Study.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Consider the Source.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Look for Bias in the Sample.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Look for Problems Defining or Measuring the Variables of Interest.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Beware of Confounding Variables.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Consider the Setting and Wording in Surveys.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Check That Results Are Presented Fairly.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Stand Back and Consider the Conclusions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
@@ -66,7 +121,7 @@
     </item>
     
     <item>
-      <title>Week 4 - Function and Normal distribution</title>
+      <title>Week 4 - Write your own function and Data manipulation</title>
       <link>/post/stat2010-week4/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
@@ -1278,15 +1333,6 @@ shinyApp(ui, server)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
       
       <guid>/talk/cteposter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>I Know How You Drive! - Profiling via phone telematics</title>
-      <link>/talk/arctelematics/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
-      
-      <guid>/talk/arctelematics/</guid>
       <description></description>
     </item>
     
