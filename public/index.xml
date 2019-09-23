@@ -69,7 +69,7 @@
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;- Symmetric, Unimodal
-- It can be specified by its mean $\mu$ and standard deviation $\sigma$
+- It can be specified by its mean and standard deviation.
 - Mean is related to center of the distribution.
 - Sd controls the spread of the distribution.
 - All Normal distribution obey the 68-95-99.7 rule.&lt;/code&gt;&lt;/pre&gt;
