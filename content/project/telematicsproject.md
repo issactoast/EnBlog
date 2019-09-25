@@ -27,7 +27,3 @@ image = "headers/lonlatacc.png"
 caption = "calibrated long. and lateral acceleration"
 
 +++
-
-## Test title
-
-### Test title
