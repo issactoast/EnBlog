@@ -21,7 +21,7 @@ projects = ["telematicsproject"]
 # Links (optional).
 url_pdf = "https://www.researchgate.net/publication/334749450_I_KNOW_HOW_YOU_DRIVE_DRIVING_STYLE_PROFILE_VIA_SMARTPHONE"
 url_slides = "https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/ARC2019_Presentation_telematics.pdf"
-url_video = ""
+url_video = "https://youtu.be/5A7w36tSGWY"
 url_code = ""
 
 # Does the content use math formatting?
