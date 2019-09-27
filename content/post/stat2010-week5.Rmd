@@ -97,6 +97,51 @@ Professor upload the distribution of Homework score in ICON as above and the cla
     
         IQR of the homework score is larger than 4.
 
+## Functions in `R`
+
+### pnorm
+
+```{r}
+# pnorm: prob. of normal
+# usage: pnorm(num, mean, sd)
+pnorm(10, mean = 10, sd = 2)
+pnorm(6, mean = 10, sd = 2)
+
+# 68% rule
+a <- pnorm(12, mean = 10, sd = 2)
+b <- pnorm(8, mean = 10, sd = 2)
+a - b
+```
+
+
+### qnorm
+
+```{r}
+# qnorm: quantile of normal dist.
+# usage: qnorm(quantiles, mean, sd)
+qnorm(0.5, mean = 10, sd = 2)
+
+# find 1st quartile
+firstQ <- qnorm(0.25, mean = 10, sd = 2)
+
+# find 3rd quartile
+thirdQ <- qnorm(0.75, mean = 10, sd = 2)
+
+# IQR
+thirdQ - firstQ
+```
+
+### dnorm (optional - for fun)
+
+```{r}
+dnorm # related to normal curve
+
+x <- seq(-3, 3, by = 0.1)
+y <- dnorm(x, mean = 0, sd = 1)
+
+plot(x, y, type = "l")
+```
+
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 

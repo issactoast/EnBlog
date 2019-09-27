@@ -50,6 +50,52 @@ header:
 <li><p>Q4. Do you think the following statement is right?</p>
 <pre><code>IQR of the homework score is larger than 4.</code></pre></li>
 </ul>
+</div>
+</div>
+<div id="functions-in-r" class="section level2">
+<h2>Functions in <code>R</code></h2>
+<div id="pnorm" class="section level3">
+<h3>pnorm</h3>
+<pre class="r"><code># pnorm: prob. of normal
+# usage: pnorm(num, mean, sd)
+pnorm(10, mean = 10, sd = 2)</code></pre>
+<pre><code>## [1] 0.5</code></pre>
+<pre class="r"><code>pnorm(6, mean = 10, sd = 2)</code></pre>
+<pre><code>## [1] 0.02275013</code></pre>
+<pre class="r"><code># 68% rule
+a &lt;- pnorm(12, mean = 10, sd = 2)
+b &lt;- pnorm(8, mean = 10, sd = 2)
+a - b</code></pre>
+<pre><code>## [1] 0.6826895</code></pre>
+</div>
+<div id="qnorm" class="section level3">
+<h3>qnorm</h3>
+<pre class="r"><code># qnorm: quantile of normal dist.
+# usage: qnorm(quantiles, mean, sd)
+qnorm(0.5, mean = 10, sd = 2)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code># find 1st quartile
+firstQ &lt;- qnorm(0.25, mean = 10, sd = 2)
+
+# find 3rd quartile
+thirdQ &lt;- qnorm(0.75, mean = 10, sd = 2)
+
+# IQR
+thirdQ - firstQ</code></pre>
+<pre><code>## [1] 2.697959</code></pre>
+</div>
+<div id="dnorm-optional---for-fun" class="section level3">
+<h3>dnorm (optional - for fun)</h3>
+<pre class="r"><code>dnorm # related to normal curve</code></pre>
+<pre><code>## function (x, mean = 0, sd = 1, log = FALSE) 
+## .Call(C_dnorm, x, mean, sd, log)
+## &lt;bytecode: 0x0000000013b6c148&gt;
+## &lt;environment: namespace:stats&gt;</code></pre>
+<pre class="r"><code>x &lt;- seq(-3, 3, by = 0.1)
+y &lt;- dnorm(x, mean = 0, sd = 1)
+
+plot(x, y, type = &quot;l&quot;)</code></pre>
+<p><img src="/post/stat2010-week5_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 </div>

@@ -240,6 +240,16 @@
     
     <url>
     
+      <loc>/tags/asymptotic_normality/</loc>
+      <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/cte/</loc>
       <lastmod>2019-02-21T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -251,6 +261,26 @@
     <url>
     
       <loc>/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/dependance-in-insuarance/</loc>
+      <lastmod>2014-01-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/dlm/</loc>
+      <lastmod>2019-07-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -299,6 +329,16 @@
     
     <url>
     
+      <loc>/tags/multiple-life-insurance/</loc>
+      <lastmod>2014-01-01T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/project/</loc>
       <lastmod>2019-07-18T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -321,56 +361,6 @@
     
       <loc>/categories/r/</loc>
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/asymptotic_normality/</loc>
-      <lastmod>2019-02-21T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/dependance-in-insuarance/</loc>
-      <lastmod>2014-01-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/dlm/</loc>
-      <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/tags/multiple-life-insurance/</loc>
-      <lastmod>2014-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -421,6 +411,16 @@
     
       <loc>/tags/stat4200/</loc>
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

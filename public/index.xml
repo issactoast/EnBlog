@@ -16,10 +16,7 @@
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -67,10 +64,7 @@
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>
-
-
-&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -104,6 +98,52 @@
 &lt;li&gt;&lt;p&gt;Q4. Do you think the following statement is right?&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;IQR of the homework score is larger than 4.&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;functions-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Functions in &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
+&lt;div id=&#34;pnorm&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;pnorm&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# pnorm: prob. of normal
+# usage: pnorm(num, mean, sd)
+pnorm(10, mean = 10, sd = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pnorm(6, mean = 10, sd = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.02275013&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# 68% rule
+a &amp;lt;- pnorm(12, mean = 10, sd = 2)
+b &amp;lt;- pnorm(8, mean = 10, sd = 2)
+a - b&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.6826895&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;qnorm&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;qnorm&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# qnorm: quantile of normal dist.
+# usage: qnorm(quantiles, mean, sd)
+qnorm(0.5, mean = 10, sd = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# find 1st quartile
+firstQ &amp;lt;- qnorm(0.25, mean = 10, sd = 2)
+
+# find 3rd quartile
+thirdQ &amp;lt;- qnorm(0.75, mean = 10, sd = 2)
+
+# IQR
+thirdQ - firstQ&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.697959&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dnorm-optional---for-fun&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;dnorm (optional - for fun)&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dnorm # related to normal curve&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## function (x, mean = 0, sd = 1, log = FALSE) 
+## .Call(C_dnorm, x, mean, sd, log)
+## &amp;lt;bytecode: 0x0000000013b6c148&amp;gt;
+## &amp;lt;environment: namespace:stats&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(-3, 3, by = 0.1)
+y &amp;lt;- dnorm(x, mean = 0, sd = 1)
+
+plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week5_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -171,10 +211,7 @@
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>
-
-
-&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -355,10 +392,7 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -466,10 +500,7 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -602,10 +633,7 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>
-
-
-&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;
@@ -928,10 +956,7 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/project/cteproject/</guid>
-      <description>
-
-
-&lt;div id=&#34;abstract&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;abstract&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education.&lt;/p&gt;
 &lt;ul&gt;
