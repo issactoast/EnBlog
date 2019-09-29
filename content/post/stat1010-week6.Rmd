@@ -1,0 +1,168 @@
+---
+title: 'Week 6 - Mean, Median, and Weighted Mean'
+author: Issac Lee
+date: '2019-10-04'
+slug: stat1010-week6
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+Let us assume that we have following data set;
+
+    50, 80, 60, 90, 70
+
+## Mean
+
+The mean is the sum of all values in a data set divided by the number of values in the data set.
+
+$$
+mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70
+$$
+
+Q. What is the mean of these numbers?
+
+    10, 11, 21, 13, 20, 16
+
+
+<details>
+<summary>
+Answer
+</summary>
+
+$$
+mean = \frac{10+11+21+13+20+16}{6} = 15.17
+$$
+
+```{r eval=FALSE, echo=FALSE}
+x <- c(10, 11, 21, 13, 20, 16)
+round(mean(x), 2)
+
+```
+
+
+</details>
+
+
+## Median
+
+The "middle" of a **sorted** list of numbers in your data set. 
+
+Step 1. Sort your data set.
+
+    50, 60, 70, 80, 90
+
+Step 2. Find the middle number of the sorted sequence.
+
+    `70` is the median of the data set.
+    
+### What if we have even number of data set such as the following data set?
+
+    10, 11, 21, 13, 20, 16
+
+Q. What is the median of these numbers?
+
+<details>
+<summary>
+Answer
+</summary>
+
+Step 1. Sort the number
+
+```{r echo=FALSE}
+x <- c(10, 11, 21, 13, 20, 16)
+sort(x)
+
+```
+
+Step 2. Find the middle number.
+
+Since we have even number of data, our median should be between 13 and 16.
+
+$$
+median = \frac{13 + 16}{2} = 14.5
+$$
+
+</details>
+
+
+## Weighted Mean
+
+To find a weighted mean you multiply each data value by its “weight,”add those all up, and divide by the sum of the weights.
+
+Let's consider we have students who are taking stat. course; Issac and Dakota.
+
+- Issac got 80 points for the homework score out of 100 and 60 points for the exam score out of 100.
+
+- Dakota got 60 points for the homework score out of 100 and 80 points for the exam score out of 100.
+
+Issac told Dakota,
+
+    "Hey, I think we should get the same grade since we have same average(mean) score."
+
+And he shows the following equation;
+
+$$
+\frac{80 + 60}{2} = \frac{60 + 80}{2}
+$$
+
+Dakota thinks that is not fair since he think that the **exam score is more important than the homework score**.
+
+How can he suggest more reasonable measure for the students' score? He found that Issac use an eqaution which use the same weights for homework and exam score; 50 \% for each category.
+
+$$
+\begin{align}
+Dakota's \ score & = \frac{60 + 80}{2} \\
+&= \frac{1}{2}\times 60 + \frac{1}{2}\times 80 \\
+& = 0.5 \times 60 + 0.5 \times 80 \\
+& = 50\% \ (hw) \times 60 + 50\% \ (exam)\times 80 \\
+& = 70
+\end{align}
+$$
+
+Dakota suggests the weighted average for the student's final score which gives more weights to the exam score than the homework score;
+
+    30% for Homework
+    70% for Exam
+
+After using this weighted average, Dakota's final score is larger than Issac's score as follows;
+
+$$
+\begin{align}
+Dakota's \ score & = 30\% \times 60 + 70\% \times 80 \\
+& = 0.3 \times 60 + 0.7 \times 80 \\
+& = 74 \\
+Issac's \ score & = 30\% \times 80 + 70\% \times 60 \\
+& = 0.3 \times 80 + 0.7 \times 60 \\
+& = 66
+\end{align}
+$$
+
+Q. What is the weighted mean of these numbers?
+
+    math: 80, english: 70, history: 50,
+    weights: math - 30%, english - 20%, history - 50%
+
+<details>
+<summary>
+Answer
+</summary>
+
+$$
+80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 $$
+
+```{r eval=FALSE, echo=FALSE}
+80 * 0.3 + 70 * 0.2 + 50 * 0.5
+```
+
+
+</details>
+
+<a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>
+
+

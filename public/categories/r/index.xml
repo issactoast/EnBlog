@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 23 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 6 - Mean, Median, and Weighted Mean</title>
+      <link>/post/stat1010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week6/</guid>
+      <description>Let us assume that we have following data set;
+50, 80, 60, 90, 70MeanThe mean is the sum of all values in a data set divided by the number of values in the data set.
+\[mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70\]
+Q. What is the mean of these numbers?
+10, 11, 21, 13, 20, 16  Answer</description>
+    </item>
     
     <item>
       <title>Week 5 - Freq. table and Stem plot</title>

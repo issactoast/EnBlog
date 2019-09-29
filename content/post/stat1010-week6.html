@@ -1,0 +1,103 @@
+---
+title: 'Week 6 - Mean, Median, and Weighted Mean'
+author: Issac Lee
+date: '2019-10-04'
+slug: stat1010-week6
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+
+
+<p>Let us assume that we have following data set;</p>
+<pre><code>50, 80, 60, 90, 70</code></pre>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>The mean is the sum of all values in a data set divided by the number of values in the data set.</p>
+<p><span class="math display">\[
+mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70
+\]</span></p>
+<p>Q. What is the mean of these numbers?</p>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<p><details> <summary> Answer </summary></p>
+<p><span class="math display">\[
+mean = \frac{10+11+21+13+20+16}{6} = 15.17
+\]</span></p>
+<p></details></p>
+</div>
+<div id="median" class="section level2">
+<h2>Median</h2>
+<p>The “middle” of a <strong>sorted</strong> list of numbers in your data set.</p>
+<p>Step 1. Sort your data set.</p>
+<pre><code>50, 60, 70, 80, 90</code></pre>
+<p>Step 2. Find the middle number of the sorted sequence.</p>
+<pre><code>`70` is the median of the data set.</code></pre>
+<div id="what-if-we-have-even-number-of-data-set-such-as-the-following-data-set" class="section level3">
+<h3>What if we have even number of data set such as the following data set?</h3>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<p>Q. What is the median of these numbers?</p>
+<p><details> <summary> Answer </summary></p>
+<p>Step 1. Sort the number</p>
+<pre><code>## [1] 10 11 13 16 20 21</code></pre>
+<p>Step 2. Find the middle number.</p>
+<p>Since we have even number of data, our median should be between 13 and 16.</p>
+<p><span class="math display">\[
+median = \frac{13 + 16}{2} = 14.5
+\]</span></p>
+<p></details></p>
+</div>
+</div>
+<div id="weighted-mean" class="section level2">
+<h2>Weighted Mean</h2>
+<p>To find a weighted mean you multiply each data value by its “weight,”add those all up, and divide by the sum of the weights.</p>
+<p>Let’s consider we have students who are taking stat. course; Issac and Dakota.</p>
+<ul>
+<li><p>Issac got 80 points for the homework score out of 100 and 60 points for the exam score out of 100.</p></li>
+<li><p>Dakota got 60 points for the homework score out of 100 and 80 points for the exam score out of 100.</p></li>
+</ul>
+<p>Issac told Dakota,</p>
+<pre><code>&quot;Hey, I think we should get the same grade since we have same average(mean) score.&quot;</code></pre>
+<p>And he shows the following equation;</p>
+<p><span class="math display">\[
+\frac{80 + 60}{2} = \frac{60 + 80}{2}
+\]</span></p>
+<p>Dakota thinks that is not fair since he think that the <strong>exam score is more important than the homework score</strong>.</p>
+<p>How can he suggest more reasonable measure for the students’ score? He found that Issac use an eqaution which use the same weights for homework and exam score; 50 % for each category.</p>
+<p><span class="math display">\[
+\begin{align}
+Dakota&#39;s \ score &amp; = \frac{60 + 80}{2} \\
+&amp;= \frac{1}{2}\times 60 + \frac{1}{2}\times 80 \\
+&amp; = 0.5 \times 60 + 0.5 \times 80 \\
+&amp; = 50\% \ (hw) \times 60 + 50\% \ (exam)\times 80 \\
+&amp; = 70
+\end{align}
+\]</span></p>
+<p>Dakota suggests the weighted average for the student’s final score which gives more weights to the exam score than the homework score;</p>
+<pre><code>30% for Homework
+70% for Exam</code></pre>
+<p>After using this weighted average, Dakota’s final score is larger than Issac’s score as follows;</p>
+<p><span class="math display">\[
+\begin{align}
+Dakota&#39;s \ score &amp; = 30\% \times 60 + 70\% \times 80 \\
+&amp; = 0.3 \times 60 + 0.7 \times 80 \\
+&amp; = 74 \\
+Issac&#39;s \ score &amp; = 30\% \times 80 + 70\% \times 60 \\
+&amp; = 0.3 \times 80 + 0.7 \times 60 \\
+&amp; = 66
+\end{align}
+\]</span></p>
+<p>Q. What is the weighted mean of these numbers?</p>
+<pre><code>math: 80, english: 70, history: 50,
+weights: math - 30%, english - 20%, history - 50%</code></pre>
+<p><details> <summary> Answer </summary></p>
+<p><span class="math display">\[
+80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 \]</span></p>
+<p></details></p>
+<p><a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a></p>
+</div>

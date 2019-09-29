@@ -17,13 +17,14 @@
       
     
   
-  <meta name="description" content="Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
-(°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
-67, 45, 92, 83, 70We can run the following five codes;">
+  <meta name="description" content="Let us assume that we have following data set;
+50, 80, 60, 90, 70MeanThe mean is the sum of all values in a data set divided by the number of values in the data set.
+\[mean = \frac{50 &#43; 80 &#43; 60 &#43; 90 &#43; 70}{5} = 70\]
+Q. What is the mean of these numbers?
+10, 11, 21, 13, 20, 16  Answer">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/stat2010-week4/">
+  <link rel="alternate" hreflang="en-us" href="/post/stat1010-week6/">
 
   
 
@@ -70,27 +71,28 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/stat2010-week4/">
+  <link rel="canonical" href="/post/stat1010-week6/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Issac Lee">
-  <meta property="og:url" content="/post/stat2010-week4/">
-  <meta property="og:title" content="Week 4 - Write your own function and Data manipulation | Issac Lee">
-  <meta property="og:description" content="Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
-(°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
-67, 45, 92, 83, 70We can run the following five codes;"><meta property="og:image" content="/img/headers/stat2010_wide.png">
+  <meta property="og:url" content="/post/stat1010-week6/">
+  <meta property="og:title" content="Week 6 - Mean, Median, and Weighted Mean | Issac Lee">
+  <meta property="og:description" content="Let us assume that we have following data set;
+50, 80, 60, 90, 70MeanThe mean is the sum of all values in a data set divided by the number of values in the data set.
+\[mean = \frac{50 &#43; 80 &#43; 60 &#43; 90 &#43; 70}{5} = 70\]
+Q. What is the mean of these numbers?
+10, 11, 21, 13, 20, 16  Answer"><meta property="og:image" content="/img/headers/stat1010_wide.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-13T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-10-04T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-09-13T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2019-10-04T00:00:00&#43;00:00">
   
 
-  <title>Week 4 - Write your own function and Data manipulation | Issac Lee</title>
+  
+
+  <title>Week 6 - Mean, Median, and Weighted Mean | Issac Lee</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -249,7 +251,7 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/stat2010_wide.png" class="article-banner" itemprop="image">
+    <img src="/img/headers/stat1010_wide.jpg" class="article-banner" itemprop="image">
   
 
   <span class="article-header-caption">Image credit: <a href="https://stat.uiowa.edu/" target="_blank">UIowaStat</a></span>
@@ -258,7 +260,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Week 4 - Write your own function and Data manipulation</h1>
+    <h1 itemprop="name">Week 6 - Mean, Median, and Weighted Mean</h1>
 
     
 
@@ -266,8 +268,8 @@
 
   <span class="article-date">
     
-    <time datetime="2019-09-13 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Sep 13, 2019
+    <time datetime="2019-10-04 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 4, 2019
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -277,14 +279,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/stat2010-week4/#disqus_thread"></a>
+  <a href="/post/stat1010-week6/#disqus_thread"></a>
   
 
   
@@ -307,35 +309,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Week%204%20-%20Write%20your%20own%20function%20and%20Data%20manipulation&amp;url=%2fpost%2fstat2010-week4%2f"
+         href="https://twitter.com/intent/tweet?text=Week%206%20-%20Mean%2c%20Median%2c%20and%20Weighted%20Mean&amp;url=%2fpost%2fstat1010-week6%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat2010-week4%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat1010-week6%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat2010-week4%2f&amp;title=Week%204%20-%20Write%20your%20own%20function%20and%20Data%20manipulation"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat1010-week6%2f&amp;title=Week%206%20-%20Mean%2c%20Median%2c%20and%20Weighted%20Mean"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat2010-week4%2f&amp;title=Week%204%20-%20Write%20your%20own%20function%20and%20Data%20manipulation"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat1010-week6%2f&amp;title=Week%206%20-%20Mean%2c%20Median%2c%20and%20Weighted%20Mean"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Week%204%20-%20Write%20your%20own%20function%20and%20Data%20manipulation&amp;body=%2fpost%2fstat2010-week4%2f">
+         href="mailto:?subject=Week%206%20-%20Mean%2c%20Median%2c%20and%20Weighted%20Mean&amp;body=%2fpost%2fstat1010-week6%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -349,109 +351,91 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <div id="make-your-own-function" class="section level2">
-<h2>Make your own function</h2>
-<p>We know <code>R</code> can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.</p>
-<pre><code>(°F − 32) × 5/9 = °C</code></pre>
-<p>Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;</p>
-<pre class="r"><code>(89 - 32) * 5/9</code></pre>
-<pre><code>## [1] 31.66667</code></pre>
-<p>Can you convert the following Fahrenheits in Celcius?</p>
-<pre class="r"><code>67, 45, 92, 83, 70</code></pre>
-<p>We can run the following five codes;</p>
-<pre class="r"><code>(67 - 32) * 5/9</code></pre>
-<pre><code>## [1] 19.44444</code></pre>
-<pre class="r"><code>(45 - 32) * 5/9</code></pre>
-<pre><code>## [1] 7.222222</code></pre>
-<pre class="r"><code>(92 - 32) * 5/9</code></pre>
-<pre><code>## [1] 33.33333</code></pre>
-<pre class="r"><code>(83 - 32) * 5/9</code></pre>
-<pre><code>## [1] 28.33333</code></pre>
-<pre class="r"><code>(70 - 32) * 5/9</code></pre>
-<pre><code>## [1] 21.11111</code></pre>
-<p>or, run the following compact codes;</p>
-<pre class="r"><code>myF &lt;- c(67, 45, 92, 83, 70)
-(myF - 32) * 5/9</code></pre>
-<pre><code>## [1] 19.444444  7.222222 33.333333 28.333333 21.111111</code></pre>
-<p>Here is a problem; I dont want to memorise this annoying formula every time. I want a nice function like name like <code>convFtoC</code> and use that function as follows;</p>
-<pre class="r"><code>convFtoC(67)</code></pre>
-<p>So, let us make a function which gives us the numver in Celcius when we feed Fahrenheits to the function.</p>
-<pre class="r"><code>convFtoC &lt;- function(numF){
-    result &lt;- (numF - 32) * 5/9
-    result
-}</code></pre>
-<p>Above, we define a function named <code>convFtoC</code> whose input is Fahrenheits, <code>numF</code>, and its output is the corresponding number in Celcius.</p>
-<pre class="r"><code>convFtoC(89)</code></pre>
-<pre><code>## [1] 31.66667</code></pre>
-<p>which has the same result as the following result.</p>
-<pre class="r"><code>(89 - 32) * 5/9</code></pre>
-<pre><code>## [1] 31.66667</code></pre>
-<div id="mode-functionthis-is-an-advanced-part-you-can-skip-for-now" class="section level3">
-<h3>Mode function(This is an advanced part you can skip for now)</h3>
-<p>Mode is the value which is the most frequently appreared in a data set. To find a mode of the data, we need to calculate the frequency of the data. We already learned a <code>table</code> function when we draw a pie chart.</p>
-<pre class="r"><code>x &lt;- c(1, 3, 9, 7, 1, 2, 2, 5, 3, 3, 3)
-result &lt;- table(x)
-result</code></pre>
-<pre><code>## x
-## 1 2 3 5 7 9 
-## 2 2 4 1 1 1</code></pre>
-<p>It says <code>3</code> is the most frequently appears in the data vector; 4 times appears.</p>
-<pre class="r"><code>sort(unique(x))</code></pre>
-<pre><code>## [1] 1 2 3 5 7 9</code></pre>
-<pre class="r"><code>Mode &lt;- function(x) {
-  ux &lt;- unique(x)
-  ux[which.max(tabulate(match(x, ux)))]
-}
-Mode(x)</code></pre>
-<pre><code>## [1] 3</code></pre>
+      <p>Let us assume that we have following data set;</p>
+<pre><code>50, 80, 60, 90, 70</code></pre>
+<div id="mean" class="section level2">
+<h2>Mean</h2>
+<p>The mean is the sum of all values in a data set divided by the number of values in the data set.</p>
+<p><span class="math display">\[
+mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70
+\]</span></p>
+<p>Q. What is the mean of these numbers?</p>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<p><details> <summary> Answer </summary></p>
+<p><span class="math display">\[
+mean = \frac{10+11+21+13+20+16}{6} = 15.17
+\]</span></p>
+<p></details></p>
+</div>
+<div id="median" class="section level2">
+<h2>Median</h2>
+<p>The “middle” of a <strong>sorted</strong> list of numbers in your data set.</p>
+<p>Step 1. Sort your data set.</p>
+<pre><code>50, 60, 70, 80, 90</code></pre>
+<p>Step 2. Find the middle number of the sorted sequence.</p>
+<pre><code>`70` is the median of the data set.</code></pre>
+<div id="what-if-we-have-even-number-of-data-set-such-as-the-following-data-set" class="section level3">
+<h3>What if we have even number of data set such as the following data set?</h3>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<p>Q. What is the median of these numbers?</p>
+<p><details> <summary> Answer </summary></p>
+<p>Step 1. Sort the number</p>
+<pre><code>## [1] 10 11 13 16 20 21</code></pre>
+<p>Step 2. Find the middle number.</p>
+<p>Since we have even number of data, our median should be between 13 and 16.</p>
+<p><span class="math display">\[
+median = \frac{13 + 16}{2} = 14.5
+\]</span></p>
+<p></details></p>
 </div>
 </div>
-<div id="making-categorical-variables" class="section level2">
-<h2>Making categorical variables</h2>
-<div id="comparing-numbers" class="section level3">
-<h3>Comparing numbers</h3>
-<p>In <code>R</code>, there are some useful operators. For example, by using <code>==</code>, we can ask <code>R</code> to determine whether the two values are same.</p>
-<pre class="r"><code>1 == 2</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<p>We can compare the values, too.</p>
-<pre class="r"><code>1 &lt; 2</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>3 &gt; 2</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>5 &lt;= 6</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>c(1, 2, 3) &lt; 2</code></pre>
-<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
-<p>The last code that I wrote will be very useful when we want to manipulate the data. Here is a toy example.</p>
-<pre class="r"><code>a &lt;- c(1:10)
-a</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>We have learned that we can access the subset of the object using <code>[]</code> command as follows;</p>
-<pre class="r"><code>a[1:5] &lt;- c(1, 5, 3, 2, 4)
-a</code></pre>
-<pre><code>##  [1]  1  5  3  2  4  6  7  8  9 10</code></pre>
-<p>What if I want to access the elements in <code>a</code> variable which satisfies some criteria? For example, what if I want to <strong>filter</strong> the elements which are less than 4?</p>
-<pre class="r"><code>a[a &lt; 4]</code></pre>
-<pre><code>## [1] 1 3 2</code></pre>
-<p>How this happen? Let’s see what is the result of <code>a &lt; 4</code>.</p>
-<pre class="r"><code>a &lt; 4</code></pre>
-<pre><code>##  [1]  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<p>Thus, what we did is to use this TRUE and FALSE vector for picking the elements in <code>a</code>. If you understand the above code, we can try these things;</p>
-<pre class="r"><code>a</code></pre>
-<pre><code>##  [1]  1  5  3  2  4  6  7  8  9 10</code></pre>
-<pre class="r"><code>b &lt;- rep(0, 10) # repeat 0s 10 times
-b[a &lt; 4]  &lt;- &quot;low&quot;
-b[a &gt;= 4] &lt;- &quot;high&quot;
-b</code></pre>
-<pre><code>##  [1] &quot;low&quot;  &quot;high&quot; &quot;low&quot;  &quot;low&quot;  &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot; &quot;high&quot;</code></pre>
-<p>After obtaining the categorical vector <code>b</code>, we can draw a box plot using <code>R</code> code from week 2 material as follow;</p>
-<pre class="r"><code>mytable &lt;- table(b)
-pie(mytable, 
-    labels = names(mytable),
-    main=&quot;Pie Chart of categorical variable&quot;)</code></pre>
-<p><img src="/post/stat2010-week4_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
-</div>
+<div id="weighted-mean" class="section level2">
+<h2>Weighted Mean</h2>
+<p>To find a weighted mean you multiply each data value by its “weight,”add those all up, and divide by the sum of the weights.</p>
+<p>Let’s consider we have students who are taking stat. course; Issac and Dakota.</p>
+<ul>
+<li><p>Issac got 80 points for the homework score out of 100 and 60 points for the exam score out of 100.</p></li>
+<li><p>Dakota got 60 points for the homework score out of 100 and 80 points for the exam score out of 100.</p></li>
+</ul>
+<p>Issac told Dakota,</p>
+<pre><code>&quot;Hey, I think we should get the same grade since we have same average(mean) score.&quot;</code></pre>
+<p>And he shows the following equation;</p>
+<p><span class="math display">\[
+\frac{80 + 60}{2} = \frac{60 + 80}{2}
+\]</span></p>
+<p>Dakota thinks that is not fair since he think that the <strong>exam score is more important than the homework score</strong>.</p>
+<p>How can he suggest more reasonable measure for the students’ score? He found that Issac use an eqaution which use the same weights for homework and exam score; 50 % for each category.</p>
+<p><span class="math display">\[
+\begin{align}
+Dakota&#39;s \ score &amp; = \frac{60 + 80}{2} \\
+&amp;= \frac{1}{2}\times 60 + \frac{1}{2}\times 80 \\
+&amp; = 0.5 \times 60 + 0.5 \times 80 \\
+&amp; = 50\% \ (hw) \times 60 + 50\% \ (exam)\times 80 \\
+&amp; = 70
+\end{align}
+\]</span></p>
+<p>Dakota suggests the weighted average for the student’s final score which gives more weights to the exam score than the homework score;</p>
+<pre><code>30% for Homework
+70% for Exam</code></pre>
+<p>After using this weighted average, Dakota’s final score is larger than Issac’s score as follows;</p>
+<p><span class="math display">\[
+\begin{align}
+Dakota&#39;s \ score &amp; = 30\% \times 60 + 70\% \times 80 \\
+&amp; = 0.3 \times 60 + 0.7 \times 80 \\
+&amp; = 74 \\
+Issac&#39;s \ score &amp; = 30\% \times 80 + 70\% \times 60 \\
+&amp; = 0.3 \times 80 + 0.7 \times 60 \\
+&amp; = 66
+\end{align}
+\]</span></p>
+<p>Q. What is the weighted mean of these numbers?</p>
+<pre><code>math: 80, english: 70, history: 50,
+weights: math - 30%, english - 20%, history - 50%</code></pre>
+<p><details> <summary> Answer </summary></p>
+<p><span class="math display">\[
+80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 \]</span></p>
+<p></details></p>
+<p><a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a></p>
 </div>
 
     </div>
@@ -461,9 +445,7 @@ pie(mytable,
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/stat2010">stat2010</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/stat4200">stat4200</a>
+  <a class="btn btn-primary btn-outline" href="/tags/stat1010">stat1010</a>
   
 </div>
 
@@ -477,15 +459,15 @@ pie(mytable,
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/stat2010-week3/">Week 3 - Data visualization 2</a></li>
+        <li><a href="/post/stat1010-week5/">Week 5 - Freq. table and Stem plot</a></li>
         
-        <li><a href="/post/stat2010-week2/">Week 2 - Data visualization</a></li>
+        <li><a href="/post/stat1010-week4/">Week 4(STAT:1010) - Describe what you have in your data</a></li>
         
-        <li><a href="/post/stat2010-week1/">Week 1 - R Basics and Data loading</a></li>
+        <li><a href="/post/stat1010-week3/">Week 3(STAT:1010) - Data type and errors</a></li>
         
-        <li><a href="/post/stat2010/">Statistical Methods and Computing (STAT:2010 or 4200)</a></li>
+        <li><a href="/post/stat1010-week2/">Week 2(STAT:1010)</a></li>
         
-        <li><a href="/post/stat2010-week0/">Week 0: Preparation</a></li>
+        <li><a href="/post/stat1010/">Statistics and Society (STAT:1010)</a></li>
         
       </ul>
     </div>

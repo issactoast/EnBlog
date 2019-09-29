@@ -7,8 +7,103 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 15 Mar 2018 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 15 Mar 2018 00:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Week 6 - Mean, Median, and Weighted Mean</title>
+      <link>/post/stat1010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week6/</guid>
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Mean&lt;/h2&gt;
+&lt;p&gt;The mean is the sum of all values in a data set divided by the number of values in the data set.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Q. What is the mean of these numbers?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+mean = \frac{10+11+21+13+20+16}{6} = 15.17
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;median&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Median&lt;/h2&gt;
+&lt;p&gt;The “middle” of a &lt;strong&gt;sorted&lt;/strong&gt; list of numbers in your data set.&lt;/p&gt;
+&lt;p&gt;Step 1. Sort your data set.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;50, 60, 70, 80, 90&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Step 2. Find the middle number of the sorted sequence.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;`70` is the median of the data set.&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;what-if-we-have-even-number-of-data-set-such-as-the-following-data-set&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What if we have even number of data set such as the following data set?&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Q. What is the median of these numbers?&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;Step 1. Sort the number&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10 11 13 16 20 21&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Step 2. Find the middle number.&lt;/p&gt;
+&lt;p&gt;Since we have even number of data, our median should be between 13 and 16.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+median = \frac{13 + 16}{2} = 14.5
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;weighted-mean&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Weighted Mean&lt;/h2&gt;
+&lt;p&gt;To find a weighted mean you multiply each data value by its “weight,”add those all up, and divide by the sum of the weights.&lt;/p&gt;
+&lt;p&gt;Let’s consider we have students who are taking stat. course; Issac and Dakota.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Issac got 80 points for the homework score out of 100 and 60 points for the exam score out of 100.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dakota got 60 points for the homework score out of 100 and 80 points for the exam score out of 100.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Issac told Dakota,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;Hey, I think we should get the same grade since we have same average(mean) score.&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And he shows the following equation;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\frac{80 + 60}{2} = \frac{60 + 80}{2}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dakota thinks that is not fair since he think that the &lt;strong&gt;exam score is more important than the homework score&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;How can he suggest more reasonable measure for the students’ score? He found that Issac use an eqaution which use the same weights for homework and exam score; 50 % for each category.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align}
+Dakota&amp;#39;s \ score &amp;amp; = \frac{60 + 80}{2} \\
+&amp;amp;= \frac{1}{2}\times 60 + \frac{1}{2}\times 80 \\
+&amp;amp; = 0.5 \times 60 + 0.5 \times 80 \\
+&amp;amp; = 50\% \ (hw) \times 60 + 50\% \ (exam)\times 80 \\
+&amp;amp; = 70
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dakota suggests the weighted average for the student’s final score which gives more weights to the exam score than the homework score;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;30% for Homework
+70% for Exam&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After using this weighted average, Dakota’s final score is larger than Issac’s score as follows;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align}
+Dakota&amp;#39;s \ score &amp;amp; = 30\% \times 60 + 70\% \times 80 \\
+&amp;amp; = 0.3 \times 60 + 0.7 \times 80 \\
+&amp;amp; = 74 \\
+Issac&amp;#39;s \ score &amp;amp; = 30\% \times 80 + 70\% \times 60 \\
+&amp;amp; = 0.3 \times 80 + 0.7 \times 60 \\
+&amp;amp; = 66
+\end{align}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Q. What is the weighted mean of these numbers?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;math: 80, english: 70, history: 50,
+weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Week 5 - Freq. table and Stem plot</title>
@@ -153,7 +248,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
-      <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week4/</guid>
       <description>
@@ -321,7 +416,7 @@ pie(mytable,
     <item>
       <title>Week 3(STAT:1010) - Data type and errors</title>
       <link>/post/stat1010-week3/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week3/</guid>
       <description>
@@ -706,7 +801,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
       <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010/</guid>
       <description>
@@ -761,7 +856,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Statistics and Society (STAT:1010)</title>
       <link>/post/stat1010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010/</guid>
       <description>
@@ -802,7 +897,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Week 0: Preparation</title>
       <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010-week0/</guid>
       <description>
@@ -858,7 +953,7 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Week 2(STAT:1010)</title>
       <link>/post/stat1010-week2/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week2/</guid>
       <description>
@@ -923,7 +1018,7 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
     <item>
       <title>STAT:1020 - Elementary Statistics and Inference</title>
       <link>/post/stat1020/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 -0600</pubDate>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 -0500</pubDate>
       
       <guid>/post/stat1020/</guid>
       <description>&lt;p&gt;Welcome to my discussion section for &lt;strong&gt;STAT:1020&lt;/strong&gt;.&lt;/p&gt;
@@ -947,467 +1042,6 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
 &lt;li&gt;Week 16: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week16.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week16_sol.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Week 17: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/finalreview_sol.pdf&#34; target=&#34;_blank&#34;&gt;Final review sol&lt;/a&gt;,&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Asymptotic Normality for the Sample CTE Revisited</title>
-      <link>/project/cteproject/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/project/cteproject/</guid>
-      <description>&lt;div id=&#34;abstract&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Abstract&lt;/h2&gt;
-&lt;p&gt;Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;A key property of the non-parametric estimator of the CTE is its asymptotic normality, see Manistre and Hancock (2005)&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, Ahn and Shyamalkumar (2011)&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Traditional proofs of this result relies on various forms of functional delta method&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;, which makes the proof outside the scope of even masters level actuarial education.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;In this poster, we provide an intuitive proof of this result, which by relying instead on the ordinary delta method makes it accessible to most actuaries and actuarial students.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;For a given &lt;span class=&#34;math inline&#34;&gt;\(nice\)&lt;/span&gt; distribution &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;, the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-th level percentile (VaR), &lt;span class=&#34;math inline&#34;&gt;\(q_\alpha\)&lt;/span&gt;, is defined by&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-Pr\left(X&amp;gt;q_{\alpha}\right)=1-\alpha,
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(X \sim F\)&lt;/span&gt;; the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;-th level CTE is defined by&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-CTE_{\alpha}=\mathbb{E}\left[X|X&amp;gt;q_{\alpha}\right].
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;In practice, since &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; is unknown, an estimate of the CTE is required for regulatory and risk management purposes. Typically, a random sample &lt;span class=&#34;math inline&#34;&gt;\(X_1, ..., X_n\)&lt;/span&gt; from &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; is available for this purpose. The commonly used estimator of the CTE is its empirical counterpart,&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-CTE_{n:\alpha}=\frac{1}{n-\left\lfloor n\alpha\right\rfloor }\sum_{i=\left\lfloor n\alpha\right\rfloor +1}^{n}Y_{i}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-Y_1 \leq Y_2 \leq \cdots \leq Y_n
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;are the sample order statistics. The estimation error as well as the confidence interval for CTE rely on the following asymptotic result:&lt;/p&gt;
-&lt;span class=&#34;math display&#34;&gt;\[\begin{equation}
-\sqrt{n}\left(CTE_{n:\alpha}-CTE_{\alpha}\right) \overset{d}{\rightarrow} N\left(0,\sigma_\alpha^2\right), \tag{1}
-\label{eqn:mainthm}
-\end{equation}\]&lt;/span&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(\sigma_\alpha^2=\eta_\alpha^2+ \gamma_\alpha^2\)&lt;/span&gt; with &lt;span class=&#34;math display&#34;&gt;\[
-\eta_\alpha^2=\frac{Var\left(X|X&amp;gt;q_{\alpha}\right)}{1-\alpha},
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\gamma_\alpha^2=\frac{\alpha}{1-\alpha}\left(\mathbb{E}\left(X|X&amp;gt;q_{\alpha}\right)-q_{\alpha}\right)^{2}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The lack of an accessible proof prevents a full insight into it for most actuaries. Our proof essentially fixes a straightforward paradoxical argument and thus lends insight into not only this pivotal result in actuarial practice, but more importantly fortifies the intuition of the actuaries into similar such asymptotic results.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;a-paradox&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;A Paradox&lt;/h2&gt;
-&lt;p&gt;In the following &lt;span class=&#34;math inline&#34;&gt;\(N_{n:x}\)&lt;/span&gt; denotes the number of &lt;span class=&#34;math inline&#34;&gt;\(X_i\)&lt;/span&gt;s larger than &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(w(x)\)&lt;/span&gt; denotes &lt;span class=&#34;math inline&#34;&gt;\(\mathbb{E}\left(X|X&amp;gt;x\right)\)&lt;/span&gt;. Note that the &lt;span class=&#34;math inline&#34;&gt;\(N_{n:x}\)&lt;/span&gt; observations larger than &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; form random samples from &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; left-truncated at &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, and their &lt;span class=&#34;math inline&#34;&gt;\(partially\)&lt;/span&gt; normalized mean is given by&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{N_{n:x}}\left(\frac{1}{N_{n:x}}\underset{i=1}{\overset{n}{\Sigma}}X_{i}I_{X_i&amp;gt;x}- w(x)\right).
-\tag{2}
-\label{paradox}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Now since &lt;span class=&#34;math inline&#34;&gt;\(N_{n:x}\)&lt;/span&gt; approaches infinity with &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;, the ordinary CLT implies that the expression in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{paradox}\)&lt;/span&gt; converges in limit to a &lt;span class=&#34;math inline&#34;&gt;\(N\left(0,Var\left(X|X&amp;gt;x\right)\right)\)&lt;/span&gt;. Moreover, since &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt; is consistent for &lt;span class=&#34;math inline&#34;&gt;\(q_\alpha\)&lt;/span&gt;, and &lt;span class=&#34;math display&#34;&gt;\[
-\frac{1}{N_{n,Y_{\lfloor n\alpha\rfloor}}}\underset{i=1}{\overset{n}{\Sigma}}X_{i}I_{X_i&amp;gt;Y_{\left\lfloor n\alpha\right\rfloor}}=CTE_{n,\alpha},
-\]&lt;/span&gt; it is tempting to argue, albeit erroneously, that &lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{n}\left(CTE_{n:\alpha}-CTE_{\alpha}\right) \overset{d}{\rightarrow} N\left(0,\eta_\alpha^2\right).
-\]&lt;/span&gt; So what is wrong in the above argument, and how can we fix it to yield the correct conclusion &lt;span class=&#34;math inline&#34;&gt;\(\eqref{eqn:mainthm}\)&lt;/span&gt; - we do this below.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;replacing-x-by-y_lfloor-nalpharfloor-is-a-red-herring-.&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Replacing &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt; is a &lt;span style=&#34;color:red&#34;&gt;Red-Herring&lt;/span&gt; &lt;img src=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/red_herring.png&#34; width=&#34;50&#34; height=&#34;50&#34; style=&#34;float: right; margin: 0px 15px 15px 0px&#34;&gt;.&lt;/h2&gt;
-&lt;p&gt;In the above, we argued that the expression in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{paradox}\)&lt;/span&gt; has an asymptotic normal limit for any &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; (in the support of &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt;). This convergence is uniform under mild conditions - Berry-Esseen Theorem. In other words, we can replace &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{paradox}\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(x_n\)&lt;/span&gt;, with &lt;span class=&#34;math inline&#34;&gt;\(\{x_n\}_{n\geq1}\)&lt;/span&gt; satisfying &lt;span class=&#34;math inline&#34;&gt;\(\lim x_n=x\)&lt;/span&gt;, and yet maintain the same normal limit.&lt;/p&gt;
-&lt;p&gt;Towards replacing &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt;, we note that &lt;span class=&#34;math inline&#34;&gt;\(N_{n,Y_{\lfloor n\alpha\rfloor}}=n-\lfloor n \alpha \rfloor\)&lt;/span&gt; and these &lt;span class=&#34;math inline&#34;&gt;\(N_{n,Y_{\lfloor n\alpha\rfloor}}\)&lt;/span&gt; observations conditioned on &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt; form a random sample from &lt;span class=&#34;math inline&#34;&gt;\(F\)&lt;/span&gt; left-truncated at &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt;. Combining these observations with the uniform convergence results in&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{n}\left(CTE_{n:\alpha}-w(Y_{\lfloor n\alpha\rfloor})\right)  \overset{d}{\rightarrow} N\left(0,\eta_\alpha^2\right),
-\tag{3}
-\label{BEeqn}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;#Figure-1&#34;&gt;Figure 1&lt;/a&gt; demonstrates the uniformity in the convergence alluded to above via simulation.&lt;/p&gt;
-&lt;div id=&#34;figure-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Figure 1&lt;/h3&gt;
-&lt;p&gt;&lt;details&gt; &lt;summary&gt; R code for Figure 1 &lt;/summary&gt;&lt;/p&gt;
-&lt;ul class=&#34;nav nav-tabs&#34;&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;active&amp;quot;&amp;gt;
-    &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;app.R&amp;lt;/a&amp;gt;
-&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-library(RColorBrewer)
-library(shinyWidgets)
-library(shiny)
-
-### Figure1
-
-my_color &amp;lt;- brewer.pal(5, &amp;quot;Accent&amp;quot;)
-
-# Prepare empty dataframe for plotting
-dataset1 &amp;lt;- data.frame(z_nx = double(), sample_size = integer())
-# Making data set
-
-for (n in c(100, 200, 500, 1000, 5000)){
-  x &amp;lt;- matrix(rexp(n * 3000), nrow= 3000);
-  x &amp;lt;- apply(x,1,sort);
-  
-  f &amp;lt;- function(k, q_a){ k[which(k &amp;gt; q_a)] }
-  
-  for (alpha in c(0.94, 0.95, 0.96)){
-    if (alpha == 0.95){
-      a &amp;lt;- colMeans(x[floor(n * 0.95):n, ])
-      
-      dataset1 &amp;lt;- rbind.data.frame(dataset1,
-                                  data.frame(z_nx = a,
-                                             k = length(c(floor(n * 0.95):n)),
-                                             alpha_value = &amp;quot;sample q_0.95&amp;quot;,
-                                             exp_q = x[floor(n * 0.95), ] + 1,
-                                             sample_size = n ))
-      
-    } else {
-      result &amp;lt;- apply(x, 2, f, q_a = qexp(alpha))
-      k &amp;lt;- unlist(lapply(result,length))
-      a &amp;lt;- unlist(lapply(result, mean))
-      a &amp;lt;- ifelse(is.nan(a), 0, a)
-      dataset1 &amp;lt;- rbind.data.frame(dataset1,
-                                  data.frame(z_nx = a,
-                                             k = k,
-                                             alpha_value = paste(&amp;quot;q_&amp;quot;, alpha),
-                                             exp_q = qexp(alpha) + 1,
-                                             sample_size = n ))
-    }
-    
-  }
-}
-
-
-
-ui &amp;lt;- pageWithSidebar(
-  headerPanel(&amp;#39;Uniformity a la Berry-Esseen Theorem&amp;#39;),
-  sidebarPanel(
-    sliderTextInput(inputId = &amp;quot;sampleSize1&amp;quot;, 
-                    label = &amp;quot;Sample size n:&amp;quot;,
-                    animate = TRUE,
-                    grid = TRUE,
-                    choices = c(100, 200, 500, 1000, 5000))
-    
-  ),
-  mainPanel(
-    plotOutput(&amp;#39;plot1&amp;#39;)
-  )
-)
-
-
-server &amp;lt;- function(input, output, session) {
-  
-  dataset1_f &amp;lt;- reactive({
-    dataset1[dataset1$sample_size == input$sampleSize1,]
-  })
-  
-  output$plot1 &amp;lt;- renderPlot({
-    
-    p &amp;lt;- ggplot(dataset1_f()) +
-      geom_density(mapping = aes(x =  sqrt(k) *(z_nx - exp_q),
-                                 color = factor(alpha_value)),
-                   size = 1) +
-      # Add pdf of the standard Normal density
-      stat_function(fun = dnorm,
-                    args = list(mean = 0, sd = 1),
-                    size = 0.7,
-                    color = &amp;quot;black&amp;quot;) +
-      geom_hline(yintercept = 0, size = 1) +
-      theme(legend.position=&amp;quot;bottom&amp;quot;, legend.box = &amp;quot;horizontal&amp;quot;,
-            legend.text = element_text(size = 14)) +
-      xlim(-3, 3) +
-      ylim(0, 0.5) +
-      labs(
-        y = &amp;quot;Estimated density&amp;quot;,
-        x = &amp;quot;&amp;quot; ,
-        color = &amp;quot;Threshold values:  &amp;quot;)+
-      scale_color_manual(values=my_color[c(5,1,3)])+
-      scale_colour_manual(labels = expression(q[0.94],
-                                              paste(hat(q)[0.94]),q[0.96]),
-                          values = my_color[c(5,1,3)])
-
-    print(p)
-    
-    
-  }, height=300)
-  
-}
-
-shinyApp(ui, server)
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
-&lt;iframe id=&#34;example1&#34; src=&#34;https://issaclee.shinyapps.io/arc2018figure1/&#34; style=&#34;border: none; width: 100%; height: 650px&#34; frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;resolving-the-paradox&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Resolving the Paradox&lt;/h2&gt;
-&lt;p&gt;Towards establishing &lt;span class=&#34;math inline&#34;&gt;\(\eqref{eqn:mainthm}\)&lt;/span&gt; from &lt;span class=&#34;math inline&#34;&gt;\(\eqref{BEeqn}\)&lt;/span&gt; we note that&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\begin{aligned}
-\sqrt{n}\left(\right.&amp;amp;\left.CTE_{n:\alpha}-CTE_{\alpha}\right) \\
-&amp;amp;=\sqrt{n}\left(CTE_{n:\alpha}-w(Y_{\lfloor n\alpha\rfloor})\right)\\
-&amp;amp;\phantom{=}+ \sqrt{n} \left(w(Y_{\lfloor n\alpha\rfloor }) - \mathbb{E}\left(X|X&amp;gt;q_{\alpha}\right)\right)
-\end{aligned} \tag{4}
-\label{decom}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The two terms on the right in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{decom}\)&lt;/span&gt; are asymptotically independent. The reason for this being that the first term is asymptotically independent of &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt; as it only depends on its almost sure limit &lt;span class=&#34;math inline&#34;&gt;\(q_\alpha\)&lt;/span&gt;. This is illustrated in &lt;a href=&#34;#Figure-2&#34;&gt;Figure 2&lt;/a&gt;.&lt;/p&gt;
-&lt;div id=&#34;figure-2&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Figure 2&lt;/h3&gt;
-&lt;p&gt;&lt;details&gt; &lt;summary&gt; R code for Figure 2 &lt;/summary&gt;&lt;/p&gt;
-&lt;ul class=&#34;nav nav-tabs&#34;&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;active&amp;quot;&amp;gt;
-    &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;app.R&amp;lt;/a&amp;gt;
-&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-library(RColorBrewer)
-library(shinyWidgets)
-library(shiny)
-
-
-### Figure2
-
-my_color &amp;lt;- brewer.pal(5, &amp;quot;Accent&amp;quot;)
-
-# Prepare empty dataframe for plotting
-dataset2 &amp;lt;- data.frame(z_nx = double(), sample_size = integer())
-
-# Making data set
-for (n in c(100, 200, 500, 1000, 5000)){
-  x &amp;lt;- matrix(rexp(n * 3000), nrow= 3000);
-  x &amp;lt;- apply(x,1,sort);
-  
-  f_term &amp;lt;-  sqrt(n) * (colMeans(x[floor(n * 0.95):n, ]) - (x[floor(n * 0.95), ] + 1))
-  s_term &amp;lt;- sqrt(n) * ((x[floor(n * 0.95), ] + 1) - (qexp(0.95) + 1))
-  
-  dataset2 &amp;lt;- rbind.data.frame(dataset2,
-                              data.frame(first_t = f_term * sqrt(0.05),
-                                         second_t = s_term * sqrt((0.05 / 0.95)),
-                                         sample_size = n) )
-}
-
-ui &amp;lt;- pageWithSidebar(
-  headerPanel(&amp;#39;Asymptotic Indep. of the Two terms&amp;#39;),
-  sidebarPanel(
-    sliderTextInput(inputId = &amp;quot;sampleSize2&amp;quot;, 
-                    label = &amp;quot;Sample size n:&amp;quot;,
-                    animate = TRUE,
-                    grid = TRUE,
-                    choices = c(100, 200, 500, 1000, 5000))
-    
-  ),
-  mainPanel(
-    plotOutput(&amp;#39;plot2&amp;#39;)
-  )
-)
-
-server &amp;lt;- function(input, output, session) {
-  
-  dataset2_f &amp;lt;- reactive({
-    dataset2[dataset2$sample_size == input$sampleSize2,]
-  })
-  
-  output$plot2 &amp;lt;- renderPlot({
-    q &amp;lt;- ggplot(data = dataset2_f(),
-           aes(x =  first_t, y = second_t)) +
-      theme_light() +
-      # Add estimated density
-      geom_point(fill = &amp;quot;lightgray&amp;quot;,
-                 size = 0.5,
-                 alpha = 0.2) +
-      stat_density_2d(aes(fill = ..level..), geom = &amp;quot;polygon&amp;quot;,
-                      colour=&amp;quot;white&amp;quot;,
-                      alpha = 0.7) +
-      scale_fill_distiller(palette= &amp;quot;Spectral&amp;quot;, direction=-1) +
-      xlim(-4, 4) +
-      ylim(-4, 4) +
-      labs(y = &amp;quot;The second term&amp;quot;,
-           x = &amp;quot;The first term&amp;quot;)
-      theme(strip.text = element_text(size = 15, color = &amp;quot;black&amp;quot;))+
-      theme(legend.position=&amp;quot;bottom&amp;quot;)
-      
-      print(q)
-  }, height=300)
-
-}
-
-shinyApp(ui, server)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;/details&gt; &lt;iframe id=&#34;example1&#34; src=&#34;https://issaclee.shinyapps.io/arc2018figure2/&#34; style=&#34;border: none; width: 100%; height: 650px&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
-&lt;p&gt;Hence all that remains to be derived is the asymptotic distribution of the second term in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{decom}\)&lt;/span&gt;. That this limiting distribution is non-degenerate, in other words this term cannot be ignored, resolves the paradox.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;ordinary-delta-method&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Ordinary Delta Method&lt;/h2&gt;
-&lt;p&gt;The asymptotic distribution of the second term derives from that of &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha \rfloor}\)&lt;/span&gt;;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{n}\left(Y_{\left\lfloor n\alpha\right\rfloor }-q_{\alpha}\right)\overset{d}{\rightarrow}N\left(0,\frac{\alpha\left(1-\alpha\right)}{f^{2}\left(q_{\alpha}\right)}\right) 
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(f\)&lt;/span&gt; is a density function of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. This is so as this term is a smooth function of &lt;span class=&#34;math inline&#34;&gt;\(Y_{\lfloor n\alpha\rfloor}\)&lt;/span&gt;; this function &lt;span class=&#34;math inline&#34;&gt;\(w(\cdot)\)&lt;/span&gt; satisfies&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\omega\left(x\right)=x+\frac{\int_{x}^{\infty}S\left(z\right)dz}{S\left(x\right)},
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(S\)&lt;/span&gt; is the survival function of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. By the ordinary delta method &lt;a href=&#34;#fn4&#34; class=&#34;footnoteRef&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;, we now have &lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{n} \left(w(Y_{\lfloor n\alpha\rfloor})  - \mathbb{E}\left(X|X&amp;gt;q_{\alpha}\right)\right) 
-\overset{d}{\rightarrow} N\left(0,\gamma_\alpha^2\right)
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;asymptotic-dist.-of-cte_nalpha&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Asymptotic dist. of &lt;span class=&#34;math inline&#34;&gt;\(CTE_{n:\alpha}\)&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;The independence of the two terms in &lt;span class=&#34;math inline&#34;&gt;\(\eqref{decom}\)&lt;/span&gt;and their asymptotic normality together yield &lt;span class=&#34;math inline&#34;&gt;\(\eqref{eqn:mainthm}\)&lt;/span&gt;. For the traditional approach in our setting see &lt;a href=&#34;#fn5&#34; class=&#34;footnoteRef&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;, and in the setting of importance sampling see &lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;div id=&#34;figure-3&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Figure 3&lt;/h3&gt;
-&lt;p&gt;&lt;details&gt; &lt;summary&gt; R code for Figure 3 &lt;/summary&gt;&lt;/p&gt;
-&lt;ul class=&#34;nav nav-tabs&#34;&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;li class=&amp;quot;active&amp;quot;&amp;gt;
-    &amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;app.R&amp;lt;/a&amp;gt;
-&amp;lt;/li&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-library(RColorBrewer)
-library(shinyWidgets)
-library(shiny)
-library(markdown)
-library(dplyr)
-library(tidyr)
-
-
-### Figure 3
-
-my_color &amp;lt;- brewer.pal(5, &amp;quot;Accent&amp;quot;)
-
-# Prepare empty dataframe for plotting
-dataset3 &amp;lt;- data.frame(z_nx = double(), sample_size = integer())
-
-# Making data set
-# alpha_value &amp;lt;- 0.95
-n &amp;lt;- 1000
-x &amp;lt;- matrix(rexp(n * 10000), nrow= 10000);
-x &amp;lt;- apply(x,1,sort);
-
-f_term &amp;lt;- sqrt(n) * (colMeans(x[floor(n * 0.95):n, ]) - (x[floor(n * 0.95), ] + 1))
-s_term &amp;lt;- sqrt(n) * ((x[floor(n * 0.95), ] + 1) - (qexp(0.95) + 1))
-
-dataset3 &amp;lt;- rbind.data.frame(dataset3,
-                            data.frame(first_t = f_term,
-                                       second_t = s_term,
-                                       dist = &amp;quot;Exp. dist.&amp;quot;,
-                                       sample_size = n) )
-
-qpareto &amp;lt;- function(p, theta = 2.687376 , alpha = 4){
-  theta * ((1-p)^(-1/alpha) - 1)
-}
-
-cte_pareto &amp;lt;- function(x, theta = 2.687376 , alpha = 4){
-  x + (x + theta) / (alpha - 1)
-}
-
-x &amp;lt;- matrix(qpareto(runif(n * 10000)), nrow= 10000)
-x &amp;lt;- apply(x,1,sort)
-
-f_term &amp;lt;- sqrt(n) * (colMeans(x[floor(n * 0.95):n, ]) -
-                       cte_pareto(x[floor(n * 0.95), ]))
-s_term &amp;lt;- sqrt(n) * (cte_pareto(x[floor(n * 0.95), ]) - 
-                       cte_pareto(qpareto(0.95)))
-
-dataset3 &amp;lt;- rbind.data.frame(dataset3,
-                            data.frame(first_t = f_term,
-                                       second_t = s_term,
-                                       dist = &amp;quot;Pareto dist.&amp;quot;,
-                                       sample_size = n) )
-
-
-dataset_orig &amp;lt;- dataset3 %&amp;gt;% mutate(total = first_t + second_t)
-dataset_orig &amp;lt;- select(dataset_orig, first_t, second_t, total, dist)
-dataset3 &amp;lt;- dataset_orig %&amp;gt;% gather(&amp;#39;first_t&amp;#39;, &amp;#39;second_t&amp;#39;, &amp;#39;total&amp;#39;,
-                                    key = &amp;quot;terms&amp;quot;, value = &amp;quot;values&amp;quot;)
-
-ui &amp;lt;- pageWithSidebar(
-  headerPanel(&amp;#39;Tale of the Tails: Impact on the Terms&amp;#39;),
-  sidebarPanel(
-    # Input: Select the random distribution type ----
-    radioButtons(&amp;quot;dist&amp;quot;, &amp;quot;Distribution type:&amp;quot;,
-                 c(&amp;quot;Exponential (Light tail)&amp;quot; = &amp;quot;Exp. dist.&amp;quot;,
-                   &amp;quot;Pareto (Heavy tail)&amp;quot; = &amp;quot;Pareto dist.&amp;quot;))
-  ),
-  mainPanel(
-    plotOutput(&amp;#39;plot3&amp;#39;)
-  )
-)
-
-server &amp;lt;- function(input, output, session) {
-
-  dataset3_f &amp;lt;- reactive({
-    dataset3[dataset3$dist == input$dist,]
-  })
-
-  dat_text1 &amp;lt;- reactive({
-    data.frame(label = c(paste(&amp;quot;Variance \n 1st: &amp;quot;, 
-                    round(var(dataset_orig$first_t[dataset_orig$dist == input$dist]),2),
-                    &amp;quot;\n  2nd: &amp;quot;,
-                    round(var(dataset_orig$second_t[dataset_orig$dist == input$dist]),2),
-                    &amp;quot;\n  Conv.: &amp;quot;,
-                    round(var(dataset_orig$total[dataset_orig$dist == input$dist]),2)))
-    )
-  })
-  
-  output$plot3 &amp;lt;- renderPlot({
-    
-    # Plotting
-    r &amp;lt;- ggplot(data = dataset3_f()) +
-      theme_light() +
-      # Add estimated density
-      geom_density(mapping = aes(x = values, color = terms),
-                   size = 1) +
-      geom_hline(yintercept = 0, size = 1) +
-      # Draw plots based on the sample_size variable
-      scale_color_manual(values=my_color[c(1,3,5)])+
-      theme(legend.position=&amp;quot;bottom&amp;quot;, legend.box = &amp;quot;horizontal&amp;quot;,
-            legend.text = element_text(size = 14)) +
-      scale_colour_manual(labels = expression(paste(1^&amp;quot;st&amp;quot;, &amp;quot; term&amp;quot;),
-                                              paste(2^&amp;quot;nd&amp;quot;, &amp;quot; term&amp;quot;),
-                                              &amp;quot;Conv.&amp;quot;),
-                          values = my_color[c(1,3,5)]) +
-      labs(
-        y = &amp;quot;Estimated density&amp;quot;,
-        x = &amp;quot;&amp;quot; ,
-        color = &amp;quot;&amp;quot;)+
-      xlim(-35, 35) +
-      ylim(0, 0.1) +
-      theme(strip.text = element_text(size = 19, color = &amp;quot;black&amp;quot;)) +
-      geom_text(
-        data    = dat_text1(),
-        mapping = aes(x = 24, y = 0.08, label = label)
-      )
-    print(r)
-  }, height=300)
-}
-
-shinyApp(ui, server)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
-&lt;iframe id=&#34;example1&#34; src=&#34;https://issaclee.shinyapps.io/arc2018figure3/&#34; style=&#34;border: none; width: 100%; height: 650px&#34; frameborder=&#34;0&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;epilogue&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Epilogue&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;While we appeal to Berry-Esseen Theorem, which is’nt covered at the MS level, it’s statement as a guarantee of uniform convergence to normality is easily understood.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;It’s use does require the third moment; while we believe that the line of argument can be executed under finite variance, it is besides the central focus our efforts.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;This approach was successful with a cohort of seniors and MS students last Spring, providing motivation for this poster.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--bibliography section starts from here..--&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;John Manistre, B., &amp;amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Ahn, J. Y., &amp;amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;John Manistre, B., &amp;amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.&lt;a href=&#34;#fnref3&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;Klugman, S. A., Panjer, H. H., &amp;amp; Willmot, G. E. (2012). Loss models: from data to decisions (Vol. 715). John Wiley &amp;amp; Sons.&lt;a href=&#34;#fnref4&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;John Manistre, B., &amp;amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.&lt;a href=&#34;#fnref5&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Ahn, J. Y., &amp;amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.&lt;a href=&#34;#fnref6&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
 </description>
     </item>
     
