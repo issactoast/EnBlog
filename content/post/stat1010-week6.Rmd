@@ -160,7 +160,6 @@ $$
 80 * 0.3 + 70 * 0.2 + 50 * 0.5
 ```
 
-
 </details>
 
 <a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>

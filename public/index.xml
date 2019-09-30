@@ -106,6 +106,19 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Week 6 - Normal distribution 2</title>
+      <link>/post/stat2010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week6/</guid>
+      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
@@ -883,13 +896,15 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The course materials will be uploaded in this page. :)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Week 2: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week2/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week2/&#34; target=&#34;_self&#34;&gt;Week 2&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Week 3: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week3/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week3/&#34; target=&#34;_self&#34;&gt;Week 3&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Week 4: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week4/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week4/&#34; target=&#34;_self&#34;&gt;Week 4&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Week 5: &lt;a href=&#34;https://theissaclee.com/post/stat1010-week5/&#34; target=&#34;_self&#34;&gt;Problems&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week5/&#34; target=&#34;_self&#34;&gt;Week 5&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week6/&#34; target=&#34;_self&#34;&gt;Week 6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -1013,36 +1028,6 @@ What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
       
       <guid>/project/telematicsproject/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>STAT:1020 - Elementary Statistics and Inference</title>
-      <link>/post/stat1020/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1020/</guid>
-      <description>&lt;p&gt;Welcome to my discussion section for &lt;strong&gt;STAT:1020&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here are my section materials:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Week 2: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week2.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 3: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week3.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 4: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week4.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 5: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week5.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 6: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week6.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 7: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week7.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 8: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week8.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 9: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week9.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;,    &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week9_sol.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 11: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week11.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week11_sol.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 12(Exam 2 review): &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/exam2_review.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 13: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week13.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week13.xlsx&#34; target=&#34;_blank&#34;&gt;Excel file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 14: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week14.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/textbook_summary.png&#34; target=&#34;_blank&#34;&gt;Summary sheet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 15: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week15.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week15_sol.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 16: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week16.pdf&#34; target=&#34;_blank&#34;&gt;Problem set&lt;/a&gt;, &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/week16_sol.pdf&#34; target=&#34;_blank&#34;&gt;Solution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Week 17: &lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat1020/finalreview_sol.pdf&#34; target=&#34;_blank&#34;&gt;Final review sol&lt;/a&gt;,&lt;/li&gt;
-&lt;/ul&gt;
-</description>
     </item>
     
   </channel>
