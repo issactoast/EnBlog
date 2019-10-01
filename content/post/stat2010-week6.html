@@ -18,5 +18,57 @@ header:
 
 <div id="sat.-and-act.-scores-standardization" class="section level2">
 <h2>SAT. and ACT. Scores (Standardization)</h2>
+<p>Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;</p>
+<p>Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30</p>
+<p>Which student should get the admission if the administration process are evaluated by only their test scores?</p>
+<p>To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;</p>
+<p><span class="math display">\[
+SAT \sim \mathcal{N}(1200, 50) \\
+ACT \sim \mathcal{N}(28, 2) \\
+\]</span></p>
+<p>Picking one between Issac and James is clear for us since James has higher score for the same test. How about between James and Robert? This is tricky, because these two students did not take the same test. Thus, we want to see how they did well in the exam comparing to other students scores.</p>
+<pre class="r"><code>x &lt;- seq(1000, 1400, by = 10)
+y &lt;- dnorm(x, mean = 1200, sd = 50)
+plot(x, y, type = &quot;l&quot;,
+     main = &quot;Distribution of SAT scores&quot;,
+     xlab = &quot;SAT score&quot;,
+     ylab = &quot;density&quot;)
+abline(v = 1300)</code></pre>
+<p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Q. Draw the density plot for ACT scores and mark the score or Robert.</p>
+<p><details> <summary> Answer </summary></p>
+<pre class="r"><code>x &lt;- seq(22, 34, by = 0.5)
+y &lt;- dnorm(x, mean = 28, sd = 2)
+plot(x, y, type = &quot;l&quot;,
+     main = &quot;Distribution of SAT scores&quot;,
+     xlab = &quot;ACT score&quot;,
+     ylab = &quot;density&quot;)
+abline(v = 30)</code></pre>
+<p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p></details></p>
+<div id="standardization" class="section level3">
+<h3>Standardization</h3>
+<p>Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.</p>
+<p><span class="math display">\[
+\frac{data - \mu}{\sigma}
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+\begin{align*}
+Z_{James}  &amp; = \frac{1300 - 1200}{50} = 2 \\
+Z_{Robert} &amp; = \frac{30 - 28}{2} = 1
+\end{align*}
+\]</span></p>
+<p>James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.</p>
+<p>One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using <code>R</code> functions we can calculate the quantiles for each score as follows;</p>
+<pre class="r"><code>z_james &lt;- (1300 - 1200)/50
+z_robert &lt;- (30 - 28)/2
+
+# percentile of scores for James and Robert
+pnorm(z_james)</code></pre>
+<pre><code>## [1] 0.9772499</code></pre>
+<pre class="r"><code>pnorm(z_robert)</code></pre>
+<pre><code>## [1] 0.8413447</code></pre>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+</div>
 </div>

@@ -16,6 +16,84 @@ header:
 
 ## SAT. and ACT. Scores (Standardization)
 
+Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
+
+Issac : SAT score - 1250
+JAMES : SAT score - 1300
+ROBERT: ACT score - 30
+
+Which student should get the admission if the administration process are evaluated by only their test scores?
+
+To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;
+
+$$
+SAT \sim \mathcal{N}(1200, 50) \\
+ACT \sim \mathcal{N}(28, 2) \\
+$$
+
+Picking one between Issac and James is clear for us since James has higher score for the same test. How about between James and Robert? This is tricky, because these two students did not take the same test. Thus, we want to see how they did well in the exam comparing to other students scores.
+
+```{r}
+x <- seq(1000, 1400, by = 10)
+y <- dnorm(x, mean = 1200, sd = 50)
+plot(x, y, type = "l",
+     main = "Distribution of SAT scores",
+     xlab = "SAT score",
+     ylab = "density")
+abline(v = 1300)
+```
+
+Q. Draw the density plot for ACT scores and mark the score or Robert.
+
+<details>
+<summary>
+Answer
+</summary>
+
+```{r}
+x <- seq(22, 34, by = 0.5)
+y <- dnorm(x, mean = 28, sd = 2)
+plot(x, y, type = "l",
+     main = "Distribution of SAT scores",
+     xlab = "ACT score",
+     ylab = "density")
+abline(v = 30)
+```
+
+</details>
+
+### Standardization
+
+Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.
+
+$$
+\frac{data - \mu}{\sigma}
+$$
+
+Thus,
+
+$$
+\begin{align*}
+Z_{James}  & = \frac{1300 - 1200}{50} = 2 \\
+Z_{Robert} & = \frac{30 - 28}{2} = 1
+\end{align*}
+$$
+
+James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.
+
+One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using `R` functions we can calculate the quantiles for each score as follows;
+
+```{r}
+z_james <- (1300 - 1200)/50
+z_robert <- (30 - 28)/2
+
+# percentile of scores for James and Robert
+pnorm(z_james)
+pnorm(z_robert)
+```
+
+
+
 
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
