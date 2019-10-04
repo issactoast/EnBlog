@@ -40,7 +40,7 @@ abline(v = 1300)</code></pre>
 <pre class="r"><code>x &lt;- seq(22, 34, by = 0.5)
 y &lt;- dnorm(x, mean = 28, sd = 2)
 plot(x, y, type = &quot;l&quot;,
-     main = &quot;Distribution of SAT scores&quot;,
+     main = &quot;Distribution of ACT scores&quot;,
      xlab = &quot;ACT score&quot;,
      ylab = &quot;density&quot;)
 abline(v = 30)</code></pre>
@@ -59,16 +59,68 @@ Z_{James}  &amp; = \frac{1300 - 1200}{50} = 2 \\
 Z_{Robert} &amp; = \frac{30 - 28}{2} = 1
 \end{align*}
 \]</span></p>
+<pre class="r"><code># standadization
+# (data - mean)/sd ~ N(0, 1)
+
+# James
+(1300 - 1200)/50 #2</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code># Robert
+(30 - 28)/2      #1</code></pre>
+<pre><code>## [1] 1</code></pre>
 <p>James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.</p>
 <p>One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using <code>R</code> functions we can calculate the quantiles for each score as follows;</p>
 <pre class="r"><code>z_james &lt;- (1300 - 1200)/50
 z_robert &lt;- (30 - 28)/2
 
-# percentile of scores for James and Robert
-pnorm(z_james)</code></pre>
-<pre><code>## [1] 0.9772499</code></pre>
-<pre class="r"><code>pnorm(z_robert)</code></pre>
-<pre><code>## [1] 0.8413447</code></pre>
+# Put them in the standard Normal
+x &lt;- seq(-3, 3, by = 0.1)
+y &lt;- dnorm(x)
+plot(x, y, type = &quot;l&quot;,
+     main = &quot;Distribution of N(0, 1)&quot;,
+     xlab = &quot;Standardized score&quot;,
+     ylab = &quot;Density&quot;)
+
+# James
+abline(v = z_james, col = &quot;blue&quot;)
+
+# Robert
+abline(v = z_robert, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Let us assume that the total number of students who took SAT or ACT last year was 10,000. Then, we can say there are about 1400 people between James and Robert for the following reason.</p>
+<pre class="r"><code># percentile of scores for James and Robert
+(pnorm(z_james) - pnorm(z_robert)) * 10000</code></pre>
+<pre><code>## [1] 1359.051</code></pre>
+<p>Let us consider the situation where the U of Iowa made a cut-off for application as follow;</p>
+<pre><code>To apply the university, your score should be above the 90th percentile for whole group of students last year.</code></pre>
+<p>This means, your score should be above 90th percentile. In the standard Normal,</p>
+<pre class="r"><code>qnorm(0.9)</code></pre>
+<pre><code>## [1] 1.281552</code></pre>
+<p>1.281552 is the 90th percentile. Thus, if we mark the cut-off in the above plot, we can see that James can apply to the U of Iowa, but Robert is right below the threshold as follow;</p>
+<pre class="r"><code>x &lt;- seq(-3, 3, by = 0.1)
+y &lt;- dnorm(x)
+plot(x, y, type = &quot;l&quot;,
+     main = &quot;Distribution of N(0, 1)&quot;,
+     xlab = &quot;Standardized score&quot;,
+     ylab = &quot;Density&quot;)
+
+# James
+abline(v = z_james, col = &quot;blue&quot;)
+
+# Robert
+abline(v = z_robert, col = &quot;red&quot;)
+
+# Add cut-off
+abline(v = qnorm(0.9))</code></pre>
+<p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>We can find the cut off values for SAT and ACT using <code>qnorm</code> by setting the mean and sd for the each test.</p>
+<pre class="r"><code># SAT cut-off
+qnorm(0.9, mean = 1200, sd = 50)</code></pre>
+<pre><code>## [1] 1264.078</code></pre>
+<pre class="r"><code># ACT cut-off
+qnorm(0.9, mean = 28, sd = 2)</code></pre>
+<pre><code>## [1] 30.5631</code></pre>
+<p>Thus, to apply to the U of Iowa, your SAT score should be above 1264.08 or your ACT score should be above 30.56.</p>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 </div>

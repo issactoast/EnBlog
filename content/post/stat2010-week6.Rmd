@@ -54,7 +54,7 @@ Answer
 x <- seq(22, 34, by = 0.5)
 y <- dnorm(x, mean = 28, sd = 2)
 plot(x, y, type = "l",
-     main = "Distribution of SAT scores",
+     main = "Distribution of ACT scores",
      xlab = "ACT score",
      ylab = "density")
 abline(v = 30)
@@ -79,6 +79,17 @@ Z_{Robert} & = \frac{30 - 28}{2} = 1
 \end{align*}
 $$
 
+```{r}
+# standadization
+# (data - mean)/sd ~ N(0, 1)
+
+# James
+(1300 - 1200)/50 #2
+
+# Robert
+(30 - 28)/2      #1
+```
+
 James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.
 
 One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using `R` functions we can calculate the quantiles for each score as follows;
@@ -87,14 +98,69 @@ One thing that we should know about the standardization, the standardized value 
 z_james <- (1300 - 1200)/50
 z_robert <- (30 - 28)/2
 
-# percentile of scores for James and Robert
-pnorm(z_james)
-pnorm(z_robert)
+# Put them in the standard Normal
+x <- seq(-3, 3, by = 0.1)
+y <- dnorm(x)
+plot(x, y, type = "l",
+     main = "Distribution of N(0, 1)",
+     xlab = "Standardized score",
+     ylab = "Density")
+
+# James
+abline(v = z_james, col = "blue")
+
+# Robert
+abline(v = z_robert, col = "red")
 ```
 
+Let us assume that the total number of students who took SAT or ACT last year was 10,000. Then, we can say there are about 1400 people between James and Robert for the following reason.
 
+```{r}
+# percentile of scores for James and Robert
+(pnorm(z_james) - pnorm(z_robert)) * 10000
+```
 
+Let us consider the situation where the U of Iowa made a cut-off for application as follow;
 
+    To apply the university, your score should be above the 90th percentile for whole group of students last year.
+    
+This means, your score should be above 90th percentile. In the standard Normal, 
+
+```{r}
+qnorm(0.9)
+```
+
+1.281552 is the 90th percentile. Thus, if we mark the cut-off in the above plot, we can see that James can apply to the U of Iowa, but Robert is right below the threshold as follow;
+
+```{r}
+x <- seq(-3, 3, by = 0.1)
+y <- dnorm(x)
+plot(x, y, type = "l",
+     main = "Distribution of N(0, 1)",
+     xlab = "Standardized score",
+     ylab = "Density")
+
+# James
+abline(v = z_james, col = "blue")
+
+# Robert
+abline(v = z_robert, col = "red")
+
+# Add cut-off
+abline(v = qnorm(0.9))
+```
+
+We can find the cut off values for SAT and ACT using `qnorm` by setting the mean and sd for the each test.
+
+```{r}
+# SAT cut-off
+qnorm(0.9, mean = 1200, sd = 50)
+
+# ACT cut-off
+qnorm(0.9, mean = 28, sd = 2)
+```
+
+Thus, to apply to the U of Iowa, your SAT score should be above `r round(qnorm(0.9, mean = 1200, sd = 50), 2)` or your ACT score should be above `r round(qnorm(0.9, mean = 28, sd = 2), 2)`.
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
