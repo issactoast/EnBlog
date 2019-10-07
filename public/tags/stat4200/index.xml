@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Stat4200 on Issac Lee</title>
+    <title>stat4200 on Issac Lee</title>
     <link>/tags/stat4200/</link>
-    <description>Recent content in Stat4200 on Issac Lee</description>
+    <description>Recent content in stat4200 on Issac Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -19,8 +19,7 @@
       
       <guid>/post/stat2010-week6/</guid>
       <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
-Which student should get the admission if the administration process are evaluated by only their test scores?</description>
+Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30</description>
     </item>
     
     <item>
@@ -42,8 +41,7 @@ Here are some characteristics of all Normal curves;
       <guid>/post/stat2010-week4/</guid>
       <description>Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
 (°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
-67, 45, 92, 83, 70We can run the following five codes;</description>
+(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?</description>
     </item>
     
     <item>

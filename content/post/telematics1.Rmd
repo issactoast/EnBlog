@@ -1,0 +1,40 @@
+---
+title: 'GPS data visualization - gganimate, ggmap'
+author: Issac Lee
+date: '2019-10-04'
+slug: telematics1
+categories:
+  - R
+tags:
+  - telematics
+  - GPS
+  - gganimation
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/lonlatacc.png'
+  preview: yes
+---
+
+As an employee, I am trying to construct my own portfolio thesedays. By sharing my research materials, I hope that my article makes you either become interested in me or in the driving telematics topic.
+
+All the code used in here written by me. I wrote them for doing my Ph.D. research. Thus, they are not efficient code and has a lot of room for improvements and also it might has some typo or error. If you found any typo or error in my code, feel free to leave a comment or contact me. I would be really happy and appreciate your feedback.
+
+## GPS data visualization
+
+GPS is probably the most popular data format, which has information about the position of the device. At the beginning of my research, I tried to use to record my commute route. To record the telematics data, I attched my phone to my vehicle, and recorded the position of my vehicle per second using smartphone sensor app.
+
+Here is the sample sensor data that contains the information of my commute route data.
+
+- [sampletrip.csv](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/telematics/sampletrip.csv)
+
+```{r }
+d <- 1
+```
+
+
+
+## 
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
+
