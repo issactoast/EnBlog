@@ -27,3 +27,7 @@ image = "headers/lonlatacc.png"
 caption = "calibrated long. and lateral acceleration"
 
 +++
+
+## Posts
+
+- [Visualization of GPS data](https://www.theissaclee.com/post/telematics1/)
