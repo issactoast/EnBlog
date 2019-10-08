@@ -19,7 +19,9 @@ header:
 <div id="sat.-and-act.-scores-standardization" class="section level2">
 <h2>SAT. and ACT. Scores (Standardization)</h2>
 <p>Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;</p>
-<p>Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30</p>
+<p>Issac : SAT score - 1250
+JAMES : SAT score - 1300
+ROBERT: ACT score - 30</p>
 <p>Which student should get the admission if the administration process are evaluated by only their test scores?</p>
 <p>To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;</p>
 <p><span class="math display">\[
@@ -36,7 +38,10 @@ plot(x, y, type = &quot;l&quot;,
 abline(v = 1300)</code></pre>
 <p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Q. Draw the density plot for ACT scores and mark the score or Robert.</p>
-<p><details> <summary> Answer </summary></p>
+<details>
+<p><summary>
+Answer
+</summary></p>
 <pre class="r"><code>x &lt;- seq(22, 34, by = 0.5)
 y &lt;- dnorm(x, mean = 28, sd = 2)
 plot(x, y, type = &quot;l&quot;,
@@ -45,7 +50,7 @@ plot(x, y, type = &quot;l&quot;,
      ylab = &quot;density&quot;)
 abline(v = 30)</code></pre>
 <p><img src="/post/stat2010-week6_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p></details></p>
+</details>
 <div id="standardization" class="section level3">
 <h3>Standardization</h3>
 <p>Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.</p>
