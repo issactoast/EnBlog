@@ -306,8 +306,8 @@
 <h2>Abstract</h2>
 <p>Insurance regulation relies on the conditional tail expectation(CTE) of a loss random variable for specifying required capital as well as for valuation of liabilities. Hence, understanding statistical inference of the CTE measure is an important aspect of actuarial education.</p>
 <ul>
-<li><p>A key property of the non-parametric estimator of the CTE is its asymptotic normality, see Manistre and Hancock (2005)<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, Ahn and Shyamalkumar (2011)<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p></li>
-<li><p>Traditional proofs of this result relies on various forms of functional delta method<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, which makes the proof outside the scope of even masters level actuarial education.</p></li>
+<li><p>A key property of the non-parametric estimator of the CTE is its asymptotic normality, see Manistre and Hancock (2005)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, Ahn and Shyamalkumar (2011)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p></li>
+<li><p>Traditional proofs of this result relies on various forms of functional delta method<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, which makes the proof outside the scope of even masters level actuarial education.</p></li>
 <li><p>In this poster, we provide an intuitive proof of this result, which by relying instead on the ordinary delta method makes it accessible to most actuaries and actuarial students.</p></li>
 </ul>
 </div>
@@ -330,11 +330,12 @@ CTE_{n:\alpha}=\frac{1}{n-\left\lfloor n\alpha\right\rfloor }\sum_{i=\left\lfloo
 Y_1 \leq Y_2 \leq \cdots \leq Y_n
 \]</span></p>
 <p>are the sample order statistics. The estimation error as well as the confidence interval for CTE rely on the following asymptotic result:</p>
-<span class="math display">\[\begin{equation}
+<p><span class="math display">\[\begin{equation}
 \sqrt{n}\left(CTE_{n:\alpha}-CTE_{\alpha}\right) \overset{d}{\rightarrow} N\left(0,\sigma_\alpha^2\right), \tag{1}
 \label{eqn:mainthm}
-\end{equation}\]</span>
-<p>where <span class="math inline">\(\sigma_\alpha^2=\eta_\alpha^2+ \gamma_\alpha^2\)</span> with <span class="math display">\[
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\sigma_\alpha^2=\eta_\alpha^2+ \gamma_\alpha^2\)</span> with
+<span class="math display">\[
 \eta_\alpha^2=\frac{Var\left(X|X&gt;q_{\alpha}\right)}{1-\alpha},
 \]</span></p>
 <p>and</p>
@@ -351,11 +352,15 @@ Y_1 \leq Y_2 \leq \cdots \leq Y_n
 \tag{2}
 \label{paradox}
 \]</span></p>
-<p>Now since <span class="math inline">\(N_{n:x}\)</span> approaches infinity with <span class="math inline">\(n\)</span>, the ordinary CLT implies that the expression in <span class="math inline">\(\eqref{paradox}\)</span> converges in limit to a <span class="math inline">\(N\left(0,Var\left(X|X&gt;x\right)\right)\)</span>. Moreover, since <span class="math inline">\(Y_{\lfloor n\alpha\rfloor}\)</span> is consistent for <span class="math inline">\(q_\alpha\)</span>, and <span class="math display">\[
+<p>Now since <span class="math inline">\(N_{n:x}\)</span> approaches infinity with <span class="math inline">\(n\)</span>, the ordinary CLT implies that the expression in <span class="math inline">\(\eqref{paradox}\)</span> converges in limit to a <span class="math inline">\(N\left(0,Var\left(X|X&gt;x\right)\right)\)</span>. Moreover, since <span class="math inline">\(Y_{\lfloor n\alpha\rfloor}\)</span> is consistent for <span class="math inline">\(q_\alpha\)</span>, and
+<span class="math display">\[
 \frac{1}{N_{n,Y_{\lfloor n\alpha\rfloor}}}\underset{i=1}{\overset{n}{\Sigma}}X_{i}I_{X_i&gt;Y_{\left\lfloor n\alpha\right\rfloor}}=CTE_{n,\alpha},
-\]</span> it is tempting to argue, albeit erroneously, that <span class="math display">\[
+\]</span>
+it is tempting to argue, albeit erroneously, that
+<span class="math display">\[
 \sqrt{n}\left(CTE_{n:\alpha}-CTE_{\alpha}\right) \overset{d}{\rightarrow} N\left(0,\eta_\alpha^2\right).
-\]</span> So what is wrong in the above argument, and how can we fix it to yield the correct conclusion <span class="math inline">\(\eqref{eqn:mainthm}\)</span> - we do this below.</p>
+\]</span>
+So what is wrong in the above argument, and how can we fix it to yield the correct conclusion <span class="math inline">\(\eqref{eqn:mainthm}\)</span> - we do this below.</p>
 </div>
 <div id="replacing-x-by-y_lfloor-nalpharfloor-is-a-red-herring-." class="section level2">
 <h2>Replacing <span class="math inline">\(x\)</span> by <span class="math inline">\(Y_{\lfloor n\alpha\rfloor}\)</span> is a <span style="color:red">Red-Herring</span> <img src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/red_herring.png" width="50" height="50" style="float: right; margin: 0px 15px 15px 0px">.</h2>
@@ -369,11 +374,14 @@ Y_1 \leq Y_2 \leq \cdots \leq Y_n
 <p><a href="#Figure-1">Figure 1</a> demonstrates the uniformity in the convergence alluded to above via simulation.</p>
 <div id="figure-1" class="section level3">
 <h3>Figure 1</h3>
-<p><details> <summary> R code for Figure 1 </summary></p>
+<details>
+<p><summary>
+R code for Figure 1
+</summary></p>
 <ul class="nav nav-tabs">
-<pre><code>&lt;li class=&quot;active&quot;&gt;
-    &lt;a href=&quot;#&quot;&gt;app.R&lt;/a&gt;
-&lt;/li&gt;</code></pre>
+<li class="active">
+<a href="#">app.R</a>
+</li>
 </ul>
 <pre class="r"><code>library(ggplot2)
 library(RColorBrewer)
@@ -480,7 +488,7 @@ server &lt;- function(input, output, session) {
 shinyApp(ui, server)
 
 </code></pre>
-<p></details></p>
+</details>
 <iframe id="example1" src="https://issaclee.shinyapps.io/arc2018figure1/" style="border: none; width: 100%; height: 650px" frameborder="0">
 </iframe>
 </div>
@@ -499,11 +507,14 @@ shinyApp(ui, server)
 <p>The two terms on the right in <span class="math inline">\(\eqref{decom}\)</span> are asymptotically independent. The reason for this being that the first term is asymptotically independent of <span class="math inline">\(Y_{\lfloor n\alpha\rfloor}\)</span> as it only depends on its almost sure limit <span class="math inline">\(q_\alpha\)</span>. This is illustrated in <a href="#Figure-2">Figure 2</a>.</p>
 <div id="figure-2" class="section level3">
 <h3>Figure 2</h3>
-<p><details> <summary> R code for Figure 2 </summary></p>
+<details>
+<p><summary>
+R code for Figure 2
+</summary></p>
 <ul class="nav nav-tabs">
-<pre><code>&lt;li class=&quot;active&quot;&gt;
-    &lt;a href=&quot;#&quot;&gt;app.R&lt;/a&gt;
-&lt;/li&gt;</code></pre>
+<li class="active">
+<a href="#">app.R</a>
+</li>
 </ul>
 <pre class="r"><code>library(ggplot2)
 library(RColorBrewer)
@@ -578,7 +589,9 @@ server &lt;- function(input, output, session) {
 }
 
 shinyApp(ui, server)</code></pre>
-<p></details> <iframe id="example1" src="https://issaclee.shinyapps.io/arc2018figure2/" style="border: none; width: 100%; height: 650px" frameborder="0"></iframe></p>
+</details>
+<iframe id="example1" src="https://issaclee.shinyapps.io/arc2018figure2/" style="border: none; width: 100%; height: 650px" frameborder="0">
+</iframe>
 <p>Hence all that remains to be derived is the asymptotic distribution of the second term in <span class="math inline">\(\eqref{decom}\)</span>. That this limiting distribution is non-degenerate, in other words this term cannot be ignored, resolves the paradox.</p>
 </div>
 </div>
@@ -592,21 +605,26 @@ shinyApp(ui, server)</code></pre>
 <p><span class="math display">\[
 \omega\left(x\right)=x+\frac{\int_{x}^{\infty}S\left(z\right)dz}{S\left(x\right)},
 \]</span></p>
-<p>where <span class="math inline">\(S\)</span> is the survival function of <span class="math inline">\(X\)</span>. By the ordinary delta method <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, we now have <span class="math display">\[
+<p>where <span class="math inline">\(S\)</span> is the survival function of <span class="math inline">\(X\)</span>. By the ordinary delta method <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>, we now have
+<span class="math display">\[
 \sqrt{n} \left(w(Y_{\lfloor n\alpha\rfloor})  - \mathbb{E}\left(X|X&gt;q_{\alpha}\right)\right) 
 \overset{d}{\rightarrow} N\left(0,\gamma_\alpha^2\right)
 \]</span></p>
 </div>
 <div id="asymptotic-dist.-of-cte_nalpha" class="section level2">
 <h2>Asymptotic dist. of <span class="math inline">\(CTE_{n:\alpha}\)</span></h2>
-<p>The independence of the two terms in <span class="math inline">\(\eqref{decom}\)</span>and their asymptotic normality together yield <span class="math inline">\(\eqref{eqn:mainthm}\)</span>. For the traditional approach in our setting see <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, and in the setting of importance sampling see <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p>
+<p>The independence of the two terms in <span class="math inline">\(\eqref{decom}\)</span>and their asymptotic normality together yield <span class="math inline">\(\eqref{eqn:mainthm}\)</span>.
+For the traditional approach in our setting see <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>, and in the setting of importance sampling see <a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
 <div id="figure-3" class="section level3">
 <h3>Figure 3</h3>
-<p><details> <summary> R code for Figure 3 </summary></p>
+<details>
+<p><summary>
+R code for Figure 3
+</summary></p>
 <ul class="nav nav-tabs">
-<pre><code>&lt;li class=&quot;active&quot;&gt;
-    &lt;a href=&quot;#&quot;&gt;app.R&lt;/a&gt;
-&lt;/li&gt;</code></pre>
+<li class="active">
+<a href="#">app.R</a>
+</li>
 </ul>
 <pre class="r"><code>library(ggplot2)
 library(RColorBrewer)
@@ -729,7 +747,7 @@ server &lt;- function(input, output, session) {
 }
 
 shinyApp(ui, server)</code></pre>
-<p></details></p>
+</details>
 <iframe id="example1" src="https://issaclee.shinyapps.io/arc2018figure3/" style="border: none; width: 100%; height: 650px" frameborder="0">
 </iframe>
 </div>
@@ -746,12 +764,12 @@ shinyApp(ui, server)</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Ahn, J. Y., &amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>Klugman, S. A., Panjer, H. H., &amp; Willmot, G. E. (2012). Loss models: from data to decisions (Vol. 715). John Wiley &amp; Sons.<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>Ahn, J. Y., &amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.<a href="#fnref6">↩</a></p></li>
+<li id="fn1"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Ahn, J. Y., &amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Klugman, S. A., Panjer, H. H., &amp; Willmot, G. E. (2012). Loss models: from data to decisions (Vol. 715). John Wiley &amp; Sons.<a href="#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>John Manistre, B., &amp; Hancock, G. H. (2005). Variance of the CTE estimator. North American Actuarial Journal, 9(2), 129-156.<a href="#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>Ahn, J. Y., &amp; Shyamalkumar, N. D. (2011). Large sample behavior of the CTE and VaR estimators under importance sampling. North American Actuarial Journal, 15(3), 393-416.<a href="#fnref6" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 

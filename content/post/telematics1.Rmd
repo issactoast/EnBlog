@@ -34,7 +34,7 @@ library(kableExtra)
 
 ## GPS data visualization
 
-GPS is probably the most popular data format, which has information about the position of the device. At the beginning of my research, I tried to use it to record my commute route. To record the telematics data, I attached my phone to my vehicle and recorded the position of my vehicle per second using a smartphone sensor app.
+GPS is probably the most popular data format, which has information about the position of the device. At the beginning of my research, I tried to use it to record my test route. To record the telematics data, I attached my phone to my vehicle and recorded the position of my vehicle per second using a smartphone sensor app.
 
 Here is the sample sensor data that contains the information of my commute route data.
 
@@ -119,11 +119,10 @@ p <- ggplot(data = gpsdata, aes(x = Timestamp, y = speed)) +
 p
 ```
 
-Thus, since we do not need redundant information, let us select the data for every 25 data points. Also, there is no negative speed, so let us replace them as zero value.
+Thus, since we do not need redundant information, let us select the data for every 25 data points.
 
 ```{r}
 gpsdata <- gpsdata[seq(1, length(gpsdata$Timestamp), by = 25),]
-gpsdata$speed[gpsdata$speed < 0] <- 0
 ```
 
 ```{r echo=FALSE}
@@ -161,7 +160,7 @@ Let's decide the size of the background. Since the `get_googlemap` function in `
 center_vec <- colMeans(gpsdata[,2:3])
 map_obj <- get_googlemap(center = as.numeric(center_vec),
                        maptype = "hybrid",
-                       zoom = 16)
+                       zoom = 17)
 ggmap(map_obj)
 ```
 
@@ -201,7 +200,8 @@ p + transition_reveal(Timestamp) +
     ease_aes('linear')
 ```
 
+Hope you enjoy the reading! I am always open to your feedback to improve my code.
 
-<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the telematics project page</a>
+<a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a>
 
 
