@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>telematics on Issac Lee</title>
+    <link>/categories/telematics/</link>
+    <description>Recent content in telematics on Issac Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/telematics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPS data visualization - gganimate, ggmap</title>
+      <link>/post/telematics1/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/telematics1/</guid>
+      <description>As an employee, I am trying to construct my own portfolio thesedays. By sharing my research materials, I hope that my article makes you either become interested in me or in the driving telematics topic.
+All the code used in here written by me. I wrote them for doing my Ph.D. research. Thus, they are not efficient code and has a lot of room for improvements and also it might has some typo or error.</description>
+    </item>
+    
+  </channel>
+</rss>
