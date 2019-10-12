@@ -62,6 +62,17 @@ abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition</title>
+      <link>/post/linearmodelcholqr/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/linearmodelcholqr/</guid>
+      <description>&lt;p&gt;dd&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/project/telematicsproject/&#34; target=&#34;_self&#34;&gt;Return to the telematics project page&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>GPS data visualization - gganimate, ggmap</title>
       <link>/post/telematics1/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
@@ -13352,51 +13363,6 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Choose &lt;code&gt;Save link as...&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Change &lt;code&gt;.txt&lt;/code&gt; to &lt;code&gt;.csv&lt;/code&gt; and Save it.&lt;/li&gt;
 &lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Statistics and Society (STAT:1010)</title>
-      <link>/post/stat1010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010/</guid>
-      <description>
-
-&lt;p&gt;Welcome to my discussion section for &lt;strong&gt;STAT:1010&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;issac-sak-lee&#34;&gt;Issac (Sak) Lee&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Office location: 213 SH&lt;/li&gt;
-&lt;li&gt;Office hour: Friday 2pm - 5pm&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Email: sak-lee@uiowa.edu&lt;/p&gt;
-
-&lt;p&gt;Please put a tag &lt;code&gt;STAT:1010&lt;/code&gt; in front of your title when you email me.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;attendance-policy&#34;&gt;Attendance policy&lt;/h2&gt;
-
-&lt;p&gt;We have 13 weeks for this semester. You will get 3 free absences. Thus, your attendance will counts as 1 point and you will get 10 points in total from this discussion section.&lt;/p&gt;
-
-&lt;h2 id=&#34;course-materials&#34;&gt;Course materials&lt;/h2&gt;
-
-&lt;p&gt;The course materials will be uploaded in this page. :)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week2/&#34; target=&#34;_self&#34;&gt;Week 2&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week3/&#34; target=&#34;_self&#34;&gt;Week 3&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week4/&#34; target=&#34;_self&#34;&gt;Week 4&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week5/&#34; target=&#34;_self&#34;&gt;Week 5&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 6 : review for midterm1&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week7/&#34; target=&#34;_self&#34;&gt;Week 7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
