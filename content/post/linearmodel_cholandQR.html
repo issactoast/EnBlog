@@ -13,11 +13,506 @@ tags:
   - QR decomposition
 header:
   caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
-  image: 'headers/lonlatacc.png'
+  image: 'headers/longley-wide.png'
   preview: yes
 ---
 
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
+<p>This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; <a href="http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/">the intensive computing course</a>.</p>
+<p>The following are the <code>R</code> packages used in this post.</p>
+<pre class="r"><code>library(datasets)
+library(magrittr)
+library(microbenchmark)</code></pre>
+<div id="normal-equation-for-the-beta" class="section level2">
+<h2>Normal equation for the beta</h2>
+<p>Today, I want to talk little bit about the process of getting the coefficients of linear model in <code>R</code>. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.</p>
+<p>The reason why we are discussing about the matrix decomposition methods for the linear regression is that the coefficients of the regression is the solution of the matrix equation called Normal equation.</p>
+<p>Let us we have the following <span class="math inline">\(n\)</span> observation of vector <span class="math inline">\(y\)</span> and the data matrix <span class="math inline">\(X\)</span>. If assume that the vector <span class="math inline">\(y\)</span> follows a linear model with noise vector <span class="math inline">\(\mathbf{e}\)</span>, then the situation can be written as follows;</p>
+<p><span class="math display">\[
+\begin{eqnarray*}
+\mathbf{y}_{n\times1} &amp; = &amp; X_{n\times p}\boldsymbol{\beta}_{p\times1}+\mathbf{e}_{n\times1}\\
+ &amp; = &amp; \left[\begin{array}{ccccc}
+\mathbf{1} &amp; \mathbf{x}_{1} &amp; \mathbf{x}_{2} &amp; ... &amp; \mathbf{x}_{p-1}\end{array}\right]\left[\begin{array}{c}
+\beta_{0}\\
+\beta_{1}\\
+\vdots\\
+\beta_{p-1}
+\end{array}\right]+\mathbf{e}\\
+ &amp; = &amp; \beta_{0}\mathbf{1}+\beta_{1}\mathbf{x}_{1}+\beta_{2}\mathbf{x}_{2}+...+\beta_{p-1}\mathbf{x}_{p-1}+\mathbf{e}
+\end{eqnarray*}
+\]</span></p>
+<p>Note that <span class="math inline">\(\mathbf{1}\)</span>, <span class="math inline">\(\mathbf{e}\)</span> and <span class="math inline">\(\mathbf{x}_{i}\)</span>, <span class="math inline">\(i=1,...,p-1\)</span> are <span class="math inline">\(n \times 1\)</span> vectors.</p>
+<p>Under this assumption, the coefficients the linear model, <span class="math inline">\(\beta\)</span>, which minimizes the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution;</p>
+<p><span class="math display">\[
+X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
+\]</span></p>
+<p>For the details about the Normal equation can be found at <a href="https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices">wikipedia</a>.</p>
+</div>
+<div id="longley-data-set" class="section level2">
+<h2><code>longley</code> data set</h2>
+<div align="center">
+<div class="figure">
+<img src="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/longley.png" alt="The longley data in the paper" width="560" />
+<p class="caption">The longley data in the paper</p>
+</div>
+</div>
+<p>The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967); An appraisal of least-squares programs from the point of view of the user. The data set is minimal toy data which consists of 7 explanatory variables. This data is famous for the high correlation among the variables when we apply the linear regression of the <code>Employed</code> variable on the rest of the variables. The data set is contained in the <code>datasets</code> package, so let us load the data set.</p>
+<pre class="r"><code>library(datasets)
+longley</code></pre>
+<pre class="r"><code>kable(longley, format = &quot;html&quot;) %&gt;% 
+  kable_styling() %&gt;% 
+  scroll_box(width = &quot;100%&quot;, height = &quot;300px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+GNP.deflator
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+GNP
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Unemployed
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Armed.Forces
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Population
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Year
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Employed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1947
+</td>
+<td style="text-align:right;">
+83.0
+</td>
+<td style="text-align:right;">
+234.289
+</td>
+<td style="text-align:right;">
+235.6
+</td>
+<td style="text-align:right;">
+159.0
+</td>
+<td style="text-align:right;">
+107.608
+</td>
+<td style="text-align:right;">
+1947
+</td>
+<td style="text-align:right;">
+60.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1948
+</td>
+<td style="text-align:right;">
+88.5
+</td>
+<td style="text-align:right;">
+259.426
+</td>
+<td style="text-align:right;">
+232.5
+</td>
+<td style="text-align:right;">
+145.6
+</td>
+<td style="text-align:right;">
+108.632
+</td>
+<td style="text-align:right;">
+1948
+</td>
+<td style="text-align:right;">
+61.122
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1949
+</td>
+<td style="text-align:right;">
+88.2
+</td>
+<td style="text-align:right;">
+258.054
+</td>
+<td style="text-align:right;">
+368.2
+</td>
+<td style="text-align:right;">
+161.6
+</td>
+<td style="text-align:right;">
+109.773
+</td>
+<td style="text-align:right;">
+1949
+</td>
+<td style="text-align:right;">
+60.171
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1950
+</td>
+<td style="text-align:right;">
+89.5
+</td>
+<td style="text-align:right;">
+284.599
+</td>
+<td style="text-align:right;">
+335.1
+</td>
+<td style="text-align:right;">
+165.0
+</td>
+<td style="text-align:right;">
+110.929
+</td>
+<td style="text-align:right;">
+1950
+</td>
+<td style="text-align:right;">
+61.187
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1951
+</td>
+<td style="text-align:right;">
+96.2
+</td>
+<td style="text-align:right;">
+328.975
+</td>
+<td style="text-align:right;">
+209.9
+</td>
+<td style="text-align:right;">
+309.9
+</td>
+<td style="text-align:right;">
+112.075
+</td>
+<td style="text-align:right;">
+1951
+</td>
+<td style="text-align:right;">
+63.221
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1952
+</td>
+<td style="text-align:right;">
+98.1
+</td>
+<td style="text-align:right;">
+346.999
+</td>
+<td style="text-align:right;">
+193.2
+</td>
+<td style="text-align:right;">
+359.4
+</td>
+<td style="text-align:right;">
+113.270
+</td>
+<td style="text-align:right;">
+1952
+</td>
+<td style="text-align:right;">
+63.639
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1953
+</td>
+<td style="text-align:right;">
+99.0
+</td>
+<td style="text-align:right;">
+365.385
+</td>
+<td style="text-align:right;">
+187.0
+</td>
+<td style="text-align:right;">
+354.7
+</td>
+<td style="text-align:right;">
+115.094
+</td>
+<td style="text-align:right;">
+1953
+</td>
+<td style="text-align:right;">
+64.989
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1954
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+<td style="text-align:right;">
+363.112
+</td>
+<td style="text-align:right;">
+357.8
+</td>
+<td style="text-align:right;">
+335.0
+</td>
+<td style="text-align:right;">
+116.219
+</td>
+<td style="text-align:right;">
+1954
+</td>
+<td style="text-align:right;">
+63.761
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1955
+</td>
+<td style="text-align:right;">
+101.2
+</td>
+<td style="text-align:right;">
+397.469
+</td>
+<td style="text-align:right;">
+290.4
+</td>
+<td style="text-align:right;">
+304.8
+</td>
+<td style="text-align:right;">
+117.388
+</td>
+<td style="text-align:right;">
+1955
+</td>
+<td style="text-align:right;">
+66.019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1956
+</td>
+<td style="text-align:right;">
+104.6
+</td>
+<td style="text-align:right;">
+419.180
+</td>
+<td style="text-align:right;">
+282.2
+</td>
+<td style="text-align:right;">
+285.7
+</td>
+<td style="text-align:right;">
+118.734
+</td>
+<td style="text-align:right;">
+1956
+</td>
+<td style="text-align:right;">
+67.857
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1957
+</td>
+<td style="text-align:right;">
+108.4
+</td>
+<td style="text-align:right;">
+442.769
+</td>
+<td style="text-align:right;">
+293.6
+</td>
+<td style="text-align:right;">
+279.8
+</td>
+<td style="text-align:right;">
+120.445
+</td>
+<td style="text-align:right;">
+1957
+</td>
+<td style="text-align:right;">
+68.169
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1958
+</td>
+<td style="text-align:right;">
+110.8
+</td>
+<td style="text-align:right;">
+444.546
+</td>
+<td style="text-align:right;">
+468.1
+</td>
+<td style="text-align:right;">
+263.7
+</td>
+<td style="text-align:right;">
+121.950
+</td>
+<td style="text-align:right;">
+1958
+</td>
+<td style="text-align:right;">
+66.513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1959
+</td>
+<td style="text-align:right;">
+112.6
+</td>
+<td style="text-align:right;">
+482.704
+</td>
+<td style="text-align:right;">
+381.3
+</td>
+<td style="text-align:right;">
+255.2
+</td>
+<td style="text-align:right;">
+123.366
+</td>
+<td style="text-align:right;">
+1959
+</td>
+<td style="text-align:right;">
+68.655
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1960
+</td>
+<td style="text-align:right;">
+114.2
+</td>
+<td style="text-align:right;">
+502.601
+</td>
+<td style="text-align:right;">
+393.1
+</td>
+<td style="text-align:right;">
+251.4
+</td>
+<td style="text-align:right;">
+125.368
+</td>
+<td style="text-align:right;">
+1960
+</td>
+<td style="text-align:right;">
+69.564
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1961
+</td>
+<td style="text-align:right;">
+115.7
+</td>
+<td style="text-align:right;">
+518.173
+</td>
+<td style="text-align:right;">
+480.6
+</td>
+<td style="text-align:right;">
+257.2
+</td>
+<td style="text-align:right;">
+127.852
+</td>
+<td style="text-align:right;">
+1961
+</td>
+<td style="text-align:right;">
+69.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1962
+</td>
+<td style="text-align:right;">
+116.9
+</td>
+<td style="text-align:right;">
+554.894
+</td>
+<td style="text-align:right;">
+400.7
+</td>
+<td style="text-align:right;">
+282.7
+</td>
+<td style="text-align:right;">
+130.081
+</td>
+<td style="text-align:right;">
+1962
+</td>
+<td style="text-align:right;">
+70.551
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>dd</p>
 <p><a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a></p>
+</div>

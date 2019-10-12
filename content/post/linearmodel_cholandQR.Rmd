@@ -13,9 +13,77 @@ tags:
   - QR decomposition
 header:
   caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
-  image: 'headers/lonlatacc.png'
+  image: 'headers/longley-wide.png'
   preview: yes
 ---
+
+This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; [the intensive computing course](http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/).
+
+The following are the `R` packages used in this post.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+library(tibble)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(datasets)
+library(magrittr)
+library(microbenchmark)
+```
+
+## Normal equation for the beta
+
+Today, I want to talk little bit about the process of getting the coefficients of linear model in `R`. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.
+
+The reason why we are discussing about the matrix decomposition methods for the linear regression is that the coefficients of the regression is the solution of the matrix equation called Normal equation.
+
+Let us we have the following $n$ observation of vector $y$ and the data matrix $X$. If assume that the vector $y$ follows a linear model with noise vector $\mathbf{e}$, then the situation can be written as follows;
+
+$$
+\begin{eqnarray*}
+\mathbf{y}_{n\times1} & = & X_{n\times p}\boldsymbol{\beta}_{p\times1}+\mathbf{e}_{n\times1}\\
+ & = & \left[\begin{array}{ccccc}
+\mathbf{1} & \mathbf{x}_{1} & \mathbf{x}_{2} & ... & \mathbf{x}_{p-1}\end{array}\right]\left[\begin{array}{c}
+\beta_{0}\\
+\beta_{1}\\
+\vdots\\
+\beta_{p-1}
+\end{array}\right]+\mathbf{e}\\
+ & = & \beta_{0}\mathbf{1}+\beta_{1}\mathbf{x}_{1}+\beta_{2}\mathbf{x}_{2}+...+\beta_{p-1}\mathbf{x}_{p-1}+\mathbf{e}
+\end{eqnarray*}
+$$
+
+Note that $\mathbf{1}$, $\mathbf{e}$ and $\mathbf{x}_{i}$, $i=1,...,p-1$ are $n \times 1$ vectors.
+
+Under this assumption, the coefficients the linear model, $\beta$, which minimizes the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution;
+
+$$
+X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
+$$
+
+For the details about the Normal equation can be found at [wikipedia](https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices).
+
+## `longley` data set
+
+<div align="center">
+![The longley data in the paper](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/longley.png){width=560}
+</div>
+
+The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967); An appraisal of least-squares programs from the point of view of the user. The data set is minimal toy data which consists of 7 explanatory variables. This data is famous for the high correlation among the variables when we apply the linear regression of the `Employed` variable on the rest of the variables. The data set is contained in the `datasets` package, so let us load the data set.
+
+```{r eval=FALSE}
+library(datasets)
+longley
+```
+
+```{r results = "asis"}
+kable(longley, format = "html") %>% 
+  kable_styling() %>% 
+  scroll_box(width = "100%", height = "300px")
+```
+
 dd
 
 <a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a>
