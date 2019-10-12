@@ -1,0 +1,60 @@
+---
+title: 'Week 8 - Correlation and Regression'
+author: Issac Lee
+date: '2019-10-04'
+slug: stat2010-week8
+categories:
+  - R
+tags:
+  - stat2010
+  - stat4200
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+
+
+<div id="scatter-plot-again" class="section level2">
+<h2>Scatter plot again</h2>
+<pre class="r"><code># load data
+mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
+
+# clean data; choose 1~5 columns as data set
+mydata &lt;- mydata[,1:5]
+
+# check the result
+head(mydata)</code></pre>
+<pre><code>##   class std_id midterm1 midterm2 final
+## 1     1      1       70       51    67
+## 2     1      2       78       66    66
+## 3     1      3       80       71    67
+## 4     1      4       75       67    70
+## 5     1      5       73       56    81
+## 6     1      6       89       60    69</code></pre>
+<p>Let us draw the scatter plots for the midterm1 vs. final and midterm1 vs. midterm2.</p>
+<pre class="r"><code>plot(mydata$midterm1, mydata$final, asp=1)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2, asp=1,
+     xlim = c(60, 95), ylim = c(45, 80))</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="correlation" class="section level2">
+<h2>Correlation</h2>
+<p>By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. For example, the correlation coefficient for the two pair of variables in the above is as follows;</p>
+<pre class="r"><code>cor(mydata$midterm1, mydata$final)</code></pre>
+<pre><code>## [1] -0.08361933</code></pre>
+<pre class="r"><code>cor(mydata$midterm1, mydata$midterm2)</code></pre>
+<pre><code>## [1] 0.499954</code></pre>
+<p>Based on the correlation, midterm1 and midterm2 are linearly associated each other, while the midterm1 and final are almost independant each other.</p>
+<pre class="r"><code>x &lt;- seq(1000, 1400, by = 10)
+y &lt;- dnorm(x, mean = 1200, sd = 50)
+plot(x, y, type = &quot;l&quot;,
+     main = &quot;Distribution of SAT scores&quot;,
+     xlab = &quot;SAT score&quot;,
+     ylab = &quot;density&quot;)
+abline(v = 1300)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+</div>

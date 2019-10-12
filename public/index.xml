@@ -16,8 +16,7 @@
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/telematics1/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;As an employee, I am trying to construct my portfolio these days. By sharing my research materials, I hope that my article makes you either become interested in me or the driving telematics topic itself! =]&lt;/p&gt;
@@ -12311,15 +12310,29 @@ p&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Week 6 - Mean, Median, and Weighted Mean</title>
-      <link>/post/stat1010-week6/</link>
+      <title>Week 7 - Correlation</title>
+      <link>/post/stat2010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/stat1010-week6/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <guid>/post/stat2010-week7/</guid>
+      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
+&lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/leastsquare.xlsx&#34;&gt;leastsquare.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 7 - Mean, Median, and Weighted Mean</title>
+      <link>/post/stat1010-week7/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week7/</guid>
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mean&lt;/h2&gt;
@@ -12329,14 +12342,11 @@ mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Q. What is the mean of these numbers?&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 mean = \frac{10+11+21+13+20+16}{6} = 15.17
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;/details&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;median&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Median&lt;/h2&gt;
@@ -12349,10 +12359,7 @@ mean = \frac{10+11+21+13+20+16}{6} = 15.17
 &lt;h3&gt;What if we have even number of data set such as the following data set?&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Q. What is the median of these numbers?&lt;/p&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
 &lt;p&gt;Step 1. Sort the number&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 10 11 13 16 20 21&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Step 2. Find the middle number.&lt;/p&gt;
@@ -12360,7 +12367,7 @@ Answer
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 median = \frac{13 + 16}{2} = 14.5
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;/details&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;weighted-mean&#34; class=&#34;section level2&#34;&gt;
@@ -12405,33 +12412,25 @@ Issac&amp;#39;s \ score &amp;amp; = 30\% \times 80 + 70\% \times 60 \\
 &lt;p&gt;Q. What is the weighted mean of these numbers?&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;math: 80, english: 70, history: 50,
 weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 \]&lt;/span&gt;&lt;/p&gt;
-&lt;/details&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Week 6 - Normal distribution 2</title>
-      <link>/post/stat2010-week6/</link>
+      <title>Week 7 - Normal distribution 2</title>
+      <link>/post/stat2010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/stat2010-week6/</guid>
-      <description>
-
-
-&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+      <guid>/post/stat2010-week7/</guid>
+      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
 &lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
-&lt;p&gt;Issac : SAT score - 1250
-JAMES : SAT score - 1300
-ROBERT: ACT score - 30&lt;/p&gt;
+&lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
 &lt;p&gt;Which student should get the admission if the administration process are evaluated by only their test scores?&lt;/p&gt;
 &lt;p&gt;To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
@@ -12448,10 +12447,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;,
 abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Q. Draw the density plot for ACT scores and mark the score or Robert.&lt;/p&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(22, 34, by = 0.5)
 y &amp;lt;- dnorm(x, mean = 28, sd = 2)
 plot(x, y, type = &amp;quot;l&amp;quot;,
@@ -12460,7 +12456,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;,
      ylab = &amp;quot;density&amp;quot;)
 abline(v = 30)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/details&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;div id=&#34;standardization&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Standardization&lt;/h3&gt;
 &lt;p&gt;Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.&lt;/p&gt;
@@ -12543,15 +12539,63 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Week 8 - Correlation and Regression</title>
+      <link>/post/stat2010-week8/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week8/</guid>
+      <description>&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scatter plot again&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
+mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
+
+# clean data; choose 1~5 columns as data set
+mydata &amp;lt;- mydata[,1:5]
+
+# check the result
+head(mydata)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final
+## 1     1      1       70       51    67
+## 2     1      2       78       66    66
+## 3     1      3       80       71    67
+## 4     1      4       75       67    70
+## 5     1      5       73       56    81
+## 6     1      6       89       60    69&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us draw the scatter plots for the midterm1 vs. final and midterm1 vs. midterm2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$final, asp=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2, asp=1,
+     xlim = c(60, 95), ylim = c(45, 80))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Correlation&lt;/h2&gt;
+&lt;p&gt;By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. For example, the correlation coefficient for the two pair of variables in the above is as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(mydata$midterm1, mydata$final)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.08361933&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(mydata$midterm1, mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.499954&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Based on the correlation, midterm1 and midterm2 are linearly associated each other, while the midterm1 and final are almost independant each other.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(1000, 1400, by = 10)
+y &amp;lt;- dnorm(x, mean = 1200, sd = 50)
+plot(x, y, type = &amp;quot;l&amp;quot;,
+     main = &amp;quot;Distribution of SAT scores&amp;quot;,
+     xlab = &amp;quot;SAT score&amp;quot;,
+     ylab = &amp;quot;density&amp;quot;)
+abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -12610,10 +12654,7 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>
-
-
-&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -12761,10 +12802,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>
-
-
-&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -12945,10 +12983,7 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -13056,10 +13091,7 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -13192,10 +13224,7 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>
-
-
-&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;
@@ -13360,120 +13389,10 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week5/&#34; target=&#34;_self&#34;&gt;Week 5&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week6/&#34; target=&#34;_self&#34;&gt;Week 6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Week 6 : review for midterm1&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010-week7/&#34; target=&#34;_self&#34;&gt;Week 7&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 0: Preparation</title>
-      <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat2010-week0/</guid>
-      <description>
-
-&lt;h1 id=&#34;access-to-the-virtual-desktop&#34;&gt;Access to the virtual desktop&lt;/h1&gt;
-
-&lt;p&gt;To access the software &lt;strong&gt;R&lt;/strong&gt; and &lt;strong&gt;SAS&lt;/strong&gt;, we can use &lt;code&gt;virtual desktop&lt;/code&gt; which the University of Iowa provide students for free. You can think virtual desktop as remote computer which you can log-in through the website.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Click the link below.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://virtualdesktop.uiowa.edu&#34; target=&#34;_blank&#34;&gt;U of Iowa virtual desktop&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;If you are first time to use this website, you need to download the &lt;code&gt;Citrix Workspace App&lt;/code&gt; and install it.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;After you finished installation, close all the window and revisit the U of Iowa virtual desktop site. If the site can detect Citrix, then it will automatically shows you the sign-in screen. Use your HawkID and password to get in.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Once you get in the system, you will see this screen.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Click the &lt;code&gt;Application&lt;/code&gt; tab, then you will see many software you can access. Among these you will use &lt;code&gt;RStudio&lt;/code&gt; and &lt;code&gt;SAS 9_4 64bit&lt;/code&gt; in this course.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Click &lt;code&gt;Details&lt;/code&gt; button for Rstudio and SAS 9_4, then click &lt;code&gt;Add to favorites&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;This will allow you to access the software from the first screen when you sign in the virtual desktop.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/virtual4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;install-r-and-r-studio-in-your-computer-windows&#34;&gt;Install R and R studio in your computer (Windows)&lt;/h2&gt;
-
-&lt;p align=&#34;center&#34;&gt;
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/9-RrkJQQYqY&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;install-r-and-r-studio-in-your-computer-apple&#34;&gt;Install R and R studio in your computer (Apple)&lt;/h2&gt;
-
-&lt;p align=&#34;center&#34;&gt;
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/GLLZhc_5enQ&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Now you have access to &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;SAS&lt;/code&gt;! Welcome to the course. :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 2(STAT:1010)</title>
-      <link>/post/stat1010-week2/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010-week2/</guid>
-      <description>
-
-&lt;h2 id=&#34;problem-1&#34;&gt;Problem 1&lt;/h2&gt;
-
-&lt;p&gt;A large warehouse is flled with light bulbs. An electronics engineer wants to estimate the mean lifespan of these bulbs. To this end, 18 of the bulbs were randomly selected and the lifespan was measures; the mean lifespan of the 18 bulbs was 2550 hours.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;What is the population?&lt;/li&gt;
-&lt;li&gt;What is the sample?&lt;/li&gt;
-&lt;li&gt;What is the parameter?&lt;/li&gt;
-&lt;li&gt;What is the sample statistics?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;problem-2&#34;&gt;Problem 2&lt;/h2&gt;
-
-&lt;p&gt;In a survey of 400 randomly selected UI students, 30% of students said they like a chocolate ice cream. The margin of error is 3% points. What is the confidence interval for the proportion of the people who like a chocolate ice cream?&lt;/p&gt;
-
-&lt;h2 id=&#34;problem-3-sampling-methods&#34;&gt;Problem 3 - Sampling Methods&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Simple Random Sampling (SRS) : Every sample has an equal chance of being selected&lt;/li&gt;
-&lt;li&gt;Systematic Sampling: &amp;ldquo;every &lt;em&gt;k&lt;/em&gt;-th&amp;rdquo;..&lt;/li&gt;
-&lt;li&gt;Convenience Sampling: literally convenient to ask, ex. friends.&lt;/li&gt;
-&lt;li&gt;Cluster Sampling: pick group and choose all units of the chosen groups.&lt;/li&gt;
-&lt;li&gt;Stratified Sampling: Divide the population into subgroups, choose a sample from each group.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;problem-4&#34;&gt;Problem 4&lt;/h2&gt;
-
-&lt;p&gt;A researcher is interested in finding out whether non-sleeping causes a severe damage to human brain. Here is what he plans to do:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Step 1: Randomly select 100 human nationwide whose brains are currently working well&lt;/li&gt;
-&lt;li&gt;Step 2: Randomly assign 50 of the 100 people to the non-sleeping group and the other 50 to the sleeping group;&lt;/li&gt;
-&lt;li&gt;Step 3: Those in the non-sleeping group are not allow to sleep for 5 days whereas those in the other group maintain their normal life cycles&lt;/li&gt;
-&lt;li&gt;Step 4: Compare the brain functionality of these 2 groups after a week.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Do you think this is a good experimental design? Why?&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;hint: read p.20 of textbook
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;What is the treatment group and the control group?
-What are the response variable(s) and explanatory variable(s)?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

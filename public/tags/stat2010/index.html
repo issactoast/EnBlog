@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.44" />
   <meta name="author" content="Issac Lee">
 
   
@@ -71,7 +71,7 @@
   
   <meta property="og:site_name" content="Issac Lee">
   <meta property="og:url" content="/tags/stat2010/">
-  <meta property="og:title" content="stat2010 | Issac Lee">
+  <meta property="og:title" content="Stat2010 | Issac Lee">
   <meta property="og:description" content="PhD candidate">
   <meta property="og:locale" content="en-us">
   
@@ -80,7 +80,7 @@
 
   
 
-  <title>stat2010 | Issac Lee</title>
+  <title>Stat2010 | Issac Lee</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -238,21 +238,65 @@
 
 <div class="universal-wrapper">
 
-  <h1>stat2010</h1>
+  <h1>Stat2010</h1>
 
   
 
   
   
   <div>
-    <h2><a href="/post/stat2010-week6/">Week 6 - Normal distribution 2</a></h2>
+    <h2><a href="/post/stat2010-week7/">Week 7 - Correlation</a></h2>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/stat2010-week7/">Week 7 - Normal distribution 2</a></h2>
     <div class="article-style">
       
       SAT. and ACT. Scores (Standardization)
 Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250
-JAMES : SAT score - 1300
-ROBERT: ACT score - 30
+Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
+Which student should get the admission if the administration process are evaluated by only their test scores?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></h2>
+    <div class="article-style">
+      
+      <p>Scatter plot again</p>
+
+<h1 id="load-data">load data</h1>
+
+<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
+
+<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
+
+<p>mydata &lt;- mydata[,1:5]</p>
+
+<h1 id="check-the-result">check the result</h1>
+
+<p>head(mydata)</p>
+
+<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
+
+<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
+
+<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
+
+<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
+
+<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
+
+<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
+
+<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
+
+<p>Let us draw the scatter plots for the midterm1 vs.</p>
+
       
     </div>
   </div>
@@ -286,7 +330,9 @@ Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
 
 <h2 id="1-31-66667">[1] 31.66667</h2>
 
-<p>Can you convert the following Fahrenheits in Celcius?</p>
+<p>Can you convert the following Fahrenheits in Celcius?
+67, 45, 92, 83, 70
+We can run the following five codes;</p>
 
       
     </div>

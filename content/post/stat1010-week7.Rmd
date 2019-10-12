@@ -1,8 +1,8 @@
 ---
-title: 'Week 6 - Mean, Median, and Weighted Mean'
+title: 'Week 7 - Mean, Median, and Weighted Mean'
 author: Issac Lee
 date: '2019-10-04'
-slug: stat1010-week6
+slug: stat1010-week7
 categories:
   - R
 tags:

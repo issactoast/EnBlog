@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>stat2010 on Issac Lee</title>
+    <title>Stat2010 on Issac Lee</title>
     <link>/tags/stat2010/</link>
-    <description>Recent content in stat2010 on Issac Lee</description>
+    <description>Recent content in Stat2010 on Issac Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -13,13 +13,34 @@
     
     
     <item>
-      <title>Week 6 - Normal distribution 2</title>
-      <link>/post/stat2010-week6/</link>
+      <title>Week 7 - Correlation</title>
+      <link>/post/stat2010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/stat2010-week6/</guid>
+      <guid>/post/stat2010-week7/</guid>
+      <description>Excel file to understand the regression lineIn this discussion section, we will learn how the regression line is determined using the following excel file.
+leastsquare.xlsxReturn to the course page
+</description>
+    </item>
+    
+    <item>
+      <title>Week 7 - Normal distribution 2</title>
+      <link>/post/stat2010-week7/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week7/</guid>
       <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250JAMES : SAT score - 1300ROBERT: ACT score - 30</description>
+Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
+Which student should get the admission if the administration process are evaluated by only their test scores?</description>
+    </item>
+    
+    <item>
+      <title>Week 8 - Correlation and Regression</title>
+      <link>/post/stat2010-week8/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week8/</guid>
+      <description>Scatter plot again# load datamydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)# clean data; choose 1~5 columns as data setmydata &amp;lt;- mydata[,1:5]# check the resulthead(mydata)## class std_id midterm1 midterm2 final## 1 1 1 70 51 67## 2 1 2 78 66 66## 3 1 3 80 71 67## 4 1 4 75 67 70## 5 1 5 73 56 81## 6 1 6 89 60 69Let us draw the scatter plots for the midterm1 vs.</description>
     </item>
     
     <item>
@@ -41,7 +62,8 @@ Here are some characteristics of all Normal curves;
       <guid>/post/stat2010-week4/</guid>
       <description>Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
 (°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?</description>
+(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
+67, 45, 92, 83, 70We can run the following five codes;</description>
     </item>
     
     <item>
