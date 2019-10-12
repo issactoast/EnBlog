@@ -75,7 +75,7 @@
   <meta property="og:description" content="PhD candidate">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-04T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-10-18T00:00:00&#43;00:00">
   
 
   
@@ -245,6 +245,44 @@
   
   
   <div>
+    <h2><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></h2>
+    <div class="article-style">
+      
+      <p>Scatter plot again</p>
+
+<h1 id="load-data">load data</h1>
+
+<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
+
+<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
+
+<p>mydata &lt;- mydata[,1:5]</p>
+
+<h1 id="check-the-result">check the result</h1>
+
+<p>head(mydata)</p>
+
+<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
+
+<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
+
+<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
+
+<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
+
+<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
+
+<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
+
+<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
+
+<p>Let us draw the scatter plots for the midterm1 vs.</p>
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/telematics1/">GPS data visualization - gganimate, ggmap</a></h2>
     <div class="article-style">
       
@@ -287,44 +325,6 @@ Q. What is the mean of these numbers?
 Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
 Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
 Which student should get the admission if the administration process are evaluated by only their test scores?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></h2>
-    <div class="article-style">
-      
-      <p>Scatter plot again</p>
-
-<h1 id="load-data">load data</h1>
-
-<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
-
-<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
-
-<p>mydata &lt;- mydata[,1:5]</p>
-
-<h1 id="check-the-result">check the result</h1>
-
-<p>head(mydata)</p>
-
-<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
-
-<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
-
-<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
-
-<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
-
-<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
-
-<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
-
-<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
-
-<p>Let us draw the scatter plots for the midterm1 vs.</p>
-
       
     </div>
   </div>
