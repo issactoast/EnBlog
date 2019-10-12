@@ -19,7 +19,7 @@
   
   <meta name="description" content="This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.">
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/linearmodelcholqr/">
@@ -78,7 +78,7 @@ library(datasets)library(magrittr)library(microbenchmark)Normal equation for 
   <meta property="og:title" content="The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition | Issac Lee">
   <meta property="og:description" content="This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R."><meta property="og:image" content="/img/headers/longley-wide.png">
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R."><meta property="og:image" content="/img/headers/longley-wide.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-10-12T00:00:00&#43;00:00">
@@ -275,7 +275,7 @@ library(datasets)library(magrittr)library(microbenchmark)Normal equation for 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -360,7 +360,8 @@ library(datasets)library(magrittr)library(microbenchmark)Normal equation for 
 <p>The following are the <code>R</code> packages used in this post.</p>
 <pre class="r"><code>library(datasets)
 library(magrittr)
-library(microbenchmark)</code></pre>
+library(microbenchmark)
+library(gmp)</code></pre>
 <div id="normal-equation-for-the-beta" class="section level2">
 <h2>Normal equation for the beta</h2>
 <p>Today, I want to talk little bit about the process of getting the coefficients of linear model in <code>R</code>. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.</p>
@@ -849,7 +850,35 @@ Employed
 </tbody>
 </table>
 </div>
-<p>dd</p>
+<p>We can see that the <code>longley</code> data set in <code>R</code> was scaled compare to the original data.</p>
+</div>
+<div id="calculating-the-accurate-coefficients-using-gmp-package" class="section level2">
+<h2>Calculating the accurate coefficients using <code>gmp</code> package</h2>
+<p>The <code>gmp</code> package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the <code>Employed</code> variable on the rest of the variables in the <code>longley</code> data set.</p>
+<pre class="r"><code>y &lt;- as.vector(longley[,7])
+X &lt;- as.matrix(cbind(constant = 1, longley[,-7]))
+
+# install.packages(&quot;gmp&quot;)
+# library(gmp)
+
+# X, y rationals
+r_X &lt;- as.bigq(round(1000 * X)) / as.bigq(1000)
+r_y &lt;- as.bigq(round(1000 * y)) / as.bigq(1000)
+head(r_X)</code></pre>
+<pre><code>## Big Rational (&#39;bigq&#39;) 6 x 7 matrix:
+##      [,1] [,2]   [,3]        [,4]    [,5]    [,6]        [,7]
+## [1,] 1    83     234289/1000 1178/5  159     13451/125   1947
+## [2,] 1    177/2  129713/500  465/2   728/5   13579/125   1948
+## [3,] 1    441/5  129027/500  1841/5  808/5   109773/1000 1949
+## [4,] 1    179/2  284599/1000 3351/10 165     110929/1000 1950
+## [5,] 1    481/5  13159/40    2099/10 3099/10 4483/40     1951
+## [6,] 1    981/10 346999/1000 966/5   1797/5  11327/100   1952</code></pre>
+<pre class="r"><code># coefficients
+cef_exact &lt;- as.double(solve(t(r_X) %*% r_X,
+                             (t(r_X) %*% r_y)))
+cef_exact</code></pre>
+<pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00</code></pre>
 <p><a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a></p>
 </div>
 

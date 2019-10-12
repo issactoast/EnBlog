@@ -31,6 +31,7 @@ library(tibble)
 library(datasets)
 library(magrittr)
 library(microbenchmark)
+library(gmp)
 ```
 
 ## Normal equation for the beta
@@ -84,7 +85,31 @@ kable(longley, format = "html") %>%
   scroll_box(width = "100%", height = "300px")
 ```
 
-dd
+We can see that the `longley` data set in `R` was scaled compare to the original data.
+
+
+## Calculating the accurate coefficients using `gmp` package
+
+The `gmp` package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the `Employed` variable on the rest of the variables in the `longley` data set.
+
+```{r }
+y <- as.vector(longley[,7])
+X <- as.matrix(cbind(constant = 1, longley[,-7]))
+
+# install.packages("gmp")
+# library(gmp)
+
+# X, y rationals
+r_X <- as.bigq(round(1000 * X)) / as.bigq(1000)
+r_y <- as.bigq(round(1000 * y)) / as.bigq(1000)
+head(r_X)
+
+# coefficients
+cef_exact <- as.double(solve(t(r_X) %*% r_X,
+                             (t(r_X) %*% r_y)))
+cef_exact
+```
+
 
 <a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a>
 

@@ -20,7 +20,7 @@
       <guid>/post/linearmodelcholqr/</guid>
       <description>This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.</description>
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.</description>
     </item>
     
   </channel>

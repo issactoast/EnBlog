@@ -74,7 +74,8 @@ abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The following are the &lt;code&gt;R&lt;/code&gt; packages used in this post.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(datasets)
 library(magrittr)
-library(microbenchmark)&lt;/code&gt;&lt;/pre&gt;
+library(microbenchmark)
+library(gmp)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;normal-equation-for-the-beta&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal equation for the beta&lt;/h2&gt;
 &lt;p&gt;Today, I want to talk little bit about the process of getting the coefficients of linear model in &lt;code&gt;R&lt;/code&gt;. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.&lt;/p&gt;
@@ -563,7 +564,35 @@ Employed
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;p&gt;dd&lt;/p&gt;
+&lt;p&gt;We can see that the &lt;code&gt;longley&lt;/code&gt; data set in &lt;code&gt;R&lt;/code&gt; was scaled compare to the original data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;calculating-the-accurate-coefficients-using-gmp-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Calculating the accurate coefficients using &lt;code&gt;gmp&lt;/code&gt; package&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;gmp&lt;/code&gt; package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the &lt;code&gt;Employed&lt;/code&gt; variable on the rest of the variables in the &lt;code&gt;longley&lt;/code&gt; data set.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- as.vector(longley[,7])
+X &amp;lt;- as.matrix(cbind(constant = 1, longley[,-7]))
+
+# install.packages(&amp;quot;gmp&amp;quot;)
+# library(gmp)
+
+# X, y rationals
+r_X &amp;lt;- as.bigq(round(1000 * X)) / as.bigq(1000)
+r_y &amp;lt;- as.bigq(round(1000 * y)) / as.bigq(1000)
+head(r_X)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Big Rational (&amp;#39;bigq&amp;#39;) 6 x 7 matrix:
+##      [,1] [,2]   [,3]        [,4]    [,5]    [,6]        [,7]
+## [1,] 1    83     234289/1000 1178/5  159     13451/125   1947
+## [2,] 1    177/2  129713/500  465/2   728/5   13579/125   1948
+## [3,] 1    441/5  129027/500  1841/5  808/5   109773/1000 1949
+## [4,] 1    179/2  284599/1000 3351/10 165     110929/1000 1950
+## [5,] 1    481/5  13159/40    2099/10 3099/10 4483/40     1951
+## [6,] 1    981/10 346999/1000 966/5   1797/5  11327/100   1952&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# coefficients
+cef_exact &amp;lt;- as.double(solve(t(r_X) %*% r_X,
+                             (t(r_X) %*% r_y)))
+cef_exact&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/project/telematicsproject/&#34; target=&#34;_self&#34;&gt;Return to the telematics project page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
