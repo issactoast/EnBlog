@@ -111,6 +111,29 @@ cef_exact
 ```
 
 
+## Cholesky decomposition
+
+For a matrix $A$, if the matrix $A$ satisfies $x^T \mathbf{A} x > 0$ for every $x$, then the matrix $A$ is a positive definite. 
+
+The Cholesky decomposition can be applied to positive definite matrices. If a matrix $A$ is a positive definite matrix then there exists a lower triangular matrix, $L$, such that
+
+$$
+\mathbf{A} = \mathbf{L} \mathbf{L}^T
+$$
+
+Thus, if our data matrix is a full rank, in other words, if the matrix $X^TX$ is a positive definite, then the Normal equation can be written as follows;
+
+$$
+\begin{align*}
+\mathbf{X}^{T}\mathbf{X}\beta & =\mathbf{X}^{T}y\\
+\Rightarrow\mathbf{L}\mathbf{L}^{T}\beta & =\mathbf{X}^{T}y\\
+\tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) & =\mathbf{X}^{T}y
+\end{align*}
+$$
+
+따라서 위의 식에서 $\beta$ 벡터는 다음의 두 단계를 통해서 구할 수 있다.
+
+
 <a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a>
 
 

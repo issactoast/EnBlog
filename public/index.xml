@@ -593,6 +593,23 @@ cef_exact &amp;lt;- as.double(solve(t(r_X) %*% r_X,
 cef_exact&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
 ## [6] -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cholesky-decomposition&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cholesky decomposition&lt;/h2&gt;
+&lt;p&gt;For a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; satisfies &lt;span class=&#34;math inline&#34;&gt;\(x^T \mathbf{A} x &amp;gt; 0\)&lt;/span&gt; for every &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, then the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite.&lt;/p&gt;
+&lt;p&gt;The Cholesky decomposition can be applied to positive definite matrices. If a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite matrix then there exists a lower triangular matrix, &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt;, such that&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathbf{A} = \mathbf{L} \mathbf{L}^T
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Thus, if our data matrix is a full rank, in other words, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(X^TX\)&lt;/span&gt; is a positive definite, then the Normal equation can be written as follows;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align*}
+\mathbf{X}^{T}\mathbf{X}\beta &amp;amp; =\mathbf{X}^{T}y\\
+\Rightarrow\mathbf{L}\mathbf{L}^{T}\beta &amp;amp; =\mathbf{X}^{T}y\\
+\tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp;amp; =\mathbf{X}^{T}y
+\end{align*}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;따라서 위의 식에서 &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; 벡터는 다음의 두 단계를 통해서 구할 수 있다.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/project/telematicsproject/&#34; target=&#34;_self&#34;&gt;Return to the telematics project page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>

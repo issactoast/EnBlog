@@ -879,6 +879,23 @@ cef_exact &lt;- as.double(solve(t(r_X) %*% r_X,
 cef_exact</code></pre>
 <pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
 ## [6] -5.110411e-02  1.829151e+00</code></pre>
+</div>
+<div id="cholesky-decomposition" class="section level2">
+<h2>Cholesky decomposition</h2>
+<p>For a matrix <span class="math inline">\(A\)</span>, if the matrix <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(x^T \mathbf{A} x &gt; 0\)</span> for every <span class="math inline">\(x\)</span>, then the matrix <span class="math inline">\(A\)</span> is a positive definite.</p>
+<p>The Cholesky decomposition can be applied to positive definite matrices. If a matrix <span class="math inline">\(A\)</span> is a positive definite matrix then there exists a lower triangular matrix, <span class="math inline">\(L\)</span>, such that</p>
+<p><span class="math display">\[
+\mathbf{A} = \mathbf{L} \mathbf{L}^T
+\]</span></p>
+<p>Thus, if our data matrix is a full rank, in other words, if the matrix <span class="math inline">\(X^TX\)</span> is a positive definite, then the Normal equation can be written as follows;</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbf{X}^{T}\mathbf{X}\beta &amp; =\mathbf{X}^{T}y\\
+\Rightarrow\mathbf{L}\mathbf{L}^{T}\beta &amp; =\mathbf{X}^{T}y\\
+\tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp; =\mathbf{X}^{T}y
+\end{align*}
+\]</span></p>
+<p>따라서 위의 식에서 <span class="math inline">\(\beta\)</span> 벡터는 다음의 두 단계를 통해서 구할 수 있다.</p>
 <p><a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a></p>
 </div>
 
