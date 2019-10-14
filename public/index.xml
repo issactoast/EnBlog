@@ -16,7 +16,10 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week8/</guid>
-      <description>&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scatter plot again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -67,7 +70,8 @@ abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/linearmodelcholqr/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
@@ -597,7 +601,7 @@ cef_exact&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;cholesky-decomposition&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Cholesky decomposition&lt;/h2&gt;
 &lt;p&gt;For a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; satisfies &lt;span class=&#34;math inline&#34;&gt;\(x^T \mathbf{A} x &amp;gt; 0\)&lt;/span&gt; for every &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, then the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite.&lt;/p&gt;
-&lt;p&gt;The Cholesky decomposition can be applied to positive definite matrices. If a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite matrix then there exists a lower triangular matrix, &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt;, such that&lt;/p&gt;
+&lt;p&gt;The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a symmetirc positive definite matrix then there exists a lower triangular matrix, &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt;, such that&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
 \]&lt;/span&gt;&lt;/p&gt;
@@ -609,8 +613,258 @@ cef_exact&lt;/code&gt;&lt;/pre&gt;
 \tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp;amp; =\mathbf{X}^{T}y
 \end{align*}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;따라서 위의 식에서 &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; 벡터는 다음의 두 단계를 통해서 구할 수 있다.&lt;/p&gt;
+&lt;p&gt;Note that the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is always symmetric. Thus, the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; vector can be obtained by the following two steps;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Solve Lz=X’y for z (forward solve lower triangular system).&lt;/li&gt;
+&lt;li&gt;Solve L’b=z for b (backward solve upper triangular system).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in &lt;code&gt;R&lt;/code&gt; to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html&#34;&gt;&lt;code&gt;backsolve&lt;/code&gt; and &lt;code&gt;forwardsolve&lt;/code&gt;&lt;/a&gt;. Also, look at the algorithm for the inverse matrix of the triangular matrices of any size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;. Here are &lt;a href=&#34;http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf&#34;&gt;link1&lt;/a&gt; and &lt;a href=&#34;https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3&#34;&gt;link2&lt;/a&gt;. As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;implementation-in-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Implementation in &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Let us confirm that whether the choesky decomposition method works using &lt;code&gt;chol()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(matrixcalc)
+
+crossprod(X) %&amp;gt;% is.positive.definite&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% eigen(symmetric = TRUE) %$% values &amp;gt; 0&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check out that whether the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is or not, we can either use the &lt;code&gt;is.positiv.definite()&lt;/code&gt; function in &lt;code&gt;matrixcalc&lt;/code&gt; package or use the basic functions in &lt;code&gt;R&lt;/code&gt; for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;. The following function calculate the regression coefficients using the Cholesky decomposition;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# X always includes a constant vector
+regCef_chol &amp;lt;- function(X, y){
+
+    a &amp;lt;- crossprod(X)
+    b &amp;lt;- crossprod(X, y)
+    
+    # cholesky decomposition
+    upper &amp;lt;- chol(a)
+    
+    # we need to do the following
+    # z &amp;lt;- forwardsolve( t(upper), b )
+    # but transpose can be avoid by using
+    # backsolve &amp;amp; transpose option = TRUE
+    z &amp;lt;- backsolve( upper, b, transpose = TRUE)
+    cef &amp;lt;- as.vector(backsolve(upper, z))
+    
+    cef
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here are some comments about the &lt;code&gt;regCef_chol()&lt;/code&gt; function;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;In &lt;code&gt;R&lt;/code&gt;, you &lt;strong&gt;must&lt;/strong&gt; use the code &lt;code&gt;crossprod(X)&lt;/code&gt; rather than the &lt;code&gt;t(X) %*% X&lt;/code&gt; becasue of the &lt;a href=&#34;https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt&#34;&gt;efficiency&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;chol()&lt;/code&gt; function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.&lt;/li&gt;
+&lt;li&gt;We need to use the function &lt;code&gt;forwardsolve&lt;/code&gt; and &lt;code&gt;backsolve&lt;/code&gt; If we want to implement the equation (1). However, the &lt;code&gt;transpose&lt;/code&gt; option allows us to use the &lt;code&gt;backsolve&lt;/code&gt; twice so that we can avoid the transpose. Let use take a look at the following code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- crossprod(X)
+b &amp;lt;- crossprod(X, y)
+
+# cholesky decomposition
+upper &amp;lt;- chol(a)
+microbenchmark(
+    forwardsolve( t(upper), b ),
+    backsolve( upper, b, transpose = TRUE)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Unit: microseconds
+##                                   expr   min    lq    mean median     uq
+##              forwardsolve(t(upper), b) 8.901 9.101 9.43994  9.201 9.4010
+##  backsolve(upper, b, transpose = TRUE) 5.101 5.300 5.73103  5.302 5.4015
+##     max neval
+##  25.502   100
+##  37.901   100&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z1 &amp;lt;- forwardsolve( t(upper), b )
+z2 &amp;lt;- backsolve( upper, b, transpose = TRUE)
+
+z1 == z2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]
+## [1,] TRUE
+## [2,] TRUE
+## [3,] TRUE
+## [4,] TRUE
+## [5,] TRUE
+## [6,] TRUE
+## [7,] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us save the Cholesky decomposition based coefficients of regression to the &lt;code&gt;cef_chol&lt;/code&gt; variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cef_chol &amp;lt;- regCef_chol(X, y)
+cef_chol&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;qr-decomposition&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;QR decomposition&lt;/h2&gt;
+&lt;p&gt;For a real valued &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(n \geq p\)&lt;/span&gt;, we can decomposed the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; into the following the muliplication of two matrices.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+A = QR
+\]&lt;/span&gt;
+where the matrix &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is a &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix with orthonormal columns which satisfies &lt;span class=&#34;math inline&#34;&gt;\(Q^TQ=I_p\)&lt;/span&gt;. If the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is square matrix, then the &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is orthogonal. Also, the matrix &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is an &lt;span class=&#34;math inline&#34;&gt;\(p \times p\)&lt;/span&gt; upper triangular matrix whose diagonal elements are nonzero values, which impies that &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is nonsingular.&lt;/p&gt;
+&lt;p&gt;QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.&lt;/li&gt;
+&lt;li&gt;More importantly, in the Normal equation solving process, we don’t need to calculate the term, &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;, as follows;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{eqnarray*}
+X^{T}X\mathbf{\beta} &amp;amp; = &amp;amp; X^{T}\mathbf{y}\\
+\Rightarrow\left(QR\right)^{T}\left(QR\right)\mathbf{\beta} &amp;amp; = &amp;amp; \left(QR\right)^{T}\mathbf{y}\\
+\Rightarrow R^{T}Q^{T}QR\mathbf{\beta} &amp;amp; = &amp;amp; R^{T}Q^{T}\mathbf{y}\\
+\Rightarrow R^{T}R\mathbf{\beta} &amp;amp; = &amp;amp; R^{T}Q^{T}\mathbf{y} \\
+\Rightarrow R\mathbf{\beta} &amp;amp; = &amp;amp; Q^{T}\mathbf{y}
+\end{eqnarray*}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Note that we used the properties of the matrix &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+X \mathbf{\beta}=\mathbf{y}
+\]&lt;/span&gt;
+using the QR factorization of the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. Thus, to calculate the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, we can use only the backsolve one time after applying the QR decomposition to the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;qr-decomposition-in-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;QR decomposition in &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;If you use &lt;code&gt;qr()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;, you will be little confused when you see the result of the function as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;QRmat &amp;lt;- qr(X)
+QRmat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $qr
+##      constant  GNP.deflator           GNP    Unemployed  Armed.Forces
+## 1947    -4.00 -4.067250e+02 -1.550794e+03 -1.277325e+03 -1.042675e+03
+## 1948     0.25  4.179551e+01  3.817172e+02  2.246174e+02  1.252618e+02
+## 1949     0.25  2.331590e-01  4.982290e+01 -3.118589e+01 -2.998495e+01
+## 1950     0.25  2.020552e-01 -1.320204e-01 -2.820602e+02  1.644256e+02
+## 1951     0.25  4.175090e-02  2.352068e-01 -4.032101e-01 -1.703533e+02
+## 1952     0.25 -3.708533e-03  2.301639e-01 -4.987968e-01  2.597864e-01
+## 1953     0.25 -2.524195e-02  3.010869e-02 -4.454059e-01  2.499492e-01
+## 1954     0.25 -4.916796e-02  2.634768e-01  3.041786e-02  5.401806e-01
+## 1955     0.25 -7.787919e-02 -2.008098e-01 -1.549424e-02  2.755704e-01
+## 1956     0.25 -1.592276e-01  1.765048e-03 -2.087977e-01 -8.693505e-02
+## 1957     0.25 -2.501465e-01  2.417450e-01 -3.582924e-01 -3.417886e-01
+## 1958     0.25 -3.075689e-01  6.566704e-01  1.704505e-02 -1.486493e-01
+## 1959     0.25 -3.506358e-01  2.287415e-01 -1.269142e-01 -3.868639e-01
+## 1960     0.25 -3.889174e-01  1.297815e-01 -7.134241e-02 -4.035762e-01
+## 1961     0.25 -4.248064e-01  9.885428e-02  2.227783e-01 -1.470166e-01
+## 1962     0.25 -4.535177e-01 -4.128804e-01  1.547782e-01 -1.059541e-01
+##         Population          Year
+## 1947 -469.69600000 -7818.0000000
+## 1948   26.37951035    18.2758880
+## 1949    4.19691804     1.7752596
+## 1950   -3.18974111    -1.4529877
+## 1951    0.04624846    -0.4491762
+## 1952    1.46320173    -0.2819006
+## 1953   -0.25728181    -0.6693051
+## 1954   -0.26118351     0.4588864
+## 1955    0.43979880     0.2646956
+## 1956    0.33806289     0.3701027
+## 1957    0.13690629     0.1755959
+## 1958   -0.05114355    -0.1027051
+## 1959    0.47762105    -0.3582417
+## 1960    0.13635911    -0.1388969
+## 1961   -0.35055843    -0.3066874
+## 1962   -0.40330323    -0.3490426
+## 
+## $rank
+## [1] 7
+## 
+## $qraux
+## [1] 1.250000 1.225981 1.156696 1.349325 1.102230 1.065271 1.421288
+## 
+## $pivot
+## [1] 1 2 3 4 5 6 7
+## 
+## attr(,&amp;quot;class&amp;quot;)
+## [1] &amp;quot;qr&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The help page for the &lt;code&gt;qr()&lt;/code&gt; function has the answer for this as follows;&lt;/p&gt;
+&lt;p&gt;The upper triangle contains the &lt;span class=&#34;math inline&#34;&gt;\(\bold{R}\)&lt;/span&gt; of the decomposition and the lower triangle contains information on the &lt;span class=&#34;math inline&#34;&gt;\(\bold{Q}\)&lt;/span&gt; of the decomposition (stored in compact form)&lt;/p&gt;
+&lt;p&gt;TO get the &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; matrices seperately, we need to use the &lt;code&gt;qr.Q()&lt;/code&gt; and &lt;code&gt;qr.R()&lt;/code&gt; functions respectively.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Qmat &amp;lt;- qr.Q(QRmat)
+Rmat &amp;lt;- qr.R(QRmat)
+Qmat; Rmat;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        [,1]        [,2]        [,3]         [,4]        [,5]        [,6]
+##  [1,] -0.25 -0.44696790  0.34534075 -0.097267502  0.11348450  0.14346687
+##  [2,] -0.25 -0.31537481 -0.15833007  0.074204845  0.54306575  0.27577175
+##  [3,] -0.25 -0.32255262 -0.13087500 -0.415649678 -0.03377641  0.05658751
+##  [4,] -0.25 -0.29144879  0.16361083 -0.306089180  0.02304976 -0.32175743
+##  [5,] -0.25 -0.13114448 -0.17388270  0.302760179 -0.06259505 -0.13059025
+##  [6,] -0.25 -0.08568505 -0.16040787  0.396678978 -0.23146214  0.03796899
+##  [7,] -0.25 -0.06415163  0.04364140  0.413247504 -0.20796276  0.34643193
+##  [8,] -0.25 -0.04022562 -0.18528890 -0.147931978 -0.57608466  0.12886308
+##  [9,] -0.25 -0.01151440  0.28432317  0.061965649 -0.25775992 -0.48931159
+## [10,] -0.25  0.06983406  0.09683706  0.176548287  0.05777222 -0.25842925
+## [11,] -0.25  0.16075293 -0.12627901  0.233202984  0.25321471  0.02907702
+## [12,] -0.25  0.21817537 -0.53055357 -0.295032653 -0.04874867  0.03998579
+## [13,] -0.25  0.26124220 -0.09463650 -0.001197881  0.23969677 -0.38761993
+## [14,] -0.25  0.29952382  0.01142409 -0.024274066  0.24921047 -0.06437349
+## [15,] -0.25  0.33541285  0.04900808 -0.310066907 -0.04091063  0.26459047
+## [16,] -0.25  0.36412407  0.56606822 -0.061098580 -0.02019395  0.32933852
+##              [,7]
+##  [1,] -0.00859901
+##  [2,]  0.03836384
+##  [3,] -0.03603622
+##  [4,] -0.01634503
+##  [5,]  0.62685034
+##  [6,]  0.24825479
+##  [7,] -0.29828585
+##  [8,] -0.18932241
+##  [9,] -0.06276184
+## [10,] -0.39060004
+## [11,] -0.36911636
+## [12,] -0.02273730
+## [13,]  0.16401119
+## [14,] -0.09588745
+## [15,]  0.16626351
+## [16,]  0.24594785&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      constant GNP.deflator        GNP  Unemployed Armed.Forces
+## 1947       -4   -406.72500 -1550.7938 -1277.32500  -1042.67500
+## 1948        0     41.79551   381.7172   224.61743    125.26181
+## 1949        0      0.00000    49.8229   -31.18589    -29.98495
+## 1950        0      0.00000     0.0000  -282.06021    164.42555
+## 1951        0      0.00000     0.0000     0.00000   -170.35326
+## 1952        0      0.00000     0.0000     0.00000      0.00000
+## 1953        0      0.00000     0.0000     0.00000      0.00000
+##         Population          Year
+## 1947 -469.69600000 -7818.0000000
+## 1948   26.37951035    18.2758880
+## 1949    4.19691804     1.7752596
+## 1950   -3.18974111    -1.4529877
+## 1951    0.04624846    -0.4491762
+## 1952    1.46320173    -0.2819006
+## 1953    0.00000000    -0.6693051&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Thus, in &lt;code&gt;R&lt;/code&gt;, we can implement the QR factorization based coefficients can be obtained as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;as.vector(backsolve(Rmat, crossprod(Qmat, y)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, &lt;code&gt;R&lt;/code&gt; provides the following compact solve function for the QR factorization.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cef_qr &amp;lt;- qr.solve(X, y) # or solve.qr(QRmat, y)
+cef_qr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      constant  GNP.deflator           GNP    Unemployed  Armed.Forces 
+## -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02 
+##    Population          Year 
+## -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;result-comparison&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Result comparison&lt;/h2&gt;
+&lt;p&gt;Let us compare the results between the Cholesky based and the QR based coefficients using the &lt;code&gt;gmp&lt;/code&gt; based coefficients as a reference value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum((cef_exact - cef_chol)^2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.219947e-09&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum((cef_exact - cef_qr)^2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3.494839e-23&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see that the QR decomposition based coefficient is closer to the &lt;code&gt;gmp&lt;/code&gt; based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% is.positive.definite&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% eigen(symmetric = TRUE) %$% values&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6.665301e+07 2.090730e+05 1.053550e+05 1.803976e+04 2.455730e+01
+## [6] 2.015117e+00 1.172178e-07&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For these reason, &lt;code&gt;lm&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt; uses the QR factorization based calculation for the regression coefficients.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cef_lm &amp;lt;- lm(y~0+X)$coefficients
+cef_lm == cef_qr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     Xconstant XGNP.deflator          XGNP   XUnemployed XArmed.Forces 
+##          TRUE          TRUE          TRUE          TRUE          TRUE 
+##   XPopulation         XYear 
+##          TRUE          TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;reference&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;p&gt;[1] Luke Tierney, STAT:7400 Computer Intensive Statistics Note:
+&lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/notes.pdf&#34; class=&#34;uri&#34;&gt;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/notes.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2] J. W. Longley (1967) An appraisal of least-squares programs from the point of view of the user. Journal of the American Statistical Association 62, 819–841.&lt;/p&gt;
+&lt;p&gt;[3] The QR Decomposition of a Matrix in R: &lt;a href=&#34;http://astrostatistics.psu.edu/su07/R/html/base/html/qr.html&#34; class=&#34;uri&#34;&gt;http://astrostatistics.psu.edu/su07/R/html/base/html/qr.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[4] Monahan, John F. A primer on linear models. CRC Press, 2008.&lt;/p&gt;
+&lt;p&gt;[5] &lt;a href=&#34;https://www.value-at-risk.net/cholesky-factorization/&#34;&gt;Cholesky Factorization&lt;/a&gt; written by Glyn A. Holton&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/project/telematicsproject/&#34; target=&#34;_self&#34;&gt;Return to the telematics project page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -621,7 +875,8 @@ cef_exact&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/telematics1/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;As an employee, I am trying to construct my portfolio these days. By sharing my research materials, I hope that my article makes you either become interested in me or the driving telematics topic itself! =]&lt;/p&gt;
@@ -12920,7 +13175,10 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
 &lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
 &lt;ul&gt;
@@ -12937,7 +13195,10 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week7/</guid>
-      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mean&lt;/h2&gt;
@@ -13032,7 +13293,10 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
 &lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
 &lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
@@ -13149,7 +13413,10 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -13208,7 +13475,10 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -13356,7 +13626,10 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -13537,7 +13810,10 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -13645,7 +13921,10 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -13778,7 +14057,10 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;

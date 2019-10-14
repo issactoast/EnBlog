@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.44" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <meta name="author" content="Issac Lee">
 
   
@@ -275,7 +275,7 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    12 min read
   </span>
   
 
@@ -353,7 +353,8 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
 
 
     <div class="article-style" itemprop="articleBody">
-      <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+      
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <p>This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; <a href="http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/">the intensive computing course</a>.</p>
@@ -883,7 +884,7 @@ cef_exact</code></pre>
 <div id="cholesky-decomposition" class="section level2">
 <h2>Cholesky decomposition</h2>
 <p>For a matrix <span class="math inline">\(A\)</span>, if the matrix <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(x^T \mathbf{A} x &gt; 0\)</span> for every <span class="math inline">\(x\)</span>, then the matrix <span class="math inline">\(A\)</span> is a positive definite.</p>
-<p>The Cholesky decomposition can be applied to positive definite matrices. If a matrix <span class="math inline">\(A\)</span> is a positive definite matrix then there exists a lower triangular matrix, <span class="math inline">\(L\)</span>, such that</p>
+<p>The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix <span class="math inline">\(A\)</span> is a symmetirc positive definite matrix then there exists a lower triangular matrix, <span class="math inline">\(L\)</span>, such that</p>
 <p><span class="math display">\[
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
 \]</span></p>
@@ -895,8 +896,258 @@ cef_exact</code></pre>
 \tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp; =\mathbf{X}^{T}y
 \end{align*}
 \]</span></p>
-<p>따라서 위의 식에서 <span class="math inline">\(\beta\)</span> 벡터는 다음의 두 단계를 통해서 구할 수 있다.</p>
+<p>Note that the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is always symmetric. Thus, the <span class="math inline">\(\beta\)</span> vector can be obtained by the following two steps;</p>
+<ol>
+<li>Solve Lz=X’y for z (forward solve lower triangular system).</li>
+<li>Solve L’b=z for b (backward solve upper triangular system).</li>
+</ol>
+<p>Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in <code>R</code> to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html"><code>backsolve</code> and <code>forwardsolve</code></a>. Also, look at the algorithm for the inverse matrix of the triangular matrices of any size <span class="math inline">\(n\)</span>. Here are <a href="http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf">link1</a> and <a href="https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3">link2</a>. As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.</p>
+</div>
+<div id="implementation-in-r" class="section level2">
+<h2>Implementation in <code>R</code></h2>
+<p>Let us confirm that whether the choesky decomposition method works using <code>chol()</code> function in <code>R</code>.</p>
+<pre class="r"><code>library(matrixcalc)
+
+crossprod(X) %&gt;% is.positive.definite</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>crossprod(X) %&gt;% eigen(symmetric = TRUE) %$% values &gt; 0</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<p>To check out that whether the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is or not, we can either use the <code>is.positiv.definite()</code> function in <code>matrixcalc</code> package or use the basic functions in <code>R</code> for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>. The following function calculate the regression coefficients using the Cholesky decomposition;</p>
+<pre class="r"><code># X always includes a constant vector
+regCef_chol &lt;- function(X, y){
+
+    a &lt;- crossprod(X)
+    b &lt;- crossprod(X, y)
+    
+    # cholesky decomposition
+    upper &lt;- chol(a)
+    
+    # we need to do the following
+    # z &lt;- forwardsolve( t(upper), b )
+    # but transpose can be avoid by using
+    # backsolve &amp; transpose option = TRUE
+    z &lt;- backsolve( upper, b, transpose = TRUE)
+    cef &lt;- as.vector(backsolve(upper, z))
+    
+    cef
+}</code></pre>
+<p>Here are some comments about the <code>regCef_chol()</code> function;</p>
+<ol style="list-style-type: decimal">
+<li>In <code>R</code>, you <strong>must</strong> use the code <code>crossprod(X)</code> rather than the <code>t(X) %*% X</code> becasue of the <a href="https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt">efficiency</a>.</li>
+<li><code>chol()</code> function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.</li>
+<li>We need to use the function <code>forwardsolve</code> and <code>backsolve</code> If we want to implement the equation (1). However, the <code>transpose</code> option allows us to use the <code>backsolve</code> twice so that we can avoid the transpose. Let use take a look at the following code.</li>
+</ol>
+<pre class="r"><code>a &lt;- crossprod(X)
+b &lt;- crossprod(X, y)
+
+# cholesky decomposition
+upper &lt;- chol(a)
+microbenchmark(
+    forwardsolve( t(upper), b ),
+    backsolve( upper, b, transpose = TRUE)
+)</code></pre>
+<pre><code>## Unit: microseconds
+##                                   expr   min    lq    mean median     uq
+##              forwardsolve(t(upper), b) 8.901 9.101 9.43994  9.201 9.4010
+##  backsolve(upper, b, transpose = TRUE) 5.101 5.300 5.73103  5.302 5.4015
+##     max neval
+##  25.502   100
+##  37.901   100</code></pre>
+<pre class="r"><code>z1 &lt;- forwardsolve( t(upper), b )
+z2 &lt;- backsolve( upper, b, transpose = TRUE)
+
+z1 == z2</code></pre>
+<pre><code>##      [,1]
+## [1,] TRUE
+## [2,] TRUE
+## [3,] TRUE
+## [4,] TRUE
+## [5,] TRUE
+## [6,] TRUE
+## [7,] TRUE</code></pre>
+<p>Let us save the Cholesky decomposition based coefficients of regression to the <code>cef_chol</code> variable.</p>
+<pre class="r"><code>cef_chol &lt;- regCef_chol(X, y)
+cef_chol</code></pre>
+<pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00</code></pre>
+</div>
+<div id="qr-decomposition" class="section level2">
+<h2>QR decomposition</h2>
+<p>For a real valued <span class="math inline">\(n \times p\)</span> matrix <span class="math inline">\(A\)</span>, where <span class="math inline">\(n \geq p\)</span>, we can decomposed the matrix <span class="math inline">\(A\)</span> into the following the muliplication of two matrices.</p>
+<p><span class="math display">\[
+A = QR
+\]</span>
+where the matrix <span class="math inline">\(Q\)</span> is a <span class="math inline">\(n \times p\)</span> matrix with orthonormal columns which satisfies <span class="math inline">\(Q^TQ=I_p\)</span>. If the matrix <span class="math inline">\(A\)</span> is square matrix, then the <span class="math inline">\(Q\)</span> is orthogonal. Also, the matrix <span class="math inline">\(R\)</span> is an <span class="math inline">\(p \times p\)</span> upper triangular matrix whose diagonal elements are nonzero values, which impies that <span class="math inline">\(R\)</span> is nonsingular.</p>
+<p>QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because</p>
+<ol style="list-style-type: decimal">
+<li>The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.</li>
+<li>More importantly, in the Normal equation solving process, we don’t need to calculate the term, <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>, as follows;</li>
+</ol>
+<p><span class="math display">\[
+\begin{eqnarray*}
+X^{T}X\mathbf{\beta} &amp; = &amp; X^{T}\mathbf{y}\\
+\Rightarrow\left(QR\right)^{T}\left(QR\right)\mathbf{\beta} &amp; = &amp; \left(QR\right)^{T}\mathbf{y}\\
+\Rightarrow R^{T}Q^{T}QR\mathbf{\beta} &amp; = &amp; R^{T}Q^{T}\mathbf{y}\\
+\Rightarrow R^{T}R\mathbf{\beta} &amp; = &amp; R^{T}Q^{T}\mathbf{y} \\
+\Rightarrow R\mathbf{\beta} &amp; = &amp; Q^{T}\mathbf{y}
+\end{eqnarray*}
+\]</span></p>
+<p>Note that we used the properties of the matrix <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;</p>
+<p><span class="math display">\[
+X \mathbf{\beta}=\mathbf{y}
+\]</span>
+using the QR factorization of the matrix <span class="math inline">\(X\)</span>. Thus, to calculate the <span class="math inline">\(\beta\)</span>, we can use only the backsolve one time after applying the QR decomposition to the matrix <span class="math inline">\(X\)</span>.</p>
+<div id="qr-decomposition-in-r" class="section level3">
+<h3>QR decomposition in <code>R</code></h3>
+<p>If you use <code>qr()</code> function in <code>R</code>, you will be little confused when you see the result of the function as follows;</p>
+<pre class="r"><code>QRmat &lt;- qr(X)
+QRmat</code></pre>
+<pre><code>## $qr
+##      constant  GNP.deflator           GNP    Unemployed  Armed.Forces
+## 1947    -4.00 -4.067250e+02 -1.550794e+03 -1.277325e+03 -1.042675e+03
+## 1948     0.25  4.179551e+01  3.817172e+02  2.246174e+02  1.252618e+02
+## 1949     0.25  2.331590e-01  4.982290e+01 -3.118589e+01 -2.998495e+01
+## 1950     0.25  2.020552e-01 -1.320204e-01 -2.820602e+02  1.644256e+02
+## 1951     0.25  4.175090e-02  2.352068e-01 -4.032101e-01 -1.703533e+02
+## 1952     0.25 -3.708533e-03  2.301639e-01 -4.987968e-01  2.597864e-01
+## 1953     0.25 -2.524195e-02  3.010869e-02 -4.454059e-01  2.499492e-01
+## 1954     0.25 -4.916796e-02  2.634768e-01  3.041786e-02  5.401806e-01
+## 1955     0.25 -7.787919e-02 -2.008098e-01 -1.549424e-02  2.755704e-01
+## 1956     0.25 -1.592276e-01  1.765048e-03 -2.087977e-01 -8.693505e-02
+## 1957     0.25 -2.501465e-01  2.417450e-01 -3.582924e-01 -3.417886e-01
+## 1958     0.25 -3.075689e-01  6.566704e-01  1.704505e-02 -1.486493e-01
+## 1959     0.25 -3.506358e-01  2.287415e-01 -1.269142e-01 -3.868639e-01
+## 1960     0.25 -3.889174e-01  1.297815e-01 -7.134241e-02 -4.035762e-01
+## 1961     0.25 -4.248064e-01  9.885428e-02  2.227783e-01 -1.470166e-01
+## 1962     0.25 -4.535177e-01 -4.128804e-01  1.547782e-01 -1.059541e-01
+##         Population          Year
+## 1947 -469.69600000 -7818.0000000
+## 1948   26.37951035    18.2758880
+## 1949    4.19691804     1.7752596
+## 1950   -3.18974111    -1.4529877
+## 1951    0.04624846    -0.4491762
+## 1952    1.46320173    -0.2819006
+## 1953   -0.25728181    -0.6693051
+## 1954   -0.26118351     0.4588864
+## 1955    0.43979880     0.2646956
+## 1956    0.33806289     0.3701027
+## 1957    0.13690629     0.1755959
+## 1958   -0.05114355    -0.1027051
+## 1959    0.47762105    -0.3582417
+## 1960    0.13635911    -0.1388969
+## 1961   -0.35055843    -0.3066874
+## 1962   -0.40330323    -0.3490426
+## 
+## $rank
+## [1] 7
+## 
+## $qraux
+## [1] 1.250000 1.225981 1.156696 1.349325 1.102230 1.065271 1.421288
+## 
+## $pivot
+## [1] 1 2 3 4 5 6 7
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;qr&quot;</code></pre>
+<p>The help page for the <code>qr()</code> function has the answer for this as follows;</p>
+<p>The upper triangle contains the <span class="math inline">\(\bold{R}\)</span> of the decomposition and the lower triangle contains information on the <span class="math inline">\(\bold{Q}\)</span> of the decomposition (stored in compact form)</p>
+<p>TO get the <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> matrices seperately, we need to use the <code>qr.Q()</code> and <code>qr.R()</code> functions respectively.</p>
+<pre class="r"><code>Qmat &lt;- qr.Q(QRmat)
+Rmat &lt;- qr.R(QRmat)
+Qmat; Rmat;</code></pre>
+<pre><code>##        [,1]        [,2]        [,3]         [,4]        [,5]        [,6]
+##  [1,] -0.25 -0.44696790  0.34534075 -0.097267502  0.11348450  0.14346687
+##  [2,] -0.25 -0.31537481 -0.15833007  0.074204845  0.54306575  0.27577175
+##  [3,] -0.25 -0.32255262 -0.13087500 -0.415649678 -0.03377641  0.05658751
+##  [4,] -0.25 -0.29144879  0.16361083 -0.306089180  0.02304976 -0.32175743
+##  [5,] -0.25 -0.13114448 -0.17388270  0.302760179 -0.06259505 -0.13059025
+##  [6,] -0.25 -0.08568505 -0.16040787  0.396678978 -0.23146214  0.03796899
+##  [7,] -0.25 -0.06415163  0.04364140  0.413247504 -0.20796276  0.34643193
+##  [8,] -0.25 -0.04022562 -0.18528890 -0.147931978 -0.57608466  0.12886308
+##  [9,] -0.25 -0.01151440  0.28432317  0.061965649 -0.25775992 -0.48931159
+## [10,] -0.25  0.06983406  0.09683706  0.176548287  0.05777222 -0.25842925
+## [11,] -0.25  0.16075293 -0.12627901  0.233202984  0.25321471  0.02907702
+## [12,] -0.25  0.21817537 -0.53055357 -0.295032653 -0.04874867  0.03998579
+## [13,] -0.25  0.26124220 -0.09463650 -0.001197881  0.23969677 -0.38761993
+## [14,] -0.25  0.29952382  0.01142409 -0.024274066  0.24921047 -0.06437349
+## [15,] -0.25  0.33541285  0.04900808 -0.310066907 -0.04091063  0.26459047
+## [16,] -0.25  0.36412407  0.56606822 -0.061098580 -0.02019395  0.32933852
+##              [,7]
+##  [1,] -0.00859901
+##  [2,]  0.03836384
+##  [3,] -0.03603622
+##  [4,] -0.01634503
+##  [5,]  0.62685034
+##  [6,]  0.24825479
+##  [7,] -0.29828585
+##  [8,] -0.18932241
+##  [9,] -0.06276184
+## [10,] -0.39060004
+## [11,] -0.36911636
+## [12,] -0.02273730
+## [13,]  0.16401119
+## [14,] -0.09588745
+## [15,]  0.16626351
+## [16,]  0.24594785</code></pre>
+<pre><code>##      constant GNP.deflator        GNP  Unemployed Armed.Forces
+## 1947       -4   -406.72500 -1550.7938 -1277.32500  -1042.67500
+## 1948        0     41.79551   381.7172   224.61743    125.26181
+## 1949        0      0.00000    49.8229   -31.18589    -29.98495
+## 1950        0      0.00000     0.0000  -282.06021    164.42555
+## 1951        0      0.00000     0.0000     0.00000   -170.35326
+## 1952        0      0.00000     0.0000     0.00000      0.00000
+## 1953        0      0.00000     0.0000     0.00000      0.00000
+##         Population          Year
+## 1947 -469.69600000 -7818.0000000
+## 1948   26.37951035    18.2758880
+## 1949    4.19691804     1.7752596
+## 1950   -3.18974111    -1.4529877
+## 1951    0.04624846    -0.4491762
+## 1952    1.46320173    -0.2819006
+## 1953    0.00000000    -0.6693051</code></pre>
+<p>Thus, in <code>R</code>, we can implement the QR factorization based coefficients can be obtained as follows;</p>
+<pre class="r"><code>as.vector(backsolve(Rmat, crossprod(Qmat, y)))</code></pre>
+<pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
+## [6] -5.110411e-02  1.829151e+00</code></pre>
+<p>However, <code>R</code> provides the following compact solve function for the QR factorization.</p>
+<pre class="r"><code>cef_qr &lt;- qr.solve(X, y) # or solve.qr(QRmat, y)
+cef_qr</code></pre>
+<pre><code>##      constant  GNP.deflator           GNP    Unemployed  Armed.Forces 
+## -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02 
+##    Population          Year 
+## -5.110411e-02  1.829151e+00</code></pre>
+</div>
+</div>
+<div id="result-comparison" class="section level2">
+<h2>Result comparison</h2>
+<p>Let us compare the results between the Cholesky based and the QR based coefficients using the <code>gmp</code> based coefficients as a reference value.</p>
+<pre class="r"><code>sum((cef_exact - cef_chol)^2)</code></pre>
+<pre><code>## [1] 1.219947e-09</code></pre>
+<pre class="r"><code>sum((cef_exact - cef_qr)^2)</code></pre>
+<pre><code>## [1] 3.494839e-23</code></pre>
+<p>We can see that the QR decomposition based coefficient is closer to the <code>gmp</code> based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.</p>
+<pre class="r"><code>crossprod(X) %&gt;% is.positive.definite</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>crossprod(X) %&gt;% eigen(symmetric = TRUE) %$% values</code></pre>
+<pre><code>## [1] 6.665301e+07 2.090730e+05 1.053550e+05 1.803976e+04 2.455730e+01
+## [6] 2.015117e+00 1.172178e-07</code></pre>
+<p>For these reason, <code>lm</code> function in <code>R</code> uses the QR factorization based calculation for the regression coefficients.</p>
+<pre class="r"><code>cef_lm &lt;- lm(y~0+X)$coefficients
+cef_lm == cef_qr</code></pre>
+<pre><code>##     Xconstant XGNP.deflator          XGNP   XUnemployed XArmed.Forces 
+##          TRUE          TRUE          TRUE          TRUE          TRUE 
+##   XPopulation         XYear 
+##          TRUE          TRUE</code></pre>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p>[1] Luke Tierney, STAT:7400 Computer Intensive Statistics Note:
+<a href="http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/notes.pdf" class="uri">http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/notes.pdf</a></p>
+<p>[2] J. W. Longley (1967) An appraisal of least-squares programs from the point of view of the user. Journal of the American Statistical Association 62, 819–841.</p>
+<p>[3] The QR Decomposition of a Matrix in R: <a href="http://astrostatistics.psu.edu/su07/R/html/base/html/qr.html" class="uri">http://astrostatistics.psu.edu/su07/R/html/base/html/qr.html</a></p>
+<p>[4] Monahan, John F. A primer on linear models. CRC Press, 2008.</p>
+<p>[5] <a href="https://www.value-at-risk.net/cholesky-factorization/">Cholesky Factorization</a> written by Glyn A. Holton</p>
 <p><a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a></p>
+</div>
 </div>
 
     </div>

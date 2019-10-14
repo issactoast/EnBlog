@@ -103,19 +103,21 @@ X <- as.matrix(cbind(constant = 1, longley[,-7]))
 r_X <- as.bigq(round(1000 * X)) / as.bigq(1000)
 r_y <- as.bigq(round(1000 * y)) / as.bigq(1000)
 head(r_X)
+```
 
+
+```{r}
 # coefficients
 cef_exact <- as.double(solve(t(r_X) %*% r_X,
                              (t(r_X) %*% r_y)))
 cef_exact
 ```
 
-
 ## Cholesky decomposition
 
 For a matrix $A$, if the matrix $A$ satisfies $x^T \mathbf{A} x > 0$ for every $x$, then the matrix $A$ is a positive definite. 
 
-The Cholesky decomposition can be applied to positive definite matrices. If a matrix $A$ is a positive definite matrix then there exists a lower triangular matrix, $L$, such that
+The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix $A$ is a symmetirc positive definite matrix then there exists a lower triangular matrix, $L$, such that
 
 $$
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
@@ -131,8 +133,178 @@ $$
 \end{align*}
 $$
 
-따라서 위의 식에서 $\beta$ 벡터는 다음의 두 단계를 통해서 구할 수 있다.
+Note that the matrix $\mathbf{X}^T \mathbf{X}$ is always symmetric. Thus, the $\beta$ vector can be obtained by the following two steps;
 
+#. Solve Lz=X'y for z (forward solve lower triangular system).
+#. Solve L'b=z for b (backward solve upper triangular system).
+
+Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in `R` to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; [`backsolve` and `forwardsolve`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html). Also, look at the algorithm for the inverse matrix of the triangular matrices of any size $n$. Here are [link1](http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf) and [link2](https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3). As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.
+
+## Implementation in `R`
+
+Let us confirm that whether the choesky decomposition method works using `chol()` function in `R`.
+
+```{r}
+library(matrixcalc)
+
+crossprod(X) %>% is.positive.definite
+crossprod(X) %>% eigen(symmetric = TRUE) %$% values > 0
+```
+
+To check out that whether the matrix $\mathbf{X}^T \mathbf{X}$ is or not, we can either use the `is.positiv.definite()` function in `matrixcalc` package or use the basic functions in `R` for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the $\mathbf{X}^T \mathbf{X}$. The following function calculate the regression coefficients using the Cholesky decomposition;
+
+```{r}
+# X always includes a constant vector
+regCef_chol <- function(X, y){
+
+    a <- crossprod(X)
+    b <- crossprod(X, y)
+    
+    # cholesky decomposition
+    upper <- chol(a)
+    
+    # we need to do the following
+    # z <- forwardsolve( t(upper), b )
+    # but transpose can be avoid by using
+    # backsolve & transpose option = TRUE
+    z <- backsolve( upper, b, transpose = TRUE)
+    cef <- as.vector(backsolve(upper, z))
+    
+    cef
+}
+```
+
+Here are some comments about the `regCef_chol()` function;
+
+1. In `R`, you **must** use the code `crossprod(X)` rather than the `t(X) %*% X` becasue of the [efficiency](https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt).
+1. `chol()` function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.
+1. We need to use the function `forwardsolve` and `backsolve` If we want to implement the equation (1). However, the `transpose` option allows us to use the `backsolve` twice so that we can avoid the transpose. Let use take a look at the following code.
+
+```{r}
+a <- crossprod(X)
+b <- crossprod(X, y)
+
+# cholesky decomposition
+upper <- chol(a)
+microbenchmark(
+    forwardsolve( t(upper), b ),
+    backsolve( upper, b, transpose = TRUE)
+)
+
+
+z1 <- forwardsolve( t(upper), b )
+z2 <- backsolve( upper, b, transpose = TRUE)
+
+z1 == z2
+```
+
+Let us save the Cholesky decomposition based coefficients of regression to the `cef_chol` variable.
+
+```{r}
+cef_chol <- regCef_chol(X, y)
+cef_chol
+```
+
+## QR decomposition
+
+For a real valued $n \times p$ matrix $A$, where $n \geq p$, we can decomposed the matrix $A$ into the following the muliplication of two matrices.
+
+$$
+A = QR
+$$
+where the matrix $Q$ is a $n \times p$ matrix with orthonormal columns which satisfies $Q^TQ=I_p$. If the matrix $A$ is square matrix, then the $Q$ is orthogonal. Also, the matrix $R$ is an $p \times p$ upper triangular matrix whose diagonal elements are nonzero values, which impies that $R$ is nonsingular.
+
+QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because
+
+1. The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.
+1. More importantly, in the Normal equation solving process, we don't need to calculate the term, $\mathbf{X}^T \mathbf{X}$, as follows;
+
+$$
+\begin{eqnarray*}
+X^{T}X\mathbf{\beta} & = & X^{T}\mathbf{y}\\
+\Rightarrow\left(QR\right)^{T}\left(QR\right)\mathbf{\beta} & = & \left(QR\right)^{T}\mathbf{y}\\
+\Rightarrow R^{T}Q^{T}QR\mathbf{\beta} & = & R^{T}Q^{T}\mathbf{y}\\
+\Rightarrow R^{T}R\mathbf{\beta} & = & R^{T}Q^{T}\mathbf{y} \\
+\Rightarrow R\mathbf{\beta} & = & Q^{T}\mathbf{y}
+\end{eqnarray*}
+$$
+
+Note that we used the properties of the matrix $Q$ and $R$ to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;
+
+$$
+X \mathbf{\beta}=\mathbf{y}
+$$
+using the QR factorization of the matrix $X$. Thus, to calculate the $\beta$, we can use only the backsolve one time after applying the QR decomposition to the matrix $X$.
+
+### QR decomposition in `R`
+
+If you use `qr()` function in `R`, you will be little confused when you see the result of the function as follows;
+
+```{r}
+QRmat <- qr(X)
+QRmat
+```
+
+The help page for the `qr()` function has the answer for this as follows;
+
+    The upper triangle contains the $\bold{R}$ of the decomposition and the lower triangle contains information on the $\bold{Q}$ of the decomposition (stored in compact form)
+
+TO get the $Q$ and $R$ matrices seperately, we need to use the `qr.Q()` and `qr.R()` functions respectively.
+
+```{r}
+Qmat <- qr.Q(QRmat)
+Rmat <- qr.R(QRmat)
+Qmat; Rmat;
+```
+
+Thus, in `R`, we can implement the QR factorization based coefficients can be obtained as follows;
+
+```{r}
+as.vector(backsolve(Rmat, crossprod(Qmat, y)))
+```
+
+However, `R` provides the following compact solve function for the QR factorization.
+
+```{r}
+cef_qr <- qr.solve(X, y) # or solve.qr(QRmat, y)
+cef_qr
+```
+
+## Result comparison
+
+Let us compare the results between the Cholesky based  and the QR based coefficients using the `gmp` based coefficients as a reference value.
+
+```{r}
+sum((cef_exact - cef_chol)^2)
+sum((cef_exact - cef_qr)^2)
+```
+
+We can see that the QR decomposition based coefficient is closer to the `gmp` based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.
+
+```{r}
+crossprod(X) %>% is.positive.definite
+crossprod(X) %>% eigen(symmetric = TRUE) %$% values
+```
+
+For these reason, `lm` function in `R` uses the QR factorization based calculation for the regression coefficients.
+
+```{r}
+cef_lm <- lm(y~0+X)$coefficients
+cef_lm == cef_qr
+```
+
+### Reference
+
+[1] Luke Tierney, STAT:7400 Computer Intensive Statistics Note:
+http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/notes.pdf
+
+[2] J. W. Longley (1967) An appraisal of least-squares programs from the point of view of the user. Journal of the American Statistical Association 62, 819–841.
+
+[3] The QR Decomposition of a Matrix in R: http://astrostatistics.psu.edu/su07/R/html/base/html/qr.html
+
+[4] Monahan, John F. A primer on linear models. CRC Press, 2008.
+
+[5] [Cholesky Factorization](https://www.value-at-risk.net/cholesky-factorization/) written by Glyn A. Holton
 
 <a href="https://theissaclee.com/project/telematicsproject/" target="_self">Return to the telematics project page</a>
 
