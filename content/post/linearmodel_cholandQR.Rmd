@@ -1,5 +1,5 @@
 ---
-title: 'The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition'
+title: 'The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition'
 author: Issac Lee
 date: '2019-10-12'
 slug: linearmodelcholqr
@@ -17,7 +17,7 @@ header:
   preview: yes
 ---
 
-This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; [the intensive computing course](http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/).
+This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: [the intensive computing course](http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/).
 
 The following are the `R` packages used in this post.
 
@@ -34,13 +34,13 @@ library(microbenchmark)
 library(gmp)
 ```
 
-## Normal equation for the beta
+## Normal equation for the beta vector
 
-Today, I want to talk little bit about the process of getting the coefficients of linear model in `R`. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.
+Today, I want to talk little bit about the process of getting the coefficients of a linear model in `R`. Among many methods, our main focus for today is related to the Cholesky decomposition and QR decomposition.
 
-The reason why we are discussing about the matrix decomposition methods for the linear regression is that the coefficients of the regression is the solution of the matrix equation called Normal equation.
+The reason why we are discussing matrix decomposition methods for linear regression is that the coefficients of the regression are the solution of the matrix equation called the Normal equation.
 
-Let us we have the following $n$ observation of vector $y$ and the data matrix $X$. If assume that the vector $y$ follows a linear model with noise vector $\mathbf{e}$, then the situation can be written as follows;
+Suppose we have the following $n$ observations in a vector $y$ and the data matrix $X$. If we assume that the vector $y$ follows a linear model with noise vector $\mathbf{e}$, then the situation can be written as follows:
 
 $$
 \begin{eqnarray*}
@@ -58,13 +58,13 @@ $$
 
 Note that $\mathbf{1}$, $\mathbf{e}$ and $\mathbf{x}_{i}$, $i=1,...,p-1$ are $n \times 1$ vectors.
 
-Under this assumption, the coefficients the linear model, $\beta$, which minimizes the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution;
+Under this assumption, the coefficients of the linear model, $\beta$, which minimize the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution:
 
 $$
 X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
 $$
 
-For the details about the Normal equation can be found at [wikipedia](https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices).
+The details about the Normal equation can be found at [wikipedia](https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices).
 
 ## `longley` data set
 
@@ -72,7 +72,7 @@ For the details about the Normal equation can be found at [wikipedia](https://en
 ![The longley data in the paper](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/img/longley.png){width=560}
 </div>
 
-The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967); An appraisal of least-squares programs from the point of view of the user. The data set is minimal toy data which consists of 7 explanatory variables. This data is famous for the high correlation among the variables when we apply the linear regression of the `Employed` variable on the rest of the variables. The data set is contained in the `datasets` package, so let us load the data set.
+The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967): *An appraisal of least-squares programs from the point of view of the user*. The data set is toy data and consists of 7 explanatory variables. This data is famous for having high correlation among the variables when we regress the `Employed` variable on the rest of the variables. The data set is contained in the `datasets` package, so let us load the data set.
 
 ```{r eval=FALSE}
 library(datasets)
@@ -85,12 +85,12 @@ kable(longley, format = "html") %>%
   scroll_box(width = "100%", height = "300px")
 ```
 
-We can see that the `longley` data set in `R` was scaled compare to the original data.
+We can see that the `longley` data set in `R` was scaled compared to the original data.
 
 
-## Calculating the accurate coefficients using `gmp` package
+## Calculating accurate coefficients using `gmp` package
 
-The `gmp` package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the `Employed` variable on the rest of the variables in the `longley` data set.
+The `gmp` package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate estimates for the coefficients since it avoids the truncation of floating numbers. By using the `solve()` function, let us calculate accurate coefficients for the linear regression of the `Employed` variable on the rest of the variables in the `longley` data set.
 
 ```{r }
 y <- as.vector(longley[,7])
@@ -115,7 +115,7 @@ cef_exact
 
 ## Cholesky decomposition
 
-For a matrix $A$, if the matrix $A$ satisfies $x^T \mathbf{A} x > 0$ for every $x$, then the matrix $A$ is a positive definite. 
+If the matrix $A$ satisfies $x^T \mathbf{A} x > 0$ for every $x$, then the matrix $A$ is a positive definite. 
 
 The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix $A$ is a symmetirc positive definite matrix then there exists a lower triangular matrix, $L$, such that
 
@@ -123,7 +123,7 @@ $$
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
 $$
 
-Thus, if our data matrix is a full rank, in other words, if the matrix $X^TX$ is a positive definite, then the Normal equation can be written as follows;
+Thus, if our data matrix is of full rank, in other words, if the matrix $X^TX$ is positive definite, then the Normal equation can be written as follows:
 
 $$
 \begin{align*}
@@ -133,16 +133,16 @@ $$
 \end{align*}
 $$
 
-Note that the matrix $\mathbf{X}^T \mathbf{X}$ is always symmetric. Thus, the $\beta$ vector can be obtained by the following two steps;
+Note that the matrix $\mathbf{X}^T \mathbf{X}$ is always symmetric. Thus, the $\beta$ vector can be obtained by the following two steps:
 
 #. Solve Lz=X'y for z (forward solve lower triangular system).
 #. Solve L'b=z for b (backward solve upper triangular system).
 
-Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in `R` to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; [`backsolve` and `forwardsolve`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html). Also, look at the algorithm for the inverse matrix of the triangular matrices of any size $n$. Here are [link1](http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf) and [link2](https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3). As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.
+Is there any benefit of using the upper or lower triangular matrix in solving the equation? Yes. There exist nice and fast functions in `R` to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix: [`backsolve` and `forwardsolve`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html). Also, look at the algorithm for finding the inverse matrix of triangular matrices of any size $n$ by $n$. Here are [link 1](http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf) and [link 2](https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3). As the number of variables used in linear regressions has increased over the years, finding an efficient way of solving the Normal equation has become a very important topic.
 
 ## Implementation in `R`
 
-Let us confirm that whether the choesky decomposition method works using `chol()` function in `R`.
+Let us confirm whether the choesky decomposition method works using the `chol()` function in `R`.
 
 ```{r}
 library(matrixcalc)
@@ -151,7 +151,7 @@ crossprod(X) %>% is.positive.definite
 crossprod(X) %>% eigen(symmetric = TRUE) %$% values > 0
 ```
 
-To check out that whether the matrix $\mathbf{X}^T \mathbf{X}$ is or not, we can either use the `is.positiv.definite()` function in `matrixcalc` package or use the basic functions in `R` for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the $\mathbf{X}^T \mathbf{X}$. The following function calculate the regression coefficients using the Cholesky decomposition;
+To check out whether the matrix $\mathbf{X}^T \mathbf{X}$ is positive definite or not, we can either use the `is.positiv.definite()` function in `matrixcalc` package or use the basic functions in `R` for checking that the signs of the eigenvalues are positive. Since the matrix is positive definite, we can apply the Cholesky decomposition to $\mathbf{X}^T \mathbf{X}$. The following function calculates the regression coefficients using the Cholesky decomposition:
 
 ```{r}
 # X always includes a constant vector
@@ -174,11 +174,11 @@ regCef_chol <- function(X, y){
 }
 ```
 
-Here are some comments about the `regCef_chol()` function;
+Here are some comments about the `regCef_chol()` function:
 
 1. In `R`, you **must** use the code `crossprod(X)` rather than the `t(X) %*% X` becasue of the [efficiency](https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt).
-1. `chol()` function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.
-1. We need to use the function `forwardsolve` and `backsolve` If we want to implement the equation (1). However, the `transpose` option allows us to use the `backsolve` twice so that we can avoid the transpose. Let use take a look at the following code.
+1. The `chol()` function returns an upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.
+1. We need to use the functions `forwardsolve` and `backsolve` if we want to implement equation (1). However, the `transpose` option allows us to use `backsolve` twice so that we can avoid the transpose. Let us take a look at the following code.
 
 ```{r}
 a <- crossprod(X)
@@ -198,7 +198,7 @@ z2 <- backsolve( upper, b, transpose = TRUE)
 z1 == z2
 ```
 
-Let us save the Cholesky decomposition based coefficients of regression to the `cef_chol` variable.
+Let us save the Cholesky decomposition-based coefficients of the regression to the `cef_chol` variable.
 
 ```{r}
 cef_chol <- regCef_chol(X, y)
@@ -207,17 +207,17 @@ cef_chol
 
 ## QR decomposition
 
-For a real valued $n \times p$ matrix $A$, where $n \geq p$, we can decomposed the matrix $A$ into the following the muliplication of two matrices.
+For a real-valued $n \times p$ matrix $A$, where $n \geq p$, we can decompose the matrix $A$ into the following product of two matrices:
 
 $$
 A = QR
 $$
-where the matrix $Q$ is a $n \times p$ matrix with orthonormal columns which satisfies $Q^TQ=I_p$. If the matrix $A$ is square matrix, then the $Q$ is orthogonal. Also, the matrix $R$ is an $p \times p$ upper triangular matrix whose diagonal elements are nonzero values, which impies that $R$ is nonsingular.
+where the matrix $Q$ is a $n \times p$ matrix with orthonormal columns which satisfies $Q^TQ=I_p$. If the matrix $A$ is square, then $Q$ is orthogonal. Also, the matrix $R$ is an $p \times p$ upper triangular matrix whose diagonal elements are nonzero, which implies that $R$ is nonsingular.
 
-QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because
+The QR decomposition is preferred to the Cholesky decomposition when it comes to the calculation of regression coefficients because
 
-1. The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.
-1. More importantly, in the Normal equation solving process, we don't need to calculate the term, $\mathbf{X}^T \mathbf{X}$, as follows;
+1. The QR decomposition can be applied to matrices of any size, and it usually provides a more stable calculation.
+1. More importantly, in the Normal equation solving process, we don't need to calculate the term, $\mathbf{X}^T \mathbf{X}$, which can be seen as follows:
 
 $$
 \begin{eqnarray*}
@@ -229,27 +229,27 @@ X^{T}X\mathbf{\beta} & = & X^{T}\mathbf{y}\\
 \end{eqnarray*}
 $$
 
-Note that we used the properties of the matrix $Q$ and $R$ to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;
+Note that we used the properties of the matrices $Q$ and $R$ to reduce the equation above. From the last equation we can see that the beta vector is actually the solution of the linear system
 
 $$
 X \mathbf{\beta}=\mathbf{y}
 $$
-using the QR factorization of the matrix $X$. Thus, to calculate the $\beta$, we can use only the backsolve one time after applying the QR decomposition to the matrix $X$.
+using the QR factorization of the matrix $X$. Thus, to calculate $\beta$, we can use `backsolve()` only one time after applying the QR decomposition to the matrix $X$.
 
 ### QR decomposition in `R`
 
-If you use `qr()` function in `R`, you will be little confused when you see the result of the function as follows;
+If you use the `qr()` function in `R`, you will be a little confused when you see the result of the function:
 
 ```{r}
 QRmat <- qr(X)
 QRmat
 ```
 
-The help page for the `qr()` function has the answer for this as follows;
+The help page for the `qr()` function has the answer for this:
 
-    The upper triangle contains the $\bold{R}$ of the decomposition and the lower triangle contains information on the $\bold{Q}$ of the decomposition (stored in compact form)
+The upper triangle contains the $\bold{R}$ matrix of the decomposition and the lower triangle contains information on the $\bold{Q}$ matrix of the decomposition (stored in compact form).
 
-TO get the $Q$ and $R$ matrices seperately, we need to use the `qr.Q()` and `qr.R()` functions respectively.
+TO get the $Q$ and $R$ matrices seperately, we need to use the `qr.Q()` and `qr.R()` functions, respectively.
 
 ```{r}
 Qmat <- qr.Q(QRmat)
@@ -257,7 +257,7 @@ Rmat <- qr.R(QRmat)
 Qmat; Rmat;
 ```
 
-Thus, in `R`, we can implement the QR factorization based coefficients can be obtained as follows;
+Thus, in `R` we can obtain the QR factorization-based coefficients as follows:
 
 ```{r}
 as.vector(backsolve(Rmat, crossprod(Qmat, y)))
@@ -272,21 +272,21 @@ cef_qr
 
 ## Result comparison
 
-Let us compare the results between the Cholesky based  and the QR based coefficients using the `gmp` based coefficients as a reference value.
+Let us compare the results between the Cholesky-based  and the QR-based coefficients using the `gmp` package coefficients as a reference value.
 
 ```{r}
 sum((cef_exact - cef_chol)^2)
 sum((cef_exact - cef_qr)^2)
 ```
 
-We can see that the QR decomposition based coefficient is closer to the `gmp` based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.
+We can see that the QR decomposition coefficients are closer to the `gmp` coefficients than the one based on the Cholesky decomposition. In general, QR is more stable and faster than Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero. As we can see from the following `R` code, the last eigenvalue is close to zero, which makes the Cholesky-based coefficients unstable. 
 
 ```{r}
 crossprod(X) %>% is.positive.definite
 crossprod(X) %>% eigen(symmetric = TRUE) %$% values
 ```
 
-For these reason, `lm` function in `R` uses the QR factorization based calculation for the regression coefficients.
+For these reasons, the `lm` function in `R` uses the QR factorization-based calculation for the regression coefficients.
 
 ```{r}
 cef_lm <- lm(y~0+X)$coefficients

@@ -100,7 +100,7 @@ sum(z_x * z_y) / 29&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition</title>
+      <title>The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition</title>
       <link>/post/linearmodelcholqr/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
@@ -108,17 +108,17 @@ sum(z_x * z_y) / 29&lt;/code&gt;&lt;/pre&gt;
       <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The following are the &lt;code&gt;R&lt;/code&gt; packages used in this post.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(datasets)
 library(magrittr)
 library(microbenchmark)
 library(gmp)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;normal-equation-for-the-beta&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Normal equation for the beta&lt;/h2&gt;
-&lt;p&gt;Today, I want to talk little bit about the process of getting the coefficients of linear model in &lt;code&gt;R&lt;/code&gt;. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.&lt;/p&gt;
-&lt;p&gt;The reason why we are discussing about the matrix decomposition methods for the linear regression is that the coefficients of the regression is the solution of the matrix equation called Normal equation.&lt;/p&gt;
-&lt;p&gt;Let us we have the following &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; observation of vector &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; and the data matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. If assume that the vector &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; follows a linear model with noise vector &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{e}\)&lt;/span&gt;, then the situation can be written as follows;&lt;/p&gt;
+&lt;div id=&#34;normal-equation-for-the-beta-vector&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Normal equation for the beta vector&lt;/h2&gt;
+&lt;p&gt;Today, I want to talk little bit about the process of getting the coefficients of a linear model in &lt;code&gt;R&lt;/code&gt;. Among many methods, our main focus for today is related to the Cholesky decomposition and QR decomposition.&lt;/p&gt;
+&lt;p&gt;The reason why we are discussing matrix decomposition methods for linear regression is that the coefficients of the regression are the solution of the matrix equation called the Normal equation.&lt;/p&gt;
+&lt;p&gt;Suppose we have the following &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; observations in a vector &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; and the data matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. If we assume that the vector &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; follows a linear model with noise vector &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{e}\)&lt;/span&gt;, then the situation can be written as follows:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \begin{eqnarray*}
 \mathbf{y}_{n\times1} &amp;amp; = &amp;amp; X_{n\times p}\boldsymbol{\beta}_{p\times1}+\mathbf{e}_{n\times1}\\
@@ -133,11 +133,11 @@ library(gmp)&lt;/code&gt;&lt;/pre&gt;
 \end{eqnarray*}
 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Note that &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{1}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{e}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{x}_{i}\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(i=1,...,p-1\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(n \times 1\)&lt;/span&gt; vectors.&lt;/p&gt;
-&lt;p&gt;Under this assumption, the coefficients the linear model, &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, which minimizes the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution;&lt;/p&gt;
+&lt;p&gt;Under this assumption, the coefficients of the linear model, &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, which minimize the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;For the details about the Normal equation can be found at &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices&#34;&gt;wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The details about the Normal equation can be found at &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices&#34;&gt;wikipedia&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;longley-data-set&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;longley&lt;/code&gt; data set&lt;/h2&gt;
@@ -147,7 +147,7 @@ X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
 &lt;p class=&#34;caption&#34;&gt;The longley data in the paper&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967); An appraisal of least-squares programs from the point of view of the user. The data set is minimal toy data which consists of 7 explanatory variables. This data is famous for the high correlation among the variables when we apply the linear regression of the &lt;code&gt;Employed&lt;/code&gt; variable on the rest of the variables. The data set is contained in the &lt;code&gt;datasets&lt;/code&gt; package, so let us load the data set.&lt;/p&gt;
+&lt;p&gt;The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967): &lt;em&gt;An appraisal of least-squares programs from the point of view of the user&lt;/em&gt;. The data set is toy data and consists of 7 explanatory variables. This data is famous for having high correlation among the variables when we regress the &lt;code&gt;Employed&lt;/code&gt; variable on the rest of the variables. The data set is contained in the &lt;code&gt;datasets&lt;/code&gt; package, so let us load the data set.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(datasets)
 longley&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kable(longley, format = &amp;quot;html&amp;quot;) %&amp;gt;% 
@@ -602,11 +602,11 @@ Employed
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/div&gt;
-&lt;p&gt;We can see that the &lt;code&gt;longley&lt;/code&gt; data set in &lt;code&gt;R&lt;/code&gt; was scaled compare to the original data.&lt;/p&gt;
+&lt;p&gt;We can see that the &lt;code&gt;longley&lt;/code&gt; data set in &lt;code&gt;R&lt;/code&gt; was scaled compared to the original data.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;calculating-the-accurate-coefficients-using-gmp-package&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Calculating the accurate coefficients using &lt;code&gt;gmp&lt;/code&gt; package&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;gmp&lt;/code&gt; package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the &lt;code&gt;Employed&lt;/code&gt; variable on the rest of the variables in the &lt;code&gt;longley&lt;/code&gt; data set.&lt;/p&gt;
+&lt;div id=&#34;calculating-accurate-coefficients-using-gmp-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Calculating accurate coefficients using &lt;code&gt;gmp&lt;/code&gt; package&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;gmp&lt;/code&gt; package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate estimates for the coefficients since it avoids the truncation of floating numbers. By using the &lt;code&gt;solve()&lt;/code&gt; function, let us calculate accurate coefficients for the linear regression of the &lt;code&gt;Employed&lt;/code&gt; variable on the rest of the variables in the &lt;code&gt;longley&lt;/code&gt; data set.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y &amp;lt;- as.vector(longley[,7])
 X &amp;lt;- as.matrix(cbind(constant = 1, longley[,-7]))
 
@@ -634,12 +634,12 @@ cef_exact&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;cholesky-decomposition&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Cholesky decomposition&lt;/h2&gt;
-&lt;p&gt;For a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; satisfies &lt;span class=&#34;math inline&#34;&gt;\(x^T \mathbf{A} x &amp;gt; 0\)&lt;/span&gt; for every &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, then the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite.&lt;/p&gt;
+&lt;p&gt;If the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; satisfies &lt;span class=&#34;math inline&#34;&gt;\(x^T \mathbf{A} x &amp;gt; 0\)&lt;/span&gt; for every &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, then the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a positive definite.&lt;/p&gt;
 &lt;p&gt;The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is a symmetirc positive definite matrix then there exists a lower triangular matrix, &lt;span class=&#34;math inline&#34;&gt;\(L\)&lt;/span&gt;, such that&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Thus, if our data matrix is a full rank, in other words, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(X^TX\)&lt;/span&gt; is a positive definite, then the Normal equation can be written as follows;&lt;/p&gt;
+&lt;p&gt;Thus, if our data matrix is of full rank, in other words, if the matrix &lt;span class=&#34;math inline&#34;&gt;\(X^TX\)&lt;/span&gt; is positive definite, then the Normal equation can be written as follows:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \begin{align*}
 \mathbf{X}^{T}\mathbf{X}\beta &amp;amp; =\mathbf{X}^{T}y\\
@@ -647,23 +647,23 @@ cef_exact&lt;/code&gt;&lt;/pre&gt;
 \tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp;amp; =\mathbf{X}^{T}y
 \end{align*}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Note that the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is always symmetric. Thus, the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; vector can be obtained by the following two steps;&lt;/p&gt;
+&lt;p&gt;Note that the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is always symmetric. Thus, the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; vector can be obtained by the following two steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Solve Lz=X’y for z (forward solve lower triangular system).&lt;/li&gt;
 &lt;li&gt;Solve L’b=z for b (backward solve upper triangular system).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in &lt;code&gt;R&lt;/code&gt; to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html&#34;&gt;&lt;code&gt;backsolve&lt;/code&gt; and &lt;code&gt;forwardsolve&lt;/code&gt;&lt;/a&gt;. Also, look at the algorithm for the inverse matrix of the triangular matrices of any size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;. Here are &lt;a href=&#34;http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf&#34;&gt;link1&lt;/a&gt; and &lt;a href=&#34;https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3&#34;&gt;link2&lt;/a&gt;. As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.&lt;/p&gt;
+&lt;p&gt;Is there any benefit of using the upper or lower triangular matrix in solving the equation? Yes. There exist nice and fast functions in &lt;code&gt;R&lt;/code&gt; to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix: &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html&#34;&gt;&lt;code&gt;backsolve&lt;/code&gt; and &lt;code&gt;forwardsolve&lt;/code&gt;&lt;/a&gt;. Also, look at the algorithm for finding the inverse matrix of triangular matrices of any size &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt;. Here are &lt;a href=&#34;http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf&#34;&gt;link 1&lt;/a&gt; and &lt;a href=&#34;https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3&#34;&gt;link 2&lt;/a&gt;. As the number of variables used in linear regressions has increased over the years, finding an efficient way of solving the Normal equation has become a very important topic.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;implementation-in-r&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Implementation in &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Let us confirm that whether the choesky decomposition method works using &lt;code&gt;chol()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(matrixcalc)
-
-crossprod(X) %&amp;gt;% is.positive.definite&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us confirm whether the choesky decomposition method works using the &lt;code&gt;chol()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(matrixcalc)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: 패키지 &amp;#39;matrixcalc&amp;#39;는 R 버전 3.5.2에서 작성되었습니다&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% is.positive.definite&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% eigen(symmetric = TRUE) %$% values &amp;gt; 0&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To check out that whether the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is or not, we can either use the &lt;code&gt;is.positiv.definite()&lt;/code&gt; function in &lt;code&gt;matrixcalc&lt;/code&gt; package or use the basic functions in &lt;code&gt;R&lt;/code&gt; for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;. The following function calculate the regression coefficients using the Cholesky decomposition;&lt;/p&gt;
+&lt;p&gt;To check out whether the matrix &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt; is positive definite or not, we can either use the &lt;code&gt;is.positiv.definite()&lt;/code&gt; function in &lt;code&gt;matrixcalc&lt;/code&gt; package or use the basic functions in &lt;code&gt;R&lt;/code&gt; for checking that the signs of the eigenvalues are positive. Since the matrix is positive definite, we can apply the Cholesky decomposition to &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;. The following function calculates the regression coefficients using the Cholesky decomposition:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# X always includes a constant vector
 regCef_chol &amp;lt;- function(X, y){
 
@@ -682,11 +682,11 @@ regCef_chol &amp;lt;- function(X, y){
     
     cef
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here are some comments about the &lt;code&gt;regCef_chol()&lt;/code&gt; function;&lt;/p&gt;
+&lt;p&gt;Here are some comments about the &lt;code&gt;regCef_chol()&lt;/code&gt; function:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;In &lt;code&gt;R&lt;/code&gt;, you &lt;strong&gt;must&lt;/strong&gt; use the code &lt;code&gt;crossprod(X)&lt;/code&gt; rather than the &lt;code&gt;t(X) %*% X&lt;/code&gt; becasue of the &lt;a href=&#34;https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt&#34;&gt;efficiency&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;chol()&lt;/code&gt; function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.&lt;/li&gt;
-&lt;li&gt;We need to use the function &lt;code&gt;forwardsolve&lt;/code&gt; and &lt;code&gt;backsolve&lt;/code&gt; If we want to implement the equation (1). However, the &lt;code&gt;transpose&lt;/code&gt; option allows us to use the &lt;code&gt;backsolve&lt;/code&gt; twice so that we can avoid the transpose. Let use take a look at the following code.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;chol()&lt;/code&gt; function returns an upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.&lt;/li&gt;
+&lt;li&gt;We need to use the functions &lt;code&gt;forwardsolve&lt;/code&gt; and &lt;code&gt;backsolve&lt;/code&gt; if we want to implement equation (1). However, the &lt;code&gt;transpose&lt;/code&gt; option allows us to use &lt;code&gt;backsolve&lt;/code&gt; twice so that we can avoid the transpose. Let us take a look at the following code.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- crossprod(X)
 b &amp;lt;- crossprod(X, y)
@@ -698,12 +698,12 @@ microbenchmark(
     backsolve( upper, b, transpose = TRUE)
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Unit: microseconds
-##                                   expr   min    lq    mean median     uq
-##              forwardsolve(t(upper), b) 8.901 9.101 9.43994  9.201 9.4010
-##  backsolve(upper, b, transpose = TRUE) 5.101 5.300 5.73103  5.302 5.4015
+##                                   expr   min    lq    mean median    uq
+##              forwardsolve(t(upper), b) 7.601 7.802 8.49798  7.951 8.100
+##  backsolve(upper, b, transpose = TRUE) 4.401 4.501 4.68600  4.601 4.701
 ##     max neval
-##  25.502   100
-##  37.901   100&lt;/code&gt;&lt;/pre&gt;
+##  55.801   100
+##   8.002   100&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z1 &amp;lt;- forwardsolve( t(upper), b )
 z2 &amp;lt;- backsolve( upper, b, transpose = TRUE)
 
@@ -716,7 +716,7 @@ z1 == z2&lt;/code&gt;&lt;/pre&gt;
 ## [5,] TRUE
 ## [6,] TRUE
 ## [7,] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let us save the Cholesky decomposition based coefficients of regression to the &lt;code&gt;cef_chol&lt;/code&gt; variable.&lt;/p&gt;
+&lt;p&gt;Let us save the Cholesky decomposition-based coefficients of the regression to the &lt;code&gt;cef_chol&lt;/code&gt; variable.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cef_chol &amp;lt;- regCef_chol(X, y)
 cef_chol&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
@@ -724,15 +724,15 @@ cef_chol&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;qr-decomposition&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;QR decomposition&lt;/h2&gt;
-&lt;p&gt;For a real valued &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(n \geq p\)&lt;/span&gt;, we can decomposed the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; into the following the muliplication of two matrices.&lt;/p&gt;
+&lt;p&gt;For a real-valued &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(n \geq p\)&lt;/span&gt;, we can decompose the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; into the following product of two matrices:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 A = QR
 \]&lt;/span&gt;
-where the matrix &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is a &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix with orthonormal columns which satisfies &lt;span class=&#34;math inline&#34;&gt;\(Q^TQ=I_p\)&lt;/span&gt;. If the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is square matrix, then the &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is orthogonal. Also, the matrix &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is an &lt;span class=&#34;math inline&#34;&gt;\(p \times p\)&lt;/span&gt; upper triangular matrix whose diagonal elements are nonzero values, which impies that &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is nonsingular.&lt;/p&gt;
-&lt;p&gt;QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because&lt;/p&gt;
+where the matrix &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is a &lt;span class=&#34;math inline&#34;&gt;\(n \times p\)&lt;/span&gt; matrix with orthonormal columns which satisfies &lt;span class=&#34;math inline&#34;&gt;\(Q^TQ=I_p\)&lt;/span&gt;. If the matrix &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is square, then &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; is orthogonal. Also, the matrix &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is an &lt;span class=&#34;math inline&#34;&gt;\(p \times p\)&lt;/span&gt; upper triangular matrix whose diagonal elements are nonzero, which implies that &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; is nonsingular.&lt;/p&gt;
+&lt;p&gt;The QR decomposition is preferred to the Cholesky decomposition when it comes to the calculation of regression coefficients because&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.&lt;/li&gt;
-&lt;li&gt;More importantly, in the Normal equation solving process, we don’t need to calculate the term, &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;, as follows;&lt;/li&gt;
+&lt;li&gt;The QR decomposition can be applied to matrices of any size, and it usually provides a more stable calculation.&lt;/li&gt;
+&lt;li&gt;More importantly, in the Normal equation solving process, we don’t need to calculate the term, &lt;span class=&#34;math inline&#34;&gt;\(\mathbf{X}^T \mathbf{X}\)&lt;/span&gt;, which can be seen as follows:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \begin{eqnarray*}
@@ -743,14 +743,14 @@ X^{T}X\mathbf{\beta} &amp;amp; = &amp;amp; X^{T}\mathbf{y}\\
 \Rightarrow R\mathbf{\beta} &amp;amp; = &amp;amp; Q^{T}\mathbf{y}
 \end{eqnarray*}
 \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Note that we used the properties of the matrix &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;&lt;/p&gt;
+&lt;p&gt;Note that we used the properties of the matrices &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; to reduce the equation above. From the last equation we can see that the beta vector is actually the solution of the linear system&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 X \mathbf{\beta}=\mathbf{y}
 \]&lt;/span&gt;
-using the QR factorization of the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. Thus, to calculate the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, we can use only the backsolve one time after applying the QR decomposition to the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;.&lt;/p&gt;
+using the QR factorization of the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. Thus, to calculate &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, we can use &lt;code&gt;backsolve()&lt;/code&gt; only one time after applying the QR decomposition to the matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;.&lt;/p&gt;
 &lt;div id=&#34;qr-decomposition-in-r&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;QR decomposition in &lt;code&gt;R&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;If you use &lt;code&gt;qr()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;, you will be little confused when you see the result of the function as follows;&lt;/p&gt;
+&lt;p&gt;If you use the &lt;code&gt;qr()&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt;, you will be a little confused when you see the result of the function:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;QRmat &amp;lt;- qr(X)
 QRmat&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## $qr
@@ -800,9 +800,9 @@ QRmat&lt;/code&gt;&lt;/pre&gt;
 ## 
 ## attr(,&amp;quot;class&amp;quot;)
 ## [1] &amp;quot;qr&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The help page for the &lt;code&gt;qr()&lt;/code&gt; function has the answer for this as follows;&lt;/p&gt;
-&lt;p&gt;The upper triangle contains the &lt;span class=&#34;math inline&#34;&gt;\(\bold{R}\)&lt;/span&gt; of the decomposition and the lower triangle contains information on the &lt;span class=&#34;math inline&#34;&gt;\(\bold{Q}\)&lt;/span&gt; of the decomposition (stored in compact form)&lt;/p&gt;
-&lt;p&gt;TO get the &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; matrices seperately, we need to use the &lt;code&gt;qr.Q()&lt;/code&gt; and &lt;code&gt;qr.R()&lt;/code&gt; functions respectively.&lt;/p&gt;
+&lt;p&gt;The help page for the &lt;code&gt;qr()&lt;/code&gt; function has the answer for this:&lt;/p&gt;
+&lt;p&gt;The upper triangle contains the &lt;span class=&#34;math inline&#34;&gt;\(\bold{R}\)&lt;/span&gt; matrix of the decomposition and the lower triangle contains information on the &lt;span class=&#34;math inline&#34;&gt;\(\bold{Q}\)&lt;/span&gt; matrix of the decomposition (stored in compact form).&lt;/p&gt;
+&lt;p&gt;TO get the &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(R\)&lt;/span&gt; matrices seperately, we need to use the &lt;code&gt;qr.Q()&lt;/code&gt; and &lt;code&gt;qr.R()&lt;/code&gt; functions, respectively.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Qmat &amp;lt;- qr.Q(QRmat)
 Rmat &amp;lt;- qr.R(QRmat)
 Qmat; Rmat;&lt;/code&gt;&lt;/pre&gt;
@@ -856,7 +856,7 @@ Qmat; Rmat;&lt;/code&gt;&lt;/pre&gt;
 ## 1951    0.04624846    -0.4491762
 ## 1952    1.46320173    -0.2819006
 ## 1953    0.00000000    -0.6693051&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Thus, in &lt;code&gt;R&lt;/code&gt;, we can implement the QR factorization based coefficients can be obtained as follows;&lt;/p&gt;
+&lt;p&gt;Thus, in &lt;code&gt;R&lt;/code&gt; we can obtain the QR factorization-based coefficients as follows:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;as.vector(backsolve(Rmat, crossprod(Qmat, y)))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
 ## [6] -5.110411e-02  1.829151e+00&lt;/code&gt;&lt;/pre&gt;
@@ -871,18 +871,18 @@ cef_qr&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;result-comparison&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Result comparison&lt;/h2&gt;
-&lt;p&gt;Let us compare the results between the Cholesky based and the QR based coefficients using the &lt;code&gt;gmp&lt;/code&gt; based coefficients as a reference value.&lt;/p&gt;
+&lt;p&gt;Let us compare the results between the Cholesky-based and the QR-based coefficients using the &lt;code&gt;gmp&lt;/code&gt; package coefficients as a reference value.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum((cef_exact - cef_chol)^2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 1.219947e-09&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sum((cef_exact - cef_qr)^2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 3.494839e-23&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can see that the QR decomposition based coefficient is closer to the &lt;code&gt;gmp&lt;/code&gt; based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.&lt;/p&gt;
+&lt;p&gt;We can see that the QR decomposition coefficients are closer to the &lt;code&gt;gmp&lt;/code&gt; coefficients than the one based on the Cholesky decomposition. In general, QR is more stable and faster than Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero. As we can see from the following &lt;code&gt;R&lt;/code&gt; code, the last eigenvalue is close to zero, which makes the Cholesky-based coefficients unstable.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% is.positive.definite&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;crossprod(X) %&amp;gt;% eigen(symmetric = TRUE) %$% values&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 6.665301e+07 2.090730e+05 1.053550e+05 1.803976e+04 2.455730e+01
 ## [6] 2.015117e+00 1.172178e-07&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For these reason, &lt;code&gt;lm&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt; uses the QR factorization based calculation for the regression coefficients.&lt;/p&gt;
+&lt;p&gt;For these reasons, the &lt;code&gt;lm&lt;/code&gt; function in &lt;code&gt;R&lt;/code&gt; uses the QR factorization-based calculation for the regression coefficients.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cef_lm &amp;lt;- lm(y~0+X)$coefficients
 cef_lm == cef_qr&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##     Xconstant XGNP.deflator          XGNP   XUnemployed XArmed.Forces 

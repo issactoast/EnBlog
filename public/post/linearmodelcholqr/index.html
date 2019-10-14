@@ -17,9 +17,9 @@
       
     
   
-  <meta name="description" content="This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
+  <meta name="description" content="This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.">
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the beta vectorToday, I want to talk little bit about the process of getting the coefficients of a linear model in R.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/linearmodelcholqr/">
@@ -75,10 +75,10 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
   
   <meta property="og:site_name" content="Issac Lee">
   <meta property="og:url" content="/post/linearmodelcholqr/">
-  <meta property="og:title" content="The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition | Issac Lee">
-  <meta property="og:description" content="This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
+  <meta property="og:title" content="The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition | Issac Lee">
+  <meta property="og:description" content="This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R."><meta property="og:image" content="/img/headers/longley-wide.png">
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the beta vectorToday, I want to talk little bit about the process of getting the coefficients of a linear model in R."><meta property="og:image" content="/img/headers/longley-wide.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-10-12T00:00:00&#43;00:00">
@@ -88,7 +88,7 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
 
   
 
-  <title>The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition | Issac Lee</title>
+  <title>The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition | Issac Lee</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -256,7 +256,7 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
 
 
   <div class="article-container">
-    <h1 itemprop="name">The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition</h1>
+    <h1 itemprop="name">The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition</h1>
 
     
 
@@ -311,7 +311,7 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=The%20Coefficient%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition&amp;url=%2fpost%2flinearmodelcholqr%2f"
+         href="https://twitter.com/intent/tweet?text=The%20Coefficients%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition&amp;url=%2fpost%2flinearmodelcholqr%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
@@ -325,21 +325,21 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2flinearmodelcholqr%2f&amp;title=The%20Coefficient%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2flinearmodelcholqr%2f&amp;title=The%20Coefficients%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2flinearmodelcholqr%2f&amp;title=The%20Coefficient%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2flinearmodelcholqr%2f&amp;title=The%20Coefficients%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=The%20Coefficient%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition&amp;body=%2fpost%2flinearmodelcholqr%2f">
+         href="mailto:?subject=The%20Coefficients%20of%20Linear%20Regression%20in%20R%20%20-%20gmp%20package%2c%20Cholesky%20and%20QR%20decomposition&amp;body=%2fpost%2flinearmodelcholqr%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -356,17 +356,17 @@ library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal 
       <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; <a href="http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/">the intensive computing course</a>.</p>
+<p>This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: <a href="http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/">the intensive computing course</a>.</p>
 <p>The following are the <code>R</code> packages used in this post.</p>
 <pre class="r"><code>library(datasets)
 library(magrittr)
 library(microbenchmark)
 library(gmp)</code></pre>
-<div id="normal-equation-for-the-beta" class="section level2">
-<h2>Normal equation for the beta</h2>
-<p>Today, I want to talk little bit about the process of getting the coefficients of linear model in <code>R</code>. Among many methods, our main focus for today is related to Cholesky decomposition and QR decomposition.</p>
-<p>The reason why we are discussing about the matrix decomposition methods for the linear regression is that the coefficients of the regression is the solution of the matrix equation called Normal equation.</p>
-<p>Let us we have the following <span class="math inline">\(n\)</span> observation of vector <span class="math inline">\(y\)</span> and the data matrix <span class="math inline">\(X\)</span>. If assume that the vector <span class="math inline">\(y\)</span> follows a linear model with noise vector <span class="math inline">\(\mathbf{e}\)</span>, then the situation can be written as follows;</p>
+<div id="normal-equation-for-the-beta-vector" class="section level2">
+<h2>Normal equation for the beta vector</h2>
+<p>Today, I want to talk little bit about the process of getting the coefficients of a linear model in <code>R</code>. Among many methods, our main focus for today is related to the Cholesky decomposition and QR decomposition.</p>
+<p>The reason why we are discussing matrix decomposition methods for linear regression is that the coefficients of the regression are the solution of the matrix equation called the Normal equation.</p>
+<p>Suppose we have the following <span class="math inline">\(n\)</span> observations in a vector <span class="math inline">\(y\)</span> and the data matrix <span class="math inline">\(X\)</span>. If we assume that the vector <span class="math inline">\(y\)</span> follows a linear model with noise vector <span class="math inline">\(\mathbf{e}\)</span>, then the situation can be written as follows:</p>
 <p><span class="math display">\[
 \begin{eqnarray*}
 \mathbf{y}_{n\times1} &amp; = &amp; X_{n\times p}\boldsymbol{\beta}_{p\times1}+\mathbf{e}_{n\times1}\\
@@ -381,11 +381,11 @@ library(gmp)</code></pre>
 \end{eqnarray*}
 \]</span></p>
 <p>Note that <span class="math inline">\(\mathbf{1}\)</span>, <span class="math inline">\(\mathbf{e}\)</span> and <span class="math inline">\(\mathbf{x}_{i}\)</span>, <span class="math inline">\(i=1,...,p-1\)</span> are <span class="math inline">\(n \times 1\)</span> vectors.</p>
-<p>Under this assumption, the coefficients the linear model, <span class="math inline">\(\beta\)</span>, which minimizes the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution;</p>
+<p>Under this assumption, the coefficients of the linear model, <span class="math inline">\(\beta\)</span>, which minimize the residual sum of squares (RSS), can be obtained by solving the following Normal eqaution:</p>
 <p><span class="math display">\[
 X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
 \]</span></p>
-<p>For the details about the Normal equation can be found at <a href="https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices">wikipedia</a>.</p>
+<p>The details about the Normal equation can be found at <a href="https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)#Derivation_directly_in_terms_of_matrices">wikipedia</a>.</p>
 </div>
 <div id="longley-data-set" class="section level2">
 <h2><code>longley</code> data set</h2>
@@ -395,7 +395,7 @@ X^{T}X\mathbf{\beta}=X^{T}\mathbf{y}
 <p class="caption">The longley data in the paper</p>
 </div>
 </div>
-<p>The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967); An appraisal of least-squares programs from the point of view of the user. The data set is minimal toy data which consists of 7 explanatory variables. This data is famous for the high correlation among the variables when we apply the linear regression of the <code>Employed</code> variable on the rest of the variables. The data set is contained in the <code>datasets</code> package, so let us load the data set.</p>
+<p>The Longley data set belongs to the appendix of the paper written by J. W. Longley (1967): <em>An appraisal of least-squares programs from the point of view of the user</em>. The data set is toy data and consists of 7 explanatory variables. This data is famous for having high correlation among the variables when we regress the <code>Employed</code> variable on the rest of the variables. The data set is contained in the <code>datasets</code> package, so let us load the data set.</p>
 <pre class="r"><code>library(datasets)
 longley</code></pre>
 <pre class="r"><code>kable(longley, format = &quot;html&quot;) %&gt;% 
@@ -850,11 +850,11 @@ Employed
 </tbody>
 </table>
 </div>
-<p>We can see that the <code>longley</code> data set in <code>R</code> was scaled compare to the original data.</p>
+<p>We can see that the <code>longley</code> data set in <code>R</code> was scaled compared to the original data.</p>
 </div>
-<div id="calculating-the-accurate-coefficients-using-gmp-package" class="section level2">
-<h2>Calculating the accurate coefficients using <code>gmp</code> package</h2>
-<p>The <code>gmp</code> package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate values for the coefficient since it can avoid the truncation of floating numbers. By using solve function, let us calculate the accurate coefficients of the linear regression of the <code>Employed</code> variable on the rest of the variables in the <code>longley</code> data set.</p>
+<div id="calculating-accurate-coefficients-using-gmp-package" class="section level2">
+<h2>Calculating accurate coefficients using <code>gmp</code> package</h2>
+<p>The <code>gmp</code> package uses fractions for its calculation instead of using decimal points. This package allows us to achieve more accurate estimates for the coefficients since it avoids the truncation of floating numbers. By using the <code>solve()</code> function, let us calculate accurate coefficients for the linear regression of the <code>Employed</code> variable on the rest of the variables in the <code>longley</code> data set.</p>
 <pre class="r"><code>y &lt;- as.vector(longley[,7])
 X &lt;- as.matrix(cbind(constant = 1, longley[,-7]))
 
@@ -882,12 +882,12 @@ cef_exact</code></pre>
 </div>
 <div id="cholesky-decomposition" class="section level2">
 <h2>Cholesky decomposition</h2>
-<p>For a matrix <span class="math inline">\(A\)</span>, if the matrix <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(x^T \mathbf{A} x &gt; 0\)</span> for every <span class="math inline">\(x\)</span>, then the matrix <span class="math inline">\(A\)</span> is a positive definite.</p>
+<p>If the matrix <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(x^T \mathbf{A} x &gt; 0\)</span> for every <span class="math inline">\(x\)</span>, then the matrix <span class="math inline">\(A\)</span> is a positive definite.</p>
 <p>The Cholesky decomposition can be applied to symmetric positive definite matrices. If a matrix <span class="math inline">\(A\)</span> is a symmetirc positive definite matrix then there exists a lower triangular matrix, <span class="math inline">\(L\)</span>, such that</p>
 <p><span class="math display">\[
 \mathbf{A} = \mathbf{L} \mathbf{L}^T
 \]</span></p>
-<p>Thus, if our data matrix is a full rank, in other words, if the matrix <span class="math inline">\(X^TX\)</span> is a positive definite, then the Normal equation can be written as follows;</p>
+<p>Thus, if our data matrix is of full rank, in other words, if the matrix <span class="math inline">\(X^TX\)</span> is positive definite, then the Normal equation can be written as follows:</p>
 <p><span class="math display">\[
 \begin{align*}
 \mathbf{X}^{T}\mathbf{X}\beta &amp; =\mathbf{X}^{T}y\\
@@ -895,23 +895,23 @@ cef_exact</code></pre>
 \tag{1}\Rightarrow\mathbf{L}\left(\mathbf{L}^{T}\beta\right) &amp; =\mathbf{X}^{T}y
 \end{align*}
 \]</span></p>
-<p>Note that the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is always symmetric. Thus, the <span class="math inline">\(\beta\)</span> vector can be obtained by the following two steps;</p>
+<p>Note that the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is always symmetric. Thus, the <span class="math inline">\(\beta\)</span> vector can be obtained by the following two steps:</p>
 <ol>
 <li>Solve Lz=X’y for z (forward solve lower triangular system).</li>
 <li>Solve L’b=z for b (backward solve upper triangular system).</li>
 </ol>
-<p>Is there any benefit of using the upper or lower triangular matrix in the equation solve? Yes. There exists nice and fast functions in <code>R</code> to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix; <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html"><code>backsolve</code> and <code>forwardsolve</code></a>. Also, look at the algorithm for the inverse matrix of the triangular matrices of any size <span class="math inline">\(n\)</span>. Here are <a href="http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf">link1</a> and <a href="https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3">link2</a>. As the number of variables increases during the past, the efficient way of solving the Normal equation was a very important topic.</p>
+<p>Is there any benefit of using the upper or lower triangular matrix in solving the equation? Yes. There exist nice and fast functions in <code>R</code> to solve a system of linear equations when the matrix in the equation is an upper or lower triangular marix: <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html"><code>backsolve</code> and <code>forwardsolve</code></a>. Also, look at the algorithm for finding the inverse matrix of triangular matrices of any size <span class="math inline">\(n\)</span> by <span class="math inline">\(n\)</span>. Here are <a href="http://www.mcs.csueastbay.edu/~malek/TeX/Triangle.pdf">link 1</a> and <a href="https://math.stackexchange.com/questions/1003801/inverse-of-an-invertible-upper-triangular-matrix-of-order-3">link 2</a>. As the number of variables used in linear regressions has increased over the years, finding an efficient way of solving the Normal equation has become a very important topic.</p>
 </div>
 <div id="implementation-in-r" class="section level2">
 <h2>Implementation in <code>R</code></h2>
-<p>Let us confirm that whether the choesky decomposition method works using <code>chol()</code> function in <code>R</code>.</p>
-<pre class="r"><code>library(matrixcalc)
-
-crossprod(X) %&gt;% is.positive.definite</code></pre>
+<p>Let us confirm whether the choesky decomposition method works using the <code>chol()</code> function in <code>R</code>.</p>
+<pre class="r"><code>library(matrixcalc)</code></pre>
+<pre><code>## Warning: 패키지 &#39;matrixcalc&#39;는 R 버전 3.5.2에서 작성되었습니다</code></pre>
+<pre class="r"><code>crossprod(X) %&gt;% is.positive.definite</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>crossprod(X) %&gt;% eigen(symmetric = TRUE) %$% values &gt; 0</code></pre>
 <pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
-<p>To check out that whether the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is or not, we can either use the <code>is.positiv.definite()</code> function in <code>matrixcalc</code> package or use the basic functions in <code>R</code> for checking the positive signs of the eigen values out. Since the matrix is positive definite, we can apply the Cholesky decomposition to the <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>. The following function calculate the regression coefficients using the Cholesky decomposition;</p>
+<p>To check out whether the matrix <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span> is positive definite or not, we can either use the <code>is.positiv.definite()</code> function in <code>matrixcalc</code> package or use the basic functions in <code>R</code> for checking that the signs of the eigenvalues are positive. Since the matrix is positive definite, we can apply the Cholesky decomposition to <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>. The following function calculates the regression coefficients using the Cholesky decomposition:</p>
 <pre class="r"><code># X always includes a constant vector
 regCef_chol &lt;- function(X, y){
 
@@ -930,11 +930,11 @@ regCef_chol &lt;- function(X, y){
     
     cef
 }</code></pre>
-<p>Here are some comments about the <code>regCef_chol()</code> function;</p>
+<p>Here are some comments about the <code>regCef_chol()</code> function:</p>
 <ol style="list-style-type: decimal">
 <li>In <code>R</code>, you <strong>must</strong> use the code <code>crossprod(X)</code> rather than the <code>t(X) %*% X</code> becasue of the <a href="https://stackoverflow.com/questions/42773206/when-is-crossprod-preferred-to-and-when-isnt">efficiency</a>.</li>
-<li><code>chol()</code> function returns the upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.</li>
-<li>We need to use the function <code>forwardsolve</code> and <code>backsolve</code> If we want to implement the equation (1). However, the <code>transpose</code> option allows us to use the <code>backsolve</code> twice so that we can avoid the transpose. Let use take a look at the following code.</li>
+<li>The <code>chol()</code> function returns an upper triangle matrix. Thus, the code was adjusted for using the upper tringle matrix.</li>
+<li>We need to use the functions <code>forwardsolve</code> and <code>backsolve</code> if we want to implement equation (1). However, the <code>transpose</code> option allows us to use <code>backsolve</code> twice so that we can avoid the transpose. Let us take a look at the following code.</li>
 </ol>
 <pre class="r"><code>a &lt;- crossprod(X)
 b &lt;- crossprod(X, y)
@@ -946,12 +946,12 @@ microbenchmark(
     backsolve( upper, b, transpose = TRUE)
 )</code></pre>
 <pre><code>## Unit: microseconds
-##                                   expr   min    lq    mean median     uq
-##              forwardsolve(t(upper), b) 8.901 9.101 9.43994  9.201 9.4010
-##  backsolve(upper, b, transpose = TRUE) 5.101 5.300 5.73103  5.302 5.4015
+##                                   expr   min    lq    mean median    uq
+##              forwardsolve(t(upper), b) 7.601 7.802 8.49798  7.951 8.100
+##  backsolve(upper, b, transpose = TRUE) 4.401 4.501 4.68600  4.601 4.701
 ##     max neval
-##  25.502   100
-##  37.901   100</code></pre>
+##  55.801   100
+##   8.002   100</code></pre>
 <pre class="r"><code>z1 &lt;- forwardsolve( t(upper), b )
 z2 &lt;- backsolve( upper, b, transpose = TRUE)
 
@@ -964,7 +964,7 @@ z1 == z2</code></pre>
 ## [5,] TRUE
 ## [6,] TRUE
 ## [7,] TRUE</code></pre>
-<p>Let us save the Cholesky decomposition based coefficients of regression to the <code>cef_chol</code> variable.</p>
+<p>Let us save the Cholesky decomposition-based coefficients of the regression to the <code>cef_chol</code> variable.</p>
 <pre class="r"><code>cef_chol &lt;- regCef_chol(X, y)
 cef_chol</code></pre>
 <pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
@@ -972,15 +972,15 @@ cef_chol</code></pre>
 </div>
 <div id="qr-decomposition" class="section level2">
 <h2>QR decomposition</h2>
-<p>For a real valued <span class="math inline">\(n \times p\)</span> matrix <span class="math inline">\(A\)</span>, where <span class="math inline">\(n \geq p\)</span>, we can decomposed the matrix <span class="math inline">\(A\)</span> into the following the muliplication of two matrices.</p>
+<p>For a real-valued <span class="math inline">\(n \times p\)</span> matrix <span class="math inline">\(A\)</span>, where <span class="math inline">\(n \geq p\)</span>, we can decompose the matrix <span class="math inline">\(A\)</span> into the following product of two matrices:</p>
 <p><span class="math display">\[
 A = QR
 \]</span>
-where the matrix <span class="math inline">\(Q\)</span> is a <span class="math inline">\(n \times p\)</span> matrix with orthonormal columns which satisfies <span class="math inline">\(Q^TQ=I_p\)</span>. If the matrix <span class="math inline">\(A\)</span> is square matrix, then the <span class="math inline">\(Q\)</span> is orthogonal. Also, the matrix <span class="math inline">\(R\)</span> is an <span class="math inline">\(p \times p\)</span> upper triangular matrix whose diagonal elements are nonzero values, which impies that <span class="math inline">\(R\)</span> is nonsingular.</p>
-<p>QR decomposition is preferred when it comes to the calculation of the regression coefficients than the Cholesky decomposition, because</p>
+where the matrix <span class="math inline">\(Q\)</span> is a <span class="math inline">\(n \times p\)</span> matrix with orthonormal columns which satisfies <span class="math inline">\(Q^TQ=I_p\)</span>. If the matrix <span class="math inline">\(A\)</span> is square, then <span class="math inline">\(Q\)</span> is orthogonal. Also, the matrix <span class="math inline">\(R\)</span> is an <span class="math inline">\(p \times p\)</span> upper triangular matrix whose diagonal elements are nonzero, which implies that <span class="math inline">\(R\)</span> is nonsingular.</p>
+<p>The QR decomposition is preferred to the Cholesky decomposition when it comes to the calculation of regression coefficients because</p>
 <ol style="list-style-type: decimal">
-<li>The QR decomposition can be applied to any size of matrices, and it is usually more stable calculation.</li>
-<li>More importantly, in the Normal equation solving process, we don’t need to calculate the term, <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>, as follows;</li>
+<li>The QR decomposition can be applied to matrices of any size, and it usually provides a more stable calculation.</li>
+<li>More importantly, in the Normal equation solving process, we don’t need to calculate the term, <span class="math inline">\(\mathbf{X}^T \mathbf{X}\)</span>, which can be seen as follows:</li>
 </ol>
 <p><span class="math display">\[
 \begin{eqnarray*}
@@ -991,14 +991,14 @@ X^{T}X\mathbf{\beta} &amp; = &amp; X^{T}\mathbf{y}\\
 \Rightarrow R\mathbf{\beta} &amp; = &amp; Q^{T}\mathbf{y}
 \end{eqnarray*}
 \]</span></p>
-<p>Note that we used the properties of the matrix <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> to reduce the equation above. The last equation can be seen that the beta is actually the solution of the linear system;</p>
+<p>Note that we used the properties of the matrices <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> to reduce the equation above. From the last equation we can see that the beta vector is actually the solution of the linear system</p>
 <p><span class="math display">\[
 X \mathbf{\beta}=\mathbf{y}
 \]</span>
-using the QR factorization of the matrix <span class="math inline">\(X\)</span>. Thus, to calculate the <span class="math inline">\(\beta\)</span>, we can use only the backsolve one time after applying the QR decomposition to the matrix <span class="math inline">\(X\)</span>.</p>
+using the QR factorization of the matrix <span class="math inline">\(X\)</span>. Thus, to calculate <span class="math inline">\(\beta\)</span>, we can use <code>backsolve()</code> only one time after applying the QR decomposition to the matrix <span class="math inline">\(X\)</span>.</p>
 <div id="qr-decomposition-in-r" class="section level3">
 <h3>QR decomposition in <code>R</code></h3>
-<p>If you use <code>qr()</code> function in <code>R</code>, you will be little confused when you see the result of the function as follows;</p>
+<p>If you use the <code>qr()</code> function in <code>R</code>, you will be a little confused when you see the result of the function:</p>
 <pre class="r"><code>QRmat &lt;- qr(X)
 QRmat</code></pre>
 <pre><code>## $qr
@@ -1048,9 +1048,9 @@ QRmat</code></pre>
 ## 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;qr&quot;</code></pre>
-<p>The help page for the <code>qr()</code> function has the answer for this as follows;</p>
-<p>The upper triangle contains the <span class="math inline">\(\bold{R}\)</span> of the decomposition and the lower triangle contains information on the <span class="math inline">\(\bold{Q}\)</span> of the decomposition (stored in compact form)</p>
-<p>TO get the <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> matrices seperately, we need to use the <code>qr.Q()</code> and <code>qr.R()</code> functions respectively.</p>
+<p>The help page for the <code>qr()</code> function has the answer for this:</p>
+<p>The upper triangle contains the <span class="math inline">\(\bold{R}\)</span> matrix of the decomposition and the lower triangle contains information on the <span class="math inline">\(\bold{Q}\)</span> matrix of the decomposition (stored in compact form).</p>
+<p>TO get the <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> matrices seperately, we need to use the <code>qr.Q()</code> and <code>qr.R()</code> functions, respectively.</p>
 <pre class="r"><code>Qmat &lt;- qr.Q(QRmat)
 Rmat &lt;- qr.R(QRmat)
 Qmat; Rmat;</code></pre>
@@ -1104,7 +1104,7 @@ Qmat; Rmat;</code></pre>
 ## 1951    0.04624846    -0.4491762
 ## 1952    1.46320173    -0.2819006
 ## 1953    0.00000000    -0.6693051</code></pre>
-<p>Thus, in <code>R</code>, we can implement the QR factorization based coefficients can be obtained as follows;</p>
+<p>Thus, in <code>R</code> we can obtain the QR factorization-based coefficients as follows:</p>
 <pre class="r"><code>as.vector(backsolve(Rmat, crossprod(Qmat, y)))</code></pre>
 <pre><code>## [1] -3.482259e+03  1.506187e-02 -3.581918e-02 -2.020230e-02 -1.033227e-02
 ## [6] -5.110411e-02  1.829151e+00</code></pre>
@@ -1119,18 +1119,18 @@ cef_qr</code></pre>
 </div>
 <div id="result-comparison" class="section level2">
 <h2>Result comparison</h2>
-<p>Let us compare the results between the Cholesky based and the QR based coefficients using the <code>gmp</code> based coefficients as a reference value.</p>
+<p>Let us compare the results between the Cholesky-based and the QR-based coefficients using the <code>gmp</code> package coefficients as a reference value.</p>
 <pre class="r"><code>sum((cef_exact - cef_chol)^2)</code></pre>
 <pre><code>## [1] 1.219947e-09</code></pre>
 <pre class="r"><code>sum((cef_exact - cef_qr)^2)</code></pre>
 <pre><code>## [1] 3.494839e-23</code></pre>
-<p>We can see that the QR decomposition based coefficient is closer to the <code>gmp</code> based coefficient than the one based on the Cholesky decomposition. In general, QR is more stable and faster than the Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero.</p>
+<p>We can see that the QR decomposition coefficients are closer to the <code>gmp</code> coefficients than the one based on the Cholesky decomposition. In general, QR is more stable and faster than Cholesky, which is usually said to be unstable when the positive definite matrix has one or more eigenvalues close to zero. As we can see from the following <code>R</code> code, the last eigenvalue is close to zero, which makes the Cholesky-based coefficients unstable.</p>
 <pre class="r"><code>crossprod(X) %&gt;% is.positive.definite</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <pre class="r"><code>crossprod(X) %&gt;% eigen(symmetric = TRUE) %$% values</code></pre>
 <pre><code>## [1] 6.665301e+07 2.090730e+05 1.053550e+05 1.803976e+04 2.455730e+01
 ## [6] 2.015117e+00 1.172178e-07</code></pre>
-<p>For these reason, <code>lm</code> function in <code>R</code> uses the QR factorization based calculation for the regression coefficients.</p>
+<p>For these reasons, the <code>lm</code> function in <code>R</code> uses the QR factorization-based calculation for the regression coefficients.</p>
 <pre class="r"><code>cef_lm &lt;- lm(y~0+X)$coefficients
 cef_lm == cef_qr</code></pre>
 <pre><code>##     Xconstant XGNP.deflator          XGNP   XUnemployed XArmed.Forces 

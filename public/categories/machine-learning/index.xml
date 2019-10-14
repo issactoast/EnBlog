@@ -13,14 +13,14 @@
     
     
     <item>
-      <title>The Coefficient of Linear Regression in R  - gmp package, Cholesky and QR decomposition</title>
+      <title>The Coefficients of Linear Regression in R  - gmp package, Cholesky and QR decomposition</title>
       <link>/post/linearmodelcholqr/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/linearmodelcholqr/</guid>
-      <description>This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; the intensive computing course.
+      <description>This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: the intensive computing course.
 The following are the R packages used in this post.
-library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the betaToday, I want to talk little bit about the process of getting the coefficients of linear model in R.</description>
+library(datasets)library(magrittr)library(microbenchmark)library(gmp)Normal equation for the beta vectorToday, I want to talk little bit about the process of getting the coefficients of a linear model in R.</description>
     </item>
     
   </channel>
