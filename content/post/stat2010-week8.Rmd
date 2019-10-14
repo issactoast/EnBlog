@@ -27,39 +27,98 @@ mydata <- mydata[,1:5]
 head(mydata)
 ```
 
-Let us draw the scatter plots for the midterm1 vs. final and midterm1 vs. midterm2.
+Let us draw the scatter plots for the midterm1 vs. midterm2.
 
 ```{r}
-plot(mydata$midterm1, mydata$final, asp=1)
+plot(mydata$midterm1, mydata$midterm2)
 ```
+
+### Scatter plot with categorical variable
+
+We can add more information in the plot using color and shape. `pch` option determines the shape of the data points.
 
 ```{r}
-plot(mydata$midterm1, mydata$midterm2, asp=1,
-     xlim = c(60, 95), ylim = c(45, 80))
-
+plot(mydata$midterm1, mydata$midterm2,
+     pch = c(16, 17, 18)[mydata$class],
+     col = c("red", "green","blue")[mydata$class],
+     xlab = "midterm 1", ylab = "midterm 2")
 ```
+
+Here are the list of the shapes which corresponds to the number in `pch` option.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggpubr::show_point_shapes()
+```
+
 
 ## Correlation
 
-By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. For example, the correlation coefficient for the two pair of variables in the above is as follows;
+By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. Our textbook has the following correlation formula;
+
+$$
+r=\frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_{i}-\overline{x}}{s_{x}}\right)\left(\frac{y_{i}-\overline{y}}{s_{y}}\right)
+$$
+
+For example, the correlation coefficient for the two pair of midterm scores is as follows;
 
 ```{r}
-cor(mydata$midterm1, mydata$final)
 cor(mydata$midterm1, mydata$midterm2)
 ```
 
-Based on the correlation, midterm1 and midterm2 are linearly associated each other, while the midterm1 and final are almost independant each other.
+Here are some facts that you need to know.
 
-```{r}
-x <- seq(1000, 1400, by = 10)
-y <- dnorm(x, mean = 1200, sd = 50)
-plot(x, y, type = "l",
-     main = "Distribution of SAT scores",
-     xlab = "SAT score",
-     ylab = "density")
-abline(v = 1300)
+1. The correlation $r$ has a value between -1 and 1. 0 correlation indicates a very weak linear relationship.
+1. Correlation makes no distinction between explanatory and responds variables. i.e. the correlation between `midterm1` and `midterm2` is equal to the one between `midterm2` and `midterm1`.
+1. It does not depends on the scale. It means multiplication, division, summation, or substraction do not affect to the correlation.
+1. Positive value of $r$ means positive association, and Negative value for negative association.
+
+### Correlation coefficient by hand
+
+Let's calculate the correlation coefficient of the following two varible $x$ and $y$. (std. for x and y are 1.58)
+
+    x: 1, 2, 3, 4, 5
+    y: 6, 7, 8, 9, 10
+
+```{r echo=FALSE}
+x <- c(1, 2, 3, 4, 5)
+y <- c(6, 7, 8, 9, 10)
+plot(x, y)
 ```
 
+How about this?
+
+    x: 1, 2, 3, 4, 5
+    y: 6, 10, 8, 7, 9
+
+<details>
+<summary>
+Answer
+</summary>
+
+```{r}
+x <- c(1, 2, 3, 4, 5)
+y <- c(6, 10, 8, 7, 9)
+cor(x, y)
+plot(x, y)
+```
+
+
+</details>
+
+
+### Correlation coefficient using `R` code
+
+Let us check how the `cor()` works above. Our target is to calculate the correlation between `midterm1` and `midterm2`.
+
+```{r}
+m1 <- mean(mydata$midterm1)
+m2 <- mean(mydata$midterm2)
+s1 <- sd(mydata$midterm1)
+s2 <- sd(mydata$midterm2)
+z_x <- (mydata$midterm1 - m1)/s1
+z_y <- (mydata$midterm2 - m2)/s2
+sum(z_x * z_y) / 29
+```
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 

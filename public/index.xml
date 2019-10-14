@@ -16,10 +16,7 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week8/</guid>
-      <description>
-
-
-&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scatter plot again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -36,30 +33,68 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 ## 4     1      4       75       67    70
 ## 5     1      5       73       56    81
 ## 6     1      6       89       60    69&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let us draw the scatter plots for the midterm1 vs. final and midterm1 vs. midterm2.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$final, asp=1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us draw the scatter plots for the midterm1 vs. midterm2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2, asp=1,
-     xlim = c(60, 95), ylim = c(45, 80))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;scatter-plot-with-categorical-variable&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Scatter plot with categorical variable&lt;/h3&gt;
+&lt;p&gt;We can add more information in the plot using color and shape. &lt;code&gt;pch&lt;/code&gt; option determines the shape of the data points.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2,
+     pch = c(16, 17, 18)[mydata$class],
+     col = c(&amp;quot;red&amp;quot;, &amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;)[mydata$class],
+     xlab = &amp;quot;midterm 1&amp;quot;, ylab = &amp;quot;midterm 2&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here are the list of the shapes which corresponds to the number in &lt;code&gt;pch&lt;/code&gt; option.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;correlation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Correlation&lt;/h2&gt;
-&lt;p&gt;By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. For example, the correlation coefficient for the two pair of variables in the above is as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(mydata$midterm1, mydata$final)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] -0.08361933&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. Our textbook has the following correlation formula;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+r=\frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_{i}-\overline{x}}{s_{x}}\right)\left(\frac{y_{i}-\overline{y}}{s_{y}}\right)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;For example, the correlation coefficient for the two pair of midterm scores is as follows;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cor(mydata$midterm1, mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.499954&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Based on the correlation, midterm1 and midterm2 are linearly associated each other, while the midterm1 and final are almost independant each other.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(1000, 1400, by = 10)
-y &amp;lt;- dnorm(x, mean = 1200, sd = 50)
-plot(x, y, type = &amp;quot;l&amp;quot;,
-     main = &amp;quot;Distribution of SAT scores&amp;quot;,
-     xlab = &amp;quot;SAT score&amp;quot;,
-     ylab = &amp;quot;density&amp;quot;)
-abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here are some facts that you need to know.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The correlation &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; has a value between -1 and 1. 0 correlation indicates a very weak linear relationship.&lt;/li&gt;
+&lt;li&gt;Correlation makes no distinction between explanatory and responds variables. i.e. the correlation between &lt;code&gt;midterm1&lt;/code&gt; and &lt;code&gt;midterm2&lt;/code&gt; is equal to the one between &lt;code&gt;midterm2&lt;/code&gt; and &lt;code&gt;midterm1&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;It does not depends on the scale. It means multiplication, division, summation, or substraction do not affect to the correlation.&lt;/li&gt;
+&lt;li&gt;Positive value of &lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; means positive association, and Negative value for negative association.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;correlation-coefficient-by-hand&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Correlation coefficient by hand&lt;/h3&gt;
+&lt;p&gt;Let’s calculate the correlation coefficient of the following two varible &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;. (std. for x and y are 1.58)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;x: 1, 2, 3, 4, 5
+y: 6, 7, 8, 9, 10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;How about this?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;x: 1, 2, 3, 4, 5
+y: 6, 10, 8, 7, 9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1, 2, 3, 4, 5)
+y &amp;lt;- c(6, 10, 8, 7, 9)
+cor(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation-coefficient-using-r-code&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Correlation coefficient using &lt;code&gt;R&lt;/code&gt; code&lt;/h3&gt;
+&lt;p&gt;Let us check how the &lt;code&gt;cor()&lt;/code&gt; works above. Our target is to calculate the correlation between &lt;code&gt;midterm1&lt;/code&gt; and &lt;code&gt;midterm2&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m1 &amp;lt;- mean(mydata$midterm1)
+m2 &amp;lt;- mean(mydata$midterm2)
+s1 &amp;lt;- sd(mydata$midterm1)
+s2 &amp;lt;- sd(mydata$midterm2)
+z_x &amp;lt;- (mydata$midterm1 - m1)/s1
+z_y &amp;lt;- (mydata$midterm2 - m2)/s2
+sum(z_x * z_y) / 29&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.499954&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -70,8 +105,7 @@ abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/linearmodelcholqr/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;This article is also one of my portfolio articles, but I should notice that this article is written based on a wornderful course that I took at the University of Iowa; &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
@@ -875,8 +909,7 @@ cef_lm == cef_qr&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/telematics1/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;As an employee, I am trying to construct my portfolio these days. By sharing my research materials, I hope that my article makes you either become interested in me or the driving telematics topic itself! =]&lt;/p&gt;
@@ -13175,10 +13208,7 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>
-
-
-&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
 &lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
 &lt;ul&gt;
@@ -13195,10 +13225,7 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week7/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mean&lt;/h2&gt;
@@ -13293,10 +13320,7 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>
-
-
-&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
 &lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
 &lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
@@ -13413,10 +13437,7 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -13475,10 +13496,7 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>
-
-
-&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -13626,10 +13644,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>
-
-
-&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -13810,10 +13825,7 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -13921,10 +13933,7 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -14057,10 +14066,7 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>
-
-
-&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;

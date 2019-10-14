@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.44" />
   <meta name="author" content="Issac Lee">
 
   
@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -343,10 +343,7 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
-
-
-<div id="scatter-plot-again" class="section level2">
+      <div id="scatter-plot-again" class="section level2">
 <h2>Scatter plot again</h2>
 <pre class="r"><code># load data
 mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
@@ -363,30 +360,68 @@ head(mydata)</code></pre>
 ## 4     1      4       75       67    70
 ## 5     1      5       73       56    81
 ## 6     1      6       89       60    69</code></pre>
-<p>Let us draw the scatter plots for the midterm1 vs. final and midterm1 vs. midterm2.</p>
-<pre class="r"><code>plot(mydata$midterm1, mydata$final, asp=1)</code></pre>
+<p>Let us draw the scatter plots for the midterm1 vs. midterm2.</p>
+<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2)</code></pre>
 <p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2, asp=1,
-     xlim = c(60, 95), ylim = c(45, 80))</code></pre>
+<div id="scatter-plot-with-categorical-variable" class="section level3">
+<h3>Scatter plot with categorical variable</h3>
+<p>We can add more information in the plot using color and shape. <code>pch</code> option determines the shape of the data points.</p>
+<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2,
+     pch = c(16, 17, 18)[mydata$class],
+     col = c(&quot;red&quot;, &quot;green&quot;,&quot;blue&quot;)[mydata$class],
+     xlab = &quot;midterm 1&quot;, ylab = &quot;midterm 2&quot;)</code></pre>
 <p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Here are the list of the shapes which corresponds to the number in <code>pch</code> option.</p>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
 </div>
 <div id="correlation" class="section level2">
 <h2>Correlation</h2>
-<p>By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. For example, the correlation coefficient for the two pair of variables in the above is as follows;</p>
-<pre class="r"><code>cor(mydata$midterm1, mydata$final)</code></pre>
-<pre><code>## [1] -0.08361933</code></pre>
+<p>By looking at the above plots, we can see the relationship between the variables. The correlation coefficient, especially, can be used for measuring the linear relationship between the variables. Our textbook has the following correlation formula;</p>
+<p><span class="math display">\[
+r=\frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_{i}-\overline{x}}{s_{x}}\right)\left(\frac{y_{i}-\overline{y}}{s_{y}}\right)
+\]</span></p>
+<p>For example, the correlation coefficient for the two pair of midterm scores is as follows;</p>
 <pre class="r"><code>cor(mydata$midterm1, mydata$midterm2)</code></pre>
 <pre><code>## [1] 0.499954</code></pre>
-<p>Based on the correlation, midterm1 and midterm2 are linearly associated each other, while the midterm1 and final are almost independant each other.</p>
-<pre class="r"><code>x &lt;- seq(1000, 1400, by = 10)
-y &lt;- dnorm(x, mean = 1200, sd = 50)
-plot(x, y, type = &quot;l&quot;,
-     main = &quot;Distribution of SAT scores&quot;,
-     xlab = &quot;SAT score&quot;,
-     ylab = &quot;density&quot;)
-abline(v = 1300)</code></pre>
-<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Here are some facts that you need to know.</p>
+<ol style="list-style-type: decimal">
+<li>The correlation <span class="math inline">\(r\)</span> has a value between -1 and 1. 0 correlation indicates a very weak linear relationship.</li>
+<li>Correlation makes no distinction between explanatory and responds variables. i.e. the correlation between <code>midterm1</code> and <code>midterm2</code> is equal to the one between <code>midterm2</code> and <code>midterm1</code>.</li>
+<li>It does not depends on the scale. It means multiplication, division, summation, or substraction do not affect to the correlation.</li>
+<li>Positive value of <span class="math inline">\(r\)</span> means positive association, and Negative value for negative association.</li>
+</ol>
+<div id="correlation-coefficient-by-hand" class="section level3">
+<h3>Correlation coefficient by hand</h3>
+<p>Let’s calculate the correlation coefficient of the following two varible <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. (std. for x and y are 1.58)</p>
+<pre><code>x: 1, 2, 3, 4, 5
+y: 6, 7, 8, 9, 10</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>How about this?</p>
+<pre><code>x: 1, 2, 3, 4, 5
+y: 6, 10, 8, 7, 9</code></pre>
+<p><details> <summary> Answer </summary></p>
+<pre class="r"><code>x &lt;- c(1, 2, 3, 4, 5)
+y &lt;- c(6, 10, 8, 7, 9)
+cor(x, y)</code></pre>
+<pre><code>## [1] 0.3</code></pre>
+<pre class="r"><code>plot(x, y)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p></details></p>
+</div>
+<div id="correlation-coefficient-using-r-code" class="section level3">
+<h3>Correlation coefficient using <code>R</code> code</h3>
+<p>Let us check how the <code>cor()</code> works above. Our target is to calculate the correlation between <code>midterm1</code> and <code>midterm2</code>.</p>
+<pre class="r"><code>m1 &lt;- mean(mydata$midterm1)
+m2 &lt;- mean(mydata$midterm2)
+s1 &lt;- sd(mydata$midterm1)
+s2 &lt;- sd(mydata$midterm2)
+z_x &lt;- (mydata$midterm1 - m1)/s1
+z_y &lt;- (mydata$midterm2 - m2)/s2
+sum(z_x * z_y) / 29</code></pre>
+<pre><code>## [1] 0.499954</code></pre>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+</div>
 </div>
 
     </div>
@@ -412,9 +447,9 @@ abline(v = 1300)</code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/stat2010-week7/">Week 7 - Normal distribution 2</a></li>
-        
         <li><a href="/post/stat2010-week7/">Week 7 - Correlation</a></li>
+        
+        <li><a href="/post/stat2010-week7/">Week 7 - Normal distribution 2</a></li>
         
         <li><a href="/post/stat2010-week5/">Week 5 - Normal distribution 1</a></li>
         
