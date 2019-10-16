@@ -73,14 +73,17 @@ y: 6, 7, 8, 9, 10&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;How about this?&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;x: 1, 2, 3, 4, 5
 y: 6, 10, 8, 7, 9&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1, 2, 3, 4, 5)
 y &amp;lt;- c(6, 10, 8, 7, 9)
 cor(x, y)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.3&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
+&lt;/details&gt;
 &lt;/div&gt;
 &lt;div id=&#34;correlation-coefficient-using-r-code&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Correlation coefficient using &lt;code&gt;R&lt;/code&gt; code&lt;/h3&gt;
@@ -93,6 +96,50 @@ z_x &amp;lt;- (mydata$midterm1 - m1)/s1
 z_y &amp;lt;- (mydata$midterm2 - m2)/s2
 sum(z_x * z_y) / 29&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 0.499954&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Regression&lt;/h2&gt;
+&lt;div id=&#34;load-a-new-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load a new data&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
+mydata2 &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore2.csv&amp;quot;, header = TRUE)
+
+# check the result
+head(mydata2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   student_id gender midterm final
+## 1          1      F      38    46
+## 2          2      M      42    67
+## 3          3      F      53    56
+## 4          4      F      48    54
+## 5          5      F      46    39
+## 6          6      F      51    74&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1 &amp;lt;- lm(midterm ~ final, mydata2)
+summary(model1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = midterm ~ final, data = mydata2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -23.0682  -7.4250  -0.3461   7.9528  20.4189 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  15.2002     5.6864   2.673   0.0124 *  
+## final         0.5112     0.1050   4.868 3.98e-05 ***
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 10.78 on 28 degrees of freedom
+## Multiple R-squared:  0.4583, Adjusted R-squared:  0.439 
+## F-statistic: 23.69 on 1 and 28 DF,  p-value: 3.984e-05&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Draw a scatter plot again.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata2$midterm, mydata2$final,
+     pch = c(16, 17)[as.factor(mydata2$gender)],
+     col = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;)[as.factor(mydata2$gender)],
+     xlab = &amp;quot;midterm&amp;quot;, ylab = &amp;quot;final&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -14184,7 +14231,9 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The following data set is used for the class. Those are usually recorded as &lt;code&gt;.csv&lt;/code&gt; format.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&#34; target=&#34;_blank&#34;&gt;Examscore.csv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&#34; target=&#34;_blank&#34;&gt;Examscore.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore2.csv&#34; target=&#34;_blank&#34;&gt;Examscore2.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;how-to-download&#34;&gt;How to download&lt;/h2&gt;
