@@ -1,0 +1,110 @@
+---
+title: 'Week 8 - Measure for the spread of distributions'
+author: Issac Lee
+date: '2019-10-04'
+slug: stat1010-week8
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+Let us assume that we have following data set;
+
+    50, 80, 60, 90, 70
+
+Now, we want to talk about the spread of our data. There are som
+
+## Range
+
+The range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.
+
+$$
+\begin{aligned}
+Range & = max(data) - min(data) \\
+& = 90 - 50 = 40
+\end{aligned}
+$$
+
+### Range rule of thumb
+
+If we know the range of our data set, we can approximately guess the standard deviation by,
+
+$$
+std. \approx \frac{Range}{4}
+$$
+
+
+Q. What is the range of these numbers? What is the approximate standard deviation by the “Range Rule of Thumb”?
+
+    10, 11, 21, 13, 20, 16
+
+
+<details>
+<summary>
+Answer
+</summary>
+
+$$
+range = 21 - 10 = 11
+std. \approx \frac{11}{4}
+$$
+
+```{r eval=FALSE, echo=FALSE}
+x <- c(10, 11, 21, 13, 20, 16)
+round(mean(x), 2)
+
+```
+
+
+</details>
+
+
+## Standard deviation
+
+Standard deviation is one of the popular measures for capturing spread of distributions in Statistics. The formula of std., we use $s$ for std., is as follows:
+
+$$
+s=\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^{2}}
+$$
+
+Let us find the standard deviation of the following data again.
+
+    50, 80, 60, 90, 70
+
+Since we have 5 data points, $n = 5$ in this case. Thus, if we write the full version of the formula, it looks like this:
+
+$$
+\begin{align*}
+ & \sqrt{\frac{1}{n-1}\left[\left(x_{1}-\overline{x}\right)^{2}+...+\left(x_{n}-\overline{x}\right)^{2}\right]}\\
+= & \sqrt{\frac{1}{5-1}\left[\left(50-70\right)^{2}+...+\left(90-70\right)^{2}\right]}\\
+= & \sqrt{\frac{1}{4}\left(20^{2}+10^{2}+0^{2}+10^{2}+20^{2}\right)}\\
+\approx & 15.81
+\end{align*}
+$$
+
+Q. What is the standard deviation of these numbers?
+
+    10, 11, 21, 13, 20, 16
+
+
+<details>
+<summary>
+Answer
+</summary>
+
+```{r echo=FALSE}
+x <- c(10, 11, 21, 13, 20, 16)
+sd(x)
+```
+
+</details>
+
+
+<a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>
+
+

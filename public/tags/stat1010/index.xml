@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Stat1010 on Issac Lee</title>
+    <title>stat1010 on Issac Lee</title>
     <link>/tags/stat1010/</link>
-    <description>Recent content in Stat1010 on Issac Lee</description>
+    <description>Recent content in stat1010 on Issac Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
@@ -23,6 +23,18 @@
 \[mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70\]
 Q. What is the mean of these numbers?
 10, 11, 21, 13, 20, 16  Answer</description>
+    </item>
+    
+    <item>
+      <title>Week 8 - Measure for the spread of distributions</title>
+      <link>/post/stat1010-week8/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week8/</guid>
+      <description>Let us assume that we have following data set;
+50, 80, 60, 90, 70Now, we want to talk about the spread of our data. There are som
+RangeThe range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.
+\[\begin{aligned}Range &amp;amp; = max(data) - min(data) \\&amp;amp; = 90 - 50 = 40\end{aligned}\]</description>
     </item>
     
     <item>

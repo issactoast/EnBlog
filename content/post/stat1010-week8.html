@@ -1,0 +1,75 @@
+---
+title: 'Week 8 - Measure for the spread of distributions'
+author: Issac Lee
+date: '2019-10-04'
+slug: stat1010-week8
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+
+
+<p>Let us assume that we have following data set;</p>
+<pre><code>50, 80, 60, 90, 70</code></pre>
+<p>Now, we want to talk about the spread of our data. There are som</p>
+<div id="range" class="section level2">
+<h2>Range</h2>
+<p>The range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.</p>
+<p><span class="math display">\[
+\begin{aligned}
+Range &amp; = max(data) - min(data) \\
+&amp; = 90 - 50 = 40
+\end{aligned}
+\]</span></p>
+<div id="range-rule-of-thumb" class="section level3">
+<h3>Range rule of thumb</h3>
+<p>If we know the range of our data set, we can approximately guess the standard deviation by,</p>
+<p><span class="math display">\[
+std. \approx \frac{Range}{4}
+\]</span></p>
+<p>Q. What is the range of these numbers? What is the approximate standard deviation by the “Range Rule of Thumb”?</p>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<details>
+<p><summary>
+Answer
+</summary></p>
+<p><span class="math display">\[
+range = 21 - 10 = 11
+std. \approx \frac{11}{4}
+\]</span></p>
+</details>
+</div>
+</div>
+<div id="standard-deviation" class="section level2">
+<h2>Standard deviation</h2>
+<p>Standard deviation is one of the popular measures for capturing spread of distributions in Statistics. The formula of std., we use <span class="math inline">\(s\)</span> for std., is as follows:</p>
+<p><span class="math display">\[
+s=\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^{2}}
+\]</span></p>
+<p>Let us find the standard deviation of the following data again.</p>
+<pre><code>50, 80, 60, 90, 70</code></pre>
+<p>Since we have 5 data points, <span class="math inline">\(n = 5\)</span> in this case. Thus, if we write the full version of the formula, it looks like this:</p>
+<p><span class="math display">\[
+\begin{align*}
+ &amp; \sqrt{\frac{1}{n-1}\left[\left(x_{1}-\overline{x}\right)^{2}+...+\left(x_{n}-\overline{x}\right)^{2}\right]}\\
+= &amp; \sqrt{\frac{1}{5-1}\left[\left(50-70\right)^{2}+...+\left(90-70\right)^{2}\right]}\\
+= &amp; \sqrt{\frac{1}{4}\left(20^{2}+10^{2}+0^{2}+10^{2}+20^{2}\right)}\\
+\approx &amp; 15.81
+\end{align*}
+\]</span></p>
+<p>Q. What is the standard deviation of these numbers?</p>
+<pre><code>10, 11, 21, 13, 20, 16</code></pre>
+<details>
+<p><summary>
+Answer
+</summary></p>
+<pre><code>## [1] 4.622409</code></pre>
+</details>
+<p><a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a></p>
+</div>

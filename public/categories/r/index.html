@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.44" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <meta name="author" content="Issac Lee">
 
   
@@ -340,7 +340,25 @@ Q. What is the mean of these numbers?
       SAT. and ACT. Scores (Standardization)
 Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
 Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
-Which student should get the admission if the administration process are evaluated by only their test scores?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/stat1010-week8/">Week 8 - Measure for the spread of distributions</a></h2>
+    <div class="article-style">
+      
+      Let us assume that we have following data set;
+50, 80, 60, 90, 70
+Now, we want to talk about the spread of our data. There are som
+Range
+The range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.
+[
+\begin{aligned}
+Range &amp; = max(data) - min(data) <br />
+&amp; = 90 - 50 = 40
+\end{aligned}
+]
       
     </div>
   </div>
@@ -393,47 +411,7 @@ Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
 
 <h2 id="1-31-66667">[1] 31.66667</h2>
 
-<p>Can you convert the following Fahrenheits in Celcius?
-67, 45, 92, 83, 70
-We can run the following five codes;</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week3/">Week 3 - Data visualization 2</a></h2>
-    <div class="article-style">
-      
-      <p>Data loading again</p>
-
-<h1 id="load-data">load data</h1>
-
-<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
-
-<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
-
-<p>mydata &lt;- mydata[,1:5]</p>
-
-<h1 id="check-the-result">check the result</h1>
-
-<p>head(mydata)</p>
-
-<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
-
-<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
-
-<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
-
-<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
-
-<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
-
-<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
-
-<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
-
-<p>If you success to load R file, you can see the above results.</p>
+<p>Can you convert the following Fahrenheits in Celcius?</p>
 
       
     </div>

@@ -16,7 +16,10 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week8/</guid>
-      <description>&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scatter plot again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -152,7 +155,8 @@ summary(model1)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/linearmodelcholqr/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
@@ -956,7 +960,8 @@ cef_lm == cef_qr&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/telematics1/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;As an employee, I am trying to construct my portfolio these days. By sharing my research materials, I hope that my article makes you either become interested in me or the driving telematics topic itself! =]&lt;/p&gt;
@@ -13255,7 +13260,10 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
 &lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
 &lt;ul&gt;
@@ -13272,7 +13280,10 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week7/</guid>
-      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mean&lt;/h2&gt;
@@ -13367,7 +13378,10 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
 &lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
 &lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
@@ -13479,12 +13493,85 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Week 8 - Measure for the spread of distributions</title>
+      <link>/post/stat1010-week8/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week8/</guid>
+      <description>
+
+
+&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we want to talk about the spread of our data. There are som&lt;/p&gt;
+&lt;div id=&#34;range&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Range&lt;/h2&gt;
+&lt;p&gt;The range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{aligned}
+Range &amp;amp; = max(data) - min(data) \\
+&amp;amp; = 90 - 50 = 40
+\end{aligned}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;range-rule-of-thumb&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Range rule of thumb&lt;/h3&gt;
+&lt;p&gt;If we know the range of our data set, we can approximately guess the standard deviation by,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+std. \approx \frac{Range}{4}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Q. What is the range of these numbers? What is the approximate standard deviation by the “Range Rule of Thumb”?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+range = 21 - 10 = 11
+std. \approx \frac{11}{4}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;standard-deviation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Standard deviation&lt;/h2&gt;
+&lt;p&gt;Standard deviation is one of the popular measures for capturing spread of distributions in Statistics. The formula of std., we use &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt; for std., is as follows:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+s=\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}\left(x_{i}-\overline{x}\right)^{2}}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Let us find the standard deviation of the following data again.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since we have 5 data points, &lt;span class=&#34;math inline&#34;&gt;\(n = 5\)&lt;/span&gt; in this case. Thus, if we write the full version of the formula, it looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align*}
+ &amp;amp; \sqrt{\frac{1}{n-1}\left[\left(x_{1}-\overline{x}\right)^{2}+...+\left(x_{n}-\overline{x}\right)^{2}\right]}\\
+= &amp;amp; \sqrt{\frac{1}{5-1}\left[\left(50-70\right)^{2}+...+\left(90-70\right)^{2}\right]}\\
+= &amp;amp; \sqrt{\frac{1}{4}\left(20^{2}+10^{2}+0^{2}+10^{2}+20^{2}\right)}\\
+\approx &amp;amp; 15.81
+\end{align*}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Q. What is the standard deviation of these numbers?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;10, 11, 21, 13, 20, 16&lt;/code&gt;&lt;/pre&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4.622409&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>
+
+
+&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -13543,7 +13630,10 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -13691,7 +13781,10 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -13872,7 +13965,10 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -13980,7 +14076,10 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -14113,7 +14212,10 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>
+
+
+&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;
@@ -14180,69 +14282,6 @@ head(mydata)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
-      <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat2010/</guid>
-      <description>
-
-&lt;p&gt;Welcome to my discussion section for &lt;strong&gt;STAT:2010&lt;/strong&gt; and &lt;strong&gt;STAT:4200&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;issac-sak-lee&#34;&gt;Issac (Sak) Lee&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Office location: 213 SH&lt;/li&gt;
-&lt;li&gt;Office hour: Friday 2pm - 5pm&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Email: sak-lee@uiowa.edu&lt;/p&gt;
-
-&lt;p&gt;Please put a tag &lt;code&gt;STAT:2010&lt;/code&gt; or &lt;code&gt;STAT:4200&lt;/code&gt; in front of your title when you email me.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;course-materials&#34;&gt;Course materials&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Week 0: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week0/&#34; target=&#34;_self&#34;&gt;Access to the virtual desktop&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 1: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week1/&#34; target=&#34;_self&#34;&gt;Basic R and data loading&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 2: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week2/&#34; target=&#34;_self&#34;&gt;Data visualization&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 3: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week3/&#34; target=&#34;_self&#34;&gt;Data visualization 2 (in progress)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 4: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week4/&#34; target=&#34;_self&#34;&gt;Function and Normal distribution&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 5: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week5/&#34; target=&#34;_self&#34;&gt;Normal distribution and the 68-95-99.7 rule&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 6: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week6/&#34; target=&#34;_self&#34;&gt;Standardization technique&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 7: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week7/&#34; target=&#34;_self&#34;&gt;Understanding linear regression line&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Week 8: &lt;a href=&#34;https://theissaclee.com/post/stat2010-week8/&#34; target=&#34;_self&#34;&gt;Linear regression in R (In progress)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;data-set&#34;&gt;Data set&lt;/h2&gt;
-
-&lt;p&gt;The following data set is used for the class. Those are usually recorded as &lt;code&gt;.csv&lt;/code&gt; format.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&#34; target=&#34;_blank&#34;&gt;Examscore.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore2.csv&#34; target=&#34;_blank&#34;&gt;Examscore2.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;how-to-download&#34;&gt;How to download&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Right click to the name of the data set&lt;/li&gt;
-&lt;li&gt;Choose &lt;code&gt;Save link as...&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Change &lt;code&gt;.txt&lt;/code&gt; to &lt;code&gt;.csv&lt;/code&gt; and Save it.&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     
