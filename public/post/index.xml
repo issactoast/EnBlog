@@ -48,7 +48,7 @@ I wrote all the code in this article to use them as a tool for my Ph.D. researc
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>Excel file to understand the regression lineIn this discussion section, we will learn how the regression line is determined using the following excel file.
+      <description>Excel file to understand the regression lineIn this discussion section, we will learn how the regression line is determined using the following excel file.
 leastsquare.xlsxReturn to the course page
 </description>
     </item>
@@ -73,7 +73,8 @@ Q. What is the mean of these numbers?
       
       <guid>/post/stat2010-week7/</guid>
       <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30</description>
+Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
+Which student should get the admission if the administration process are evaluated by only their test scores?</description>
     </item>
     
     <item>
@@ -133,7 +134,8 @@ Issac runs an ice cream store and today he got 100 customers. He wants to foreca
       <guid>/post/stat2010-week4/</guid>
       <description>Make your own functionWe know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
 (°F − 32) × 5/9 = °CBased on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?</description>
+(89 - 32) * 5/9## [1] 31.66667Can you convert the following Fahrenheits in Celcius?
+67, 45, 92, 83, 70We can run the following five codes;</description>
     </item>
     
     <item>

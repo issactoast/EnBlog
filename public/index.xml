@@ -16,10 +16,7 @@
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week8/</guid>
-      <description>
-
-
-&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;scatter-plot-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Scatter plot again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -117,34 +114,116 @@ head(mydata2)&lt;/code&gt;&lt;/pre&gt;
 ## 4          4      F      48    54
 ## 5          5      F      46    39
 ## 6          6      F      51    74&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1 &amp;lt;- lm(midterm ~ final, mydata2)
+&lt;p&gt;Draw a scatter plot again.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata2$midterm, mydata2$final)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;find-a-regression-line&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Find a regression line&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1 &amp;lt;- lm(final ~ midterm, data = mydata2)
+
 summary(model1)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
 ## Call:
-## lm(formula = midterm ~ final, data = mydata2)
+## lm(formula = final ~ midterm, data = mydata2)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -23.0682  -7.4250  -0.3461   7.9528  20.4189 
+##     Min      1Q  Median      3Q     Max 
+## -32.857 -11.175   2.281  10.057  30.866 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
-## (Intercept)  15.2002     5.6864   2.673   0.0124 *  
-## final         0.5112     0.1050   4.868 3.98e-05 ***
+## (Intercept)  13.8866     8.0195   1.732   0.0943 .  
+## midterm       0.8967     0.1842   4.868 3.98e-05 ***
 ## ---
 ## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
 ## 
-## Residual standard error: 10.78 on 28 degrees of freedom
+## Residual standard error: 14.28 on 28 degrees of freedom
 ## Multiple R-squared:  0.4583, Adjusted R-squared:  0.439 
 ## F-statistic: 23.69 on 1 and 28 DF,  p-value: 3.984e-05&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Draw a scatter plot again.&lt;/p&gt;
+&lt;p&gt;Using the information above, we can draw a regression line in the plot;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# draw regression line
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;What if we want to predict a final score of the student who got 45 for the midterm?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# predition for new student
+# student&amp;#39;s midterm : 45
+y_hat = 13.8866 + 0.8967 * 45
+
+# draw a point in the plot
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = &amp;quot;red&amp;quot;)
+points(45, y_hat, col = &amp;quot;blue&amp;quot;, cex = 2, pch = 16)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that &lt;code&gt;cex&lt;/code&gt; option determines the size of dot and &lt;code&gt;pch&lt;/code&gt; option is related to the shape.&lt;/p&gt;
+&lt;p&gt;Let us confirm the coefficients calculation process again using basic &lt;code&gt;R&lt;/code&gt; code.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# corr.
+r &amp;lt;- cor(mydata2$midterm, mydata2$final)
+
+# mean
+x_bar &amp;lt;- mean(mydata2$midterm)
+y_bar &amp;lt;- mean(mydata2$final)
+
+# std.
+s_x &amp;lt;- sd(mydata2$midterm)
+s_y &amp;lt;- sd(mydata2$final)
+
+
+# coefficients
+b &amp;lt;- r * s_y / s_x        #slope
+a &amp;lt;- y_bar - (b * x_bar)  # intercept
+a; b&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 13.8866&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.8966817&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;span class=&#34;math inline&#34;&gt;\(r^2\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(r^2\)&lt;/span&gt; is litterally the square of the correlation. This can be interpreted as the fraction of the variation in the values of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; that is explained by the regression line.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# r^2 
+r^2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 0.4583391&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It means 45% of the variation of the data can be explained by the regression line.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regression-for-the-two-groups&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Regression for the two groups&lt;/h3&gt;
+&lt;p&gt;We knows that the data has one more categorical variable.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata2$midterm, mydata2$final,
      pch = c(16, 17)[as.factor(mydata2$gender)],
      col = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;)[as.factor(mydata2$gender)],
      xlab = &amp;quot;midterm&amp;quot;, ylab = &amp;quot;final&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It seems like Male students (blue dots) and the Female students (red dots) has different characteristics. Let’s find regression line for each group!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_male &amp;lt;- mydata2[mydata2$gender == &amp;quot;M&amp;quot;, ]
+data_female &amp;lt;- mydata2[mydata2$gender == &amp;quot;F&amp;quot;, ]
+
+# regression for each group
+model2 &amp;lt;- lm(final~midterm, data_male)
+model3 &amp;lt;- lm(final~midterm, data_female)
+
+# coeff.
+print(&amp;quot;male&amp;quot;); model2$coefficients # male&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;male&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)     midterm 
+##   7.1622492   0.9737074&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(&amp;quot;female&amp;quot;); model3$coefficients # female&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;female&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)     midterm 
+##   30.509843    0.597766&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s look at the plot with the regression lines that we just found.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata2$midterm, mydata2$final,
+     pch = c(16, 17)[as.factor(mydata2$gender)],
+     col = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;)[as.factor(mydata2$gender)],
+     xlab = &amp;quot;midterm&amp;quot;, ylab = &amp;quot;final&amp;quot;)
+abline(7.1622492, 0.9737074, col = &amp;quot;blue&amp;quot;)
+abline(30.509843, 0.597766, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week8_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prediction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prediction&lt;/h2&gt;
+&lt;p&gt;Using the regression line above, how do we predict the final score for the female student whose midterm score is 45?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -155,8 +234,7 @@ summary(model1)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/linearmodelcholqr/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;This article is also one of my portfolio articles, but I should note that this article is written based on a wornderful course that I took at the University of Iowa: &lt;a href=&#34;http://homepage.divms.uiowa.edu/~luke/classes/STAT7400/&#34;&gt;the intensive computing course&lt;/a&gt;.&lt;/p&gt;
@@ -960,8 +1038,7 @@ cef_lm == cef_qr&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/telematics1/</guid>
-      <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <description>&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;As an employee, I am trying to construct my portfolio these days. By sharing my research materials, I hope that my article makes you either become interested in me or the driving telematics topic itself! =]&lt;/p&gt;
@@ -13260,10 +13337,7 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>
-
-
-&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
 &lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
 &lt;ul&gt;
@@ -13280,10 +13354,7 @@ p&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week7/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;mean&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Mean&lt;/h2&gt;
@@ -13378,10 +13449,7 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week7/</guid>
-      <description>
-
-
-&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
 &lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
 &lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
@@ -13498,10 +13566,7 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week8/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;50, 80, 60, 90, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, we want to talk about the spread of our data. There are som&lt;/p&gt;
 &lt;div id=&#34;range&#34; class=&#34;section level2&#34;&gt;
@@ -13568,10 +13633,7 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat1010-week5/</guid>
-      <description>
-
-
-&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
+      <description>&lt;p&gt;Let us assume that we have following data set;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;67, 61, 68, 80, 63, 75, 62, 66, 56, 72, 53, 79, 76, 54, 70&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Histogram&lt;/h2&gt;
@@ -13630,10 +13692,7 @@ Answer
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week5/</guid>
-      <description>
-
-
-&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Normal distribution&lt;/h2&gt;
 &lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
 &lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
@@ -13781,10 +13840,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week4/</guid>
-      <description>
-
-
-&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;make-your-own-function&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Make your own function&lt;/h2&gt;
 &lt;p&gt;We know &lt;code&gt;R&lt;/code&gt; can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(°F − 32) × 5/9 = °C&lt;/code&gt;&lt;/pre&gt;
@@ -13965,10 +14021,7 @@ pie(mytable,
       <pubDate>Thu, 12 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week3/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data loading again&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load data
 mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
@@ -14076,10 +14129,7 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week2/</guid>
-      <description>
-
-
-&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Data loading again&lt;/h1&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
 head(mydata)&lt;/code&gt;&lt;/pre&gt;
@@ -14212,10 +14262,7 @@ points(x, result$fitted.values,
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/stat2010-week1/</guid>
-      <description>
-
-
-&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
+      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
 &lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;

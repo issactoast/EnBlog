@@ -147,14 +147,79 @@ mydata2 <- read.csv("https://raw.githubusercontent.com/issactoast/EnBlog/master/
 head(mydata2)
 ```
 
+Draw a scatter plot again.
 
 ```{r}
-model1 <- lm(midterm ~ final, mydata2)
+plot(mydata2$midterm, mydata2$final)
+
+```
+
+### Find a regression line
+
+```{r}
+model1 <- lm(final ~ midterm, data = mydata2)
+
 summary(model1)
 ```
 
+Using the information above, we can draw a regression line in the plot;
 
-Draw a scatter plot again.
+```{r}
+# draw regression line
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = "red")
+```
+
+What if we want to predict a final score of the student who got 45 for the midterm?
+
+```{r}
+# predition for new student
+# student's midterm : 45
+y_hat = 13.8866 + 0.8967 * 45
+
+# draw a point in the plot
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = "red")
+points(45, y_hat, col = "blue", cex = 2, pch = 16)
+```
+
+Note that `cex` option determines the size of dot and `pch` option is related to the shape.
+
+Let us confirm the coefficients calculation process again using basic `R` code.
+
+```{r}
+# corr.
+r <- cor(mydata2$midterm, mydata2$final)
+
+# mean
+x_bar <- mean(mydata2$midterm)
+y_bar <- mean(mydata2$final)
+
+# std.
+s_x <- sd(mydata2$midterm)
+s_y <- sd(mydata2$final)
+
+
+# coefficients
+b <- r * s_y / s_x        #slope
+a <- y_bar - (b * x_bar)  # intercept
+a; b
+```
+
+### $r^2$
+
+$r^2$ is litterally the square of the correlation. This can be interpreted as the fraction of the variation in the values of $y$ that is explained by the regression line.
+
+```{r}
+# r^2 
+r^2
+```
+
+It means 45% of the variation of the data can be explained by the regression line.
+
+### Regression for the two groups
+
+We knows that the data has one more categorical variable.
 
 ```{r}
 plot(mydata2$midterm, mydata2$final,
@@ -162,6 +227,36 @@ plot(mydata2$midterm, mydata2$final,
      col = c("red", "blue")[as.factor(mydata2$gender)],
      xlab = "midterm", ylab = "final")
 ```
+
+It seems like Male students (blue dots) and the Female students (red dots) has different characteristics. Let's find regression line for each group!
+
+```{r}
+data_male <- mydata2[mydata2$gender == "M", ]
+data_female <- mydata2[mydata2$gender == "F", ]
+
+# regression for each group
+model2 <- lm(final~midterm, data_male)
+model3 <- lm(final~midterm, data_female)
+
+# coeff.
+print("male"); model2$coefficients # male
+print("female"); model3$coefficients # female
+```
+
+Let's look at the plot with the regression lines that we just found.
+
+```{r}
+plot(mydata2$midterm, mydata2$final,
+     pch = c(16, 17)[as.factor(mydata2$gender)],
+     col = c("red", "blue")[as.factor(mydata2$gender)],
+     xlab = "midterm", ylab = "final")
+abline(7.1622492, 0.9737074, col = "blue")
+abline(30.509843, 0.597766, col = "red")
+```
+
+## Prediction
+
+Using the regression line above, how do we predict the final score for the female student whose midterm score is 45?
 
 
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.44" />
   <meta name="author" content="Issac Lee">
 
   
@@ -271,7 +271,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    5 min read
   </span>
   
 
@@ -343,10 +343,7 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      
-
-
-<div id="scatter-plot-again" class="section level2">
+      <div id="scatter-plot-again" class="section level2">
 <h2>Scatter plot again</h2>
 <pre class="r"><code># load data
 mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
@@ -444,34 +441,116 @@ head(mydata2)</code></pre>
 ## 4          4      F      48    54
 ## 5          5      F      46    39
 ## 6          6      F      51    74</code></pre>
-<pre class="r"><code>model1 &lt;- lm(midterm ~ final, mydata2)
+<p>Draw a scatter plot again.</p>
+<pre class="r"><code>plot(mydata2$midterm, mydata2$final)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="find-a-regression-line" class="section level3">
+<h3>Find a regression line</h3>
+<pre class="r"><code>model1 &lt;- lm(final ~ midterm, data = mydata2)
+
 summary(model1)</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = midterm ~ final, data = mydata2)
+## lm(formula = final ~ midterm, data = mydata2)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -23.0682  -7.4250  -0.3461   7.9528  20.4189 
+##     Min      1Q  Median      3Q     Max 
+## -32.857 -11.175   2.281  10.057  30.866 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  15.2002     5.6864   2.673   0.0124 *  
-## final         0.5112     0.1050   4.868 3.98e-05 ***
+## (Intercept)  13.8866     8.0195   1.732   0.0943 .  
+## midterm       0.8967     0.1842   4.868 3.98e-05 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 10.78 on 28 degrees of freedom
+## Residual standard error: 14.28 on 28 degrees of freedom
 ## Multiple R-squared:  0.4583, Adjusted R-squared:  0.439 
 ## F-statistic: 23.69 on 1 and 28 DF,  p-value: 3.984e-05</code></pre>
-<p>Draw a scatter plot again.</p>
+<p>Using the information above, we can draw a regression line in the plot;</p>
+<pre class="r"><code># draw regression line
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>What if we want to predict a final score of the student who got 45 for the midterm?</p>
+<pre class="r"><code># predition for new student
+# student&#39;s midterm : 45
+y_hat = 13.8866 + 0.8967 * 45
+
+# draw a point in the plot
+plot(mydata2$midterm, mydata2$final)
+abline(13.8866, 0.8967, col = &quot;red&quot;)
+points(45, y_hat, col = &quot;blue&quot;, cex = 2, pch = 16)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Note that <code>cex</code> option determines the size of dot and <code>pch</code> option is related to the shape.</p>
+<p>Let us confirm the coefficients calculation process again using basic <code>R</code> code.</p>
+<pre class="r"><code># corr.
+r &lt;- cor(mydata2$midterm, mydata2$final)
+
+# mean
+x_bar &lt;- mean(mydata2$midterm)
+y_bar &lt;- mean(mydata2$final)
+
+# std.
+s_x &lt;- sd(mydata2$midterm)
+s_y &lt;- sd(mydata2$final)
+
+
+# coefficients
+b &lt;- r * s_y / s_x        #slope
+a &lt;- y_bar - (b * x_bar)  # intercept
+a; b</code></pre>
+<pre><code>## [1] 13.8866</code></pre>
+<pre><code>## [1] 0.8966817</code></pre>
+</div>
+<div id="r2" class="section level3">
+<h3><span class="math inline">\(r^2\)</span></h3>
+<p><span class="math inline">\(r^2\)</span> is litterally the square of the correlation. This can be interpreted as the fraction of the variation in the values of <span class="math inline">\(y\)</span> that is explained by the regression line.</p>
+<pre class="r"><code># r^2 
+r^2</code></pre>
+<pre><code>## [1] 0.4583391</code></pre>
+<p>It means 45% of the variation of the data can be explained by the regression line.</p>
+</div>
+<div id="regression-for-the-two-groups" class="section level3">
+<h3>Regression for the two groups</h3>
+<p>We knows that the data has one more categorical variable.</p>
 <pre class="r"><code>plot(mydata2$midterm, mydata2$final,
      pch = c(16, 17)[as.factor(mydata2$gender)],
      col = c(&quot;red&quot;, &quot;blue&quot;)[as.factor(mydata2$gender)],
      xlab = &quot;midterm&quot;, ylab = &quot;final&quot;)</code></pre>
-<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>It seems like Male students (blue dots) and the Female students (red dots) has different characteristics. Let’s find regression line for each group!</p>
+<pre class="r"><code>data_male &lt;- mydata2[mydata2$gender == &quot;M&quot;, ]
+data_female &lt;- mydata2[mydata2$gender == &quot;F&quot;, ]
+
+# regression for each group
+model2 &lt;- lm(final~midterm, data_male)
+model3 &lt;- lm(final~midterm, data_female)
+
+# coeff.
+print(&quot;male&quot;); model2$coefficients # male</code></pre>
+<pre><code>## [1] &quot;male&quot;</code></pre>
+<pre><code>## (Intercept)     midterm 
+##   7.1622492   0.9737074</code></pre>
+<pre class="r"><code>print(&quot;female&quot;); model3$coefficients # female</code></pre>
+<pre><code>## [1] &quot;female&quot;</code></pre>
+<pre><code>## (Intercept)     midterm 
+##   30.509843    0.597766</code></pre>
+<p>Let’s look at the plot with the regression lines that we just found.</p>
+<pre class="r"><code>plot(mydata2$midterm, mydata2$final,
+     pch = c(16, 17)[as.factor(mydata2$gender)],
+     col = c(&quot;red&quot;, &quot;blue&quot;)[as.factor(mydata2$gender)],
+     xlab = &quot;midterm&quot;, ylab = &quot;final&quot;)
+abline(7.1622492, 0.9737074, col = &quot;blue&quot;)
+abline(30.509843, 0.597766, col = &quot;red&quot;)</code></pre>
+<p><img src="/post/stat2010-week8_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
+</div>
+<div id="prediction" class="section level2">
+<h2>Prediction</h2>
+<p>Using the regression line above, how do we predict the final score for the female student whose midterm score is 45?</p>
+<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 
     </div>
@@ -497,9 +576,9 @@ summary(model1)</code></pre>
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/stat2010-week7/">Week 7 - Normal distribution 2</a></li>
-        
         <li><a href="/post/stat2010-week7/">Week 7 - Correlation</a></li>
+        
+        <li><a href="/post/stat2010-week7/">Week 7 - Normal distribution 2</a></li>
         
         <li><a href="/post/stat2010-week5/">Week 5 - Normal distribution 1</a></li>
         
