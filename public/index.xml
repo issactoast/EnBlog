@@ -13332,23 +13332,6 @@ p&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Week 7 - Correlation</title>
-      <link>/post/stat2010-week7/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
-&lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/leastsquare.xlsx&#34;&gt;leastsquare.xlsx&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Week 7 - Mean, Median, and Weighted Mean</title>
       <link>/post/stat1010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
@@ -13556,6 +13539,23 @@ qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Thus, to apply to the U of Iowa, your SAT score should be above 1264.08 or your ACT score should be above 30.56.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Week 7 - Understanding the regression line</title>
+      <link>/post/stat2010-week7/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week7/</guid>
+      <description>&lt;div id=&#34;excel-file-to-understand-the-regression-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Excel file to understand the regression line&lt;/h2&gt;
+&lt;p&gt;In this discussion section, we will learn how the regression line is determined using the following excel file.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/leastsquare.xlsx&#34;&gt;leastsquare.xlsx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
