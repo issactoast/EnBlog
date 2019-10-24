@@ -13628,6 +13628,87 @@ Answer
     </item>
     
     <item>
+      <title>Week 9 - 68-95-99.5 rules</title>
+      <link>/post/stat1010-week9/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week9/</guid>
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Normal distribution&lt;/h2&gt;
+&lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
+&lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Symmetric, Unimodal
+- It can be specified by its mean and standard deviation.
+- Mean is related to center of the distribution.
+- Sd controls the spread of the distribution.
+- All Normal distribution obey the 68-95-99.7 rule.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our textbook use the following notation for refering a specific normal distribution;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathcal{N}(\mu, \sigma)
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; represents the mean and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; represents the standard deviation.&lt;/p&gt;
+&lt;p&gt;Let us look at the impact of the mean and standard deviation on the shape of Normal distribtuions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-68-95-99.7-rule&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The 68-95-99.7 rule&lt;/h2&gt;
+&lt;p&gt;The rule is as follows;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Approx. 68% of the obs. fall within one std. range of the mean.
+- Approx. 95% of the obs. fall within two std. range of the mean.
+- Approx. 99.7% of the obs. fall within three std. range of the mean.&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Professor upload the distribution of Homework score in ICON as above and the class consists of 100 students.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Q1. You checked your score out and found that your score was 12. How many people got the homework score which is below yours approximately?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;12 is the score which is one standard deviation above from the mean.&lt;/p&gt;
+&lt;p&gt;84% = 50% + 34%&lt;/p&gt;
+about 84 students.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;Q2. How many people got the homework scores which are between 10 and 14?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;47.5% = 95% / 2&lt;/p&gt;
+Thus, about 48 students obtained the score between 10 and 14.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;Q3. How many people got the homework scores which are between 8 and 14?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;81.5% = 47.5% + 34%&lt;/p&gt;
+About 82 students.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Q4. Do you think the following statement is right?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  IQR of the homework score is larger than 4.&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;No. IQR is shorter than 1 standard deviation range from the mean. Since IQR captures the middle 50%, 1 std range will capture about middle 68%.&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
@@ -14250,82 +14331,6 @@ points(x, result$fitted.values,
 points(x, result$fitted.values,
        type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 1 - R Basics and Data loading</title>
-      <link>/post/stat2010-week1/</link>
-      <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week1/</guid>
-      <description>&lt;div id=&#34;basic-r-code-and-data-loading&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Basic R code and Data loading&lt;/h1&gt;
-&lt;p&gt;Today we will learn about the basic &lt;code&gt;R&lt;/code&gt; codes and how to load data file to &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;div id=&#34;r-basics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;R Basics&lt;/h2&gt;
-&lt;p&gt;R can be your fancy calculator.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;2 + 1
-3 - 2
-2 * 3
-4 / 2
-4^2
-sqrt(4) # 4^0.5
-9 %% 4  # mod
-9 %/% 4 # value&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can assign value to a variable using &lt;code&gt;&amp;lt;-&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- 4
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;b &amp;lt;- 2
-b&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;b &amp;lt;- 3
-b&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a+b&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Variable contains not only a number but also many things. &lt;code&gt;c()&lt;/code&gt; define vector.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- c(1, 2, 3)
-b &amp;lt;- c(4, 5, 6)
-a
-b&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Sometimes vector can be longer than you think. &lt;code&gt;:&lt;/code&gt; makes our life easier.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- c(1:10)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Define vector with &lt;code&gt;seq&lt;/code&gt;. Look at the options &lt;code&gt;by&lt;/code&gt; and &lt;code&gt;length.out&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;seq(0, 1, by = 0.01)
-seq(0, 1, length.out = 4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using braket &lt;code&gt;[]&lt;/code&gt; command, we can access to the part of variables.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- c(10, 50, 40, 20)
-a[3]
-a[1:3]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Define Matrix.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matrix(c(1:16), 4, 4)
-matrix(c(1:16), 4, 4, byrow = TRUE) # try this too&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;[]&lt;/code&gt; command also works for matrices.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- matrix(c(1:16), 4, 4)
-a[1,2]
-a[1:3,2]
-a[1:4,3]
-a[,3]
-a[1:3,1:2]&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-loading&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Data loading&lt;/h2&gt;
-&lt;p&gt;Download the data set from the course &lt;a href=&#34;https://www.theissaclee.com/post/stat2010/&#34;&gt;website&lt;/a&gt;, and save it as &lt;code&gt;examscore.csv&lt;/code&gt;. Make sure you save the data file in the same folder that your &lt;code&gt;R&lt;/code&gt; file live.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;examscore.csv&amp;quot;, header = TRUE)
-head(mydata)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;or you can load data from website, too.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
-head(mydata)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1
-## 2     1      2       78       66    66 NA  NA
-## 3     1      3       80       71    67 NA  NA
-## 4     1      4       75       67    70 NA  NA
-## 5     1      5       73       56    81 NA  NA
-## 6     1      6       89       60    69 NA  NA&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you success to load R file, you can see the above result!&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

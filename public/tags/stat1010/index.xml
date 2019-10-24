@@ -38,6 +38,17 @@ RangeThe range is one of the measures that captures the spread of the data, whi
     </item>
     
     <item>
+      <title>Week 9 - 68-95-99.5 rules</title>
+      <link>/post/stat1010-week9/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week9/</guid>
+      <description>Normal distributionFrom the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
+Here are some characteristics of all Normal curves;
+- Symmetric, Unimodal- It can be specified by its mean and standard deviation.- Mean is related to center of the distribution.- Sd controls the spread of the distribution.- All Normal distribution obey the 68-95-99.7 rule.Our textbook use the following notation for refering a specific normal distribution;</description>
+    </item>
+    
+    <item>
       <title>Week 5 - Freq. table and Stem plot</title>
       <link>/post/stat1010-week5/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
