@@ -11,6 +11,87 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 9 - 68-95-99.5 rules</title>
+      <link>/post/stat1010-week9/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week9/</guid>
+      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Normal distribution&lt;/h2&gt;
+&lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
+&lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Symmetric, Unimodal
+- It can be specified by its mean and standard deviation.
+- Mean is related to center of the distribution.
+- Sd controls the spread of the distribution.
+- All Normal distribution obey the 68-95-99.7 rule.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our textbook use the following notation for refering a specific normal distribution;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mathcal{N}(\mu, \sigma)
+\]&lt;/span&gt;
+where &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; represents the mean and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; represents the standard deviation.&lt;/p&gt;
+&lt;p&gt;Let us look at the impact of the mean and standard deviation on the shape of Normal distribtuions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-68-95-99.7-rule&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The 68-95-99.7 rule&lt;/h2&gt;
+&lt;p&gt;The rule is as follows;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- Approx. 68% of the obs. fall within one std. range of the mean.
+- Approx. 95% of the obs. fall within two std. range of the mean.
+- Approx. 99.7% of the obs. fall within three std. range of the mean.&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Professor upload the distribution of Homework score in ICON as above and the class consists of 100 students.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Q1. You checked your score out and found that your score was 12. How many people got the homework score which is below yours approximately?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;12 is the score which is one standard deviation above from the mean.&lt;/p&gt;
+&lt;p&gt;84% = 50% + 34%&lt;/p&gt;
+about 84 students.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;Q2. How many people got the homework scores which are between 10 and 14?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;47.5% = 95% / 2&lt;/p&gt;
+Thus, about 48 students obtained the score between 10 and 14.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;Q3. How many people got the homework scores which are between 8 and 14?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;81.5% = 47.5% + 34%&lt;/p&gt;
+About 82 students.
+&lt;/details&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Q4. Do you think the following statement is right?&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  IQR of the homework score is larger than 4.&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;No. IQR is shorter than 1 standard deviation range from the mean. Since IQR captures the middle 50%, 1 std range will capture about middle 68%.&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 8 - Correlation and Regression</title>
       <link>/post/stat2010-week8/</link>
       <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
@@ -13623,87 +13704,6 @@ Answer
 &lt;pre&gt;&lt;code&gt;## [1] 4.622409&lt;/code&gt;&lt;/pre&gt;
 &lt;/details&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 9 - 68-95-99.5 rules</title>
-      <link>/post/stat1010-week9/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat1010-week9/</guid>
-      <description>&lt;div id=&#34;normal-distribution&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Normal distribution&lt;/h2&gt;
-&lt;p&gt;From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.&lt;/p&gt;
-&lt;p&gt;Here are some characteristics of all Normal curves;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- Symmetric, Unimodal
-- It can be specified by its mean and standard deviation.
-- Mean is related to center of the distribution.
-- Sd controls the spread of the distribution.
-- All Normal distribution obey the 68-95-99.7 rule.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Our textbook use the following notation for refering a specific normal distribution;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\mathcal{N}(\mu, \sigma)
-\]&lt;/span&gt;
-where &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; represents the mean and &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; represents the standard deviation.&lt;/p&gt;
-&lt;p&gt;Let us look at the impact of the mean and standard deviation on the shape of Normal distribtuions.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;the-68-95-99.7-rule&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The 68-95-99.7 rule&lt;/h2&gt;
-&lt;p&gt;The rule is as follows;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- Approx. 68% of the obs. fall within one std. range of the mean.
-- Approx. 95% of the obs. fall within two std. range of the mean.
-- Approx. 99.7% of the obs. fall within three std. range of the mean.&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;example&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Example&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat1010-week9_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Professor upload the distribution of Homework score in ICON as above and the class consists of 100 students.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Q1. You checked your score out and found that your score was 12. How many people got the homework score which is below yours approximately?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
-&lt;p&gt;12 is the score which is one standard deviation above from the mean.&lt;/p&gt;
-&lt;p&gt;84% = 50% + 34%&lt;/p&gt;
-about 84 students.
-&lt;/details&gt;
-&lt;ul&gt;
-&lt;li&gt;Q2. How many people got the homework scores which are between 10 and 14?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
-&lt;p&gt;47.5% = 95% / 2&lt;/p&gt;
-Thus, about 48 students obtained the score between 10 and 14.
-&lt;/details&gt;
-&lt;ul&gt;
-&lt;li&gt;Q3. How many people got the homework scores which are between 8 and 14?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
-&lt;p&gt;81.5% = 47.5% + 34%&lt;/p&gt;
-About 82 students.
-&lt;/details&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Q4. Do you think the following statement is right?&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  IQR of the homework score is larger than 4.&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;details&gt;
-&lt;p&gt;&lt;summary&gt;
-Answer
-&lt;/summary&gt;&lt;/p&gt;
-&lt;p&gt;No. IQR is shorter than 1 standard deviation range from the mean. Since IQR captures the middle 50%, 1 std range will capture about middle 68%.&lt;/p&gt;
-&lt;/details&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

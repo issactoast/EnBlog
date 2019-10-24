@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/stat1010/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 9 - 68-95-99.5 rules</title>
+      <link>/post/stat1010-week9/</link>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week9/</guid>
+      <description>Normal distributionFrom the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
+Here are some characteristics of all Normal curves;
+- Symmetric, Unimodal- It can be specified by its mean and standard deviation.- Mean is related to center of the distribution.- Sd controls the spread of the distribution.- All Normal distribution obey the 68-95-99.7 rule.Our textbook use the following notation for refering a specific normal distribution;</description>
+    </item>
     
     <item>
       <title>Week 7 - Mean, Median, and Weighted Mean</title>
@@ -35,17 +46,6 @@ Q. What is the mean of these numbers?
 50, 80, 60, 90, 70Now, we want to talk about the spread of our data. There are som
 RangeThe range is one of the measures that captures the spread of the data, which can be calculated by subtracing the minimum of the data set from the maximum of the data set.
 \[\begin{aligned}Range &amp;amp; = max(data) - min(data) \\&amp;amp; = 90 - 50 = 40\end{aligned}\]</description>
-    </item>
-    
-    <item>
-      <title>Week 9 - 68-95-99.5 rules</title>
-      <link>/post/stat1010-week9/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat1010-week9/</guid>
-      <description>Normal distributionFrom the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
-Here are some characteristics of all Normal curves;
-- Symmetric, Unimodal- It can be specified by its mean and standard deviation.- Mean is related to center of the distribution.- Sd controls the spread of the distribution.- All Normal distribution obey the 68-95-99.7 rule.Our textbook use the following notation for refering a specific normal distribution;</description>
     </item>
     
     <item>
