@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -54,6 +54,17 @@ I wrote all the code in this article to use them as a tool for my Ph.D. researc
     </item>
     
     <item>
+      <title>Week 6 - Normal distribution 2</title>
+      <link>/post/stat2010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week6/</guid>
+      <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
+Issac : SAT score - 1250JAMES : SAT score - 1300ROBERT: ACT score - 30
+Which student should get the admission if the administration process are evaluated by only their test scores?</description>
+    </item>
+    
+    <item>
       <title>Week 7 - Mean, Median, and Weighted Mean</title>
       <link>/post/stat1010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
@@ -64,17 +75,6 @@ I wrote all the code in this article to use them as a tool for my Ph.D. researc
 \[mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70\]
 Q. What is the mean of these numbers?
 10, 11, 21, 13, 20, 16  Answer</description>
-    </item>
-    
-    <item>
-      <title>Week 7 - Normal distribution 2</title>
-      <link>/post/stat2010-week7/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week7/</guid>
-      <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
-Which student should get the admission if the administration process are evaluated by only their test scores?</description>
     </item>
     
     <item>
@@ -127,7 +127,7 @@ Here are some characteristics of all Normal curves;
     <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
-      <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week4/</guid>
       <description>&amp;ldquo;More than&amp;rdquo; vs. &amp;ldquo;Of&amp;rdquo; Definitions:
@@ -152,7 +152,7 @@ Issac runs an ice cream store and today he got 100 customers. He wants to foreca
     <item>
       <title>Week 3(STAT:1010) - Data type and errors</title>
       <link>/post/stat1010-week3/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week3/</guid>
       <description>Problem 1 (Data types) Definitions:
@@ -197,7 +197,7 @@ a &amp;lt;- 4ab &amp;lt;- 2bb &amp;lt;- 3ba+bVariable contains not only a
     <item>
       <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
       <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010/</guid>
       <description>Welcome to my discussion section for STAT:2010 and STAT:4200.
@@ -212,7 +212,7 @@ Please put a tag STAT:2010 or STAT:4200 in front of your title when you email me
     <item>
       <title>Statistics and Society (STAT:1010)</title>
       <link>/post/stat1010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010/</guid>
       <description>Welcome to my discussion section for STAT:1010.
@@ -224,7 +224,7 @@ Please put a tag STAT:1010 in front of your title when you email me.
     <item>
       <title>Week 0: Preparation</title>
       <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010-week0/</guid>
       <description>Access to the virtual desktop To access the software R and SAS, we can use virtual desktop which the University of Iowa provide students for free. You can think virtual desktop as remote computer which you can log-in through the website.
@@ -236,7 +236,7 @@ U of Iowa virtual desktop
     <item>
       <title>Week 2(STAT:1010)</title>
       <link>/post/stat1010-week2/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week2/</guid>
       <description>Problem 1 A large warehouse is flled with light bulbs. An electronics engineer wants to estimate the mean lifespan of these bulbs. To this end, 18 of the bulbs were randomly selected and the lifespan was measures; the mean lifespan of the 18 bulbs was 2550 hours.
@@ -246,7 +246,7 @@ U of Iowa virtual desktop
     <item>
       <title>STAT:1020 - Elementary Statistics and Inference</title>
       <link>/post/stat1020/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 -0600</pubDate>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 -0500</pubDate>
       
       <guid>/post/stat1020/</guid>
       <description>Welcome to my discussion section for STAT:1020.
@@ -257,7 +257,7 @@ Here are my section materials:
     <item>
       <title>Academic: the website designer for Hugo</title>
       <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
       
       <guid>/post/getting-started/</guid>
       <description>Academic is a framework to help you create a beautiful website quickly. Perfect for personal sites, blogs, or business/project sites. Check out the latest demo of what you&amp;rsquo;ll get in less than 10 minutes. Then head on over to the Quick Start guide or take a look at the Release Notes.

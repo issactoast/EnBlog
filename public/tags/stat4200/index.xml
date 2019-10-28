@@ -22,13 +22,13 @@
     </item>
     
     <item>
-      <title>Week 7 - Normal distribution 2</title>
-      <link>/post/stat2010-week7/</link>
+      <title>Week 6 - Normal distribution 2</title>
+      <link>/post/stat2010-week6/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/stat2010-week7/</guid>
+      <guid>/post/stat2010-week6/</guid>
       <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
+Issac : SAT score - 1250JAMES : SAT score - 1300ROBERT: ACT score - 30
 Which student should get the admission if the administration process are evaluated by only their test scores?</description>
     </item>
     
@@ -99,7 +99,7 @@ a &amp;lt;- 4ab &amp;lt;- 2bb &amp;lt;- 3ba+bVariable contains not only a
     <item>
       <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
       <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010/</guid>
       <description>Welcome to my discussion section for STAT:2010 and STAT:4200.
@@ -114,7 +114,7 @@ Please put a tag STAT:2010 or STAT:4200 in front of your title when you email me
     <item>
       <title>Week 0: Preparation</title>
       <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat2010-week0/</guid>
       <description>Access to the virtual desktop To access the software R and SAS, we can use virtual desktop which the University of Iowa provide students for free. You can think virtual desktop as remote computer which you can log-in through the website.

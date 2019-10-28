@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 15 Mar 2018 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 15 Mar 2018 00:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -13413,6 +13413,128 @@ p&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Week 6 - Normal distribution 2</title>
+      <link>/post/stat2010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week6/</guid>
+      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
+&lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
+&lt;p&gt;Issac : SAT score - 1250
+JAMES : SAT score - 1300
+ROBERT: ACT score - 30&lt;/p&gt;
+&lt;p&gt;Which student should get the admission if the administration process are evaluated by only their test scores?&lt;/p&gt;
+&lt;p&gt;To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+SAT \sim \mathcal{N}(1200, 50) \\
+ACT \sim \mathcal{N}(28, 2) \\
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Picking one between Issac and James is clear for us since James has higher score for the same test. How about between James and Robert? This is tricky, because these two students did not take the same test. Thus, we want to see how they did well in the exam comparing to other students scores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(1000, 1400, by = 10)
+y &amp;lt;- dnorm(x, mean = 1200, sd = 50)
+plot(x, y, type = &amp;quot;l&amp;quot;,
+     main = &amp;quot;Distribution of SAT scores&amp;quot;,
+     xlab = &amp;quot;SAT score&amp;quot;,
+     ylab = &amp;quot;density&amp;quot;)
+abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Q. Draw the density plot for ACT scores and mark the score or Robert.&lt;/p&gt;
+&lt;details&gt;
+&lt;p&gt;&lt;summary&gt;
+Answer
+&lt;/summary&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(22, 34, by = 0.5)
+y &amp;lt;- dnorm(x, mean = 28, sd = 2)
+plot(x, y, type = &amp;quot;l&amp;quot;,
+     main = &amp;quot;Distribution of ACT scores&amp;quot;,
+     xlab = &amp;quot;ACT score&amp;quot;,
+     ylab = &amp;quot;density&amp;quot;)
+abline(v = 30)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;div id=&#34;standardization&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Standardization&lt;/h3&gt;
+&lt;p&gt;Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\frac{data - \mu}{\sigma}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Thus,&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align*}
+Z_{James}  &amp;amp; = \frac{1300 - 1200}{50} = 2 \\
+Z_{Robert} &amp;amp; = \frac{30 - 28}{2} = 1
+\end{align*}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# standadization
+# (data - mean)/sd ~ N(0, 1)
+
+# James
+(1300 - 1200)/50 #2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Robert
+(30 - 28)/2      #1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.&lt;/p&gt;
+&lt;p&gt;One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using &lt;code&gt;R&lt;/code&gt; functions we can calculate the quantiles for each score as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z_james &amp;lt;- (1300 - 1200)/50
+z_robert &amp;lt;- (30 - 28)/2
+
+# Put them in the standard Normal
+x &amp;lt;- seq(-3, 3, by = 0.1)
+y &amp;lt;- dnorm(x)
+plot(x, y, type = &amp;quot;l&amp;quot;,
+     main = &amp;quot;Distribution of N(0, 1)&amp;quot;,
+     xlab = &amp;quot;Standardized score&amp;quot;,
+     ylab = &amp;quot;Density&amp;quot;)
+
+# James
+abline(v = z_james, col = &amp;quot;blue&amp;quot;)
+
+# Robert
+abline(v = z_robert, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Let us assume that the total number of students who took SAT or ACT last year was 10,000. Then, we can say there are about 1400 people between James and Robert for the following reason.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# percentile of scores for James and Robert
+(pnorm(z_james) - pnorm(z_robert)) * 10000&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1359.051&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let us consider the situation where the U of Iowa made a cut-off for application as follow;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;To apply the university, your score should be above the 90th percentile for whole group of students last year.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This means, your score should be above 90th percentile. In the standard Normal,&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qnorm(0.9)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1.281552&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1.281552 is the 90th percentile. Thus, if we mark the cut-off in the above plot, we can see that James can apply to the U of Iowa, but Robert is right below the threshold as follow;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(-3, 3, by = 0.1)
+y &amp;lt;- dnorm(x)
+plot(x, y, type = &amp;quot;l&amp;quot;,
+     main = &amp;quot;Distribution of N(0, 1)&amp;quot;,
+     xlab = &amp;quot;Standardized score&amp;quot;,
+     ylab = &amp;quot;Density&amp;quot;)
+
+# James
+abline(v = z_james, col = &amp;quot;blue&amp;quot;)
+
+# Robert
+abline(v = z_robert, col = &amp;quot;red&amp;quot;)
+
+# Add cut-off
+abline(v = qnorm(0.9))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can find the cut off values for SAT and ACT using &lt;code&gt;qnorm&lt;/code&gt; by setting the mean and sd for the each test.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# SAT cut-off
+qnorm(0.9, mean = 1200, sd = 50)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1264.078&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ACT cut-off
+qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 30.5631&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Thus, to apply to the U of Iowa, your SAT score should be above 1264.08 or your ACT score should be above 30.56.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 7 - Mean, Median, and Weighted Mean</title>
       <link>/post/stat1010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
@@ -13503,123 +13625,6 @@ weights: math - 30%, english - 20%, history - 50%&lt;/code&gt;&lt;/pre&gt;
 80 \times 0.3 + 70 \times 0.2 + 50 \times 0.5 \]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;/details&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 7 - Normal distribution 2</title>
-      <link>/post/stat2010-week7/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week7/</guid>
-      <description>&lt;div id=&#34;sat.-and-act.-scores-standardization&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;SAT. and ACT. Scores (Standardization)&lt;/h2&gt;
-&lt;p&gt;Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;&lt;/p&gt;
-&lt;p&gt;Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30&lt;/p&gt;
-&lt;p&gt;Which student should get the admission if the administration process are evaluated by only their test scores?&lt;/p&gt;
-&lt;p&gt;To pick the one student among these three, you want to see the distribution of the SAT and ACT scores for last year;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-SAT \sim \mathcal{N}(1200, 50) \\
-ACT \sim \mathcal{N}(28, 2) \\
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Picking one between Issac and James is clear for us since James has higher score for the same test. How about between James and Robert? This is tricky, because these two students did not take the same test. Thus, we want to see how they did well in the exam comparing to other students scores.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(1000, 1400, by = 10)
-y &amp;lt;- dnorm(x, mean = 1200, sd = 50)
-plot(x, y, type = &amp;quot;l&amp;quot;,
-     main = &amp;quot;Distribution of SAT scores&amp;quot;,
-     xlab = &amp;quot;SAT score&amp;quot;,
-     ylab = &amp;quot;density&amp;quot;)
-abline(v = 1300)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Q. Draw the density plot for ACT scores and mark the score or Robert.&lt;/p&gt;
-&lt;p&gt;&lt;details&gt; &lt;summary&gt; Answer &lt;/summary&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(22, 34, by = 0.5)
-y &amp;lt;- dnorm(x, mean = 28, sd = 2)
-plot(x, y, type = &amp;quot;l&amp;quot;,
-     main = &amp;quot;Distribution of ACT scores&amp;quot;,
-     xlab = &amp;quot;ACT score&amp;quot;,
-     ylab = &amp;quot;density&amp;quot;)
-abline(v = 30)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/details&gt;&lt;/p&gt;
-&lt;div id=&#34;standardization&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Standardization&lt;/h3&gt;
-&lt;p&gt;Using standardization of Normal distribution, we can obtain two numbers related to the two students scores whose scale is the same.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\frac{data - \mu}{\sigma}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Thus,&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\begin{align*}
-Z_{James}  &amp;amp; = \frac{1300 - 1200}{50} = 2 \\
-Z_{Robert} &amp;amp; = \frac{30 - 28}{2} = 1
-\end{align*}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# standadization
-# (data - mean)/sd ~ N(0, 1)
-
-# James
-(1300 - 1200)/50 #2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Robert
-(30 - 28)/2      #1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;James did relatively better than Robert based on the standadized score, thus, we need to give him an admission.&lt;/p&gt;
-&lt;p&gt;One thing that we should know about the standardization, the standardized value will follows the standard Normal distribution. Thus, using &lt;code&gt;R&lt;/code&gt; functions we can calculate the quantiles for each score as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;z_james &amp;lt;- (1300 - 1200)/50
-z_robert &amp;lt;- (30 - 28)/2
-
-# Put them in the standard Normal
-x &amp;lt;- seq(-3, 3, by = 0.1)
-y &amp;lt;- dnorm(x)
-plot(x, y, type = &amp;quot;l&amp;quot;,
-     main = &amp;quot;Distribution of N(0, 1)&amp;quot;,
-     xlab = &amp;quot;Standardized score&amp;quot;,
-     ylab = &amp;quot;Density&amp;quot;)
-
-# James
-abline(v = z_james, col = &amp;quot;blue&amp;quot;)
-
-# Robert
-abline(v = z_robert, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let us assume that the total number of students who took SAT or ACT last year was 10,000. Then, we can say there are about 1400 people between James and Robert for the following reason.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# percentile of scores for James and Robert
-(pnorm(z_james) - pnorm(z_robert)) * 10000&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1359.051&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let us consider the situation where the U of Iowa made a cut-off for application as follow;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;To apply the university, your score should be above the 90th percentile for whole group of students last year.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This means, your score should be above 90th percentile. In the standard Normal,&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qnorm(0.9)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1.281552&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;1.281552 is the 90th percentile. Thus, if we mark the cut-off in the above plot, we can see that James can apply to the U of Iowa, but Robert is right below the threshold as follow;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- seq(-3, 3, by = 0.1)
-y &amp;lt;- dnorm(x)
-plot(x, y, type = &amp;quot;l&amp;quot;,
-     main = &amp;quot;Distribution of N(0, 1)&amp;quot;,
-     xlab = &amp;quot;Standardized score&amp;quot;,
-     ylab = &amp;quot;Density&amp;quot;)
-
-# James
-abline(v = z_james, col = &amp;quot;blue&amp;quot;)
-
-# Robert
-abline(v = z_robert, col = &amp;quot;red&amp;quot;)
-
-# Add cut-off
-abline(v = qnorm(0.9))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week6_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can find the cut off values for SAT and ACT using &lt;code&gt;qnorm&lt;/code&gt; by setting the mean and sd for the each test.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# SAT cut-off
-qnorm(0.9, mean = 1200, sd = 50)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 1264.078&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ACT cut-off
-qnorm(0.9, mean = 28, sd = 2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 30.5631&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Thus, to apply to the U of Iowa, your SAT score should be above 1264.08 or your ACT score should be above 30.56.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -13863,7 +13868,7 @@ plot(x, y, type = &amp;quot;l&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
     <item>
       <title>Week 4(STAT:1010) - Describe what you have in your data</title>
       <link>/post/stat1010-week4/</link>
-      <pubDate>Thu, 19 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week4/</guid>
       <description>
@@ -14031,7 +14036,7 @@ pie(mytable,
     <item>
       <title>Week 3(STAT:1010) - Data type and errors</title>
       <link>/post/stat1010-week3/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
+      <pubDate>Thu, 12 Sep 2019 00:00:00 -0400</pubDate>
       
       <guid>/post/stat1010-week3/</guid>
       <description>

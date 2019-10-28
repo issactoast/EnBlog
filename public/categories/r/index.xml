@@ -54,6 +54,17 @@ I wrote all the code in this article to use them as a tool for my Ph.D. researc
     </item>
     
     <item>
+      <title>Week 6 - Normal distribution 2</title>
+      <link>/post/stat2010-week6/</link>
+      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week6/</guid>
+      <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
+Issac : SAT score - 1250JAMES : SAT score - 1300ROBERT: ACT score - 30
+Which student should get the admission if the administration process are evaluated by only their test scores?</description>
+    </item>
+    
+    <item>
       <title>Week 7 - Mean, Median, and Weighted Mean</title>
       <link>/post/stat1010-week7/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
@@ -64,17 +75,6 @@ I wrote all the code in this article to use them as a tool for my Ph.D. researc
 \[mean = \frac{50 + 80 + 60 + 90 + 70}{5} = 70\]
 Q. What is the mean of these numbers?
 10, 11, 21, 13, 20, 16  Answer</description>
-    </item>
-    
-    <item>
-      <title>Week 7 - Normal distribution 2</title>
-      <link>/post/stat2010-week7/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week7/</guid>
-      <description>SAT. and ACT. Scores (Standardization)Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250 JAMES : SAT score - 1300 ROBERT: ACT score - 30
-Which student should get the admission if the administration process are evaluated by only their test scores?</description>
     </item>
     
     <item>
