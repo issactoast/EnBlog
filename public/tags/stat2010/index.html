@@ -75,7 +75,7 @@
   <meta property="og:description" content="PhD candidate">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-18T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-10-28T00:00:00&#43;00:00">
   
 
   
@@ -243,6 +243,46 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/stat2010-week9/">Week 9 - Regression summary</a></h2>
+    <div class="article-style">
+      
+      <p>Summary
+Here is the code that we used for the regression summary discussion.</p>
+
+<h1 id="make-dataset">make dataset</h1>
+
+<p>mydata &lt;- data.frame(
+kneeh = c(57.7, 47.4,43.5,44.8,55.2,54.6),
+height = c(192.1,153.3,146.4,162.7,169.1,177.8)
+)</p>
+
+<h1 id="regression">regression</h1>
+
+<p>model1 &lt;- lm(height ~ kneeh, mydata)</p>
+
+<h1 id="regression-objects">regression objects</h1>
+
+<p>model1$coefficients</p>
+
+<h2 id="intercept-kneeh-42-932609-2-453181">(Intercept) kneeh ## 42.932609 2.453181</h2>
+
+<p>model1$residuals # 2</p>
+
+<h2 id="1-2-3-4-5-6-7-6188726-5-9133676-3-2459633-9-8649019-9-2481760-0-9237324">1 2 3 4 5 6 ## 7.6188726 -5.9133676 -3.2459633 9.8649019 -9.2481760 0.9237324</h2>
+
+<p>model1$df.residual</p>
+
+<h2 id="1-4">[1] 4</h2>
+
+<p>model1$fitted.values # 1</p>
+
+<h2 id="1-2-3-4-5-6-184">1 2 3 4 5 6 ## 184.</h2>
+
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></h2>
@@ -444,17 +484,17 @@ Variable contains not only a number but also many things.
     </div>
   </div>
   
-  <div>
-    <h2><a href="/post/stat2010-week0/">Week 0: Preparation</a></h2>
-    <div class="article-style">
-      
-      Statistical Methods and Computing - Preparation
-      
-    </div>
-  </div>
-  
 
   
+<nav>
+  <ul class="pager">
+    
+    
+    <li><a href="/tags/stat2010/page/2/">&gt;</a></li>
+    
+  </ul>
+</nav>
+
 
 
 </div>

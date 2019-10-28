@@ -11,6 +11,69 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 9 - Regression summary</title>
+      <link>/post/stat2010-week9/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week9/</guid>
+      <description>&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Here is the code that we used for the regression summary discussion.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# make dataset
+mydata &amp;lt;- data.frame(
+  kneeh  = c(57.7, 47.4,43.5,44.8,55.2,54.6),
+  height = c(192.1,153.3,146.4,162.7,169.1,177.8)
+)
+
+# regression
+model1 &amp;lt;- lm(height ~ kneeh, mydata)
+
+# regression objects
+model1$coefficients&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## (Intercept)       kneeh 
+##   42.932609    2.453181&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1$residuals # 2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          1          2          3          4          5          6 
+##  7.6188726 -5.9133676 -3.2459633  9.8649019 -9.2481760  0.9237324&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1$df.residual&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1$fitted.values # 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        1        2        3        4        5        6 
+## 184.4811 159.2134 149.6460 152.8351 178.3482 176.8763&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-regression-line&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Add regression line&lt;/h2&gt;
+&lt;p&gt;Your code become compact by using ‘with’ command as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# For plotting
+# the following two lines of code are same;
+# plot(mydata$kneeh, mydata$height)
+# with(mydata, plot(kneeh, height)) 
+
+# Add reg. line
+# the following three lines are the same meaning
+# abline(model1$coefficients[1], model1$coefficients[2])
+# with(model1, abline(coefficients[1], coefficients[2]))
+# with(model1, abline(coefficients))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Thus, final code could be as follows;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot &amp;amp; add reg. line
+with(mydata, plot(kneeh, height))
+with(model1, abline(coefficients))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/stat2010-week9_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prediction-for-the-new-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prediction for the new data&lt;/h2&gt;
+&lt;p&gt;We need to use dataframe to use &lt;code&gt;prediction&lt;/code&gt; function, otherwise we can use the formula.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# prediction
+new_x &amp;lt;- data.frame(kneeh = c(50, 52, 47.7, 55))
+predict(model1, newdata = new_x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        1        2        3        4 
+## 165.5916 170.4980 159.9493 177.8575&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 9 - 68-95-99.5 rules</title>
       <link>/post/stat1010-week9/</link>
       <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
@@ -14203,139 +14266,6 @@ quantile(mydata$midterm1)[4]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 38.52989&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sd(mydata$midterm1)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 6.207245&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 2 - Data visualization</title>
-      <link>/post/stat2010-week2/</link>
-      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/stat2010-week2/</guid>
-      <description>&lt;div id=&#34;data-loading-again&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Data loading again&lt;/h1&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata &amp;lt;- read.csv(&amp;quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&amp;quot;, header = TRUE)
-head(mydata)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1
-## 2     1      2       78       66    66 NA  NA
-## 3     1      3       80       71    67 NA  NA
-## 4     1      4       75       67    70 NA  NA
-## 5     1      5       73       56    81 NA  NA
-## 6     1      6       89       60    69 NA  NA&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you success to load R file, you can see the above results.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-visualization&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Data visualization&lt;/h1&gt;
-&lt;div id=&#34;access-to-the-colums-of-your-data&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Access to the colums of your data&lt;/h2&gt;
-&lt;p&gt;You can use &lt;code&gt;$&lt;/code&gt; to indicate the colum that you want to access.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata$midterm1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 70 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The bracket &lt;code&gt;[]&lt;/code&gt; works too.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[,3]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] 70 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mydata[1,] # the data related to the first student in the list&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;draw-a-pie-chart-using-table-function&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Draw a pie chart using &lt;code&gt;table&lt;/code&gt; function&lt;/h2&gt;
-&lt;p&gt;To draw a pie chart, we need to count how many of data points we have for each category.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mytable &amp;lt;- table(mydata$class)
-mytable&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##  1  2  3 
-## 10 10 10&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(mytable)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can use the name of table as the categories itself in pie chart.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pie(mytable, 
-    labels = names(mytable),
-    main=&amp;quot;Pie Chart of the class variable&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Or, we can define our own name set as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pie(mytable, 
-    labels = c(&amp;quot;Class 1&amp;quot;, &amp;quot;Class 2&amp;quot;, &amp;quot;Class 3&amp;quot;),
-    main=&amp;quot;Pie Chart of the class variable&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;stem-and-leaf-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Stem and leaf plot&lt;/h2&gt;
-&lt;p&gt;There is a function called &lt;code&gt;stem&lt;/code&gt; for drawing a stem and leaf plot.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;stem(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 122222344
-##   5 | 68889
-##   6 | 02344
-##   6 | 678
-##   7 | 14
-##   7 | 99&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This stem and leaf plot has 5 as a unit lenght. Let’s make it as 10 for the unit step. Using scale option,&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;stem(mydata$midterm2, scale = 0.5)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 12222234468889
-##   6 | 02344678
-##   7 | 1499&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;histogram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Histogram&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can make a custom breaks as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2, breaks= c(4:8)*10) # or
-hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;hist(mydata$midterm2, breaks= c(4:8)*10,
-     xlab = &amp;quot;Midterm 2 score&amp;quot;,
-     main = &amp;quot;Histogram of midterm 2 scores&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Using &lt;code&gt;mean&lt;/code&gt; and &lt;code&gt;median&lt;/code&gt;, you can describe the characteristics of the distribution as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 58.9&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;median(mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 58&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;scatter-plot&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Scatter plot&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(mydata$midterm1, mydata$midterm2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;lm&lt;/code&gt; function name stands for ‘linear model’, which is a statistical concept including the linear regression. By using &lt;code&gt;lm&lt;/code&gt; function, we can obtain a lot of information about the regression analysis as follows;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- mydata$midterm1
-y &amp;lt;- mydata$midterm2
-result &amp;lt;- lm(y~x)
-result&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-## Call:
-## lm(formula = y ~ x)
-## 
-## Coefficients:
-## (Intercept)            x  
-##     -7.7348       0.8445&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y)
-points(x, result$fitted.values,
-       type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;When you draw a plot, it is important to set the same scale for x and y variables. &lt;code&gt;xlim&lt;/code&gt; and &lt;code&gt;ylim&lt;/code&gt; options in &lt;code&gt;plot&lt;/code&gt; function allow us to set the range for each axis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(x, y,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = &amp;quot;Midterm 1 score&amp;quot;, 
-     ylab = &amp;quot;Midterm 2 score&amp;quot;,
-     main = &amp;quot;Plot of Midterm scores&amp;quot;)
-points(x, result$fitted.values,
-       type = &amp;quot;l&amp;quot;, col = &amp;quot;red&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/stat2010-week2_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

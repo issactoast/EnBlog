@@ -1,0 +1,75 @@
+---
+title: 'Week 9 - Regression summary'
+author: Issac Lee
+date: '2019-10-28'
+slug: stat2010-week9
+categories:
+  - R
+tags:
+  - stat2010
+  - stat4200
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+## Summary
+
+Here is the code that we used for the regression summary discussion.
+
+```{r echo=TRUE}
+# make dataset
+mydata <- data.frame(
+  kneeh  = c(57.7, 47.4,43.5,44.8,55.2,54.6),
+  height = c(192.1,153.3,146.4,162.7,169.1,177.8)
+)
+
+# regression
+model1 <- lm(height ~ kneeh, mydata)
+
+# regression objects
+model1$coefficients
+model1$residuals # 2
+model1$df.residual
+model1$fitted.values # 1
+```
+
+## Add regression line
+
+Your code become compact by using 'with' command as follows;
+
+```{r}
+# For plotting
+# the following two lines of code are same;
+# plot(mydata$kneeh, mydata$height)
+# with(mydata, plot(kneeh, height)) 
+
+# Add reg. line
+# the following three lines are the same meaning
+# abline(model1$coefficients[1], model1$coefficients[2])
+# with(model1, abline(coefficients[1], coefficients[2]))
+# with(model1, abline(coefficients))
+```
+
+Thus, final code could be as follows;
+
+```{r}
+# plot & add reg. line
+with(mydata, plot(kneeh, height))
+with(model1, abline(coefficients))
+```
+
+## Prediction for the new data
+
+We need to use dataframe to use `prediction` function, otherwise we can use the formula.
+
+```{r}
+# prediction
+new_x <- data.frame(kneeh = c(50, 52, 47.7, 55))
+predict(model1, newdata = new_x)
+```
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
+

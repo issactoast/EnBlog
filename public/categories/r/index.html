@@ -75,7 +75,7 @@
   <meta property="og:description" content="PhD candidate">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-24T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-10-28T00:00:00&#43;00:00">
   
 
   
@@ -245,6 +245,46 @@
   
   
   <div>
+    <h2><a href="/post/stat2010-week9/">Week 9 - Regression summary</a></h2>
+    <div class="article-style">
+      
+      <p>Summary
+Here is the code that we used for the regression summary discussion.</p>
+
+<h1 id="make-dataset">make dataset</h1>
+
+<p>mydata &lt;- data.frame(
+kneeh = c(57.7, 47.4,43.5,44.8,55.2,54.6),
+height = c(192.1,153.3,146.4,162.7,169.1,177.8)
+)</p>
+
+<h1 id="regression">regression</h1>
+
+<p>model1 &lt;- lm(height ~ kneeh, mydata)</p>
+
+<h1 id="regression-objects">regression objects</h1>
+
+<p>model1$coefficients</p>
+
+<h2 id="intercept-kneeh-42-932609-2-453181">(Intercept) kneeh ## 42.932609 2.453181</h2>
+
+<p>model1$residuals # 2</p>
+
+<h2 id="1-2-3-4-5-6-7-6188726-5-9133676-3-2459633-9-8649019-9-2481760-0-9237324">1 2 3 4 5 6 ## 7.6188726 -5.9133676 -3.2459633 9.8649019 -9.2481760 0.9237324</h2>
+
+<p>model1$df.residual</p>
+
+<h2 id="1-4">[1] 4</h2>
+
+<p>model1$fitted.values # 1</p>
+
+<h2 id="1-2-3-4-5-6-184">1 2 3 4 5 6 ## 184.</h2>
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/stat1010-week9/">Week 9 - 68-95-99.5 rules</a></h2>
     <div class="article-style">
       
@@ -398,23 +438,6 @@ Q. Can you draw the histogram with 3 bins? What does it look like?</p>
 <p>Stem-and-Leaf plot
 A stemp plot consists of two parts;</p>
 
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week5/">Week 5 - Normal distribution 1</a></h2>
-    <div class="article-style">
-      
-      Normal distribution
-From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
-Here are some characteristics of all Normal curves;
-- Symmetric, Unimodal
-- It can be specified by its mean and standard deviation.
-- Mean is related to center of the distribution.
-- Sd controls the spread of the distribution.
-- All Normal distribution obey the 68-95-99.7 rule.
-Our textbook use the following notation for refering a specific normal distribution;
       
     </div>
   </div>

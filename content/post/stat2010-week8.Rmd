@@ -258,11 +258,6 @@ abline(30.509843, 0.597766, col = "red")
 
 Using the regression line above, how do we predict the final score for the female student whose midterm score is 45?
 
-```{r}
-
-```
-
-
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
 

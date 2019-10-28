@@ -75,7 +75,7 @@
   <meta property="og:description" content="PhD candidate">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-10-28T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-08-27T00:00:00-04:00">
   
 
   
@@ -245,241 +245,10 @@
   
   
   <div>
-    <h2><a href="/post/stat2010-week9/">Week 9 - Regression summary</a></h2>
+    <h2><a href="/post/stat2010-week0/">Week 0: Preparation</a></h2>
     <div class="article-style">
       
-      <p>Summary
-Here is the code that we used for the regression summary discussion.</p>
-
-<h1 id="make-dataset">make dataset</h1>
-
-<p>mydata &lt;- data.frame(
-kneeh = c(57.7, 47.4,43.5,44.8,55.2,54.6),
-height = c(192.1,153.3,146.4,162.7,169.1,177.8)
-)</p>
-
-<h1 id="regression">regression</h1>
-
-<p>model1 &lt;- lm(height ~ kneeh, mydata)</p>
-
-<h1 id="regression-objects">regression objects</h1>
-
-<p>model1$coefficients</p>
-
-<h2 id="intercept-kneeh-42-932609-2-453181">(Intercept) kneeh ## 42.932609 2.453181</h2>
-
-<p>model1$residuals # 2</p>
-
-<h2 id="1-2-3-4-5-6-7-6188726-5-9133676-3-2459633-9-8649019-9-2481760-0-9237324">1 2 3 4 5 6 ## 7.6188726 -5.9133676 -3.2459633 9.8649019 -9.2481760 0.9237324</h2>
-
-<p>model1$df.residual</p>
-
-<h2 id="1-4">[1] 4</h2>
-
-<p>model1$fitted.values # 1</p>
-
-<h2 id="1-2-3-4-5-6-184">1 2 3 4 5 6 ## 184.</h2>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></h2>
-    <div class="article-style">
-      
-      <p>Scatter plot again</p>
-
-<h1 id="load-data">load data</h1>
-
-<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
-
-<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
-
-<p>mydata &lt;- mydata[,1:5]</p>
-
-<h1 id="check-the-result">check the result</h1>
-
-<p>head(mydata)</p>
-
-<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
-
-<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
-
-<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
-
-<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
-
-<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
-
-<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
-
-<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
-
-<p>Let us draw the scatter plots for the midterm1 vs.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week6/">Week 6 - Normal distribution 2</a></h2>
-    <div class="article-style">
-      
-      SAT. and ACT. Scores (Standardization)
-Let us assume you are working at the U of Iowa addmistration department. Every spring semester, you have many application from many future hawk eyes. Today, you have to pick one person to give an admission and you have these infomation about test score of three students;
-Issac : SAT score - 1250
-JAMES : SAT score - 1300
-ROBERT: ACT score - 30
-Which student should get the admission if the administration process are evaluated by only their test scores?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week7/">Week 7 - Understanding the regression line</a></h2>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week5/">Week 5 - Normal distribution 1</a></h2>
-    <div class="article-style">
-      
-      Normal distribution
-From the basic statistics course, we are already familiar with a bell-shape distribution called Normal distribution.
-Here are some characteristics of all Normal curves;
-- Symmetric, Unimodal
-- It can be specified by its mean and standard deviation.
-- Mean is related to center of the distribution.
-- Sd controls the spread of the distribution.
-- All Normal distribution obey the 68-95-99.7 rule.
-Our textbook use the following notation for refering a specific normal distribution;
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week4/">Week 4 - Write your own function and Data manipulation</a></h2>
-    <div class="article-style">
-      
-      <p>Make your own function
-We know R can do some calculation. I am always confused when I use Fahrenheit, “ºF”, instead of using Celsius “ºC”. I searched the conversion formula on the internet.
-(°F − 32) × <sup>5</sup>&frasl;<sub>9</sub> = °C
-Based on the formula, 89 Fahrenheit is equal to 31.7 Celsius as follows;
-(89 - 32) * <sup>5</sup>&frasl;<sub>9</sub></p>
-
-<h2 id="1-31-66667">[1] 31.66667</h2>
-
-<p>Can you convert the following Fahrenheits in Celcius?
-67, 45, 92, 83, 70
-We can run the following five codes;</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week3/">Week 3 - Data visualization 2</a></h2>
-    <div class="article-style">
-      
-      <p>Data loading again</p>
-
-<h1 id="load-data">load data</h1>
-
-<p>mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)</p>
-
-<h1 id="clean-data-choose-1-5-columns-as-data-set">clean data; choose 1~5 columns as data set</h1>
-
-<p>mydata &lt;- mydata[,1:5]</p>
-
-<h1 id="check-the-result">check the result</h1>
-
-<p>head(mydata)</p>
-
-<h2 id="class-std-id-midterm1-midterm2-final">class std_id midterm1 midterm2 final</h2>
-
-<h2 id="1-1-1-70-51-67">1 1 1 70 51 67</h2>
-
-<h2 id="2-1-2-78-66-66">2 1 2 78 66 66</h2>
-
-<h2 id="3-1-3-80-71-67">3 1 3 80 71 67</h2>
-
-<h2 id="4-1-4-75-67-70">4 1 4 75 67 70</h2>
-
-<h2 id="5-1-5-73-56-81">5 1 5 73 56 81</h2>
-
-<h2 id="6-1-6-89-60-69">6 1 6 89 60 69</h2>
-
-<p>If you success to load R file, you can see the above results.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week2/">Week 2 - Data visualization</a></h2>
-    <div class="article-style">
-      
-      <p>Data loading again
-mydata &lt;- read.csv(&quot;<a href="https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;" target="_blank">https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;</a>, header = TRUE)
-head(mydata)</p>
-
-<h2 id="class-std-id-midterm1-midterm2-final-x-x-1">class std_id midterm1 midterm2 final X X.1</h2>
-
-<h2 id="1-1-1-70-51-67-na-1">1 1 1 70 51 67 NA 1</h2>
-
-<h2 id="2-1-2-78-66-66-na-na">2 1 2 78 66 66 NA NA</h2>
-
-<h2 id="3-1-3-80-71-67-na-na">3 1 3 80 71 67 NA NA</h2>
-
-<h2 id="4-1-4-75-67-70-na-na">4 1 4 75 67 70 NA NA</h2>
-
-<h2 id="5-1-5-73-56-81-na-na">5 1 5 73 56 81 NA NA</h2>
-
-<h2 id="6-1-6-89-60-69-na-na">6 1 6 89 60 69 NA NA</h2>
-
-<p>If you success to load R file, you can see the above results.</p>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010-week1/">Week 1 - R Basics and Data loading</a></h2>
-    <div class="article-style">
-      
-      Basic R code and Data loading
-Today we will learn about the basic R codes and how to load data file to R.
-R Basics
-R can be your fancy calculator.
-2 + 1
-3 - 2
-2 * 3
-4 / 2
-4^2
-sqrt(4) # 4^0.5
-9 %% 4 # mod
-9 %/% 4 # value
-We can assign value to a variable using &lt;-.
-a &lt;- 4
-a
-b &lt;- 2
-b
-b &lt;- 3
-b
-a+b
-Variable contains not only a number but also many things.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/stat2010/">Statistical Methods and Computing (STAT:2010 or 4200)</a></h2>
-    <div class="article-style">
-      
-      Course page for STAT:2010 and STAT:4200 in the University of Iowa.
+      Statistical Methods and Computing - Preparation
       
     </div>
   </div>
@@ -489,8 +258,8 @@ Variable contains not only a number but also many things.
 <nav>
   <ul class="pager">
     
+    <li><a href="/tags/stat4200/">&lt;</a></li>
     
-    <li><a href="/tags/stat4200/page/2/">&gt;</a></li>
     
   </ul>
 </nav>

@@ -21,6 +21,8 @@ In this discussion section, we will learn how the regression line is determined 
 - [leastsquare.xlsx](https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/leastsquare.xlsx)
 
 
+
+
 <a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
 
 
