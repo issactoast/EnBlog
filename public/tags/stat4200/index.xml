@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 28 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/stat4200/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 11 - Two way table</title>
+      <link>/post/stat2010-week11/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat2010-week11/</guid>
+      <description>Two way tableMaking a data set (Optional)set.seed(1234)# make datasetmydata &amp;lt;- data.frame(smoker = sample(c(&amp;quot;yes&amp;quot;, &amp;quot;no&amp;quot;), 300, replace = TRUE),grades = sample(c(&amp;quot;freshman&amp;quot;, &amp;quot;sophomore&amp;quot;, &amp;quot;junior&amp;quot;, &amp;quot;senior&amp;quot;),300, replace = TRUE))# check the datahead(mydata)## smoker grades## 1 yes sophomore## 2 no senior## 3 no junior## 4 no sophomore## 5 no senior## 6 no sophomoreAs we can see, the data set consists of two columns smoker and grades.</description>
+    </item>
     
     <item>
       <title>Week 9 - Regression summary</title>
@@ -109,7 +118,7 @@ a &amp;lt;- 4ab &amp;lt;- 2bb &amp;lt;- 3ba+bVariable contains not only a
     <item>
       <title>Statistical Methods and Computing (STAT:2010 or 4200)</title>
       <link>/post/stat2010/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
       
       <guid>/post/stat2010/</guid>
       <description>Welcome to my discussion section for STAT:2010 and STAT:4200.
@@ -124,7 +133,7 @@ Please put a tag STAT:2010 or STAT:4200 in front of your title when you email me
     <item>
       <title>Week 0: Preparation</title>
       <link>/post/stat2010-week0/</link>
-      <pubDate>Tue, 27 Aug 2019 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 -0500</pubDate>
       
       <guid>/post/stat2010-week0/</guid>
       <description>Access to the virtual desktop To access the software R and SAS, we can use virtual desktop which the University of Iowa provide students for free. You can think virtual desktop as remote computer which you can log-in through the website.

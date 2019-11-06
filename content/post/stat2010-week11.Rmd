@@ -1,0 +1,124 @@
+---
+title: 'Week 11 - Two way table'
+author: Issac Lee
+date: '2019-11-05'
+slug: stat2010-week11
+categories:
+  - R
+tags:
+  - stat2010
+  - stat4200
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+## Two way table
+
+### Making a data set (Optional)
+
+```{r echo=TRUE}
+set.seed(1234)
+
+# make dataset
+mydata <- data.frame(
+  smoker  = sample(c("yes", "no"), 300, replace = TRUE),
+  grades  = sample(c("freshman", "sophomore", "junior", "senior"),
+                 300, replace = TRUE)
+)
+
+# check the data
+head(mydata)
+```
+
+As we can see, the data set consists of two columns `smoker` and `grades`. In the smoker columns, there are two unique values; "yes" or "no". In the grades columns, there are four unique values; "freshman", "sophomore", "junior", "senior". Let us counts how many smokers in the data set.
+
+```{r}
+summary(mydata$smoker)
+```
+
+There are `r summary(mydata$smoker)[2]` smokers in the data set. Similarly, we can count the number of students for each categories in `grades` column as follows:
+
+```{r}
+summary(mydata$grades)
+```
+
+## Make a two way table
+
+Now, we want to consider the two variables at the same time. For example, we want to figure out distribution of smoker based on the school grades. In this case, we need to count them for each possible combination:
+
+```{r}
+twoway_table <- table(Grades = mydata$grades, 
+                      Smokes = mydata$smoker)
+twoway_table
+```
+
+Let us calculate the total.
+
+```{r}
+addmargins(twoway_table)
+```
+
+## Visualization
+
+```{r}
+barplot(twoway_table,
+        main = "Distribution of school grades for smoking status",
+        beside = T,
+        legend = T, xlim = c(1, 13))
+
+```
+
+```{r}
+twoway_table2 <- table(Smokes = mydata$smoker,
+                       Grades = mydata$grades)
+addmargins(twoway_table2)
+```
+
+```{r}
+barplot(twoway_table2,
+        main = "Smoking status by school grades",
+        beside = T,
+        legend = T, xlim = c(1, 13))
+```
+
+## Marginal distribution
+
+```{r}
+summary(mydata$smoker) / length(mydata$smoker)
+summary(mydata$grades) / length(mydata$grades)
+```
+
+
+### Conditional distribution
+
+```{r}
+addmargins(prop.table(twoway_table, 1))
+```
+
+```{r}
+addmargins(prop.table(twoway_table, 2))
+```
+
+
+```{r}
+addmargins(prop.table(twoway_table))
+```
+
+## Make a table directly
+
+```{r}
+video_vs_grades <- matrix(c(736, 450, 193,
+                            205, 144, 80),
+                          ncol=3, byrow=TRUE)
+colnames(video_vs_grades) <- c("A and B", "C", "D and F")
+rownames(video_vs_grades) <- c("Played", "Never Played")
+video_vs_grades <- as.table(video_vs_grades)
+video_vs_grades
+```
+
+
+<a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a>
+
+

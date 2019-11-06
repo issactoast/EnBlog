@@ -17,11 +17,10 @@
       
     
   
-  <meta name="description" content="SummaryHere is the code that we used for the regression summary discussion.
-# make datasetmydata &lt;- data.frame(kneeh = c(57.7, 47.4,43.5,44.8,55.2,54.6),height = c(192.1,153.3,146.4,162.7,169.1,177.8))# regressionmodel1 &lt;- lm(height ~ kneeh, mydata)# regression objectsmodel1$coefficients## (Intercept) kneeh ## 42.932609 2.453181model1$residuals # 2## 1 2 3 4 5 6 ## 7.6188726 -5.9133676 -3.2459633 9.8649019 -9.2481760 0.9237324model1$df.residual## [1] 4model1$fitted.values # 1## 1 2 3 4 5 6 ## 184.">
+  <meta name="description" content="Two way tableMaking a data set (Optional)set.seed(1234)# make datasetmydata &lt;- data.frame(smoker = sample(c(&quot;yes&quot;, &quot;no&quot;), 300, replace = TRUE),grades = sample(c(&quot;freshman&quot;, &quot;sophomore&quot;, &quot;junior&quot;, &quot;senior&quot;),300, replace = TRUE))# check the datahead(mydata)## smoker grades## 1 yes sophomore## 2 no senior## 3 no junior## 4 no sophomore## 5 no senior## 6 no sophomoreAs we can see, the data set consists of two columns smoker and grades.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/stat2010-week9/">
+  <link rel="alternate" hreflang="en-us" href="/post/stat2010-week11/">
 
   
 
@@ -68,25 +67,24 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/stat2010-week9/">
+  <link rel="canonical" href="/post/stat2010-week11/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Issac Lee">
-  <meta property="og:url" content="/post/stat2010-week9/">
-  <meta property="og:title" content="Week 9 - Regression summary | Issac Lee">
-  <meta property="og:description" content="SummaryHere is the code that we used for the regression summary discussion.
-# make datasetmydata &lt;- data.frame(kneeh = c(57.7, 47.4,43.5,44.8,55.2,54.6),height = c(192.1,153.3,146.4,162.7,169.1,177.8))# regressionmodel1 &lt;- lm(height ~ kneeh, mydata)# regression objectsmodel1$coefficients## (Intercept) kneeh ## 42.932609 2.453181model1$residuals # 2## 1 2 3 4 5 6 ## 7.6188726 -5.9133676 -3.2459633 9.8649019 -9.2481760 0.9237324model1$df.residual## [1] 4model1$fitted.values # 1## 1 2 3 4 5 6 ## 184."><meta property="og:image" content="/img/headers/stat2010_wide.png">
+  <meta property="og:url" content="/post/stat2010-week11/">
+  <meta property="og:title" content="Week 11 - Two way table | Issac Lee">
+  <meta property="og:description" content="Two way tableMaking a data set (Optional)set.seed(1234)# make datasetmydata &lt;- data.frame(smoker = sample(c(&quot;yes&quot;, &quot;no&quot;), 300, replace = TRUE),grades = sample(c(&quot;freshman&quot;, &quot;sophomore&quot;, &quot;junior&quot;, &quot;senior&quot;),300, replace = TRUE))# check the datahead(mydata)## smoker grades## 1 yes sophomore## 2 no senior## 3 no junior## 4 no sophomore## 5 no senior## 6 no sophomoreAs we can see, the data set consists of two columns smoker and grades."><meta property="og:image" content="/img/headers/stat2010_wide.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-10-28T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-11-05T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-10-28T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2019-11-05T00:00:00&#43;00:00">
   
 
-  <title>Week 9 - Regression summary | Issac Lee</title>
+  
+
+  <title>Week 11 - Two way table | Issac Lee</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -254,7 +252,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Week 9 - Regression summary</h1>
+    <h1 itemprop="name">Week 11 - Two way table</h1>
 
     
 
@@ -262,8 +260,8 @@
 
   <span class="article-date">
     
-    <time datetime="2019-10-28 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Oct 28, 2019
+    <time datetime="2019-11-05 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Nov 5, 2019
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -273,14 +271,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/stat2010-week9/#disqus_thread"></a>
+  <a href="/post/stat2010-week11/#disqus_thread"></a>
   
 
   
@@ -303,35 +301,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Week%209%20-%20Regression%20summary&amp;url=%2fpost%2fstat2010-week9%2f"
+         href="https://twitter.com/intent/tweet?text=Week%2011%20-%20Two%20way%20table&amp;url=%2fpost%2fstat2010-week11%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat2010-week9%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat2010-week11%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat2010-week9%2f&amp;title=Week%209%20-%20Regression%20summary"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat2010-week11%2f&amp;title=Week%2011%20-%20Two%20way%20table"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat2010-week9%2f&amp;title=Week%209%20-%20Regression%20summary"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat2010-week11%2f&amp;title=Week%2011%20-%20Two%20way%20table"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Week%209%20-%20Regression%20summary&amp;body=%2fpost%2fstat2010-week9%2f">
+         href="mailto:?subject=Week%2011%20-%20Two%20way%20table&amp;body=%2fpost%2fstat2010-week11%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -345,58 +343,129 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <div id="summary" class="section level2">
-<h2>Summary</h2>
-<p>Here is the code that we used for the regression summary discussion.</p>
-<pre class="r"><code># make dataset
+      <div id="two-way-table" class="section level2">
+<h2>Two way table</h2>
+<div id="making-a-data-set-optional" class="section level3">
+<h3>Making a data set (Optional)</h3>
+<pre class="r"><code>set.seed(1234)
+
+# make dataset
 mydata &lt;- data.frame(
-  kneeh  = c(57.7, 47.4,43.5,44.8,55.2,54.6),
-  height = c(192.1,153.3,146.4,162.7,169.1,177.8)
+  smoker  = sample(c(&quot;yes&quot;, &quot;no&quot;), 300, replace = TRUE),
+  grades  = sample(c(&quot;freshman&quot;, &quot;sophomore&quot;, &quot;junior&quot;, &quot;senior&quot;),
+                 300, replace = TRUE)
 )
 
-# regression
-model1 &lt;- lm(height ~ kneeh, mydata)
-
-# regression objects
-model1$coefficients</code></pre>
-<pre><code>## (Intercept)       kneeh 
-##   42.932609    2.453181</code></pre>
-<pre class="r"><code>model1$residuals # 2</code></pre>
-<pre><code>##          1          2          3          4          5          6 
-##  7.6188726 -5.9133676 -3.2459633  9.8649019 -9.2481760  0.9237324</code></pre>
-<pre class="r"><code>model1$df.residual</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>model1$fitted.values # 1</code></pre>
-<pre><code>##        1        2        3        4        5        6 
-## 184.4811 159.2134 149.6460 152.8351 178.3482 176.8763</code></pre>
+# check the data
+head(mydata)</code></pre>
+<pre><code>##   smoker    grades
+## 1    yes sophomore
+## 2     no    senior
+## 3     no    junior
+## 4     no sophomore
+## 5     no    senior
+## 6     no sophomore</code></pre>
+<p>As we can see, the data set consists of two columns <code>smoker</code> and <code>grades</code>. In the smoker columns, there are two unique values; “yes” or “no”. In the grades columns, there are four unique values; “freshman”, “sophomore”, “junior”, “senior”. Let us counts how many smokers in the data set.</p>
+<pre class="r"><code>summary(mydata$smoker)</code></pre>
+<pre><code>##  no yes 
+## 149 151</code></pre>
+<p>There are 151 smokers in the data set. Similarly, we can count the number of students for each categories in <code>grades</code> column as follows:</p>
+<pre class="r"><code>summary(mydata$grades)</code></pre>
+<pre><code>##  freshman    junior    senior sophomore 
+##        66        82        87        65</code></pre>
 </div>
-<div id="add-regression-line" class="section level2">
-<h2>Add regression line</h2>
-<p>Your code become compact by using ‘with’ command as follows;</p>
-<pre class="r"><code># For plotting
-# the following two lines of code are same;
-# plot(mydata$kneeh, mydata$height)
-# with(mydata, plot(kneeh, height)) 
-
-# Add reg. line
-# the following three lines are the same meaning
-# abline(model1$coefficients[1], model1$coefficients[2])
-# with(model1, abline(coefficients[1], coefficients[2]))
-# with(model1, abline(coefficients))</code></pre>
-<p>Thus, final code could be as follows;</p>
-<pre class="r"><code># plot &amp; add reg. line
-with(mydata, plot(kneeh, height))
-with(model1, abline(coefficients))</code></pre>
-<p><img src="/post/stat2010-week9_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
-<div id="prediction-for-the-new-data" class="section level2">
-<h2>Prediction for the new data</h2>
-<p>We need to use dataframe to use <code>prediction</code> function, otherwise we can use the formula.</p>
-<pre class="r"><code># prediction
-new_x &lt;- data.frame(kneeh = c(50, 52, 47.7, 55))
-predict(model1, newdata = new_x)</code></pre>
-<pre><code>##        1        2        3        4 
-## 165.5916 170.4980 159.9493 177.8575</code></pre>
+<div id="make-a-two-way-table" class="section level2">
+<h2>Make a two way table</h2>
+<p>Now, we want to consider the two variables at the same time. For example, we want to figure out distribution of smoker based on the school grades. In this case, we need to count them for each possible combination:</p>
+<pre class="r"><code>twoway_table &lt;- table(Grades = mydata$grades, 
+                      Smokes = mydata$smoker)
+twoway_table</code></pre>
+<pre><code>##            Smokes
+## Grades      no yes
+##   freshman  32  34
+##   junior    44  38
+##   senior    40  47
+##   sophomore 33  32</code></pre>
+<p>Let us calculate the total.</p>
+<pre class="r"><code>addmargins(twoway_table)</code></pre>
+<pre><code>##            Smokes
+## Grades       no yes Sum
+##   freshman   32  34  66
+##   junior     44  38  82
+##   senior     40  47  87
+##   sophomore  33  32  65
+##   Sum       149 151 300</code></pre>
+</div>
+<div id="visualization" class="section level2">
+<h2>Visualization</h2>
+<pre class="r"><code>barplot(twoway_table,
+        main = &quot;Distribution of school grades for smoking status&quot;,
+        beside = T,
+        legend = T, xlim = c(1, 13))</code></pre>
+<p><img src="/post/stat2010-week11_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>twoway_table2 &lt;- table(Smokes = mydata$smoker,
+                       Grades = mydata$grades)
+addmargins(twoway_table2)</code></pre>
+<pre><code>##       Grades
+## Smokes freshman junior senior sophomore Sum
+##    no        32     44     40        33 149
+##    yes       34     38     47        32 151
+##    Sum       66     82     87        65 300</code></pre>
+<pre class="r"><code>barplot(twoway_table2,
+        main = &quot;Smoking status by school grades&quot;,
+        beside = T,
+        legend = T, xlim = c(1, 13))</code></pre>
+<p><img src="/post/stat2010-week11_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="marginal-distribution" class="section level2">
+<h2>Marginal distribution</h2>
+<pre class="r"><code>summary(mydata$smoker) / length(mydata$smoker)</code></pre>
+<pre><code>##        no       yes 
+## 0.4966667 0.5033333</code></pre>
+<pre class="r"><code>summary(mydata$grades) / length(mydata$grades)</code></pre>
+<pre><code>##  freshman    junior    senior sophomore 
+## 0.2200000 0.2733333 0.2900000 0.2166667</code></pre>
+<div id="conditional-distribution" class="section level3">
+<h3>Conditional distribution</h3>
+<pre class="r"><code>addmargins(prop.table(twoway_table, 1))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.4848485 0.5151515 1.0000000
+##   junior    0.5365854 0.4634146 1.0000000
+##   senior    0.4597701 0.5402299 1.0000000
+##   sophomore 0.5076923 0.4923077 1.0000000
+##   Sum       1.9888963 2.0111037 4.0000000</code></pre>
+<pre class="r"><code>addmargins(prop.table(twoway_table, 2))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.2147651 0.2251656 0.4399307
+##   junior    0.2953020 0.2516556 0.5469576
+##   senior    0.2684564 0.3112583 0.5797147
+##   sophomore 0.2214765 0.2119205 0.4333970
+##   Sum       1.0000000 1.0000000 2.0000000</code></pre>
+<pre class="r"><code>addmargins(prop.table(twoway_table))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.1066667 0.1133333 0.2200000
+##   junior    0.1466667 0.1266667 0.2733333
+##   senior    0.1333333 0.1566667 0.2900000
+##   sophomore 0.1100000 0.1066667 0.2166667
+##   Sum       0.4966667 0.5033333 1.0000000</code></pre>
+</div>
+</div>
+<div id="make-a-table-directly" class="section level2">
+<h2>Make a table directly</h2>
+<pre class="r"><code>video_vs_grades &lt;- matrix(c(736, 450, 193,
+                            205, 144, 80),
+                          ncol=3, byrow=TRUE)
+colnames(video_vs_grades) &lt;- c(&quot;A and B&quot;, &quot;C&quot;, &quot;D and F&quot;)
+rownames(video_vs_grades) &lt;- c(&quot;Played&quot;, &quot;Never Played&quot;)
+video_vs_grades &lt;- as.table(video_vs_grades)
+video_vs_grades</code></pre>
+<pre><code>##              A and B   C D and F
+## Played           736 450     193
+## Never Played     205 144      80</code></pre>
 <p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
 </div>
 
@@ -423,6 +492,8 @@ predict(model1, newdata = new_x)</code></pre>
       <h3>Related</h3>
       <ul>
         
+        <li><a href="/post/stat2010-week9/">Week 9 - Regression summary</a></li>
+        
         <li><a href="/post/stat2010-week8/">Week 8 - Correlation and Regression</a></li>
         
         <li><a href="/post/stat2010-week6/">Week 6 - Normal distribution 2</a></li>
@@ -430,8 +501,6 @@ predict(model1, newdata = new_x)</code></pre>
         <li><a href="/post/stat2010-week7/">Week 7 - Understanding the regression line</a></li>
         
         <li><a href="/post/stat2010-week5/">Week 5 - Normal distribution 1</a></li>
-        
-        <li><a href="/post/stat2010-week4/">Week 4 - Write your own function and Data manipulation</a></li>
         
       </ul>
     </div>

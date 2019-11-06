@@ -1,0 +1,143 @@
+---
+title: 'Week 11 - Two way table'
+author: Issac Lee
+date: '2019-11-05'
+slug: stat2010-week11
+categories:
+  - R
+tags:
+  - stat2010
+  - stat4200
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat2010_wide.png'
+  preview: yes
+---
+
+
+
+<div id="two-way-table" class="section level2">
+<h2>Two way table</h2>
+<div id="making-a-data-set-optional" class="section level3">
+<h3>Making a data set (Optional)</h3>
+<pre class="r"><code>set.seed(1234)
+
+# make dataset
+mydata &lt;- data.frame(
+  smoker  = sample(c(&quot;yes&quot;, &quot;no&quot;), 300, replace = TRUE),
+  grades  = sample(c(&quot;freshman&quot;, &quot;sophomore&quot;, &quot;junior&quot;, &quot;senior&quot;),
+                 300, replace = TRUE)
+)
+
+# check the data
+head(mydata)</code></pre>
+<pre><code>##   smoker    grades
+## 1    yes sophomore
+## 2     no    senior
+## 3     no    junior
+## 4     no sophomore
+## 5     no    senior
+## 6     no sophomore</code></pre>
+<p>As we can see, the data set consists of two columns <code>smoker</code> and <code>grades</code>. In the smoker columns, there are two unique values; “yes” or “no”. In the grades columns, there are four unique values; “freshman”, “sophomore”, “junior”, “senior”. Let us counts how many smokers in the data set.</p>
+<pre class="r"><code>summary(mydata$smoker)</code></pre>
+<pre><code>##  no yes 
+## 149 151</code></pre>
+<p>There are 151 smokers in the data set. Similarly, we can count the number of students for each categories in <code>grades</code> column as follows:</p>
+<pre class="r"><code>summary(mydata$grades)</code></pre>
+<pre><code>##  freshman    junior    senior sophomore 
+##        66        82        87        65</code></pre>
+</div>
+</div>
+<div id="make-a-two-way-table" class="section level2">
+<h2>Make a two way table</h2>
+<p>Now, we want to consider the two variables at the same time. For example, we want to figure out distribution of smoker based on the school grades. In this case, we need to count them for each possible combination:</p>
+<pre class="r"><code>twoway_table &lt;- table(Grades = mydata$grades, 
+                      Smokes = mydata$smoker)
+twoway_table</code></pre>
+<pre><code>##            Smokes
+## Grades      no yes
+##   freshman  32  34
+##   junior    44  38
+##   senior    40  47
+##   sophomore 33  32</code></pre>
+<p>Let us calculate the total.</p>
+<pre class="r"><code>addmargins(twoway_table)</code></pre>
+<pre><code>##            Smokes
+## Grades       no yes Sum
+##   freshman   32  34  66
+##   junior     44  38  82
+##   senior     40  47  87
+##   sophomore  33  32  65
+##   Sum       149 151 300</code></pre>
+</div>
+<div id="visualization" class="section level2">
+<h2>Visualization</h2>
+<pre class="r"><code>barplot(twoway_table,
+        main = &quot;Distribution of school grades for smoking status&quot;,
+        beside = T,
+        legend = T, xlim = c(1, 13))</code></pre>
+<p><img src="/post/stat2010-week11_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>twoway_table2 &lt;- table(Smokes = mydata$smoker,
+                       Grades = mydata$grades)
+addmargins(twoway_table2)</code></pre>
+<pre><code>##       Grades
+## Smokes freshman junior senior sophomore Sum
+##    no        32     44     40        33 149
+##    yes       34     38     47        32 151
+##    Sum       66     82     87        65 300</code></pre>
+<pre class="r"><code>barplot(twoway_table2,
+        main = &quot;Smoking status by school grades&quot;,
+        beside = T,
+        legend = T, xlim = c(1, 13))</code></pre>
+<p><img src="/post/stat2010-week11_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="marginal-distribution" class="section level2">
+<h2>Marginal distribution</h2>
+<pre class="r"><code>summary(mydata$smoker) / length(mydata$smoker)</code></pre>
+<pre><code>##        no       yes 
+## 0.4966667 0.5033333</code></pre>
+<pre class="r"><code>summary(mydata$grades) / length(mydata$grades)</code></pre>
+<pre><code>##  freshman    junior    senior sophomore 
+## 0.2200000 0.2733333 0.2900000 0.2166667</code></pre>
+<div id="conditional-distribution" class="section level3">
+<h3>Conditional distribution</h3>
+<pre class="r"><code>addmargins(prop.table(twoway_table, 1))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.4848485 0.5151515 1.0000000
+##   junior    0.5365854 0.4634146 1.0000000
+##   senior    0.4597701 0.5402299 1.0000000
+##   sophomore 0.5076923 0.4923077 1.0000000
+##   Sum       1.9888963 2.0111037 4.0000000</code></pre>
+<pre class="r"><code>addmargins(prop.table(twoway_table, 2))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.2147651 0.2251656 0.4399307
+##   junior    0.2953020 0.2516556 0.5469576
+##   senior    0.2684564 0.3112583 0.5797147
+##   sophomore 0.2214765 0.2119205 0.4333970
+##   Sum       1.0000000 1.0000000 2.0000000</code></pre>
+<pre class="r"><code>addmargins(prop.table(twoway_table))</code></pre>
+<pre><code>##            Smokes
+## Grades             no       yes       Sum
+##   freshman  0.1066667 0.1133333 0.2200000
+##   junior    0.1466667 0.1266667 0.2733333
+##   senior    0.1333333 0.1566667 0.2900000
+##   sophomore 0.1100000 0.1066667 0.2166667
+##   Sum       0.4966667 0.5033333 1.0000000</code></pre>
+</div>
+</div>
+<div id="make-a-table-directly" class="section level2">
+<h2>Make a table directly</h2>
+<pre class="r"><code>video_vs_grades &lt;- matrix(c(736, 450, 193,
+                            205, 144, 80),
+                          ncol=3, byrow=TRUE)
+colnames(video_vs_grades) &lt;- c(&quot;A and B&quot;, &quot;C&quot;, &quot;D and F&quot;)
+rownames(video_vs_grades) &lt;- c(&quot;Played&quot;, &quot;Never Played&quot;)
+video_vs_grades &lt;- as.table(video_vs_grades)
+video_vs_grades</code></pre>
+<pre><code>##              A and B   C D and F
+## Played           736 450     193
+## Never Played     205 144      80</code></pre>
+<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
+</div>
