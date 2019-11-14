@@ -11,6 +11,52 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Week 12 - Basic probability</title>
+      <link>/post/stat1010-week12/</link>
+      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week12/</guid>
+      <description>&lt;div id=&#34;problem-1.-sample-spaces&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Problem 1. Sample spaces&lt;/h3&gt;
+&lt;p&gt;For each of the following, list the possible outcomes and tell whether you think the events are equally likely&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Roll one die, recore the numbers that you have.&lt;/li&gt;
+&lt;li&gt;Roll two dice, recore the sum of the numbers.&lt;/li&gt;
+&lt;li&gt;Toss four coins, recore the number of tails.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;problem-2.-dice&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Problem 2. Dice&lt;/h3&gt;
+&lt;p&gt;Let us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Find the chance that the die shows three spot.&lt;/li&gt;
+&lt;li&gt;Find the chance that the number on the die is less than two.&lt;/li&gt;
+&lt;li&gt;Find the chance that the number on the die is larger than two.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;My your friend gave you a white die to you. Now you have thrown a pair of dice.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Find the chance that both dice show three spot.&lt;/li&gt;
+&lt;li&gt;Find the chance that the numbers on the dice are the same.&lt;/li&gt;
+&lt;li&gt;Find the chance that the number on the black die is larger than the one on the white die.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;problem-3.-eletronics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Problem 3. Eletronics&lt;/h3&gt;
+&lt;p&gt;Suppose that 38% of families living in a certain country own a computer and 52% own an HDTV. The Addition Rule might suggest, then, that 90% of families own either a computer or an HDTV. What’s wrong with that reasoning?&lt;/p&gt;
+&lt;p&gt;It turns out that there are 21% of families own an HDTV and a computer.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Draw the Venn diagram for this situation.&lt;/li&gt;
+&lt;li&gt;What’s the probability that a randomly selected family has a HDTV but no computer?&lt;/li&gt;
+&lt;li&gt;What’s the probability that a randomly selected family has a HDTV, or a computer?&lt;/li&gt;
+&lt;li&gt;What’s the probability that a randomly selected family has a HDTV, or a computer, but not both?&lt;/li&gt;
+&lt;li&gt;What’s the probability that a randomly selected family has neither a HDTV nor a computer?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Week 11 - Two way table</title>
       <link>/post/stat2010-week11/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
@@ -14227,74 +14273,6 @@ pie(mytable,
 &lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat2010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Week 3(STAT:1010) - Data type and errors</title>
-      <link>/post/stat1010-week3/</link>
-      <pubDate>Thu, 12 Sep 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/post/stat1010-week3/</guid>
-      <description>
-
-&lt;h2 id=&#34;problem-1-data-types&#34;&gt;Problem 1 (Data types)&lt;/h2&gt;
-
-&lt;p&gt;Definitions:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Qualitative data&lt;/strong&gt;: values that can be placed into nonnumerical categories.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Nominal&lt;/em&gt; level of measurement - No ranking!&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Ordianl&lt;/em&gt; level of measurement - It has ranking system!&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Quantitative data&lt;/strong&gt;: values representing counts or measurments&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Countinuous&lt;/em&gt; data takes any value in a given interval.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Discrete&lt;/em&gt; data can take on only particular, distinct values and not other values in between.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Classify each of the following data as qualitative or quantitative.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ice cream brands in Hyvee.&lt;/li&gt;
-&lt;li&gt;Heights of U of Iowa students&lt;/li&gt;
-&lt;li&gt;Your final grade of this course&lt;/li&gt;
-&lt;li&gt;Favarite ice cream flavors of students in this class&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;problem-2-size-of-the-errors&#34;&gt;Problem 2 (Size of the errors)&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Absolute error&lt;/strong&gt;: how far a claimed or measured value lies from the true value.&lt;/p&gt;
-
-&lt;p&gt;Absolute error = measured value - true value&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Relative error&lt;/strong&gt;: comparing the size of the absolute error to the true value.&lt;/p&gt;
-
-&lt;p&gt;Relative error = abs. error / true value * 100&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Could you tell me the example about these two error? Here is mine;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;I ordered a food which cost $12 in a restaurant, but server charged my $10 by mistake;
-
-- Absolute error? and Relative error?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;accuracy-vs-precision&#34;&gt;Accuracy vs. Precision&lt;/h2&gt;
-
-&lt;p&gt;Accuracy: how closely a measurement approximates a true value.&lt;/p&gt;
-
-&lt;p&gt;Precision: the amount of detail in a measurement.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://theissaclee.com/post/stat1010/&#34; target=&#34;_self&#34;&gt;Return to the course page&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

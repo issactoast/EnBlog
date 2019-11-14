@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week 12 - Basic probability</title>
+      <link>/post/stat1010-week12/</link>
+      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/stat1010-week12/</guid>
+      <description>Problem 1. Sample spacesFor each of the following, list the possible outcomes and tell whether you think the events are equally likely
+Roll one die, recore the numbers that you have.Roll two dice, recore the sum of the numbers.Toss four coins, recore the number of tails.Problem 2. DiceLet us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number.</description>
+    </item>
     
     <item>
       <title>Week 11 - Two way table</title>

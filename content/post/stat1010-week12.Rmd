@@ -1,0 +1,55 @@
+---
+title: 'Week 12 - Basic probability'
+author: Issac Lee
+date: '2019-11-14'
+slug: stat1010-week12
+categories:
+  - R
+tags:
+  - stat1010
+header:
+  caption: 'Image credit: [UIowaStat](https://stat.uiowa.edu/)'
+  image: 'headers/stat1010_wide.jpg'
+  preview: yes
+---
+
+### Problem 1. Sample spaces
+
+For each of the following, list the possible outcomes and tell whether you think the events are equally likely
+
+1. Roll one die, recore the numbers that you have.
+1. Roll two dice, recore the sum of the numbers.
+1. Toss four coins, recore the number of tails.
+
+
+### Problem 2. Dice
+
+Let us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number.
+
+1. Find the chance that the die shows three spot.
+1. Find the chance that the number on the die is less than two.
+1. Find the chance that the number on the die is larger than two.
+    
+My your friend gave you a white die to you. Now you have thrown a pair of dice.
+
+1. Find the chance that both dice show three spot.
+1. Find the chance that the numbers on the dice are the same.
+1. Find the chance that the number on the black die is larger than the one on the white die.
+    
+
+### Problem 3. Eletronics
+
+Suppose that 38% of families living in a certain country own a computer and 52% own an HDTV. The Addition Rule might suggest, then, that 90% of families own either a computer or an HDTV. What's wrong with that reasoning? 
+
+It turns out that there are 21% of families own an HDTV and a computer.
+
+1. Draw the Venn diagram for this situation.
+1. What's the probability that a randomly selected family has a HDTV but no computer?
+1. What's the probability that a randomly selected family has a HDTV, or a computer?
+1. What's the probability that a randomly selected family has a HDTV, or a computer, but not both?
+1. What's the probability that a randomly selected family has neither a HDTV nor a computer?
+
+
+<a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a>
+
+

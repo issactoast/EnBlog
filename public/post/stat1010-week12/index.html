@@ -17,10 +17,11 @@
       
     
   
-  <meta name="description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results.">
+  <meta name="description" content="Problem 1. Sample spacesFor each of the following, list the possible outcomes and tell whether you think the events are equally likely
+Roll one die, recore the numbers that you have.Roll two dice, recore the sum of the numbers.Toss four coins, recore the number of tails.Problem 2. DiceLet us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/stat2010-week2/">
+  <link rel="alternate" hreflang="en-us" href="/post/stat1010-week12/">
 
   
 
@@ -67,24 +68,25 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/stat2010-week2/">
+  <link rel="canonical" href="/post/stat1010-week12/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Issac Lee">
-  <meta property="og:url" content="/post/stat2010-week2/">
-  <meta property="og:title" content="Week 2 - Data visualization | Issac Lee">
-  <meta property="og:description" content="Data loading againmydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)head(mydata)## class std_id midterm1 midterm2 final X X.1## 1 1 1 70 51 67 NA 1## 2 1 2 78 66 66 NA NA## 3 1 3 80 71 67 NA NA## 4 1 4 75 67 70 NA NA## 5 1 5 73 56 81 NA NA## 6 1 6 89 60 69 NA NAIf you success to load R file, you can see the above results."><meta property="og:image" content="/img/headers/stat2010_wide.png">
+  <meta property="og:url" content="/post/stat1010-week12/">
+  <meta property="og:title" content="Week 12 - Basic probability | Issac Lee">
+  <meta property="og:description" content="Problem 1. Sample spacesFor each of the following, list the possible outcomes and tell whether you think the events are equally likely
+Roll one die, recore the numbers that you have.Roll two dice, recore the sum of the numbers.Toss four coins, recore the number of tails.Problem 2. DiceLet us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number."><meta property="og:image" content="/img/headers/stat1010_wide.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-09-05T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-11-14T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-09-05T00:00:00&#43;00:00">
-  
-
+  <meta property="article:modified_time" content="2019-11-14T00:00:00&#43;00:00">
   
 
-  <title>Week 2 - Data visualization | Issac Lee</title>
+  
+
+  <title>Week 12 - Basic probability | Issac Lee</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -243,7 +245,7 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/stat2010_wide.png" class="article-banner" itemprop="image">
+    <img src="/img/headers/stat1010_wide.jpg" class="article-banner" itemprop="image">
   
 
   <span class="article-header-caption">Image credit: <a href="https://stat.uiowa.edu/" target="_blank">UIowaStat</a></span>
@@ -252,7 +254,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Week 2 - Data visualization</h1>
+    <h1 itemprop="name">Week 12 - Basic probability</h1>
 
     
 
@@ -260,8 +262,8 @@
 
   <span class="article-date">
     
-    <time datetime="2019-09-05 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Sep 5, 2019
+    <time datetime="2019-11-14 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Nov 14, 2019
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -271,14 +273,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    2 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/post/stat2010-week2/#disqus_thread"></a>
+  <a href="/post/stat1010-week12/#disqus_thread"></a>
   
 
   
@@ -301,35 +303,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=Week%202%20-%20Data%20visualization&amp;url=%2fpost%2fstat2010-week2%2f"
+         href="https://twitter.com/intent/tweet?text=Week%2012%20-%20Basic%20probability&amp;url=%2fpost%2fstat1010-week12%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat2010-week2%2f"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2fstat1010-week12%2f"
          target="_blank" rel="noopener">
         <i class="fa fa-facebook"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat2010-week2%2f&amp;title=Week%202%20-%20Data%20visualization"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2fstat1010-week12%2f&amp;title=Week%2012%20-%20Basic%20probability"
          target="_blank" rel="noopener">
         <i class="fa fa-linkedin"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat2010-week2%2f&amp;title=Week%202%20-%20Data%20visualization"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2fstat1010-week12%2f&amp;title=Week%2012%20-%20Basic%20probability"
          target="_blank" rel="noopener">
         <i class="fa fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=Week%202%20-%20Data%20visualization&amp;body=%2fpost%2fstat2010-week2%2f">
+         href="mailto:?subject=Week%2012%20-%20Basic%20probability&amp;body=%2fpost%2fstat1010-week12%2f">
         <i class="fa fa-envelope"></i>
       </a>
     </li>
@@ -343,129 +345,42 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <div id="data-loading-again" class="section level1">
-<h1>Data loading again</h1>
-<pre class="r"><code>mydata &lt;- read.csv(&quot;https://raw.githubusercontent.com/issactoast/EnBlog/master/static/files/stat2010/examscore.csv&quot;, header = TRUE)
-head(mydata)</code></pre>
-<pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1
-## 2     1      2       78       66    66 NA  NA
-## 3     1      3       80       71    67 NA  NA
-## 4     1      4       75       67    70 NA  NA
-## 5     1      5       73       56    81 NA  NA
-## 6     1      6       89       60    69 NA  NA</code></pre>
-<p>If you success to load R file, you can see the above results.</p>
+      <div id="problem-1.-sample-spaces" class="section level3">
+<h3>Problem 1. Sample spaces</h3>
+<p>For each of the following, list the possible outcomes and tell whether you think the events are equally likely</p>
+<ol style="list-style-type: decimal">
+<li>Roll one die, recore the numbers that you have.</li>
+<li>Roll two dice, recore the sum of the numbers.</li>
+<li>Toss four coins, recore the number of tails.</li>
+</ol>
 </div>
-<div id="data-visualization" class="section level1">
-<h1>Data visualization</h1>
-<div id="access-to-the-colums-of-your-data" class="section level2">
-<h2>Access to the colums of your data</h2>
-<p>You can use <code>$</code> to indicate the colum that you want to access.</p>
-<pre class="r"><code>mydata$midterm1</code></pre>
-<pre><code>##  [1] 70 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73</code></pre>
-<p>The bracket <code>[]</code> works too.</p>
-<pre class="r"><code>mydata[,3]</code></pre>
-<pre><code>##  [1] 70 78 80 75 73 89 83 73 76 74 90 86 78 82 77 77 76 77 88 79 80 81 86
-## [24] 77 75 88 77 76 73 73</code></pre>
-<pre class="r"><code>mydata[1,] # the data related to the first student in the list</code></pre>
-<pre><code>##   class std_id midterm1 midterm2 final  X X.1
-## 1     1      1       70       51    67 NA   1</code></pre>
+<div id="problem-2.-dice" class="section level3">
+<h3>Problem 2. Dice</h3>
+<p>Let us assume that we have thrown a fair die whose color is black. A fair dice means that it has an equal probability of having each number.</p>
+<ol style="list-style-type: decimal">
+<li>Find the chance that the die shows three spot.</li>
+<li>Find the chance that the number on the die is less than two.</li>
+<li>Find the chance that the number on the die is larger than two.</li>
+</ol>
+<p>My your friend gave you a white die to you. Now you have thrown a pair of dice.</p>
+<ol style="list-style-type: decimal">
+<li>Find the chance that both dice show three spot.</li>
+<li>Find the chance that the numbers on the dice are the same.</li>
+<li>Find the chance that the number on the black die is larger than the one on the white die.</li>
+</ol>
 </div>
-<div id="draw-a-pie-chart-using-table-function" class="section level2">
-<h2>Draw a pie chart using <code>table</code> function</h2>
-<p>To draw a pie chart, we need to count how many of data points we have for each category.</p>
-<pre class="r"><code>mytable &lt;- table(mydata$class)
-mytable</code></pre>
-<pre><code>## 
-##  1  2  3 
-## 10 10 10</code></pre>
-<pre class="r"><code>names(mytable)</code></pre>
-<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<p>We can use the name of table as the categories itself in pie chart.</p>
-<pre class="r"><code>pie(mytable, 
-    labels = names(mytable),
-    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Or, we can define our own name set as follows;</p>
-<pre class="r"><code>pie(mytable, 
-    labels = c(&quot;Class 1&quot;, &quot;Class 2&quot;, &quot;Class 3&quot;),
-    main=&quot;Pie Chart of the class variable&quot;)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-</div>
-<div id="stem-and-leaf-plot" class="section level2">
-<h2>Stem and leaf plot</h2>
-<p>There is a function called <code>stem</code> for drawing a stem and leaf plot.</p>
-<pre class="r"><code>stem(mydata$midterm2)</code></pre>
-<pre><code>## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 122222344
-##   5 | 68889
-##   6 | 02344
-##   6 | 678
-##   7 | 14
-##   7 | 99</code></pre>
-<p>This stem and leaf plot has 5 as a unit lenght. Let’s make it as 10 for the unit step. Using scale option,</p>
-<pre class="r"><code>stem(mydata$midterm2, scale = 0.5)</code></pre>
-<pre><code>## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##   4 | 6689
-##   5 | 12222234468889
-##   6 | 02344678
-##   7 | 1499</code></pre>
-</div>
-<div id="histogram" class="section level2">
-<h2>Histogram</h2>
-<pre class="r"><code>hist(mydata$midterm2)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>We can make a custom breaks as follows;</p>
-<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10) # or
-hist(mydata$midterm2, breaks= c(40, 50, 60, 70, 80))</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<pre class="r"><code>hist(mydata$midterm2, breaks= c(4:8)*10,
-     xlab = &quot;Midterm 2 score&quot;,
-     main = &quot;Histogram of midterm 2 scores&quot;)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<p>Using <code>mean</code> and <code>median</code>, you can describe the characteristics of the distribution as follows;</p>
-<pre class="r"><code>mean(mydata$midterm2)</code></pre>
-<pre><code>## [1] 58.9</code></pre>
-<pre class="r"><code>median(mydata$midterm2)</code></pre>
-<pre><code>## [1] 58</code></pre>
-</div>
-<div id="scatter-plot" class="section level2">
-<h2>Scatter plot</h2>
-<pre class="r"><code>plot(mydata$midterm1, mydata$midterm2)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p><code>lm</code> function name stands for ‘linear model’, which is a statistical concept including the linear regression. By using <code>lm</code> function, we can obtain a lot of information about the regression analysis as follows;</p>
-<pre class="r"><code>x &lt;- mydata$midterm1
-y &lt;- mydata$midterm2
-result &lt;- lm(y~x)
-result</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = y ~ x)
-## 
-## Coefficients:
-## (Intercept)            x  
-##     -7.7348       0.8445</code></pre>
-<pre class="r"><code>plot(x, y)
-points(x, result$fitted.values,
-       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>When you draw a plot, it is important to set the same scale for x and y variables. <code>xlim</code> and <code>ylim</code> options in <code>plot</code> function allow us to set the range for each axis.</p>
-<pre class="r"><code>plot(x, y,
-     xlim = c(60, 100), ylim = c(40, 80),
-     xlab = &quot;Midterm 1 score&quot;, 
-     ylab = &quot;Midterm 2 score&quot;,
-     main = &quot;Plot of Midterm scores&quot;)
-points(x, result$fitted.values,
-       type = &quot;l&quot;, col = &quot;red&quot;)</code></pre>
-<p><img src="/post/stat2010-week2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<p><a href="https://theissaclee.com/post/stat2010/" target="_self">Return to the course page</a></p>
-</div>
+<div id="problem-3.-eletronics" class="section level3">
+<h3>Problem 3. Eletronics</h3>
+<p>Suppose that 38% of families living in a certain country own a computer and 52% own an HDTV. The Addition Rule might suggest, then, that 90% of families own either a computer or an HDTV. What’s wrong with that reasoning?</p>
+<p>It turns out that there are 21% of families own an HDTV and a computer.</p>
+<ol style="list-style-type: decimal">
+<li>Draw the Venn diagram for this situation.</li>
+<li>What’s the probability that a randomly selected family has a HDTV but no computer?</li>
+<li>What’s the probability that a randomly selected family has a HDTV, or a computer?</li>
+<li>What’s the probability that a randomly selected family has a HDTV, or a computer, but not both?</li>
+<li>What’s the probability that a randomly selected family has neither a HDTV nor a computer?</li>
+</ol>
+<p><a href="https://theissaclee.com/post/stat1010/" target="_self">Return to the course page</a></p>
 </div>
 
     </div>
@@ -475,9 +390,7 @@ points(x, result$fitted.values,
 
 <div class="article-tags">
   
-  <a class="btn btn-primary btn-outline" href="/tags/stat4200">stat4200</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/stat2010">stat2010</a>
+  <a class="btn btn-primary btn-outline" href="/tags/stat1010">stat1010</a>
   
 </div>
 
@@ -491,11 +404,15 @@ points(x, result$fitted.values,
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/stat2010-week1/">Week 1 - R Basics and Data loading</a></li>
+        <li><a href="/post/stat1010-week9/">Week 9 - 68-95-99.5 rules</a></li>
         
-        <li><a href="/post/stat2010-week0/">Week 0: Preparation</a></li>
+        <li><a href="/post/stat1010-week8/">Week 8 - Measure for the spread of distributions</a></li>
         
-        <li><a href="/post/stat2010/">Statistical Methods and Computing (STAT:2010 or 4200)</a></li>
+        <li><a href="/post/stat1010-week7/">Week 7 - Mean, Median, and Weighted Mean</a></li>
+        
+        <li><a href="/post/stat1010-week5/">Week 5 - Freq. table and Stem plot</a></li>
+        
+        <li><a href="/post/stat1010-week4/">Week 4(STAT:1010) - Describe what you have in your data</a></li>
         
       </ul>
     </div>
